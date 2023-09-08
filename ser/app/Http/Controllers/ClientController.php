@@ -50,8 +50,17 @@ class ClientController extends Controller
         else {
             return response()->json([
                 'status' => 'Error',
-                'data' => 'The spot is already reserved.'
+                'data' => 'The spot is already reserved or it does not exist.',
             ]);
         }
+    }
+
+    public function getReservations(Request $request) {
+        $reservations = Reservation::where('user_id', $request->user_id)->get();
+
+        return response()->json([
+            'status' => 'Success',
+            'data' => $reservations
+        ]);
     }
 }

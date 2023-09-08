@@ -32,6 +32,7 @@ Route::group(["middleware"=>"auth:api"],function(){
         Route::post('register', [AuthController::class, 'register']);
         Route::get('parkings', [ClientController::class, 'getParkings']);
         Route::post('reserve', [ClientController::class, 'reserveSpot']);
+        Route::post('reservations', [ClientController::class, 'getReservations']);
     });
 });
 
