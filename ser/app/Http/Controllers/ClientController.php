@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Parking;
 use App\Models\Reservation;
 use App\Models\Spot;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -61,6 +64,42 @@ class ClientController extends Controller
         return response()->json([
             'status' => 'Success',
             'data' => $reservations
+        ]);
+    }
+
+    public function changeAccountInfo(Request $request) {
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->save();
+
+        return response()->json([
+            'status' => 'Success',
+            'data' => 'Account Info is updated.'
+        ]);
+    }
+
+    public function changePassword(Request $request) {
+        $user = User::where('id', Auth::user()->id)->first();
+    
+        if (!Hash::check($request->old_password, $user->password)) {
+            return response()->json([
+                'status' => 'Error',
+                'message' => 'The old password does not match.'
+            ], 400);
+        }
+    
+        $request->validate([
+            'new_password' => 'required|string|min:6',
+        ]);
+    
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+    
+        return response()->json([
+            'status' => 'Success',
+            'message' => 'Password has been updated.'
         ]);
     }
 }

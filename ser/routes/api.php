@@ -33,6 +33,8 @@ Route::group(["middleware"=>"auth:api"],function(){
         Route::get('parkings', [ClientController::class, 'getParkings']);
         Route::post('reserve', [ClientController::class, 'reserveSpot']);
         Route::post('reservations', [ClientController::class, 'getReservations']);
+        Route::post('changeInfo', [ClientController::class, 'changeAccountInfo']);
+        Route::post('changePassword', [ClientController::class, 'changePassword']);
     });
 });
 
