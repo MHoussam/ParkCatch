@@ -62,6 +62,7 @@ class SupervisorController extends Controller
 
         if ($terminate) {
             $terminate->valid = FALSE;
+            $terminate->reason = $request->reason;
             $terminate->save();
 
             return response()->json([
@@ -73,6 +74,30 @@ class SupervisorController extends Controller
                 'status' => 'Error',
                 'message' => 'No valid reservation found for Spot ' . $request->spot_id,
             ], 404);
+        }
+    }
+
+    public function changeAvailability(Request $request) {
+        $available = Spot::where('id', $request->spot_id)
+                     ->where('parking_id', $request->parking_id)
+                     ->first();
+
+        if ($available->availability) {
+            $available->availability = FALSE;
+            $available->save();
+
+            return response()->json([
+                'status' => 'Success',
+                'data' => 'Spot ' . $request->spot_id . ' is now Unavailable.'
+            ]);
+        } else {
+            $available->availability = TRUE;
+            $available->save();
+
+            return response()->json([
+                'status' => 'Success',
+                'data' => 'Spot ' . $request->spot_id . ' is now Available.'
+            ]);
         }
     }
 }
