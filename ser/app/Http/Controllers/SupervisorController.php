@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Spot;
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
@@ -18,7 +19,7 @@ class SupervisorController extends Controller
 
     public static function checkValidity(Request $request)
     {
-        $reservation = Reservation::find($request->id);
+        $reservation = Reservation::find($request->reservation_id);
 
         if (!$reservation) {
             return response()->json([
@@ -31,9 +32,47 @@ class SupervisorController extends Controller
 
         $reservation->update(['correct' => $isCorrect]);
 
+        if($isCorrect){
+            $message = 'Plate Number & Parked Plate Number Matched.';
+        }
+        else {
+            $message = 'Plate Number & Parked Plate Number Did Not Match.';
+        }
+
         return response()->json([
             'status' => 'Success',
-            'message' => 'Plate Number & Parked Plate Number Matched.',
+            'message' => $message,
         ]);
+    }
+
+    public function getSpots(Request $request) {
+        $spots = Spot::where('parking_id', $request->parking_id)->get();
+    
+        return response()->json([
+            'status' => 'Success',
+            'data' => $spots
+        ]);
+    }
+
+    public function terminateReservation(Request $request) {
+        $terminate = Reservation::where('spot_id', $request->spot_id)
+                     ->where('parking_id', $request->parking_id)
+                     ->where('valid', TRUE)
+                     ->first();
+
+        if ($terminate) {
+            $terminate->valid = FALSE;
+            $terminate->save();
+
+            return response()->json([
+                'status' => 'Success',
+                'data' => 'The reservation of Spot ' . $request->spot_id . ' has been terminated.'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'Error',
+                'message' => 'No valid reservation found for Spot ' . $request->spot_id,
+            ], 404);
+        }
     }
 }

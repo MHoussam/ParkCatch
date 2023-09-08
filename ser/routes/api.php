@@ -8,7 +8,9 @@ use App\Http\Controllers\SupervisorController;
 Route::group(["middleware"=>"auth:api"],function(){
     Route::group(["middleware"=>"auth.supervisor"],function(){
         Route::get('reservations', [SupervisorController::class, 'getReservations']);
-        Route::get('validity', [SupervisorController::class, 'checkValidity']);
+        Route::post('validity', [SupervisorController::class, 'checkValidity']);
+        Route::post('spots', [SupervisorController::class, 'getSpots']);
+        Route::post('terminate', [SupervisorController::class, 'terminateReservation']);
     });
 });
 
