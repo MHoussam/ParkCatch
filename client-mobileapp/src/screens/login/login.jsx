@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 import styles from './styles';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from "../../redux/user/userSlice";
 import store from "../../redux/store";
 
@@ -10,23 +10,25 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   const handleLogin = async () => {
     try {
-      const d = {
-        email: email,
-        password: password,
-      }
-console.log(d)
-      const response = await axios.post('http://localhost:8000/api/login', d);
-      console.log('Login successful', response.data);
-      console.log('what')
-
       const user = {
-        username: "JohnDoe",
-        password: "password123",
-        lastUpdated: new Date().toISOString(),
-      };
+        username: email, // Assuming email is the username
+        password: password,
+    };
+      console.log(user)
+      // const response = await axios.post('http://localhost:8000/api/login', d);
+      // console.log('Login successful', response.data);
+      // console.log('what')
+
+
+      // const user = {
+      //   username: "JohnDoe",
+      //   password: "password123",
+      //   lastUpdated: new Date().toISOString(),
+      // };
       dispatch(setUser(user));
     } catch (error) {
       console.error('Login failed', error);
