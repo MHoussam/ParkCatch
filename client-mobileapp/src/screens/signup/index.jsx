@@ -5,18 +5,25 @@ import styles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from "../../redux/user/userSlice";
 import store from "../../redux/store";
+import { useNavigation } from '@react-navigation/native';
 
-const Login = () => {
+const Signup = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const navigation = useNavigation();
 
-  const handleLogin = async () => {
+  const handleSignUp = async () => {
     try {
       const user = {
-        username: email, // Assuming email is the username
+        firstname: firstName,
+        lastname: lastName,
+        username: email,
         password: password,
+        lastUpdated: new Date().toISOString(),
     };
       console.log(user)
       // const response = await axios.post('http://localhost:8000/api/login', d);
@@ -31,8 +38,12 @@ const Login = () => {
       // };
       dispatch(setUser(user));
     } catch (error) {
-      console.error('Login failed', error);
+      console.error('SignUp failed', error);
     }
+  };
+
+  const navigateToLogin = () => {
+    navigation.navigate('Login');
   };
 
 return (
@@ -41,7 +52,21 @@ return (
         <View >
             <Image source={require('../../../assets/images/logo.png')} style={styles.logo} />
         </View>
-        <Text style={styles.title}>Welcome Back</Text>
+        <Text style={styles.title}>Welcome</Text>
+        <TextInput
+            style={styles.input}
+            placeholder="First Name"
+            placeholderTextColor="#00000070"
+            onChangeText={text => setFirstName(text)}
+            value={firstName}
+        />
+        <TextInput
+            style={styles.input}
+            placeholder="Last Name"
+            placeholderTextColor="#00000070"
+            onChangeText={text => setLastName(text)}
+            value={lastName}
+        />
         <TextInput
             style={styles.input}
             placeholder="Email"
@@ -57,25 +82,22 @@ return (
             onChangeText={text => setPassword(text)}
             value={password}
         />
-        <View style={styles.forgotPasswordContainer}>
-          <Text style={styles.forgotPasswordText}>Forgot password?</Text>
-        </View>
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Login</Text>
+        <TouchableOpacity style={styles.loginButton} onPress={handleSignUp}>
+            <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
         <View style={styles.loginWithContainer}>
-          <Text style={styles.loginWithText}>Or login with</Text>
+          <Text style={styles.loginWithText}>Or Sign Up with</Text>
         </View>
         <View style={styles.googleContainer}>
           <Image source={require('../../../assets/images/google.png')} style={styles.google} />
         </View>
         <View style={styles.signupContainer}>
-          <Text style={styles.signupText}>Don't have an account?</Text>
-          <Text style={styles.signupLink}> Sign up</Text>
+          <Text style={styles.signupText}>Already have an account?</Text>
+          <Text style={styles.signupLink} onPress={navigateToLogin}> Login</Text>
         </View>
       </View>
     </View>
   );
 };
 
-export default Login;
+export default Signup;
