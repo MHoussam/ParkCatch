@@ -26,7 +26,6 @@ Route::group(["middleware"=>"auth:api"],function(){
         Route::post('addSupervisor', [AuthController::class, 'register']);
         Route::post('removeSupervisor', [AdminController::class, 'removeSupervisor']);
     });
-
     Route::group(["middleware"=>"auth.client"],function(){
         Route::post('spots', [SupervisorController::class, 'getSpots']);
         Route::post('register', [AuthController::class, 'register']);
