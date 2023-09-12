@@ -17,14 +17,15 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const user = {
-        username: email,
+        email: email,
         password: password,
         //lastUpdated: new Date().toISOString(),
     };
       console.log(user)
-      // const response = await axios.post('http://localhost:8000/api/login', d);
-      // console.log('Login successful', response.data);
-      // console.log('what')
+
+      const response = await axios.post('http://127.0.0.1:8000/api/login', user);
+      console.log('Login successful', response.data.data);
+      console.log('what')
 
 
       // const user = {

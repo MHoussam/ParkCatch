@@ -8,10 +8,10 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
+import { createStackNavigator } from '@react-navigation/stack';
 import Login from './src/screens/login';
 import Signup from './src/screens/signup';
-
-import { createStackNavigator } from '@react-navigation/stack';
+import Home from './src/screens/home';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +20,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          {/* <Stack.Screen name="Home" component={Home} /> */}
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Signup" component={Signup} />
         </Stack.Navigator>

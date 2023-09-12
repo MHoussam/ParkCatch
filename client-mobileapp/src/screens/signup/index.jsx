@@ -26,9 +26,9 @@ const Signup = () => {
         lastUpdated: new Date().toISOString(),
     };
       console.log(user)
-      // const response = await axios.post('http://localhost:8000/api/login', d);
-      // console.log('Login successful', response.data);
-      // console.log('what')
+      const response = await axios.post('http://localhost:8000/api/register', user);
+      console.log('Login successful', response.data.data);
+      console.log('what')
 
 
       // const user = {
