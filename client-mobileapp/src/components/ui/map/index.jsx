@@ -40,7 +40,15 @@ function LocationExample() {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
             }}
-        />
+        >
+            <Marker
+                coordinate={{
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude,
+                }}
+                title="Your Location"
+            />
+        </MapView>
         ) : (
         <Text>Loading...</Text>
         )}
