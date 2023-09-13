@@ -9,11 +9,10 @@ const styles = StyleSheet.create({
       bottom: 0,
       left: 0,
       right: 0,
-      height: 60,
-      backgroundColor: '#ffffff',
+      backgroundColor: '#F4F4F4',
     },
     tab: {
-      paddingVertical: 10,
+      paddingVertical: 20,
       paddingHorizontal: 15,
     },
     text: {
