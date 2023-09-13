@@ -1,34 +1,51 @@
-// import React from 'react';
-// import { StyleSheet, View } from 'react-native';
-// import Mapbox from '@rnmapbox/maps';
+import React, { useEffect, useState } from 'react';
+import { Text, View } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
+import * as Location from 'expo-location';
 
-// Mapbox.setAccessToken('<YOUR_ACCESSTOKEN>');
-// MapboxGL.setConnected(true);
+function LocationExample() {
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
-// const Map = () => {
-//   return (
-//     <View style={styles.page}>
-//       <View style={styles.container}>
-//         <Mapbox.MapView style={styles.map} />
-//       </View>
-//     </View>
-//   );
-// }
+  const fetchMap = async () => {
+    console.log('really')
+      const response = await Location.requestForegroundPermissionsAsync();
 
-// export default Map;
+      console.log(response.status)
+      if (response.status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        console.log(response.status)
+        console.log(response.status === 'granted')
+        return;
+      }
 
-// const styles = StyleSheet.create({
-//   page: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   container: {
-//     height: 300,
-//     width: 300,
-//   },
-//   map: {
-//     flex: 1
-//   }
-// });
+      const location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+  }
 
+  useEffect(() => {
+    fetchMap();
+  }, []);
+
+  return (
+    <View style={{ flex: 1 }}>
+        {errorMsg ? (
+        <Text>{errorMsg}</Text>
+        ) : location ? (
+        <MapView
+            style={{ flex: 1 }}
+            initialRegion={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+            }}
+        />
+        ) : (
+        <Text>Loading...</Text>
+        )}
+    </View>
+  );
+}
+
+export default LocationExample;

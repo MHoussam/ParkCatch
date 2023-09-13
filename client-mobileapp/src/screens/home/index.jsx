@@ -22,9 +22,10 @@ const Home = () => {
 
   return (
     <Provider store={store}>
-      <Header />
+      <Map />
+      {/* <Header />
       <Spots />
-      <Footer />
+      <Footer /> */}
     </Provider>
   )
 }
