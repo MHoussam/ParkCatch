@@ -9,20 +9,31 @@ const styles = StyleSheet.create({
       bottom: 0,
       left: 0,
       right: 0,
-      backgroundColor: '#F4F4F4',
+      backgroundColor: '#ffffff',
     },
     tab: {
-      paddingVertical: 20,
+      paddingVertical: 15,
       paddingHorizontal: 15,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     text: {
-      color: '#00000050',
+      color: '#00000050',      
+      fontWeight: 'bold',
+    },
+    activeText: {
+      color: '#000000',      
+      fontWeight: 'bold',
     },
     activeTab: {
       color: '#000000',
-      backgroundColor: '#FECA0E', 
-      fontWeight: 'bold',
+      backgroundColor: '#FECA0E',
     },
+    icon: {
+      justifyContent: 'flex-end',
+      height: 45,
+      alignItems: 'center',
+    }
 });
 
 export default styles;

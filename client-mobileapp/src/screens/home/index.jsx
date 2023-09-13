@@ -24,8 +24,8 @@ const Home = () => {
     <Provider store={store}>
       <Map />
       {/* <Header />
-      <Spots />
-      <Footer /> */}
+      <Spots />*/}
+      <Footer /> 
     </Provider>
   )
 }

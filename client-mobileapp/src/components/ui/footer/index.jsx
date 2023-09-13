@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import styles from './styles';
 
 const Footer = () => {
@@ -15,25 +15,37 @@ const Footer = () => {
         style={[styles.tab, activeTab === 'Home' && styles.activeTab]}
         onPress={() => handleTabPress('Home')}
       >
-        <Text style={activeTab === 'Home' ? styles.activetext : styles.text}>Home</Text>
+        <View style={styles.icon}>
+          <Image source={require('../../../../assets/images/home.png')} />
+          <Text style={activeTab === 'Home' ? styles.activeText : styles.text}>Home</Text>
+        </View>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.tab, activeTab === 'Reservations' && styles.activeTab]}
         onPress={() => handleTabPress('Reservations')}
       >
-        <Text style={activeTab === 'Reservations' ? styles.activetext : styles.text}>Reservations</Text>
+        <View style={styles.icon}>
+          <Image source={require('../../../../assets/images/reservations.png')} />
+          <Text style={activeTab === 'Reservations' ? styles.activeText : styles.text}>Reservations</Text>
+        </View>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.tab, activeTab === 'Notifications' && styles.activeTab]}
         onPress={() => handleTabPress('Notifications')}
       >
-        <Text style={activeTab === 'Notifications' ? styles.activetext : styles.text}>Notifications</Text>
+        <View style={styles.icon}>
+          <Image source={require('../../../../assets/images/notifications.png')} />
+          <Text style={activeTab === 'Notifications' ? styles.activeText : styles.text}>Notifications</Text>
+        </View>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.tab, activeTab === 'Settings' && styles.activeTab]}
         onPress={() => handleTabPress('Settings')}
       >
-        <Text style={activeTab === 'Settings' ? styles.activetext : styles.text}>Settings</Text>
+        <View style={styles.icon}>
+          <Image source={require('../../../../assets/images/settings.png')} />
+          <Text style={activeTab === 'Settings' ? styles.activeText : styles.text}>Settings</Text>
+        </View>
       </TouchableOpacity>
     </View>
   );
