@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'reac
 import axios from 'axios';
 import styles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from "../../redux/user/userSlice";
+import { setUser, setUserToken } from "../../redux/user/userSlice";
 import { useNavigation } from '@react-navigation/native';
 import store from "../../redux/store";
 
@@ -16,24 +16,34 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const user = {
+      const userr = {
         email: email,
         password: password,
         //lastUpdated: new Date().toISOString(),
     };
-      console.log(user)
-
-      const response = await axios.post('http://127.0.0.1:8000/api/login', user);
-      console.log('Login successful', response.data.data);
+      // console.log(user)
+      const response = await axios.post('http://127.0.0.1:8000/api/login', userr);
+      console.log('Login successful');
       console.log('what')
 
+      const userData = {
+        firstname: response.data.data.first_name,
+        lastname: response.data.data.last_name,
+        email: response.data.data.email,
+      };
 
-      // const user = {
-      //   username: "JohnDoe",
-      //   password: "password123",
-      //   lastUpdated: new Date().toISOString(),
-      // };
-      dispatch(setUser(user));
+      const userToken = {
+        token: response.data.data.token,
+      }
+
+      dispatch(setUser(userData));
+      dispatch(setUserToken(userToken));
+      //console.log({user})
+
+      if(response.data.data.token !== null) {
+        console.log(response.data.data.token)
+        navigation.navigate('Home');
+      }
     } catch (error) {
       console.error('Login failed', error);
     }

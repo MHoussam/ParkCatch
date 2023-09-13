@@ -1,13 +1,28 @@
 import React from 'react';
 import Map from '../../components/ui/map';
-import { Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
+import { Provider, useSelector } from 'react-redux';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import store from '../../redux/store';
+import Spots from '../spots';
+import Footer from '../../components/ui/footer';
 
 const Home = () => {
+  const navigation = useNavigation();
+
+  const user = useSelector((state) => state.user);
+
+  // const handle = () => {
+  //   console.log('This is home')
+  //   //console.log(user.token)
+  //   navigation.navigate('Home');
+  // }
+
   return (
-    <View>
-        <Text>Hello</Text>
-        {/* <Map  /> */}
-    </View>
+    <Provider store={store}>
+      <Footer />
+    </Provider>
   )
 }
 

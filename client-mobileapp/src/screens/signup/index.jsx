@@ -26,10 +26,9 @@ const Signup = () => {
         lastUpdated: new Date().toISOString(),
     };
       console.log(user)
-      const response = await axios.post('http://localhost:8000/api/register', user);
+      const response = await axios.post('http://127.0.0.1:8000/api/register', user);
       console.log('Login successful', response.data.data);
       console.log('what')
-
 
       // const user = {
       //   username: "JohnDoe",
