@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        marginTop: 10,
+        paddingTop: 10,
         marginLeft: 0,
         marginRight: 0,
         width: '100%',
@@ -12,16 +12,17 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 18
+        fontSize: 18,
+        marginTop: 5,
     },
     nextButton: {
-      width: '85%',
+      width: '83%',
       height: 35,
       backgroundColor: '#FECA0E',
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 20,
-      marginTop: 20,
+      marginTop: 11,
       marginBottom: 30,
     },
     buttonText: {
