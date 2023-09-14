@@ -34,7 +34,7 @@ class ClientController extends Controller
 
         return response()->json([
             'status' => 'Success',
-            'data' => $available
+            'data' => $available->count()
         ]);
     } 
 
