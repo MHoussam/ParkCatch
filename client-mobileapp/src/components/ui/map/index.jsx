@@ -101,7 +101,11 @@ const Map = () => {
                 longitude: parking.longitude,
               }}
               title={parking.name}
-            />
+            >
+              <View style={customMarkerStyle}>
+                <Text style={customMarkerText}>{parking.name}</Text>
+              </View>
+            </Marker>
           ))}
         </MapView>
         ) : (
