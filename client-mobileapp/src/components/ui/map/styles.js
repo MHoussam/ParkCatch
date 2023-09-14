@@ -12,7 +12,16 @@ const styles = StyleSheet.create({
     error: {
         marginTop: 100,
         textAlign: 'center',
-    }
+    },
+    customMarkerStyle: {
+        backgroundColor: 'blue',
+        borderRadius: 5,
+        padding: 5,
+      },
+      customMarkerText: {
+        color: 'white',
+        fontWeight: 'bold',
+      },   
 })
 
 export default styles;
