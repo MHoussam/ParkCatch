@@ -19,15 +19,16 @@ const Map = () => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
-  const userToken = useSelector((state) => state.user.token);
+  // const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
+  const distance = useSelector((state) => state.distance.distance);
   const [selectedParking, setSelectedParking] = useState(null);
 
   const fetchParkings = async () => {
     try{
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer ${userToken.token}`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzIzNzM3LCJleHAiOjE2OTQ3MjczMzcsIm5iZiI6MTY5NDcyMzczNywianRpIjoiRUxHbm9Mbm1KVDlYcDNLaCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8VjZmAXzihmkeAqejb1w2gbMlCEk1DHNY2LC2dmsMIg`,
           'Content-Type': 'application/json'
         }
       };
@@ -80,11 +81,13 @@ const Map = () => {
   }, []);
 
   console.log('maybe?')
-  console.log(userToken.token)
-  console.log(userToken)
+  // console.log(userToken.token)
+  // console.log(userToken)
   console.log(parkings)
   console.log('selectedParking')
   console.log(selectedParking)
+  console.log(location)
+  console.log(distance)
 
   return (
     <View style={styles.container}>
@@ -94,9 +97,18 @@ const Map = () => {
       <>
         <View>
           {selectedParking && (
+            <>
+              <Distance 
+                lat1={location.coords.latitude}
+                lon1={location.coords.longitude}
+                lat2={selectedParking.latitude}
+                lon2={selectedParking.longitude}
+              />
               <TouchableOpacity style={styles.card} onPress={closeCard}>
                 <Text>{selectedParking.name}</Text>
+                <Text>{distance.distance}</Text>
               </TouchableOpacity>
+            </>
           )}
         </View>
         <MapView
