@@ -24,14 +24,13 @@ const Map = () => {
     try{
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer ${userToken}`,
+          Authorization: `Bearer ${userToken.token}`,
           'Content-Type': 'application/json'
         }
       };
-      //console.log(axiosConfig)
-      const response = await axios.post('http://127.0.0.1:8000/api/parkings', {}, axiosConfig);
+      console.log(axiosConfig.headers)
+      const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
-      //console.log(response.data)
       //console.log(response.data)
       if (Array.isArray(response.data.data)) {
         if (!parkings || parkings.length === 0) {
@@ -69,8 +68,10 @@ const Map = () => {
   }, []);
 
   console.log('maybe?')
+  console.log(userToken.token)
+  console.log(userToken)
   console.log(parkings)
-  console.log(location)
+  //console.log(location)
 
   return (
     <View style={styles.container}>
@@ -102,8 +103,8 @@ const Map = () => {
               }}
               title={parking.name}
             >
-              <View style={customMarkerStyle}>
-                <Text style={customMarkerText}>{parking.name}</Text>
+              <View style={styles.customMarkerStyle}>
+                <Text style={styles.customMarkerText}>{parking.name}</Text>
               </View>
             </Marker>
           ))}
