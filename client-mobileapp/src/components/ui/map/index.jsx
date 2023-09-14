@@ -13,6 +13,7 @@ import {
 import { addParking } from '../../../redux/parking/parkingSlice';
 import axios from 'axios';
 import { Callout } from 'react-native-maps';
+import Distance from '../../base/distance';
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -93,9 +94,9 @@ const Map = () => {
       <>
         <View>
           {selectedParking && (
-            <TouchableOpacity style={styles.card} onPress={closeCard}>
-            <Text>{selectedParking.name}</Text>
-          </TouchableOpacity>
+              <TouchableOpacity style={styles.card} onPress={closeCard}>
+                <Text>{selectedParking.name}</Text>
+              </TouchableOpacity>
           )}
         </View>
         <MapView
