@@ -9,10 +9,15 @@ const parkingSlice = createSlice({
   initialState,
   reducers: {
     addParking: (state, action) => {
-      const { id, name, latitude, longitude } = action.payload;
+      const { id, name, address, price, photo, open_hour, close_hour, latitude, longitude } = action.payload;
         state.parkings.push({
           id,
           name,
+          address,
+          price,
+          photo,
+          open_hour,
+          close_hour,
           latitude,
           longitude,
         });

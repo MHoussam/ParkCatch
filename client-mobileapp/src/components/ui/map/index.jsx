@@ -39,8 +39,25 @@ const Map = () => {
       if (Array.isArray(response.data.data)) {
         if (!parkings || parkings.length === 0) {
           response.data.data.forEach((item) => {
-            const { id, name, latitude, longitude } = item;
-            dispatch(addParking({ id, name, latitude: parseFloat(latitude), longitude: parseFloat(longitude) }));
+            const { id,
+              name,
+              address,
+              price,
+              photo,
+              open_hour,
+              close_hour,
+              latitude,
+              longitude, } = item;
+              
+            dispatch(addParking({ id,
+              name,
+              address,
+              price,
+              photo,
+              open_hour,
+              close_hour, 
+              latitude: parseFloat(latitude), 
+              longitude: parseFloat(longitude) }));
           });
         }
       } else {
