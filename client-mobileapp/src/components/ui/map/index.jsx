@@ -11,17 +11,39 @@ import {
   clearErrorMsg,
 } from '../../../redux/location/locationSlice'; 
 import { addParking } from '../../../redux/parking/parkingSlice';
+import axios from 'axios';
 
 const Map = () => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
+  const userToken = useSelector((state) => state.user.token);
+  const parkings = useSelector((state) => state.parking.parkings);
 
   const fetchParkings = async () => {
     try{
-      const response = await axios.get('https://127.0.0.1:8000/api/parkings');
+      const axiosConfig = {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-Type': 'application/json'
+        }
+      };
+      //console.log(axiosConfig)
+      const response = await axios.post('http://127.0.0.1:8000/api/parkings', {}, axiosConfig);
 
-      dispatch(addParking(response.data));
+      //console.log(response.data)
+      //console.log(response.data)
+      if (Array.isArray(response.data.data)) {
+        if (!parkings || parkings.length === 0) {
+          response.data.data.forEach((item) => {
+            const { id, name, latitude, longitude } = item;
+            dispatch(addParking({ id, name, latitude: parseFloat(latitude), longitude: parseFloat(longitude) }));
+          });
+        }
+      } else {
+        console.error('Received non-array data from server:', response.data);
+      }
+      console.log('no?')
     } catch(error) {
       console.error('Error fetching parking data:', error);
     }
@@ -46,6 +68,10 @@ const Map = () => {
     fetchMap();
   }, []);
 
+  console.log('maybe?')
+  console.log(parkings)
+  console.log(location)
+
   return (
     <View style={styles.container}>
         {errorMsg ? (
@@ -67,6 +93,16 @@ const Map = () => {
                 }}
                 title="Your Location"
             />
+            {parkings.map((parking) => (
+            <Marker
+              key={parking.id}
+              coordinate={{
+                latitude: parking.latitude,
+                longitude: parking.longitude,
+              }}
+              title={parking.name}
+            />
+          ))}
         </MapView>
         ) : (
         <Text style={styles.error}>Map is Loading...</Text>
