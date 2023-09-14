@@ -12,16 +12,19 @@ const styles = StyleSheet.create({
     error: {
         marginTop: 100,
         textAlign: 'center',
+    },  
+    parking: {
+        flex: 1,
+        alignItems: 'center',
     },
-    customMarkerStyle: {
-        backgroundColor: 'blue',
-        borderRadius: 5,
-        padding: 5,
-      },
-      customMarkerText: {
-        color: 'white',
-        fontWeight: 'bold',
-      },   
+    parkingName: {
+        color: '#3686F9',
+        fontSize: 17,
+    },
+    markerIcon: {
+        width: 25,
+        height: 40,
+    },
 })
 
 export default styles;
