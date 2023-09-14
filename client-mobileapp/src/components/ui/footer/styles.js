@@ -29,10 +29,16 @@ const styles = StyleSheet.create({
       color: '#000000',
       backgroundColor: '#FECA0E',
     },
-    icon: {
+    label: {
       justifyContent: 'flex-end',
       height: 45,
       alignItems: 'center',
+    },
+    icon: {
+      opacity: 0.5,
+    },
+    activeIcon: {
+      opacity: 1,
     }
 });
 
