@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
+import styles from './styles';
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState('');
@@ -8,13 +9,12 @@ const SearchBar = () => {
   };
 
   return (
-    <View style={{position: 'absolute', marginTop: 100}}>
       <TextInput
-        placeholder="Search..."
+        style={styles.input}
+        placeholder="Search for Parking Lots..."
         value={searchText}
         onChangeText={handleSearch}
       />
-    </View>
   );
 };
 
