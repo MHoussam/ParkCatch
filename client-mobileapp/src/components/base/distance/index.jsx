@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import setDistance from '../../../redux/distance/distanceSlice'
+import { setDistance} from '../../../redux/distance/distanceSlice'
 
 const Distance = ({ lat1, lon1, lat2, lon2 }) => {
     const dispatch = useDispatch();
@@ -16,8 +16,7 @@ const Distance = ({ lat1, lon1, lat2, lon2 }) => {
         Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c * 1000; 
-
-    dispatch(setDistance(distance));
+    dispatch(setDistance(parseInt(distance)));
 }
 
 export default Distance;
