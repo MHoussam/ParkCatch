@@ -3,21 +3,31 @@ import { Text, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import styles from './styles';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setLocation,
+  setErrorMsg,
+  clearLocation,
+  clearErrorMsg,
+} from '../../../redux/location/locationSlice'; 
 
-function LocationExample() {
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
+const Map = () => {
+  const dispatch = useDispatch();
+  const location = useSelector((state) => state.location.location);
+  const errorMsg = useSelector((state) => state.location.errorMsg);
 
   const fetchMap = async () => {
       const response = await Location.requestForegroundPermissionsAsync();
 
       if (response.status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
+        dispatch(setErrorMsg('Permission to access location was denied'));
+        dispatch(clearLocation());
         return;
       }
 
       const location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
+      dispatch(setLocation(location));
+      dispatch(clearErrorMsg());
   }
 
   useEffect(() => {
@@ -47,10 +57,10 @@ function LocationExample() {
             />
         </MapView>
         ) : (
-        <Text style={styles.error}>Loading...</Text>
+        <Text style={styles.error}>Map is Loading...</Text>
         )}
     </View>
   );
 }
 
-export default LocationExample;
+export default Map;
