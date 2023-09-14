@@ -21,6 +21,21 @@ class ClientController extends Controller
         ]);
     }
 
+    public function availableSpots(Request $request) {
+        $reserved = Reservation::where('parking_id', $request->parking_id)
+                           ->where('valid', TRUE)
+                           ->get();
+
+        $available = Spot::whereIn('parking_id', )
+                           ->whereIn('id', $reserved->id)
+                           ->get();
+
+        return response()->json([
+            'status' => 'Success',
+            'data' => $available
+        ]);
+    } 
+
     public function reserveSpot(Request $request) {
         $reserve = new Reservation;
         $reserve->user_id = $request->user_id;
