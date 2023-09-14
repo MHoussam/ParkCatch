@@ -26,8 +26,10 @@ class ClientController extends Controller
                            ->where('valid', TRUE)
                            ->get();
 
-        $available = Spot::whereIn('parking_id', )
-                           ->whereIn('id', $reserved->id)
+        $reservedSpotIds = $reserved->pluck('spot_id');
+
+        $available = Spot::where('parking_id', $request->parking_id)
+                           ->whereNotIn('id', $reservedSpotIds)
                            ->get();
 
         return response()->json([
