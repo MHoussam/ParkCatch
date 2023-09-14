@@ -138,12 +138,12 @@ const Map = () => {
         <View>
           {selectedParking && (
             <>
-              {/* <Distance 
+              <Distance 
                 lat1={location.coords.latitude}
                 lon1={location.coords.longitude}
                 lat2={selectedParking.latitude}
                 lon2={selectedParking.longitude}
-              /> */}
+              />
               <TouchableOpacity style={styles.card} onPress={closeCard}>
                 <Text>{selectedParking.name}</Text>
                 <Text>{distance.distance}</Text>
