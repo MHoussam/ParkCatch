@@ -95,22 +95,6 @@ const Map = () => {
         <Text style={styles.error}>{errorMsg}</Text>
       ) : location ? (
       <>
-        <View>
-          {selectedParking && (
-            <>
-              <Distance 
-                lat1={location.coords.latitude}
-                lon1={location.coords.longitude}
-                lat2={selectedParking.latitude}
-                lon2={selectedParking.longitude}
-              />
-              <TouchableOpacity style={styles.card} onPress={closeCard}>
-                <Text>{selectedParking.name}</Text>
-                <Text>{distance.distance}</Text>
-              </TouchableOpacity>
-            </>
-          )}
-        </View>
         <MapView
           style={styles.map}
           initialRegion={{
@@ -151,6 +135,22 @@ const Map = () => {
             </Marker>
           ))}
         </MapView>
+        <View>
+          {selectedParking && (
+            <>
+              {/* <Distance 
+                lat1={location.coords.latitude}
+                lon1={location.coords.longitude}
+                lat2={selectedParking.latitude}
+                lon2={selectedParking.longitude}
+              /> */}
+              <TouchableOpacity style={styles.card} onPress={closeCard}>
+                <Text>{selectedParking.name}</Text>
+                <Text>{distance.distance}</Text>
+              </TouchableOpacity>
+            </>
+          )}
+        </View>
       </>
       ) : (
         <Text style={styles.error}>Map is Loading...</Text>

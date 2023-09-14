@@ -26,15 +26,15 @@ const styles = StyleSheet.create({
         height: 40,
     },
     card: {
-        width: '80%',
+        width: '90%',
         height: 100,
         borderRadius: 15,
         backgroundColor: '#fff',
         elevation: 20,
         padding: 10,
         position: 'absolute',
-        marginTop: 610,
-        marginLeft: '10%',
+        bottom: 95,
+        marginLeft: '5%',
         zIndex: 2,
     },
     });
