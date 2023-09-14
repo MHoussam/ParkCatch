@@ -10,11 +10,22 @@ import {
   clearLocation,
   clearErrorMsg,
 } from '../../../redux/location/locationSlice'; 
+import { addParking } from '../../../redux/parking/parkingSlice';
 
 const Map = () => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
+
+  const fetchParkings = async () => {
+    try{
+      const response = await axios.get('https://127.0.0.1:8000/api/parkings');
+
+      dispatch(addParking(response.data));
+    } catch(error) {
+      console.error('Error fetching parking data:', error);
+    }
+  }
 
   const fetchMap = async () => {
       const response = await Location.requestForegroundPermissionsAsync();
@@ -31,6 +42,7 @@ const Map = () => {
   }
 
   useEffect(() => {
+    fetchParkings();
     fetchMap();
   }, []);
 
