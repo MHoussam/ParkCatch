@@ -16,7 +16,7 @@ class ClientController extends Controller
         $parkings = Parking::all();
 
         return response()->json([
-            'status' => 'Error',
+            'status' => 'Success',
             'data' => $parkings
         ]);
     }
