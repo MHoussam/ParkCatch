@@ -28,7 +28,7 @@ const Map = () => {
     try{
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzIzNzM3LCJleHAiOjE2OTQ3MjczMzcsIm5iZiI6MTY5NDcyMzczNywianRpIjoiRUxHbm9Mbm1KVDlYcDNLaCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8VjZmAXzihmkeAqejb1w2gbMlCEk1DHNY2LC2dmsMIg`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzMyNTUxLCJleHAiOjE2OTQ3MzYxNTEsIm5iZiI6MTY5NDczMjU1MSwianRpIjoiOVdqMWttU2pycjh6Unp6eiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.YIn0v1HoCjTRvbR5hGUwKV51PnK8tHB9w5FKAQeTCBk`,
           'Content-Type': 'application/json'
         }
       };
@@ -146,7 +146,7 @@ const Map = () => {
               />
               <TouchableOpacity style={styles.card} onPress={closeCard}>
                 <Text>{selectedParking.name}</Text>
-                <Text>{distance.distance}</Text>
+                <Text>{distance}</Text>
               </TouchableOpacity>
             </>
           )}
