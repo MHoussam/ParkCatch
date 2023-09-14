@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import styles from './styles';
@@ -20,6 +20,7 @@ const Map = () => {
   const errorMsg = useSelector((state) => state.location.errorMsg);
   const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
+  const [selectedParking, setSelectedParking] = useState(null);
 
   const fetchParkings = async () => {
     try{
@@ -63,6 +64,15 @@ const Map = () => {
       dispatch(clearErrorMsg());
   }
 
+  const handleMarkerPress = (parking) => {
+    setSelectedParking(parking);
+  };
+
+  const closeCard = () => {
+    setSelectedParking(null);
+    console.log(selectedParking)
+  };
+
   useEffect(() => {
     fetchParkings();
     fetchMap();
@@ -72,21 +82,35 @@ const Map = () => {
   console.log(userToken.token)
   console.log(userToken)
   console.log(parkings)
-  //console.log(location)
+  console.log('selectedParking')
+  console.log(selectedParking)
 
   return (
     <View style={styles.container}>
-        {errorMsg ? (
+      {errorMsg ? (
         <Text style={styles.error}>{errorMsg}</Text>
-        ) : location ? (
+      ) : location ? (
+      <>
+        <View>
+          {selectedParking && (
+            <TouchableOpacity style={styles.card} onPress={closeCard}>
+            <Text>{selectedParking.name}</Text>
+          </TouchableOpacity>
+          )}
+        </View>
         <MapView
-            style={styles.map}
-            initialRegion={{
+          style={styles.map}
+          initialRegion={{
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-            }}
+          }}
+          onPress={() => {
+            if (selectedParking) {
+              closeCard();
+            }
+          }}
         >
           <Marker
             coordinate={{
@@ -96,25 +120,30 @@ const Map = () => {
             title="Your Location"
           />
           {parkings.map((parking) => (
-              <Marker
+            <Marker
               key={parking.id}
               coordinate={{
                 latitude: parking.latitude,
                 longitude: parking.longitude,
               }}
-              >
-                <View style={styles.parking}>
-                  <Image source={require('../../../../assets/images/marker.png')} style={styles.markerIcon} />
-                  <Text style={styles.parkingName}>{parking.name}</Text>
-                </View>
-              </Marker>
+              onPress={() => handleMarkerPress(parking)}
+            >
+              <View style={styles.parking}>
+                <Image
+                  source={require('../../../../assets/images/marker.png')}
+                  style={styles.markerIcon}
+                />
+                <Text style={styles.parkingName}>{parking.name}</Text>
+              </View>
+            </Marker>
           ))}
         </MapView>
-        ) : (
+      </>
+      ) : (
         <Text style={styles.error}>Map is Loading...</Text>
-        )}
+      )}
     </View>
   );
-}
+};
 
 export default Map;
