@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     parkingName: {
         color: '#000',
-        fontSize: 17,
+        fontSize: 15,
         fontWeight: '600',
     },
     markerIcon: {

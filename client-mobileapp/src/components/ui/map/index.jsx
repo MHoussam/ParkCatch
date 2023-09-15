@@ -14,7 +14,6 @@ import { addParking } from '../../../redux/parking/parkingSlice';
 import axios from 'axios';
 import { Callout } from 'react-native-maps';
 import Distance from '../../base/distance';
-import imageMapping from '../../base/imageMapping';
 import { useNavigation } from '@react-navigation/native';
 import { setUser, setUserToken } from "../../../redux/user/userSlice";
 import { setSelectedParking, clearSelectedParking } from "../../../redux/selectedParking/selectedParkingSlice";
@@ -28,10 +27,9 @@ const Map = () => {
   const parkings = useSelector((state) => state.parking.parkings);
   const distance = useSelector((state) => state.distance.distance);
   const selectedParking = useSelector((state) => state.selectedParking);
-  var url;
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODA0MzgzLCJleHAiOjE2OTQ4MDc5ODMsIm5iZiI6MTY5NDgwNDM4MywianRpIjoiTFgxVnBvSlhHWTM5UlJSSiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.4wIzCN-IBZFuEHUv1qmdU9YQ58OFahXebB3-v3iA6RM',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODEyMzIzLCJleHAiOjE2OTQ4MTU5MjMsIm5iZiI6MTY5NDgxMjMyMywianRpIjoiMFdJdk1CcnBIRmtOaEk3RSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.I1ew_MyGo34zeLfBFkuXyVIS7rP34AH9B-lbS3Eotww',
   }
 
   const fetchParkings = async () => {
@@ -94,8 +92,7 @@ const Map = () => {
   }
 
   const handleMarkerPress = (parking) => {
-    dispatch(setSelectedParking(parking));
-     url = require('../../../../assets/images/lemall.png'); 
+    dispatch(setSelectedParking(parking)); 
     // console.log('shuuuuuuuuuuuuuuuuuuuu')
     // console.log(url)
 
@@ -186,8 +183,13 @@ const Map = () => {
                 lon2={selectedParking.longitude}
               />
               <TouchableOpacity style={styles.card} onPress={navigateToSpots}>
-                <Image style={styles.parkingPhoto} source={require('../../../../assets/images/lemall.png')} />
-                <View >
+              <Image
+                style={styles.parkingPhoto}
+                source={{
+                  uri: `http://127.0.0.1:8000/images/parkings/${selectedParking.photo}`,
+                }}
+              />
+              <View >
                 <View style={styles.cardInfo} >
                   <Text style={[styles.bold, styles.size16]}>{selectedParking.name}</Text>
                   <Text style={[styles.bold, styles.size13, styles.parkingAddress]}>{selectedParking.address}</Text>
