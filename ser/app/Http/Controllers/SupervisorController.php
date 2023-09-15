@@ -46,9 +46,18 @@ class SupervisorController extends Controller
     }
 
     public function getSpots(Request $request) {
+        $reserved = Reservation::where('parking_id', $request->parking_id)
+                           ->where('valid', TRUE)
+                           ->get();
+
+        $reservedSpotIds = $reserved->pluck('spot_id');
+
+        $availableSpotIds = Spot::where('parking_id', $request->parking_id)
+                        ->whereNotIn('id', $reservedSpotIds)
+                        ->pluck('id')
+                        ->toArray();
+
         $spots = Spot::where('parking_id', $request->parking_id)->get();
-    
-        $availableSpotIds = $this->getAvailableSpots($request);
 
         foreach ($spots as &$spot) {
             $spotId = $spot->id;
@@ -62,16 +71,7 @@ class SupervisorController extends Controller
     }
     
     public function getAvailableSpots(Request $request) {
-        $reserved = Reservation::where('parking_id', $request->parking_id)
-                           ->where('valid', TRUE)
-                           ->get();
-
-        $reservedSpotIds = $reserved->pluck('spot_id');
-
-        $available = Spot::where('parking_id', $request->parking_id)
-                        ->whereNotIn('id', $reservedSpotIds)
-                        ->pluck('id')
-                        ->toArray();
+        
 
     
         return $available;
