@@ -17,7 +17,7 @@ import Distance from '../../base/distance';
 import imageMapping from '../../base/imageMapping';
 import { useNavigation } from '@react-navigation/native';
 import { setUser, setUserToken } from "../../../redux/user/userSlice";
-import { setSelectedParking, clearSelectedParking } from "../../../redux/selectParking/selectedParkingSlice";
+import { setSelectedParking, clearSelectedParking } from "../../../redux/selectedParking/selectedParkingSlice";
 
 const Map = () => {
   const dispatch = useDispatch();
