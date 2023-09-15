@@ -30,7 +30,7 @@ const Map = () => {
   var url;
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0Nzc2MDUyLCJleHAiOjE2OTQ3Nzk2NTIsIm5iZiI6MTY5NDc3NjA1MiwianRpIjoiRVNiOVZMTkNxazdNa3A0SiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V9Hx8x5FTmxz49V9UmML_lCvQjwYtXFyfk3x5XGLBbo',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0Nzc4OTQ3LCJleHAiOjE2OTQ3ODI1NDcsIm5iZiI6MTY5NDc3ODk0NywianRpIjoicmk5N0Nwd2FLVWNqclBZVyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.PeEaM3ERuFn3PdGv3kCgi8yqfdgne6mjlpTsMGbxJck',
   }
 
   const fetchParkings = async () => {

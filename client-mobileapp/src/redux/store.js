@@ -3,6 +3,7 @@ import userReducer from './user/userSlice';
 import locationReducer from './location/locationSlice';
 import parkingReducer from './parking/parkingSlice';
 import distanceReducer from './distance/distanceSlice';
+import slotReducer from './slots/slotSlice';
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         location: locationReducer,
         parking: parkingReducer,
         distance: distanceReducer,
+        slots: slotReducer,
     },
 });
 

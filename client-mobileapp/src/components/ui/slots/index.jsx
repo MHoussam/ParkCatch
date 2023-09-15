@@ -3,7 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import styles from './styles';
 import Slot from '../../base/slot';
 import { useSelector } from 'react-redux';
-// import { setSlots, clearSlots } from '../../../redux/slot/slotSlice'; 
+import { setSlots, clearSlots } from '../../../redux/slots/slotSlice'; 
+import axios from 'axios';
 
 const Slots = () => {
   const userToken =  useSelector((state) => state.user.token);
@@ -21,11 +22,12 @@ const Slots = () => {
 
       const dataForm = {
         parking_id: selectedParking.id,
+        token: userToken.token,
       }
-      // console.log(axiosConfig.headers)
-      const response = await axios.get('http://127.0.0.1:8000/api/spots', dataForm, axiosConfig);;
+       console.log(dataForm)
+      const response = await axios.post('http://127.0.0.1:8000/api/spots', dataForm);;
 
-      //console.log(response.data)
+      console.log(response.data)
       if (Array.isArray(response.data.data)) {
         if (!slots || slots.length === 0) {
           response.data.data.forEach((item) => {
