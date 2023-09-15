@@ -48,6 +48,13 @@ class SupervisorController extends Controller
     public function getSpots(Request $request) {
         $spots = Spot::where('parking_id', $request->parking_id)->get();
     
+        $availableSpotIds = $this->getAvailableSpots($request);
+
+        foreach ($spots as &$spot) {
+            $spotId = $spot->id;
+            $spot->reserved = in_array($spotId, $availableSpotIds) ? false : true;
+        }
+
         return response()->json([
             'status' => 'Success',
             'data' => $spots
@@ -62,13 +69,12 @@ class SupervisorController extends Controller
         $reservedSpotIds = $reserved->pluck('spot_id');
 
         $available = Spot::where('parking_id', $request->parking_id)
-                           ->whereNotIn('id', $reservedSpotIds)
-                           ->get();
+                        ->whereNotIn('id', $reservedSpotIds)
+                        ->pluck('id')
+                        ->toArray();
+
     
-        return response()->json([
-            'status' => 'Success',
-            'data' => $available
-        ]);
+        return $available;
     }
     
 
