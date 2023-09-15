@@ -17,6 +17,7 @@ import Distance from '../../base/distance';
 import imageMapping from '../../base/imageMapping';
 import { useNavigation } from '@react-navigation/native';
 import { setUser, setUserToken } from "../../../redux/user/userSlice";
+import { setSelectedParking, clearSelectedParking } from "../../../redux/selectParking/selectedParkingSlice";
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Map = () => {
   //const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const distance = useSelector((state) => state.distance.distance);
-  const [selectedParking, setSelectedParking] = useState(null); 
+  const selectedParking = useSelector((state) => state.selectedParking.selectedParking);
   var url;
 
   const userToken = {
@@ -93,7 +94,7 @@ const Map = () => {
   }
 
   const handleMarkerPress = (parking) => {
-    setSelectedParking(parking);
+    dispatch(setSelectedParking(parking));
      url = require('../../../../assets/images/lemall.png'); 
     console.log('shuuuuuuuuuuuuuuuuuuuu')
     console.log(url)
@@ -106,7 +107,7 @@ const Map = () => {
   };
 
   const closeCard = () => {
-    setSelectedParking(null);
+    dispatch(clearSelectedParking());
     console.log(selectedParking)
   };
 
