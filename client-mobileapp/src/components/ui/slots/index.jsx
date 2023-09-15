@@ -39,7 +39,8 @@ const Slots = () => {
               availability,
               reason,
               x_coordinate,
-              y_coordinate, } = item;
+              y_coordinate,
+              valid, } = item;
 
             dispatch(addSlots({ id,
               parking_id,
@@ -47,7 +48,8 @@ const Slots = () => {
               availability,
               reason,
               x_coordinate,
-              y_coordinate, }));
+              y_coordinate,
+              valid, }));
           });
         }
       } else {
