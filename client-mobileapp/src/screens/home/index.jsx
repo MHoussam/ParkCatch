@@ -25,8 +25,6 @@ const Home = () => {
     <Provider store={store}>
       <SearchBar />
       <Map />
-      {/* <Header />
-      <Spots />*/}
       <Footer /> 
     </Provider>
   )

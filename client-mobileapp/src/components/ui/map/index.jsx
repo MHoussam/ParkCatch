@@ -15,9 +15,11 @@ import axios from 'axios';
 import { Callout } from 'react-native-maps';
 import Distance from '../../base/distance';
 import imageMapping from '../../base/imageMapping';
+import { useNavigation } from '@react-navigation/native';
 
 const Map = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();  
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
   // const userToken = useSelector((state) => state.user.token);
@@ -30,7 +32,7 @@ const Map = () => {
     try{
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzY3NzI4LCJleHAiOjE2OTQ3NzEzMjgsIm5iZiI6MTY5NDc2NzcyOCwianRpIjoiMWo2ZTRpUjZmUGtyZlRGRCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.SaxMHEewX7tHtBD5FHjU3oLTbx-FfcNgIGwQIfpUlXE`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzcyMzU2LCJleHAiOjE2OTQ3NzU5NTYsIm5iZiI6MTY5NDc3MjM1NiwianRpIjoidVJVdjRQTjVHWElxZmcydiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.qKYhM4yvMhj4hNWtYYIG5XptNHQCYvtFzPO7oLlupKc`,
           'Content-Type': 'application/json'
         }
       };
@@ -103,6 +105,10 @@ const Map = () => {
     console.log(selectedParking)
   };
 
+  const navigateToSpots = () => {
+    navigation.navigate('Spots')
+  };
+
   useEffect(() => {
     fetchParkings();
     fetchMap();
@@ -172,7 +178,7 @@ const Map = () => {
                 lat2={selectedParking.latitude}
                 lon2={selectedParking.longitude}
               />
-              <TouchableOpacity style={styles.card} onPress={closeCard}>
+              <TouchableOpacity style={styles.card} onPress={navigateToSpots}>
                 <Image style={styles.parkingPhoto} source={require('../../../../assets/images/lemall.png')} />
                 <View >
                 <View style={styles.cardInfo} >
