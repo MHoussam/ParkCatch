@@ -50,25 +50,30 @@ const styles = StyleSheet.create({
     },
     available: {
       borderRadius: 10,
-      backgroundColor: 'green',
+      backgroundColor: '#E0E5F6',
       width: 60,
       height: 26,
       justifyContent: 'center',
   },
   reserved: {
     borderRadius: 10,
-    backgroundColor: 'red',
+    backgroundColor: '#707070',
     width: 60,
     height: 26,
     justifyContent: 'center',
-},
-container: {
-  borderRadius: 10,
-  backgroundColor: '#000',
-  width: 60,
-  height: 26,
-  justifyContent: 'center',
-},
-  });
+  },
+  reservedTitle: {
+    color: '#FFFFFF',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  availableTitle: {
+    color: '#9A9FB0',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 16,
+  },
+});
 
   export default styles;
