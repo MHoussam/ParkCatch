@@ -18,8 +18,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     parkingName: {
-        color: '#3686F9',
+        color: '#000',
         fontSize: 17,
+        fontWeight: '600',
     },
     markerIcon: {
         width: 25,
