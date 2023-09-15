@@ -93,14 +93,24 @@ const Slots = () => {
                 }
               >
                  {slots.slots &&
-                slots.slots.some((slot) => slot.x_coordinate === rowIndex && slot.y_coordinate === columnIndex) && (
-                  <Slot
-                  number={`${rowIndex}-${columnIndex}`}
-                  style={slots.slots.some((slot) => slot.x_coordinate === rowIndex && slot.y_coordinate === columnIndex && slot.reserved)
-                    ? styles.reserved 
-                    : styles.available}
-                />
-              )}
+                  slots.slots
+                    .filter((slot) => slot.x_coordinate === rowIndex && slot.y_coordinate === columnIndex)
+                    .map((slot) => (
+                      <Slot
+                        key={`${rowIndex}-${columnIndex}`}
+                        number={slot.name}
+                        styleContainer={
+                          slot.reserved
+                            ? styles.reserved
+                            : styles.available
+                        }
+                        styleTitle={
+                          slot.reserved
+                            ? styles.reservedTitle
+                            : styles.availableTitle
+                        }
+                      />
+                    ))}
               </View>
             ))}
           </View>
