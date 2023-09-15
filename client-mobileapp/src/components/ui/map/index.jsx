@@ -14,6 +14,7 @@ import { addParking } from '../../../redux/parking/parkingSlice';
 import axios from 'axios';
 import { Callout } from 'react-native-maps';
 import Distance from '../../base/distance';
+import imageMapping from '../../base/imageMapping';
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -22,18 +23,19 @@ const Map = () => {
   // const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const distance = useSelector((state) => state.distance.distance);
-  const [selectedParking, setSelectedParking] = useState(null);
+  const [selectedParking, setSelectedParking] = useState(null); 
+  var url;
 
   const fetchParkings = async () => {
     try{
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzMyNTUxLCJleHAiOjE2OTQ3MzYxNTEsIm5iZiI6MTY5NDczMjU1MSwianRpIjoiOVdqMWttU2pycjh6Unp6eiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.YIn0v1HoCjTRvbR5hGUwKV51PnK8tHB9w5FKAQeTCBk`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzY3NzI4LCJleHAiOjE2OTQ3NzEzMjgsIm5iZiI6MTY5NDc2NzcyOCwianRpIjoiMWo2ZTRpUjZmUGtyZlRGRCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.SaxMHEewX7tHtBD5FHjU3oLTbx-FfcNgIGwQIfpUlXE`,
           'Content-Type': 'application/json'
         }
       };
-      console.log(axiosConfig.headers)
-      const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
+      // console.log(axiosConfig.headers)
+      const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);;
 
       //console.log(response.data)
       if (Array.isArray(response.data.data)) {
@@ -48,7 +50,7 @@ const Map = () => {
               close_hour,
               latitude,
               longitude, } = item;
-              
+
             dispatch(addParking({ id,
               name,
               address,
@@ -63,7 +65,7 @@ const Map = () => {
       } else {
         console.error('Received non-array data from server:', response.data);
       }
-      console.log('no?')
+      // console.log('no?')
     } catch(error) {
       console.error('Error fetching parking data:', error);
     }
@@ -85,6 +87,15 @@ const Map = () => {
 
   const handleMarkerPress = (parking) => {
     setSelectedParking(parking);
+     url = require('../../../../assets/images/lemall.png'); 
+    console.log('shuuuuuuuuuuuuuuuuuuuu')
+    console.log(url)
+
+    // console.log(imageName.split('.')[0])
+    console.log(url)
+
+    // imageSource = imageMapping[imageName.split('.')[0]];
+    // console.log(imageSource)
   };
 
   const closeCard = () => {
@@ -97,14 +108,14 @@ const Map = () => {
     fetchMap();
   }, []);
 
-  console.log('maybe?')
+  // console.log('maybe?')
   // console.log(userToken.token)
   // console.log(userToken)
-  console.log(parkings)
-  console.log('selectedParking')
-  console.log(selectedParking)
-  console.log(location)
-  console.log(distance)
+  // console.log(parkings)
+  // console.log('selectedParking')
+  // console.log(selectedParking)
+  // console.log(location)
+  // console.log(distance)
 
   return (
     <View style={styles.container}>
@@ -162,8 +173,13 @@ const Map = () => {
                 lon2={selectedParking.longitude}
               />
               <TouchableOpacity style={styles.card} onPress={closeCard}>
-                <Text>{selectedParking.name}</Text>
-                <Text>{distance}</Text>
+                <Image style={styles.parkingPhoto} source={require('../../../../assets/images/lemall.png')} />
+                <View style={styles.cardInfo} >
+                  <Text>{selectedParking.name}</Text>
+                  <Text>{selectedParking.address}</Text>
+                  <Text>{distance}m</Text>
+                  <Text>${selectedParking.price}/hr</Text>
+                </View>
               </TouchableOpacity>
             </>
           )}
