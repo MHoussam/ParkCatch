@@ -27,10 +27,10 @@ const Map = () => {
   const parkings = useSelector((state) => state.parking.parkings);
   const distance = useSelector((state) => state.distance.distance);
   const selectedParking = useSelector((state) => state.selectedParking);
-  const { availableNumber, setAvailableNumber} = useState('');
+  const [ availableNumber, setAvailableNumber ] = useState('');
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODE2ODIwLCJleHAiOjE2OTQ4MjA0MjAsIm5iZiI6MTY5NDgxNjgyMCwianRpIjoiUm5qbURUR2VQUDR6U01TViIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.DfZzscqL-xAllhu_98z5FuTyn6JxCPbBFxq1pNgz32s',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODIxMDIyLCJleHAiOjE2OTQ4MjQ2MjIsIm5iZiI6MTY5NDgyMTAyMiwianRpIjoiaGdMSWtWVXRlQ3hOcFlWaCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.cEn8Sy8NEu6XViEuuEbXFeVdbyjMm-sDSYjnbfMUhlM',
   }
 
   const fetchParkings = async () => {
@@ -96,18 +96,7 @@ const Map = () => {
     dispatch(setSelectedParking(parking)); 
     // console.log('shuuuuuuuuuuuuuuuuuuuu')
     // console.log(url)
-
-    try{
-      const dataForm = {
-        token: userToken.token,
-        parking_id: selectedParking.id,  
-      }
-      // console.log(axiosConfig.headers)
-      const response = await axios.get('http://127.0.0.1:8000/api/availableSpots', dataForm);
-      console.log('number: ' + response.data.data);
-    } catch(error) {
-      console.log('Error while fetching the available spots number: ' + error);
-    }
+    //setAvailableNumber(null);
   };
 
   const closeCard = () => {
@@ -124,6 +113,29 @@ const Map = () => {
     fetchMap();
     dispatch(setUserToken(userToken));
   }, []);
+
+  const fetchAvailableNumber = async () => {
+    try {
+      const dataForm = {
+        token: userToken.token,
+        parking_id: selectedParking.id,
+      };
+  
+      const response = await axios.post('http://127.0.0.1:8000/api/availableSpots', dataForm);
+  
+      setAvailableNumber(response.data.data);
+    } catch (error) {
+      console.log('Error while fetching the available spots number: ' + error);
+    }
+  }
+
+  useEffect(() => {
+    if (selectedParking && selectedParking.id) {
+      fetchAvailableNumber();
+    } else {
+      setAvailableNumber(null);
+    }
+  }, [selectedParking]);
 
   // console.log('maybe?')
   // console.log(userToken.token)
