@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import styles from './styles';
 import Slot from '../../base/slot';
-import { useSelector } from 'react-redux';
-import { setSlots, clearSlots } from '../../../redux/slots/slotSlice'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { addSlots, clearSlots } from '../../../redux/slots/slotSlice'; 
 import axios from 'axios';
 
 const Slots = () => {
+  const dispatch = useDispatch();
   const userToken =  useSelector((state) => state.user.token);
-  const selectedParking =  useSelector((state) => state.parking.parkings);
-  const slots =  useSelector((state) => state.slots.slots);
+  const selectedParking =  useSelector((state) => state.selectedParking);
+  const slots =  useSelector((state) => state.slots);
 
   const fetchSpots = async () => {
     try{
@@ -27,25 +28,26 @@ const Slots = () => {
        console.log(dataForm)
       const response = await axios.post('http://127.0.0.1:8000/api/spots', dataForm);;
 
-      console.log(response.data)
+      console.log(response.data.data)
       if (Array.isArray(response.data.data)) {
-        if (!slots || slots.length === 0) {
+        if (slots.slots === null || slots.slots.length === 0) {
+          console.log('here')
           response.data.data.forEach((item) => {
             const { id,
               parking_id,
               name,
               availability,
               reason,
-              x,
-              y, } = item;
+              x_coordinate,
+              y_coordinate, } = item;
 
-            dispatch(setSlots({ id,
+            dispatch(addSlots({ id,
               parking_id,
               name,
               availability,
               reason,
-              x,
-              y }));
+              x_coordinate,
+              y_coordinate, }));
           });
         }
       } else {
@@ -60,6 +62,9 @@ const Slots = () => {
   useEffect(() => {
     fetchSpots();
   }, [])
+
+  console.log('slots');
+  console.log(slots.slots);;
 
     return (
       <View style={styles.table}>
@@ -76,7 +81,10 @@ const Slots = () => {
                     : styles.tableCellGap
                 }
               >
-                <Slot number={'Num'} />
+                {slots.slots &&
+                slots.slots.some((slot) => slot.x_coordinate === rowIndex && slot.y_coordinate === columnIndex) && (
+                <Slot number={`${rowIndex}-${columnIndex}`} />
+              )}
               </View>
             ))}
           </View>

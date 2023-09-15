@@ -27,11 +27,11 @@ const Map = () => {
   //const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const distance = useSelector((state) => state.distance.distance);
-  const selectedParking = useSelector((state) => state.selectedParking.selectedParking);
+  const selectedParking = useSelector((state) => state.selectedParking);
   var url;
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0Nzc4OTQ3LCJleHAiOjE2OTQ3ODI1NDcsIm5iZiI6MTY5NDc3ODk0NywianRpIjoicmk5N0Nwd2FLVWNqclBZVyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.PeEaM3ERuFn3PdGv3kCgi8yqfdgne6mjlpTsMGbxJck',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzgyMTUzLCJleHAiOjE2OTQ3ODU3NTMsIm5iZiI6MTY5NDc4MjE1MywianRpIjoiQW5GbEN5OEFHT2hvazNoMyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.QNf61n5oMwODpRC2Mos2CiJOFReYNyiBFb219yOaRGA',
   }
 
   const fetchParkings = async () => {
@@ -126,7 +126,7 @@ const Map = () => {
   // console.log(userToken)
   // console.log(parkings)
   // console.log('selectedParking')
-  // console.log(selectedParking)
+  console.log(selectedParking)
   // console.log(location)
   // console.log(distance)
 
@@ -177,7 +177,7 @@ const Map = () => {
           ))}
         </MapView>
         <View>
-          {selectedParking && (
+          {selectedParking.id !== null && (
             <>
               <Distance 
                 lat1={location.coords.latitude}
