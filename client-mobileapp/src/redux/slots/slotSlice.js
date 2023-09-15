@@ -9,7 +9,7 @@ const slotSlice = createSlice({
   initialState,
   reducers: {
     addSlots: (state, action) => {
-      const { id, parking_id, name, availability, reason, x_coordinate, y_coordinate, valid } = action.payload;
+      const { id, parking_id, name, availability, reason, x_coordinate, y_coordinate, reserved } = action.payload;
         state.slots.push({
           id,
           parking_id,
@@ -18,12 +18,15 @@ const slotSlice = createSlice({
           reason,
           x_coordinate,
           y_coordinate,
-          valid,
+          reserved,
         });
+    },
+    clearSlots: (state) => {
+      state.slots = [];
     },
   },
 });
 
-export const { addSlots } = slotSlice.actions;
+export const { addSlots, clearSlots } = slotSlice.actions;
 
 export default slotSlice.reducer;

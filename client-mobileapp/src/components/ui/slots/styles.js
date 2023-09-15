@@ -48,6 +48,27 @@ const styles = StyleSheet.create({
     cellText: {
       textAlign: 'center',
     },
+    available: {
+      borderRadius: 10,
+      backgroundColor: 'green',
+      width: 60,
+      height: 26,
+      justifyContent: 'center',
+  },
+  reserved: {
+    borderRadius: 10,
+    backgroundColor: 'red',
+    width: 60,
+    height: 26,
+    justifyContent: 'center',
+},
+container: {
+  borderRadius: 10,
+  backgroundColor: '#000',
+  width: 60,
+  height: 26,
+  justifyContent: 'center',
+},
   });
 
   export default styles;

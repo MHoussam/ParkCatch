@@ -25,10 +25,14 @@ const Slots = () => {
         parking_id: selectedParking.id,
         token: userToken.token,
       }
-       console.log(dataForm)
+      //  console.log(dataForm)
       const response = await axios.post('http://127.0.0.1:8000/api/spots', dataForm);;
 
-      console.log(response.data.data)
+      console.log(response.data.data[0].name + ' ' + response.data.data[0].x_coordinate + ' ' + response.data.data[0].y_coordinate + ' ' + response.data.data[0].reserved)
+      console.log(response.data.data[0].name + ' ' + response.data.data[1].x_coordinate + ' ' + response.data.data[1].y_coordinate + ' ' + response.data.data[1].reserved)
+      console.log(response.data.data[2].name + ' ' + response.data.data[2].x_coordinate + ' ' + response.data.data[2].y_coordinate + ' ' + response.data.data[2].reserved)
+      console.log(response.data.data[3].name + ' ' + response.data.data[3].x_coordinate + ' ' + response.data.data[3].y_coordinate + ' ' + response.data.data[3].reserved)
+      console.log(response.data.data[4].name + ' ' + response.data.data[4].x_coordinate + ' ' + response.data.data[4].y_coordinate + ' ' + response.data.data[4].reserved)
       if (Array.isArray(response.data.data)) {
         if (slots.slots === null || slots.slots.length === 0) {
           console.log('here')
@@ -40,7 +44,7 @@ const Slots = () => {
               reason,
               x_coordinate,
               y_coordinate,
-              valid, } = item;
+              reserved, } = item;
 
             dispatch(addSlots({ id,
               parking_id,
@@ -49,8 +53,10 @@ const Slots = () => {
               reason,
               x_coordinate,
               y_coordinate,
-              valid, }));
+              reserved, }));
           });
+          console.log('finish')
+
         }
       } else {
         console.error('Received non-array data from server:', response.data);
@@ -62,11 +68,14 @@ const Slots = () => {
   }
 
   useEffect(() => {
+    dispatch(clearSlots());
     fetchSpots();
+          console.log('effect')
+
   }, [])
 
   console.log('slots');
-  console.log(slots.slots);;
+  console.log(slots.slots.map((slot) => slot.reserved));
 
     return (
       <View style={styles.table}>
@@ -83,9 +92,14 @@ const Slots = () => {
                     : styles.tableCellGap
                 }
               >
-                {slots.slots &&
+                 {slots.slots &&
                 slots.slots.some((slot) => slot.x_coordinate === rowIndex && slot.y_coordinate === columnIndex) && (
-                <Slot number={`${rowIndex}-${columnIndex}`} />
+                  <Slot
+                  number={`${rowIndex}-${columnIndex}`}
+                  style={slots.slots.some((slot) => slot.x_coordinate === rowIndex && slot.y_coordinate === columnIndex && slot.reserved)
+                    ? styles.reserved 
+                    : styles.available}
+                />
               )}
               </View>
             ))}

@@ -31,7 +31,7 @@ const Map = () => {
   var url;
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0Nzg0OTMzLCJleHAiOjE2OTQ3ODg1MzMsIm5iZiI6MTY5NDc4NDkzMywianRpIjoicHZYTDNlVU9EQlJrM3BZTSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.vkPGPlQDUlKVFw3Lh-HgbXzYGVm4-7oyiZFScfmZtPw',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODAwNjY0LCJleHAiOjE2OTQ4MDQyNjQsIm5iZiI6MTY5NDgwMDY2NCwianRpIjoiZ0c2Q2sxQmRsU0xCb2E5UCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.c16H3OPUusgRGNrGXhrbFvQ-K6RIo4zOaDbEju2Eys4',
   }
 
   const fetchParkings = async () => {
@@ -96,11 +96,11 @@ const Map = () => {
   const handleMarkerPress = (parking) => {
     dispatch(setSelectedParking(parking));
      url = require('../../../../assets/images/lemall.png'); 
-    console.log('shuuuuuuuuuuuuuuuuuuuu')
-    console.log(url)
+    // console.log('shuuuuuuuuuuuuuuuuuuuu')
+    // console.log(url)
 
     // console.log(imageName.split('.')[0])
-    console.log(url)
+    // console.log(url)
 
     // imageSource = imageMapping[imageName.split('.')[0]];
     // console.log(imageSource)
@@ -108,7 +108,7 @@ const Map = () => {
 
   const closeCard = () => {
     dispatch(clearSelectedParking());
-    console.log(selectedParking)
+    // console.log(selectedParking)
   };
 
   const navigateToSpots = () => {
@@ -126,7 +126,7 @@ const Map = () => {
   // console.log(userToken)
   // console.log(parkings)
   // console.log('selectedParking')
-  console.log(selectedParking)
+  // console.log(selectedParking)
   // console.log(location)
   // console.log(distance)
 
