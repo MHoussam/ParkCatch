@@ -177,7 +177,12 @@ const Map = () => {
                 <View style={styles.cardInfo} >
                   <Text>{selectedParking.name}</Text>
                   <Text>{selectedParking.address}</Text>
-                  <Text>{distance}m</Text>
+                  <View style={styles.cardInfoRow} >
+                    <Image source={require('../../../../assets/images/spots.png')} />
+                    <Text>13</Text>
+                    <Image source={require('../../../../assets/images/distance.png')} />
+                    <Text>{distance}m</Text>
+                  </View>
                   <Text>${selectedParking.price}/hr</Text>
                 </View>
               </TouchableOpacity>

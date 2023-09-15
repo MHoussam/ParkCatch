@@ -47,6 +47,9 @@ const styles = StyleSheet.create({
     },
     cardInfo: {
         flexDirection: 'column',
+    },
+    cardInfoRow: {
+        flexDirection: 'row',
     }
 });
     
