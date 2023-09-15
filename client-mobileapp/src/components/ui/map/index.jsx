@@ -16,23 +16,28 @@ import { Callout } from 'react-native-maps';
 import Distance from '../../base/distance';
 import imageMapping from '../../base/imageMapping';
 import { useNavigation } from '@react-navigation/native';
+import { setUser, setUserToken } from "../../../redux/user/userSlice";
 
 const Map = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();  
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
-  // const userToken = useSelector((state) => state.user.token);
+  //const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const distance = useSelector((state) => state.distance.distance);
   const [selectedParking, setSelectedParking] = useState(null); 
   var url;
 
+  const userToken = {
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0Nzc2MDUyLCJleHAiOjE2OTQ3Nzk2NTIsIm5iZiI6MTY5NDc3NjA1MiwianRpIjoiRVNiOVZMTkNxazdNa3A0SiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.V9Hx8x5FTmxz49V9UmML_lCvQjwYtXFyfk3x5XGLBbo',
+  }
+
   const fetchParkings = async () => {
     try{
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NzcyMzU2LCJleHAiOjE2OTQ3NzU5NTYsIm5iZiI6MTY5NDc3MjM1NiwianRpIjoidVJVdjRQTjVHWElxZmcydiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.qKYhM4yvMhj4hNWtYYIG5XptNHQCYvtFzPO7oLlupKc`,
+          Authorization: `Bearer ${userToken.token}`,
           'Content-Type': 'application/json'
         }
       };
@@ -112,6 +117,7 @@ const Map = () => {
   useEffect(() => {
     fetchParkings();
     fetchMap();
+    dispatch(setUserToken(userToken));
   }, []);
 
   // console.log('maybe?')
