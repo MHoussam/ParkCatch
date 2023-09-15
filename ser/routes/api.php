@@ -28,6 +28,7 @@ Route::group(["middleware"=>"auth:api"],function(){
     });
     Route::group(["middleware"=>"auth.client"],function(){
         Route::post('spots', [SupervisorController::class, 'getSpots']);
+        Route::post('availableSpots', [SupervisorController::class, 'getAvailableSpots']);
         Route::post('register', [AuthController::class, 'register']);
         Route::get('parkings', [ClientController::class, 'getParkings']);
         Route::post('available', [ClientController::class, 'availableSpots']);
