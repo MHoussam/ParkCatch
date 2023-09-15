@@ -3,7 +3,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import styles from './styles';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import {
   setLocation,
   setErrorMsg,
@@ -27,9 +27,10 @@ const Map = () => {
   const parkings = useSelector((state) => state.parking.parkings);
   const distance = useSelector((state) => state.distance.distance);
   const selectedParking = useSelector((state) => state.selectedParking);
+  const { availableNumber, setAvailableNumber} = useState('');
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODEyMzIzLCJleHAiOjE2OTQ4MTU5MjMsIm5iZiI6MTY5NDgxMjMyMywianRpIjoiMFdJdk1CcnBIRmtOaEk3RSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.I1ew_MyGo34zeLfBFkuXyVIS7rP34AH9B-lbS3Eotww',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODE2ODIwLCJleHAiOjE2OTQ4MjA0MjAsIm5iZiI6MTY5NDgxNjgyMCwianRpIjoiUm5qbURUR2VQUDR6U01TViIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.DfZzscqL-xAllhu_98z5FuTyn6JxCPbBFxq1pNgz32s',
   }
 
   const fetchParkings = async () => {
@@ -41,7 +42,7 @@ const Map = () => {
         }
       };
       // console.log(axiosConfig.headers)
-      const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);;
+      const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
       //console.log(response.data)
       if (Array.isArray(response.data.data)) {
@@ -91,16 +92,22 @@ const Map = () => {
       dispatch(clearErrorMsg());
   }
 
-  const handleMarkerPress = (parking) => {
+  const handleMarkerPress = async (parking) => {
     dispatch(setSelectedParking(parking)); 
     // console.log('shuuuuuuuuuuuuuuuuuuuu')
     // console.log(url)
 
-    // console.log(imageName.split('.')[0])
-    // console.log(url)
-
-    // imageSource = imageMapping[imageName.split('.')[0]];
-    // console.log(imageSource)
+    try{
+      const dataForm = {
+        token: userToken.token,
+        parking_id: selectedParking.id,  
+      }
+      // console.log(axiosConfig.headers)
+      const response = await axios.get('http://127.0.0.1:8000/api/availableSpots', dataForm);
+      console.log('number: ' + response.data.data);
+    } catch(error) {
+      console.log('Error while fetching the available spots number: ' + error);
+    }
   };
 
   const closeCard = () => {
@@ -196,7 +203,7 @@ const Map = () => {
                   <View style={styles.cardInfoRow} >
                     <View style={styles.cardInfoRow}>
                       <Image source={require('../../../../assets/images/spots.png')} />
-                      <Text style={[styles.semiBold, styles.size13]}> 13 Spots</Text>
+                      <Text style={[styles.semiBold, styles.size13]}> {availableNumber} Spots</Text>
                     </View>
                     <View style={styles.cardInfoRow}>
                       <Image source={require('../../../../assets/images/distance.png')} />
