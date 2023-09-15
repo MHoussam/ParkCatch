@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         fontSize: 18,
-        marginTop: 5,
+        marginTop: 10,
     },
     nextButton: {
       width: '83%',
