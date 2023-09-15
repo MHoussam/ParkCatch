@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
         marginTop: 20,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        width: '100%',
     },
     title: {
         color: '#FFF',
