@@ -47,9 +47,36 @@ const styles = StyleSheet.create({
     },
     cardInfo: {
         flexDirection: 'column',
+        marginLeft: 20, 
+        width: 140,
+        flex:1,
+        justifyContent: 'space-evenly',
     },
     cardInfoRow: {
         flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    bold: {
+        fontWeight: 'bold',
+    },
+    semiBold: {
+        fontWeight: '700',
+    },
+    medium: {
+        fontWeight: '600',
+    },
+    size16: {
+        fontSize: 16,
+    },
+    size13: {
+        fontSize: 13,
+    },
+    size12: {
+        fontSize: 12,
+    },
+    parkingAddress: {
+        color: '#757575',
     }
 });
     

@@ -174,16 +174,22 @@ const Map = () => {
               />
               <TouchableOpacity style={styles.card} onPress={closeCard}>
                 <Image style={styles.parkingPhoto} source={require('../../../../assets/images/lemall.png')} />
+                <View >
                 <View style={styles.cardInfo} >
-                  <Text>{selectedParking.name}</Text>
-                  <Text>{selectedParking.address}</Text>
+                  <Text style={[styles.bold, styles.size16]}>{selectedParking.name}</Text>
+                  <Text style={[styles.bold, styles.size13, styles.parkingAddress]}>{selectedParking.address}</Text>
                   <View style={styles.cardInfoRow} >
-                    <Image source={require('../../../../assets/images/spots.png')} />
-                    <Text>13</Text>
-                    <Image source={require('../../../../assets/images/distance.png')} />
-                    <Text>{distance}m</Text>
+                    <View style={styles.cardInfoRow}>
+                      <Image source={require('../../../../assets/images/spots.png')} />
+                      <Text style={[styles.semiBold, styles.size13]}> 13 Spots</Text>
+                    </View>
+                    <View style={styles.cardInfoRow}>
+                      <Image source={require('../../../../assets/images/distance.png')} />
+                      <Text style={[styles.semiBold, styles.size13]}>{distance}m</Text>
+                    </View>
                   </View>
-                  <Text>${selectedParking.price}/hr</Text>
+                  <Text style={styles.medium}>${selectedParking.price}/hr</Text>
+                </View>
                 </View>
               </TouchableOpacity>
             </>
