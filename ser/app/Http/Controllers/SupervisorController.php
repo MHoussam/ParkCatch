@@ -53,6 +53,24 @@ class SupervisorController extends Controller
             'data' => $spots
         ]);
     }
+    
+    public function getAvailableSpots(Request $request) {
+        $reserved = Reservation::where('parking_id', $request->parking_id)
+                           ->where('valid', TRUE)
+                           ->get();
+
+        $reservedSpotIds = $reserved->pluck('spot_id');
+
+        $available = Spot::where('parking_id', $request->parking_id)
+                           ->whereNotIn('id', $reservedSpotIds)
+                           ->get();
+    
+        return response()->json([
+            'status' => 'Success',
+            'data' => $available
+        ]);
+    }
+    
 
     public function terminateReservation(Request $request) {
         $terminate = Reservation::where('spot_id', $request->spot_id)
