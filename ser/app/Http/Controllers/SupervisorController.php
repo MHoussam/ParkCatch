@@ -71,10 +71,16 @@ class SupervisorController extends Controller
     }
     
     public function getAvailableSpots(Request $request) {
-        
+        $spots = $this->getSpots($request);
 
-    
-        return $available;
+        $availableSpots = $spots->original['data']->filter(function ($spot) {
+            return !$spot->reserved;
+        });
+
+        return response()->json([
+            'status' => 'Success',
+            'data' => $availableSpots->count()
+        ]);
     }
     
 
