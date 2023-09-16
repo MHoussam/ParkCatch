@@ -29,6 +29,7 @@
     "react-native-bing-maps": "^0.1.1",
     "react-native-dotenv": "^3.4.9",
     "react-native-gesture-handler": "^2.12.1",
+    "react-native-gifted-chat": "^2.4.0",
     "react-native-map-link": "^2.11.2",
     "react-native-maps": "1.7.1",
     "react-native-reanimated": "~3.3.0",
@@ -40,6 +41,7 @@
     "react-redux": "^8.1.2",
     "redux": "^4.2.1",
     "redux-logger": "^3.0.6",
+    "socket.io-client": "^4.7.2",
     "typescript": "^5.1.3"
   },
   "devDependencies": {
