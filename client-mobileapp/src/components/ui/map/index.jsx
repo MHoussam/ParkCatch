@@ -26,7 +26,6 @@ const Map = () => {
   const errorMsg = useSelector((state) => state.location.errorMsg);
   //const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
-  const distance = useSelector((state) => state.distance.distance);
   const selectedParking = useSelector((state) => state.selectedParking);
   const [ availableNumber, setAvailableNumber ] = useState('');
 
@@ -130,6 +129,15 @@ const Map = () => {
     }
   }
 
+  const calculatedDistance = location
+  ? Distance({
+      lat1: location.coords.latitude,
+      lon1: location.coords.longitude,
+      lat2: selectedParking.latitude,
+      lon2: selectedParking.longitude,
+    })
+  : null;
+
   useEffect(() => {
     if (selectedParking && selectedParking.id) {
       fetchAvailableNumber();
@@ -145,7 +153,7 @@ const Map = () => {
   // console.log('selectedParking')
   // console.log(selectedParking)
   // console.log(location)
-  // console.log(distance)
+  // console.log(calculatedDistance)
 
   return (
     <View style={styles.container}>
@@ -197,12 +205,6 @@ const Map = () => {
         <View>
           {selectedParking.id !== null && (
             <>
-              <Distance 
-                lat1={location.coords.latitude}
-                lon1={location.coords.longitude}
-                lat2={selectedParking.latitude}
-                lon2={selectedParking.longitude}
-              />
               <TouchableOpacity style={styles.card} onPress={navigateToSpots}>
               <Image
                 style={styles.parkingPhoto}
@@ -222,18 +224,13 @@ const Map = () => {
                     <View style={styles.cardInfoRow}>
                       <Image source={require('../../../../assets/images/distance.png')} />
                       <Text style={[styles.semiBold, styles.size13]}>
-                        {calculateDistance({
-                          lat1: location.coords.latitude,
-                          lon1: location.coords.longitude,
-                          lat2: selectedParking.latitude,
-                          lon2: selectedParking.longitude,
-                        })}m
-                        </Text>
+                        {calculatedDistance}m
+                      </Text>
                     </View>
                   </View>
                   <Text style={styles.medium}>${selectedParking.price}/hr</Text>
                 </View>
-                </View>
+              </View>
               </TouchableOpacity>
             </>
           )}

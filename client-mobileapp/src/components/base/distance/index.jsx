@@ -1,9 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setDistance} from '../../../redux/distance/distanceSlice'
 
 const Distance = ({ lat1, lon1, lat2, lon2 }) => {
-    const dispatch = useDispatch();
     const R = 6371;
     const dLat = (lat2 - lat1) * (Math.PI / 180);
     const dLon = (lon2 - lon1) * (Math.PI / 180);
