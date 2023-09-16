@@ -31,7 +31,7 @@ const Map = () => {
   const [ availableNumber, setAvailableNumber ] = useState('');
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODIxMDIyLCJleHAiOjE2OTQ4MjQ2MjIsIm5iZiI6MTY5NDgyMTAyMiwianRpIjoiaGdMSWtWVXRlQ3hOcFlWaCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.cEn8Sy8NEu6XViEuuEbXFeVdbyjMm-sDSYjnbfMUhlM',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0ODgxOTM5LCJleHAiOjE2OTQ4ODU1MzksIm5iZiI6MTY5NDg4MTkzOSwianRpIjoiS3lOQ1ZyVnphbjRmQlN0MCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.vcrAt_c-N-TQZYq0RWiHzQ0vz96oif3SGTp9kqUhwT0',
   }
 
   const fetchParkings = async () => {
@@ -153,7 +153,7 @@ const Map = () => {
         <Text style={styles.error}>{errorMsg}</Text>
       ) : location ? (
       <>
-      <WebSocketClient />
+      {/* <WebSocketClient /> */}
         <MapView
           style={styles.map}
           initialRegion={{
@@ -221,7 +221,14 @@ const Map = () => {
                     </View>
                     <View style={styles.cardInfoRow}>
                       <Image source={require('../../../../assets/images/distance.png')} />
-                      <Text style={[styles.semiBold, styles.size13]}>{distance}m</Text>
+                      <Text style={[styles.semiBold, styles.size13]}>
+                        {calculateDistance({
+                          lat1: location.coords.latitude,
+                          lon1: location.coords.longitude,
+                          lat2: selectedParking.latitude,
+                          lon2: selectedParking.longitude,
+                        })}m
+                        </Text>
                     </View>
                   </View>
                   <Text style={styles.medium}>${selectedParking.price}/hr</Text>

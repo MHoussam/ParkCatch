@@ -9,6 +9,7 @@ import Spots from '../spots';
 import Footer from '../../components/ui/footer';
 import Header from '../../components/ui/header';
 import SearchBar from '../../components/base/searchbar';
+import WebSocketClient from '../../components/WebSocketClient';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -23,7 +24,8 @@ const Home = () => {
 
   return (
     <Provider store={store}>
-      <SearchBar />
+      {/* <WebSocketClient /> */}
+      <SearchBar /> 
       <Map />
       <Footer /> 
     </Provider>
