@@ -8,6 +8,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 
 Route::group(["middleware"=>"auth:api"],function(){
+    Route::get('socket', [SocketController]::class, 'socket');
+
+
     Route::group(["middleware"=>"auth.supervisor"],function(){
         Route::get('reservations', [SupervisorController::class, 'getReservations']);
         Route::post('validity', [SupervisorController::class, 'checkValidity']);
