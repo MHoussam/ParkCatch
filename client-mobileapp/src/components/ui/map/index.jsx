@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import styles from './styles';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setLocation,
   setErrorMsg,
@@ -12,11 +12,12 @@ import {
 } from '../../../redux/location/locationSlice'; 
 import { addParking } from '../../../redux/parking/parkingSlice';
 import axios from 'axios';
-import { Callout } from 'react-native-maps';
 import Distance from '../../base/distance';
 import { useNavigation } from '@react-navigation/native';
 import { setUser, setUserToken } from "../../../redux/user/userSlice";
 import { setSelectedParking, clearSelectedParking } from "../../../redux/selectedParking/selectedParkingSlice";
+import WebSocketClient from '../../WebSocketClient';
+
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -152,6 +153,7 @@ const Map = () => {
         <Text style={styles.error}>{errorMsg}</Text>
       ) : location ? (
       <>
+      <WebSocketClient />
         <MapView
           style={styles.map}
           initialRegion={{
