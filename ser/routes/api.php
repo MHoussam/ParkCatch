@@ -6,10 +6,10 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\SupervisorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SocketController;
 
 Route::group(["middleware"=>"auth:api"],function(){
-    Route::get('socket', [SocketController]::class, 'socket');
-
+    Route::get('socket', [SocketController::class, 'socket']);
 
     Route::group(["middleware"=>"auth.supervisor"],function(){
         Route::get('reservations', [SupervisorController::class, 'getReservations']);
