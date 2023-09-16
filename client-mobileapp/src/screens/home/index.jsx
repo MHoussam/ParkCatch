@@ -10,6 +10,7 @@ import Footer from '../../components/ui/footer';
 import Header from '../../components/ui/header';
 import SearchBar from '../../components/base/searchbar';
 import WebSocketClient from '../../components/WebSocketClient';
+import ChatComponent from '../../components/ui/chat';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -25,8 +26,9 @@ const Home = () => {
   return (
     <Provider store={store}>
       {/* <WebSocketClient /> */}
-      <SearchBar /> 
-      <Map />
+      {/* <SearchBar />  */}
+      {/* <Map /> */}
+      <ChatComponent />
       <Footer /> 
     </Provider>
   )
