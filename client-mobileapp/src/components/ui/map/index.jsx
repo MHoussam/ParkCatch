@@ -181,6 +181,7 @@ const Map = () => {
               closeCard();
             }
           }}
+          zoomEnabled={true}
         >
           <Marker
             coordinate={{
