@@ -22,9 +22,13 @@ const parkingSlice = createSlice({
           longitude,
         });
     },
+    clearParkings: (state) => {
+      state.parkings = []
+      console.log(state.parkings)
+    }
   },
 });
 
-export const { addParking } = parkingSlice.actions;
+export const { addParking, clearParkings } = parkingSlice.actions;
 
 export default parkingSlice.reducer;

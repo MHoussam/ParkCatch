@@ -10,7 +10,7 @@ import {
   clearLocation,
   clearErrorMsg,
 } from '../../../redux/location/locationSlice'; 
-import { addParking } from '../../../redux/parking/parkingSlice';
+import { addParking, clearParkings } from '../../../redux/parking/parkingSlice';
 import axios from 'axios';
 import Distance from '../../base/distance';
 import { useNavigation } from '@react-navigation/native';
@@ -32,7 +32,7 @@ const Map = () => {
   const [ refresh, setRefresh ] = useState(null);
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTY0NTI2LCJleHAiOjE2OTQ5NjgxMjYsIm5iZiI6MTY5NDk2NDUyNiwianRpIjoiNUZSSUg3dnV4U3pHM0wyUSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.JXppSDwGOEd6SCncUJ_ni1vkb4E-9J3i6WvbK4nXOa4',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTY4NTg2LCJleHAiOjE2OTQ5NzIxODYsIm5iZiI6MTY5NDk2ODU4NiwianRpIjoiOGNEem91aG1VMXpNMnpJUCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.yhkzLB7BfIElg3waEk-AjukYGWno8lp-YwIPEiAxc_o',
   }
 
   const fetchParkings = async () => {
@@ -147,6 +147,7 @@ const Map = () => {
   }, [selectedParking]);
 
   useEffect(() => {
+    dispatch(clearParkings());
     fetchParkings();
     fetchMap();
     dispatch(setUserToken(userToken));
@@ -155,7 +156,7 @@ const Map = () => {
   // console.log('maybe?')
   // console.log(userToken.token)
   // console.log(userToken)
-  // console.log(parkings)
+  console.log(parkings)
   // console.log('selectedParking')
   // console.log(selectedParking)
   // console.log(location)
