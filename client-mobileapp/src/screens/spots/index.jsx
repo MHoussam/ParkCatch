@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const Spots = () => {
   const navigation = useNavigation();
-  const selectedSlot = useSelector((state) => state.slots);
+  const selectedSlot = useSelector((state) => state.selectedSlot);
 
   const navigateToReservationInfo = () => {
     console.log('next: ' + selectedSlot);

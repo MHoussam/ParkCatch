@@ -11,7 +11,7 @@ const Slots = () => {
   const userToken = useSelector((state) => state.user.token);
   const selectedParking = useSelector((state) => state.selectedParking);
   const slots = useSelector((state) => state.slots);
-  const [selectedSlot, setSelectedSlot] = useState(null);
+  const selectedSlot = useSelector((state) => state.selectedSlot);
 
   const fetchSpots = async () => {
     try {
@@ -118,14 +118,11 @@ const Slots = () => {
 
   const slotPressed = (slot) => {
       if((selectedSlot === null || selectedSlot !== slot) && slot.reserved === false){
-        setSelectedSlot(slot);
-
-        console.log('selectslot: ' + selectedSlot);
-    console.log(selectedSlot);
+        dispatch(clearSelectedSlot(slot));
+        console.log('selecteddddddddddddddddddddd')     
       } else {
-        setSelectedSlot(null);
-        console.log('selectslot: ' + selectedSlot);
-    console.log(selectedSlot);
+        dispatch(clearSelectedSlot());
+        console.log('notttttttttttttttttt')
       }
   }
 
@@ -137,8 +134,10 @@ const Slots = () => {
     };
   }, []);
 
-  console.log("slots");
-  console.log(slots.slots.map((slot) => slot.reserved));
+  // console.log("slots");
+  // console.log(slots.slots.map((slot) => slot.reserved));
+  console.log('selectslot: ' + selectedSlot);
+    console.log(selectedSlot);
 
   return (
     <View style={styles.table}>
