@@ -161,7 +161,7 @@ const Slots = () => {
                       }
                       isSelected={selectedSlot === slot}
                       onPress={() => {
-                        if(selectedSlot === null && slot.reserved === false){
+                        if((selectedSlot === null || selectedSlot !== slot) && slot.reserved === false){
                           setSelectedSlot(slot);
                         } else {
                           setSelectedSlot(null);
