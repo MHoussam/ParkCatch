@@ -117,9 +117,11 @@ const Slots = () => {
   };
 
   useEffect(() => {
-    dispatch(clearSlots());
     fetchSpots();
     console.log("effect");
+    return () => {
+      dispatch(clearSlots());
+    };
   }, []);
 
   console.log("slots");
