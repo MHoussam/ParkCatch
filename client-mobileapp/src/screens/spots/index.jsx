@@ -12,6 +12,8 @@ const Spots = () => {
   const selectedSlot = useSelector((state) => state.slots);
 
   const navigateToReservationInfo = () => {
+    console.log('next: ' + selectedSlot);
+    console.log(selectedSlot);
     if(selectedSlot !== null) {
       navigation.navigate('ReservationInfo');
     }

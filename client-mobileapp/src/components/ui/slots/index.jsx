@@ -32,51 +32,51 @@ const Slots = () => {
         dataForm
       );
 
-      console.log(
-        response.data.data[0].name +
-          " " +
-          response.data.data[0].x_coordinate +
-          " " +
-          response.data.data[0].y_coordinate +
-          " " +
-          response.data.data[0].reserved
-      );
-      console.log(
-        response.data.data[0].name +
-          " " +
-          response.data.data[1].x_coordinate +
-          " " +
-          response.data.data[1].y_coordinate +
-          " " +
-          response.data.data[1].reserved
-      );
-      console.log(
-        response.data.data[2].name +
-          " " +
-          response.data.data[2].x_coordinate +
-          " " +
-          response.data.data[2].y_coordinate +
-          " " +
-          response.data.data[2].reserved
-      );
-      console.log(
-        response.data.data[3].name +
-          " " +
-          response.data.data[3].x_coordinate +
-          " " +
-          response.data.data[3].y_coordinate +
-          " " +
-          response.data.data[3].reserved
-      );
-      console.log(
-        response.data.data[4].name +
-          " " +
-          response.data.data[4].x_coordinate +
-          " " +
-          response.data.data[4].y_coordinate +
-          " " +
-          response.data.data[4].reserved
-      );
+      // console.log(
+      //   response.data.data[0].name +
+      //     " " +
+      //     response.data.data[0].x_coordinate +
+      //     " " +
+      //     response.data.data[0].y_coordinate +
+      //     " " +
+      //     response.data.data[0].reserved
+      // );
+      // console.log(
+      //   response.data.data[0].name +
+      //     " " +
+      //     response.data.data[1].x_coordinate +
+      //     " " +
+      //     response.data.data[1].y_coordinate +
+      //     " " +
+      //     response.data.data[1].reserved
+      // );
+      // console.log(
+      //   response.data.data[2].name +
+      //     " " +
+      //     response.data.data[2].x_coordinate +
+      //     " " +
+      //     response.data.data[2].y_coordinate +
+      //     " " +
+      //     response.data.data[2].reserved
+      // );
+      // console.log(
+      //   response.data.data[3].name +
+      //     " " +
+      //     response.data.data[3].x_coordinate +
+      //     " " +
+      //     response.data.data[3].y_coordinate +
+      //     " " +
+      //     response.data.data[3].reserved
+      // );
+      // console.log(
+      //   response.data.data[4].name +
+      //     " " +
+      //     response.data.data[4].x_coordinate +
+      //     " " +
+      //     response.data.data[4].y_coordinate +
+      //     " " +
+      //     response.data.data[4].reserved
+      // );
       if (Array.isArray(response.data.data)) {
         if (slots.slots === null || slots.slots.length === 0) {
           console.log("here");
@@ -115,6 +115,19 @@ const Slots = () => {
       console.error("Error fetching spots data:", error);
     }
   };
+
+  const slotPressed = (slot) => {
+      if((selectedSlot === null || selectedSlot !== slot) && slot.reserved === false){
+        setSelectedSlot(slot);
+
+        console.log('selectslot: ' + selectedSlot);
+    console.log(selectedSlot);
+      } else {
+        setSelectedSlot(null);
+        console.log('selectslot: ' + selectedSlot);
+    console.log(selectedSlot);
+      }
+  }
 
   useEffect(() => {
     fetchSpots();
@@ -162,13 +175,7 @@ const Slots = () => {
                           : styles.availableTitle
                       }
                       isSelected={selectedSlot === slot}
-                      onPress={() => {
-                        if((selectedSlot === null || selectedSlot !== slot) && slot.reserved === false){
-                          setSelectedSlot(slot);
-                        } else {
-                          setSelectedSlot(null);
-                        }
-                      }}
+                      onPress={() => slotPressed(slot)}
                     />
                   ))}
             </View>
