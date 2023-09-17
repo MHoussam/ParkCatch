@@ -237,7 +237,10 @@ const Map = () => {
         </View>
       </>
       ) : (
-        <Text style={styles.error}>Map is Loading...</Text>
+        <>
+          <Text style={styles.error}>Map is Loading...</Text>
+          {/* {fetchMap()} */}
+        </>
       )}
     </View>
   );

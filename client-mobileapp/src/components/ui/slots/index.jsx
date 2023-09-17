@@ -4,6 +4,7 @@ import styles from "./styles";
 import Slot from "../../base/slot";
 import { useDispatch, useSelector } from "react-redux";
 import { addSlots, clearSlots } from "../../../redux/slots/slotSlice";
+import { setSelectedSlot, clearSelectedSlot } from "../../../redux/selectedSlot/selectedSlotSlice";
 import axios from "axios";
 
 const Slots = () => {
@@ -118,7 +119,7 @@ const Slots = () => {
 
   const slotPressed = (slot) => {
       if((selectedSlot === null || selectedSlot !== slot) && slot.reserved === false){
-        dispatch(clearSelectedSlot(slot));
+        dispatch(setSelectedSlot(slot));
         console.log('selecteddddddddddddddddddddd')     
       } else {
         dispatch(clearSelectedSlot());
