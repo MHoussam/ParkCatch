@@ -4,7 +4,6 @@ import MapView, { Marker, Polyline } from 'react-native-maps';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import * as Location from 'expo-location';
-// import Geolocation from '@react-native-community/geolocation';
 
 const MapDirections = () => {
   const [error, setError] = useState(null);
@@ -38,34 +37,17 @@ const MapDirections = () => {
     }
   };
 
-  const getCurrentLocation = () => {
-    Geolocation.getCurrentPosition(
-      (position) => {
-        setCurrentLocation({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        });
-      },
-      (error) => {
-        setError(error.message);
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-    );
-  };
-
-async function getLocationAsync() {
-  const { status } = await Location.requestForegroundPermissionsAsync();
-  if (status !== 'granted') {
-    console.error('Permission to access location was denied');
-    return;
+  const getLocationAsync = async () => {
+    const { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== 'granted') {
+      console.error('Permission to access location was denied');
+      return;
+    }
+  
+    const location = await Location.getCurrentPositionAsync({});
+    console.log('User Location:', location.coords);
   }
 
-  const location = await Location.getCurrentPositionAsync({});
-  console.log('User Location:', location.coords);
-}
-
-
-  
   useEffect(() => {
     getLocationAsync();
     fetchDirection();

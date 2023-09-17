@@ -46,9 +46,13 @@ const Map = () => {
       // console.log(axiosConfig.headers)
       const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
-      //console.log(response.data)
+      console.log('data')
+
+      console.log(response.data.data)
       if (Array.isArray(response.data.data)) {
-        if (!parkings || parkings.length === 0) {
+        if (parkings.length === 0) {
+          console.log('parking: aaaaaaa ' +parkings.length )
+          console.log(parkings )
           response.data.data.forEach((item) => {
             const { id,
               name,
@@ -59,7 +63,7 @@ const Map = () => {
               close_hour,
               latitude,
               longitude, } = item;
-
+console.log('1')
             dispatch(addParking({ id,
               name,
               address,
@@ -147,16 +151,19 @@ const Map = () => {
   }, [selectedParking]);
 
   useEffect(() => {
-    dispatch(clearParkings());
     fetchParkings();
     fetchMap();
     dispatch(setUserToken(userToken));
   }, [refresh]);
 
+  useEffect(() => {
+    dispatch(clearParkings());
+  }, []);
+
   // console.log('maybe?')
   // console.log(userToken.token)
   // console.log(userToken)
-  console.log(parkings)
+  // console.log(parkings)
   // console.log('selectedParking')
   // console.log(selectedParking)
   // console.log(location)
