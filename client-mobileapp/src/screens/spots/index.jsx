@@ -15,7 +15,7 @@ const Spots = () => {
   const navigateToReservationInfo = () => {
     console.log('next: ' + selectedSlot);
     console.log(selectedSlot);
-    if(selectedSlot !== null) {
+    if(selectedSlot.id !== null) {
       navigation.navigate('ReservationInfo');
     }
   }
