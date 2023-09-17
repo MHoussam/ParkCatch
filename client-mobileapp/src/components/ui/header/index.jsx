@@ -1,11 +1,17 @@
 import React from 'react';
 import styles from './styles';
-import { Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 
-const Header = () => {
+const Header = ({ ScreenName, ParkingName }) => {
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Spot Reservation</Text>
+        <View style={styles.content}>
+          <Image source={require('../../../../assets/images/back.png')} />
+          <View style={styles.text}>
+            <Text style={styles.title}>{ScreenName}</Text>
+            <Text style={styles.subtitle}>{ParkingName}</Text>
+          </View>
+        </View>
     </View>
   )
 }

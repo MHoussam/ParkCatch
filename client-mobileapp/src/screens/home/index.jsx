@@ -16,7 +16,6 @@ const Home = () => {
   const navigation = useNavigation();
 
   const user = useSelector((state) => state.user);
-
   // const handle = () => {
   //   console.log('This is home')
   //   //console.log(user.token)
@@ -29,7 +28,7 @@ const Home = () => {
       <SearchBar /> 
       <Map />
       {/* <ChatComponent /> */}
-      <Footer /> 
+      <Footer/> 
     </Provider>
   )
 }

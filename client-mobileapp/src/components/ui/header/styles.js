@@ -10,12 +10,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: '100%',
     },
+    content: {
+        flexDirection: 'row',
+        marginLeft: 20,
+        alignItems: 'center',
+    },
+    text: {
+        marginLeft: 15,
+    },
     title: {
         color: '#FFF',
-        fontWeight: 'bold',
-        fontSize: 16,
-        textAlign: 'center',
-    }
+        fontWeight: '800',
+        fontSize: 17,
+    },
+    subtitle: {
+        color: '#FFF',
+        fontWeight: '600',
+        fontSize: 14,
+    },
 });
 
 export default styles;

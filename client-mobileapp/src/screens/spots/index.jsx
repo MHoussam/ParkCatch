@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 const Spots = () => {
   const navigation = useNavigation();
   const selectedSlot = useSelector((state) => state.selectedSlot);
+  const selectedParking = useSelector((state) => state.selectedParking);
 
   const navigateToReservationInfo = () => {
     console.log('next: ' + selectedSlot);
@@ -21,7 +22,7 @@ const Spots = () => {
 
   return (
     <View style={styles.container}>
-      <Header />
+      <Header ScreenName={'Spot Reservation'} ParkingName={selectedParking.name} />
       <Text style={styles.title}>Select a Spot</Text>
       <Slots />
       <TouchableOpacity style={styles.nextButton} onPress={navigateToReservationInfo}>

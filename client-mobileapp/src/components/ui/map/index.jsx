@@ -32,7 +32,7 @@ const Map = () => {
   const [ refresh, setRefresh ] = useState(null);
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTUzNDQzLCJleHAiOjE2OTQ5NTcwNDMsIm5iZiI6MTY5NDk1MzQ0MywianRpIjoibVhIU0Rva3J5NjJaVkhuWCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.gOUnsa9TtX4neN78w_TSngBhAng0h7DweWmOPOZabeE',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTU3MTkyLCJleHAiOjE2OTQ5NjA3OTIsIm5iZiI6MTY5NDk1NzE5MiwianRpIjoic0RaTlVWYlFDSXRmR3ZDaiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.nwpelqx25mgoNeHF2sOk_7ckEkM_r-e1AtRhhuYxPgo',
   }
 
   const fetchParkings = async () => {
@@ -135,7 +135,7 @@ const Map = () => {
     : null;
 
     const refreshNow = () => {
-      setRefresh(TRUE);
+      setRefresh(true);
     }
 
   useEffect(() => {
