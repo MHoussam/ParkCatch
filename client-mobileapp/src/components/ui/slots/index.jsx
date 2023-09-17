@@ -161,7 +161,11 @@ const Slots = () => {
                       }
                       isSelected={selectedSlot === slot}
                       onPress={() => {
-                        setSelectedSlot(slot);
+                        if(selectedSlot === null && slot.reserved === false){
+                          setSelectedSlot(slot);
+                        } else {
+                          setSelectedSlot(null);
+                        }
                       }}
                     />
                   ))}
