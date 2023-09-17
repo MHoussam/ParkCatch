@@ -5,31 +5,39 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 const MapWithDirections = () => {
-  const [directions, setDirections] = useState([]);
   const [error, setError] = useState(null);
   const location = useSelector((state) => state.location.location);
   const selectedParking = useSelector((state) => state.selectedParking);
 
-  useEffect(() => {
+  const origin = { latitude: location.coords.latitude, longitude: location.coords.longitude };
+  const destination = { latitude: selectedParking.latitude, longitude: selectedParking.longitude };
+
+  const [routeCoordinates, setRouteCoordinates] = useState([]);
+
+  const fetchDirection = async () => {
     const apiKey = 'jiEbAXzcDj8ZRhrkfI3EfYjG462gAlrg';
 
-    const origin = `${location.coords.latitude}, ${location.coords.longitude}`;
-    const destination = `${selectedParking.latitude}, ${selectedParking.longitude}`;
-
-    axios
-      .get(
-        `https://www.mapquestapi.com/directions/v2/route?key=${apiKey}&from=${origin}&to=${destination}`
-      )
-      .then((response) => {
-        const route = response.data.route;
-        console.log(response.data.route.directions)
-        setDirections(route);
-      })
-      .catch((error) => {
+    try{
+        const response = await axios.get(
+            `https://www.mapquestapi.com/directions/v2/route?key=${apiKey}&from=${origin.latitude},${origin.longitude}&to=${destination.latitude},${destination.longitude}`
+        );
+        
+        const { legs } = response.data.route;
+        const points = legs[0].maneuvers.map((maneuver) => ({
+            latitude: maneuver.startPoint.lat,
+            longitude: maneuver.startPoint.lng,
+        }));
+        setRouteCoordinates(points);
+        
+    } catch(error) {
         setError(error.message);
-      });
+    };
+  }
+
+  useEffect(() => {
+    fetchDirection();
   }, []);
-  console.log(directions.shapePoints)
+
   return (
     <View style={{ flex: 1 }}>
       <MapView
@@ -50,12 +58,9 @@ const MapWithDirections = () => {
           title="Destination"
         />
 
-        {directions.shapePoints && (
+        {routeCoordinates.length > 0 && (
           <Polyline
-            coordinates={directions.shapePoints.map((point) => ({
-              latitude: point.latLng.lat,
-              longitude: point.latLng.lng,
-            }))}
+            coordinates={routeCoordinates}
             strokeColor="#3498db"
             strokeWidth={3}
           />
