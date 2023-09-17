@@ -28,6 +28,7 @@ const Map = () => {
   const parkings = useSelector((state) => state.parking.parkings);
   const selectedParking = useSelector((state) => state.selectedParking);
   const [ availableNumber, setAvailableNumber ] = useState('');
+  const [ refresh, setRefresh ] = useState(null);
 
   const userToken = {
     token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTQ5ODAwLCJleHAiOjE2OTQ5NTM0MDAsIm5iZiI6MTY5NDk0OTgwMCwianRpIjoidG5VR3ZCYTNDN2hJYjhoYyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.VE8WKs3gDE3EpcbpviuglwBuG-z0WwQE8FmpWcZprsI',
@@ -132,6 +133,10 @@ const Map = () => {
       })
     : null;
 
+    const refreshNow = () => {
+      setRefresh(TRUE);
+    }
+
   useEffect(() => {
     if (selectedParking && selectedParking.id) {
       fetchAvailableNumber();
@@ -141,14 +146,10 @@ const Map = () => {
   }, [selectedParking]);
 
   useEffect(() => {
-    fetchMap();
-  }, []);
-
-  useEffect(() => {
     fetchParkings();
     fetchMap();
     dispatch(setUserToken(userToken));
-  }, []);
+  }, [refresh]);
 
   // console.log('maybe?')
   // console.log(userToken.token)
@@ -242,8 +243,7 @@ const Map = () => {
       </>
       ) : (
         <>
-          <Text style={styles.error} onLayout={fetchMap}>Map is Loading...</Text>
-          {/* {fetchMap()} */}
+          <Text style={styles.error} onLayout={refreshNow}>Map is Loading...</Text>\
         </>
       )}
     </View>
