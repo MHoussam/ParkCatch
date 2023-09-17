@@ -1,15 +1,18 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import styles from './styles';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-const Slot = ({ number, styleContainer, styleTitle }) => {
-
-  // console.log(style)
+const Slot = ({ number, styleContainer, styleTitle, onPress, isSelected }) => {
   return (
-    <View style={styleContainer}>
-        <Text style={styleTitle}>{number}</Text>
-    </View>
-  )
-}
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={[styleContainer, isSelected ? styles.slotContainer : null]}>
+        <Text style={[styleTitle, isSelected ? styles.slotTitle : null]}>
+          {number}
+        </Text>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
 
 export default Slot;

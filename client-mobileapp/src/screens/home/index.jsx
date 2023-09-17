@@ -26,9 +26,9 @@ const Home = () => {
   return (
     <Provider store={store}>
       {/* <WebSocketClient /> */}
-      {/* <SearchBar />  */}
-      {/* <Map /> */}
-      <ChatComponent />
+      <SearchBar /> 
+      <Map />
+      {/* <ChatComponent /> */}
       <Footer /> 
     </Provider>
   )
