@@ -8,6 +8,7 @@ import Signup from './src/screens/signup';
 import Home from './src/screens/home';
 import Spots from './src/screens/spots';
 import ReservationInfo from './src/screens/reservationInfo';
+import Directions from './src/screens/directions';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export default function App() {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Spots" component={Spots} />
           <Stack.Screen name="ReservationInfo" component={ReservationInfo} />
+          <Stack.Screen name="Directions" component={Directions} />
         </Stack.Navigator>
        </NavigationContainer> 
     </Provider>

@@ -5,6 +5,7 @@ import Footer from '../../components/ui/footer';
 import styles from './styles';
 import { useSelector } from 'react-redux';
 import Map from '../../components/ui/map';
+import Button from '../../components/base/button';
 
 const ReservationInfo = () => {
     const selectedParking = useSelector((state) => state.selectedParking);
@@ -13,9 +14,7 @@ const ReservationInfo = () => {
     <View style={styles.container}>
         <Header ScreenName={'Reservation Info'} ParkingName={selectedParking.name} />
         {/* <Map /> */}
-        <TouchableOpacity style={styles.nextButton} >
-          <Text style={styles.buttonText}>Proceed to Payment</Text>
-        </TouchableOpacity>
+        <Button text={'Proceed to Payment'} navigate={'Directions'}/>
         <Footer />
     </View>
   )

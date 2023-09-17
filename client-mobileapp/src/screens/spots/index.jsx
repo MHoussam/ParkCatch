@@ -6,28 +6,18 @@ import Header from '../../components/ui/header';
 import Footer from '../../components/ui/footer';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import Button from '../../components/base/button';
 
 const Spots = () => {
-  const navigation = useNavigation();
   const selectedSlot = useSelector((state) => state.selectedSlot);
   const selectedParking = useSelector((state) => state.selectedParking);
-
-  const navigateToReservationInfo = () => {
-    console.log('next: ' + selectedSlot);
-    console.log(selectedSlot);
-    if(selectedSlot.id !== null) {
-      navigation.navigate('ReservationInfo');
-    }
-  }
 
   return (
     <View style={styles.container}>
       <Header ScreenName={'Spot Reservation'} ParkingName={selectedParking.name} />
       <Text style={styles.title}>Select a Spot</Text>
       <Slots />
-      <TouchableOpacity style={styles.nextButton} onPress={navigateToReservationInfo}>
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
+      <Button text={'Next'} navigate={'ReservationInfo'} />
       <Footer />
     </View>
   )
