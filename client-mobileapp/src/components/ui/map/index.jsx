@@ -21,7 +21,7 @@ import WebSocketClient from '../../WebSocketClient';
 
 const Map = () => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();  
+  const navigation = useNavigation();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
   //const userToken = useSelector((state) => state.user.token);
@@ -30,7 +30,7 @@ const Map = () => {
   const [ availableNumber, setAvailableNumber ] = useState('');
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTEzNjI5LCJleHAiOjE2OTQ5MTcyMjksIm5iZiI6MTY5NDkxMzYyOSwianRpIjoid2M5VVZNd3d1UVQxeFl0TiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.QNRjMx_CfcN5EaK9CJUmDHe-wlC2QlHIQR9U9mgpSHE',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTQ5ODAwLCJleHAiOjE2OTQ5NTM0MDAsIm5iZiI6MTY5NDk0OTgwMCwianRpIjoidG5VR3ZCYTNDN2hJYjhoYyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.VE8WKs3gDE3EpcbpviuglwBuG-z0WwQE8FmpWcZprsI',
   }
 
   const fetchParkings = async () => {

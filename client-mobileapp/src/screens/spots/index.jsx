@@ -5,14 +5,15 @@ import Slots from '../../components/ui/slots';
 import Header from '../../components/ui/header';
 import Footer from '../../components/ui/footer';
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 const Spots = () => {
   const navigation = useNavigation();
-  const selectedSlot = useSelector((stat) => state.slots);
+  const selectedSlot = useSelector((state) => state.slots);
 
   const navigateToReservationInfo = () => {
     if(selectedSlot !== null) {
-      navigation.navigate('reservationInfo');
+      navigation.navigate('ReservationInfo');
     }
   }
 
