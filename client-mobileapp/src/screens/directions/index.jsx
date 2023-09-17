@@ -1,5 +1,5 @@
 import React from 'react';
-// import style from './styles';
+import styles from './styles';
 import Map from '../../components/ui/map';
 import { View } from 'react-native';
 import Header from '../../components/ui/header';
@@ -9,10 +9,10 @@ const Directions = () => {
     const selectedParking = useSelector((state) => state.selectedParking);
 
   return (
-    <View>
-        <Header ScreenName={'Directions'} ParkingName={selectedParking.name}/>
-        <Map />
-        <Footer />
+    <View style={styles.container}>
+        {/* <Header ScreenName={'Directions'} ParkingName={selectedParking.name}/> */}
+        {/* <Map /> */}
+        {/* <Footer /> */}
     </View>
   )
 }
