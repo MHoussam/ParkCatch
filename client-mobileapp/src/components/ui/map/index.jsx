@@ -108,12 +108,6 @@ const Map = () => {
     navigation.navigate('Spots')
   };
 
-  useEffect(() => {
-    fetchParkings();
-    fetchMap();
-    dispatch(setUserToken(userToken));
-  }, []);
-
   const fetchAvailableNumber = async () => {
     try {
       const dataForm = {
@@ -130,13 +124,13 @@ const Map = () => {
   }
 
   const calculatedDistance = location
-  ? Distance({
-      lat1: location.coords.latitude,
-      lon1: location.coords.longitude,
-      lat2: selectedParking.latitude,
-      lon2: selectedParking.longitude,
-    })
-  : null;
+    ? Distance({
+        lat1: location.coords.latitude,
+        lon1: location.coords.longitude,
+        lat2: selectedParking.latitude,
+        lon2: selectedParking.longitude,
+      })
+    : null;
 
   useEffect(() => {
     if (selectedParking && selectedParking.id) {
@@ -145,6 +139,16 @@ const Map = () => {
       setAvailableNumber(null);
     }
   }, [selectedParking]);
+
+  useEffect(() => {
+    fetchMap();
+  }, []);
+
+  useEffect(() => {
+    fetchParkings();
+    fetchMap();
+    dispatch(setUserToken(userToken));
+  }, []);
 
   // console.log('maybe?')
   // console.log(userToken.token)
@@ -238,7 +242,7 @@ const Map = () => {
       </>
       ) : (
         <>
-          <Text style={styles.error}>Map is Loading...</Text>
+          <Text style={styles.error} onLayout={fetchMap}>Map is Loading...</Text>
           {/* {fetchMap()} */}
         </>
       )}

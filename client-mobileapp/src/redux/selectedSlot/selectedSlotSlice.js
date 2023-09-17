@@ -8,6 +8,7 @@ const initialState = {
   reason: null,
   x_coordinate: null,
   y_coordinate: null,
+  reserved: null,
 };
 
 const selectedSlotSlice = createSlice({
@@ -22,6 +23,7 @@ const selectedSlotSlice = createSlice({
         state.reason = action.payload.reason;
         state.x_coordinate = action.payload.x_coordinate;
         state.y_coordinate = action.payload.y_coordinate;
+        state.reserved = action.payload.reserved;
     },
     clearSelectedSlot: (state) => {
         state.id = null;
@@ -31,6 +33,7 @@ const selectedSlotSlice = createSlice({
         state.reason = null;
         state.x_coordinate = null;
         state.y_coordinate = null;
+        state.reserved = null;
     },
   },
 });

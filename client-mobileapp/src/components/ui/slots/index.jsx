@@ -120,7 +120,8 @@ const Slots = () => {
   const slotPressed = (slot) => {
       if((selectedSlot === null || selectedSlot !== slot) && slot.reserved === false){
         dispatch(setSelectedSlot(slot));
-        console.log('selecteddddddddddddddddddddd')     
+        console.log(selectedSlot)     
+        console.log(slot)     
       } else {
         dispatch(clearSelectedSlot());
         console.log('notttttttttttttttttt')
