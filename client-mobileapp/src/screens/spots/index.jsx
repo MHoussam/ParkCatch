@@ -12,7 +12,7 @@ const Spots = () => {
 
   const navigateToReservationInfo = () => {
     if(selectedSlot !== null) {
-      navigation.navigate('ReservationInfo');
+      navigation.navigate('reservationInfo');
     }
   }
 
