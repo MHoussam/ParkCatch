@@ -118,10 +118,12 @@ const Slots = () => {
   };
 
   const slotPressed = (slot) => {
-      if((selectedSlot === null || selectedSlot !== slot) && slot.reserved === false){
+      if((selectedSlot === null || selectedSlot.id !== slot.id) && slot.reserved === false){
         dispatch(setSelectedSlot(slot));
-        console.log(selectedSlot)     
-        console.log(slot)     
+        console.log(selectedSlot) 
+        console.log('sele:')    
+        console.log(slot);
+        console.log(selectedSlot.id != slot.id)
       } else {
         dispatch(clearSelectedSlot());
         console.log('notttttttttttttttttt')
@@ -133,6 +135,7 @@ const Slots = () => {
     console.log("effect");
     return () => {
       dispatch(clearSlots());
+      dispatch(clearSelectedSlot());
     };
   }, []);
 
@@ -175,7 +178,7 @@ const Slots = () => {
                           ? styles.reservedTitle
                           : styles.availableTitle
                       }
-                      isSelected={selectedSlot === slot}
+                      isSelected={selectedSlot.id === slot.id}
                       onPress={() => slotPressed(slot)}
                     />
                   ))}

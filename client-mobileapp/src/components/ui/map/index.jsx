@@ -16,6 +16,7 @@ import Distance from '../../base/distance';
 import { useNavigation } from '@react-navigation/native';
 import { setUser, setUserToken } from "../../../redux/user/userSlice";
 import { setSelectedParking, clearSelectedParking } from "../../../redux/selectedParking/selectedParkingSlice";
+import { setSelectedSlot, clearSelectedSlot } from "../../../redux/selectedSlot/selectedSlotSlice";
 import WebSocketClient from '../../WebSocketClient';
 
 
@@ -31,7 +32,7 @@ const Map = () => {
   const [ refresh, setRefresh ] = useState(null);
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTQ5ODAwLCJleHAiOjE2OTQ5NTM0MDAsIm5iZiI6MTY5NDk0OTgwMCwianRpIjoidG5VR3ZCYTNDN2hJYjhoYyIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.VE8WKs3gDE3EpcbpviuglwBuG-z0WwQE8FmpWcZprsI',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTUzNDQzLCJleHAiOjE2OTQ5NTcwNDMsIm5iZiI6MTY5NDk1MzQ0MywianRpIjoibVhIU0Rva3J5NjJaVkhuWCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.gOUnsa9TtX4neN78w_TSngBhAng0h7DweWmOPOZabeE',
   }
 
   const fetchParkings = async () => {
@@ -243,7 +244,7 @@ const Map = () => {
       </>
       ) : (
         <>
-          <Text style={styles.error} onLayout={refreshNow}>Map is Loading...</Text>\
+          <Text style={styles.error} onLayout={refreshNow}>Map is Loading...</Text>
         </>
       )}
     </View>
