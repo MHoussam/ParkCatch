@@ -32,7 +32,7 @@ const Map = () => {
   const [ refresh, setRefresh ] = useState(null);
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTYwODk5LCJleHAiOjE2OTQ5NjQ0OTksIm5iZiI6MTY5NDk2MDg5OSwianRpIjoiVkNUNVkwVjZBR2c3YVJvWSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-_j3GZYI62p3KFKdcaF_TjdeGORF6-XeLBHIBqp7uIQ',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTY0NTI2LCJleHAiOjE2OTQ5NjgxMjYsIm5iZiI6MTY5NDk2NDUyNiwianRpIjoiNUZSSUg3dnV4U3pHM0wyUSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.JXppSDwGOEd6SCncUJ_ni1vkb4E-9J3i6WvbK4nXOa4',
   }
 
   const fetchParkings = async () => {
