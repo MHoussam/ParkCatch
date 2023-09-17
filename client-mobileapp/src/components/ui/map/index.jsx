@@ -32,7 +32,7 @@ const Map = () => {
   const [ refresh, setRefresh ] = useState(null);
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTc1ODY1LCJleHAiOjE2OTQ5Nzk0NjUsIm5iZiI6MTY5NDk3NTg2NSwianRpIjoiRUdUbUZQWEtWRzdNaHRKdiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.wGOcHTsW3Xp4njGycQb15OIb-QwasvzpklgILQKG-98',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0OTgwMDUxLCJleHAiOjE2OTQ5ODM2NTEsIm5iZiI6MTY5NDk4MDA1MSwianRpIjoiajU4STg1S3h4c29xM2pXeSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.4B7M4ac9ImZgcB81y8knCfUNwyz8RuvBUC1wiv9muyc',
   }
 
   const fetchParkings = async () => {
@@ -156,9 +156,9 @@ console.log('1')
     dispatch(setUserToken(userToken));
   }, [refresh]);
 
-  useEffect(() => {
-    dispatch(clearParkings());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(clearParkings());
+  // }, []);
 
   // console.log('maybe?')
   // console.log(userToken.token)

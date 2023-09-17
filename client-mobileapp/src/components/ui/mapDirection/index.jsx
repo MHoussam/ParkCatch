@@ -10,12 +10,10 @@ const MapDirections = () => {
   const selectedParking = useSelector((state) => state.selectedParking);
 
   const [routeCoordinates, setRouteCoordinates] = useState([]);
-  const [currentLocation, setCurrentLocation] = useState(null);
-
-  const origin = currentLocation || selectedParking; 
+  const [currentLocation, setCurrentLocation] = useState([]);
 
   const fetchDirection = async () => {
-    if (!origin) {
+    if (!currentLocation) {
       return;
     }
 
@@ -23,14 +21,16 @@ const MapDirections = () => {
 
     try {
       const response = await axios.get(
-        `https://www.mapquestapi.com/directions/v2/route?key=${apiKey}&from=${origin.latitude},${origin.longitude}&to=${selectedParking.latitude},${selectedParking.longitude}`
+        `https://www.mapquestapi.com/directions/v2/route?key=${apiKey}&from=${currentLocation.latitude},${currentLocation.longitude}&to=${selectedParking.latitude},${selectedParking.longitude}`
       );
 
       const { legs } = response.data.route;
+    //   console.log(response.data.route.legs[0].maneuvers[0].startPoint.lat)
       const points = legs[0].maneuvers.map((maneuver) => ({
         latitude: maneuver.startPoint.lat,
         longitude: maneuver.startPoint.lng,
       }));
+    //   console.log(points)
       setRouteCoordinates(points);
     } catch (error) {
       setError(error.message);
@@ -45,43 +45,53 @@ const MapDirections = () => {
     }
   
     const location = await Location.getCurrentPositionAsync({});
-    console.log('User Location:', location.coords);
+    console.log(location.coords.latitude+' '+ location.coords.longitude)
+    setCurrentLocation({
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+    });
   }
 
   useEffect(() => {
     getLocationAsync();
     fetchDirection();
-  }, []);
 
-  useEffect(() => {
     const locationInterval = setInterval(() => {
-        getLocationAsync();
+      getLocationAsync();
+      fetchDirection();
     }, 5000);
 
     return () => {
-      clearInterval(locationInterval);
+    clearInterval(locationInterval);
     };
   }, []);
-
+console.log('what')
+console.log(routeCoordinates)
   return (
     <View style={{ flex: 1 }}>
       <MapView
         style={{ flex: 1 }}
         initialRegion={{
-          latitude: origin ? origin.latitude : 0,
-          longitude: origin ? origin.longitude : 0,
+          latitude: currentLocation.latitude,
+          longitude: currentLocation.longitude,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
       >
-        {origin && (
+        {currentLocation && (
           <Marker
-            coordinate={{ latitude: origin.latitude, longitude: origin.longitude }}
+            coordinate={{
+              latitude: currentLocation.latitude,
+              longitude: currentLocation.longitude,
+            }}
             title="Origin"
           />
         )}
         <Marker
-          coordinate={{ latitude: selectedParking.latitude, longitude: selectedParking.longitude }}
+          coordinate={{
+            latitude: selectedParking.latitude,
+            longitude: selectedParking.longitude,
+          }}
           title="Destination"
         />
 
