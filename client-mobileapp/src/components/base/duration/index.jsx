@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 import Slider from '@react-native-community/slider'
+import styles from './styles'
 
 const Duration = ({ styleText }) => {
     const [sliderValue, setSliderValue] = useState(2); 
@@ -12,8 +13,9 @@ const Duration = ({ styleText }) => {
   return (
     <View>
         <Text style={styleText}>Choose the Duration</Text>
+        <Text style={styles.selectedValue}>{sliderValue} hrs</Text>
         <Slider
-            style={{ width: 350, marginTop: 15, marginLeft: -15 }}
+            style={styles.slider}
             minimumValue={1}
             maximumValue={10}
             step={1}
