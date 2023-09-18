@@ -45,7 +45,7 @@ const MapDirections = () => {
     }
   
     const location = await Location.getCurrentPositionAsync({});
-    console.log(location.coords.latitude+' '+ location.coords.longitude)
+    // console.log(location.coords.latitude+' '+ location.coords.longitude)
     setCurrentLocation({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
@@ -69,7 +69,7 @@ console.log('what')
 console.log(routeCoordinates)
   return (
     <View style={{ flex: 1 }}>
-      <MapView
+      {/* <MapView
         style={{ flex: 1 }}
         initialRegion={{
           latitude: currentLocation.latitude,
@@ -77,8 +77,8 @@ console.log(routeCoordinates)
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-      >
-        {currentLocation && (
+      > */}
+         {/* {currentLocation && (
           <Marker
             coordinate={{
               latitude: currentLocation.latitude,
@@ -93,18 +93,19 @@ console.log(routeCoordinates)
             longitude: selectedParking.longitude,
           }}
           title="Destination"
-        />
+        /> */}
 
-        {routeCoordinates.length > 0 && (
+        {/* {routeCoordinates.length > 0 && (
           <Polyline
             coordinates={routeCoordinates}
             strokeColor="#3498db"
             strokeWidth={3}
           />
-        )}
-      </MapView>
+        )}  */}
+      {/* </MapView> */}
 
-      {error && <Text>Error: {error}</Text>}
+      {/* {error && <Text>Error: {error}</Text>} */}
+      <Text>hELLOOOOOOOO</Text>
     </View>
   );
 };

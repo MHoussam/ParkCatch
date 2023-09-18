@@ -13,7 +13,7 @@ const ReservationInfo = () => {
   return (
     <View style={styles.container}>
         <Header ScreenName={'Reservation Info'} ParkingName={selectedParking.name} />
-        {/* <Map /> */}
+        <InfoForm />
         <Button text={'Proceed to Payment'} navigate={'Directions'}/>
         <Footer />
     </View>
