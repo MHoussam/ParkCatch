@@ -6,7 +6,7 @@ import styles from './styles'
 const InfoForm = () => {
   return (
     <View style={styles.container}>
-        <Duration style={styles.title}/>
+        <Duration styleText={styles.title}/>
     </View>
   )
 }
