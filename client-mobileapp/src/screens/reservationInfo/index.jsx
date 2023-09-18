@@ -6,6 +6,7 @@ import styles from './styles';
 import { useSelector } from 'react-redux';
 import Map from '../../components/ui/map';
 import Button from '../../components/base/button';
+import InfoForm from '../../components/ui/infoForm';
 
 const ReservationInfo = () => {
     const selectedParking = useSelector((state) => state.selectedParking);
