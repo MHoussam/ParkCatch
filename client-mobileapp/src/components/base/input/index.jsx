@@ -8,8 +8,11 @@ const Input = ({ styleText, text, label, type }) => {
   const dispatch = useDispatch();
 
   const handleInputChange = (value) => {
-    console.log('show: ' + value)
-    dispatch(setReservation({[label]: value}));
+    if(type) {
+      const replacedValue = value.replace(/[^0-9]/g, '');
+      const correctedValue = parseInt(replacedValue, 10);
+      dispatch(setReservation({ [label]: correctedValue }));
+    } 
   }
 
   const keyboardType = type ? 'numeric' : 'default';
