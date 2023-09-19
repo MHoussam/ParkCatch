@@ -51,14 +51,14 @@ const styles = StyleSheet.create({
     available: {
       borderRadius: 10,
       backgroundColor: '#E0E5F6',
-      width: 60,
+      width: 62,
       height: 26,
       justifyContent: 'center',
   },
   reserved: {
     borderRadius: 10,
     backgroundColor: '#707070',
-    width: 60,
+    width: 62,
     height: 26,
     justifyContent: 'center',
   },
