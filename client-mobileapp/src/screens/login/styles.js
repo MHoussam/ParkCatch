@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
       position: 'absolute',
       alignContent: 'center',
       justifyContent: 'center',
-      // top: 10,
+      top: 7,
       right: 10,
     },
     passwordInput: {
