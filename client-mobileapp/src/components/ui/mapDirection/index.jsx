@@ -4,6 +4,7 @@ import MapView, { Marker, Polyline } from 'react-native-maps';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import * as Location from 'expo-location';
+import styles from './styles';
 
 const MapDirections = () => {
   const [error, setError] = useState(null);
@@ -11,18 +12,28 @@ const MapDirections = () => {
 
   const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [currentLocation, setCurrentLocation] = useState([]);
+  const [ refresh, setRefresh ] = useState(null);  
 
   const fetchDirection = async () => {
-    if (!currentLocation) {
+    console.log('currenttttttttttttttttttt')
+console.log(currentLocation)
+    if (currentLocation.length == 0) {
+      console.log('shuuuuuuuuuuuuuu')
+      // console.log('shuuuuuuuuuuuuuu')
+
+      // getLocationAsync();
       return;
     }
+    // console.log('lehhhhhhhh')
 
     const apiKey = 'jiEbAXzcDj8ZRhrkfI3EfYjG462gAlrg';
-
+    
     try {
       const response = await axios.get(
         `https://www.mapquestapi.com/directions/v2/route?key=${apiKey}&from=${currentLocation.latitude},${currentLocation.longitude}&to=${selectedParking.latitude},${selectedParking.longitude}`
       );
+      // console.log('sahhh')
+      // console.log(response.data)
 
       const { legs } = response.data.route;
     //   console.log(response.data.route.legs[0].maneuvers[0].startPoint.lat)
@@ -30,7 +41,8 @@ const MapDirections = () => {
         latitude: maneuver.startPoint.lat,
         longitude: maneuver.startPoint.lng,
       }));
-    //   console.log(points)
+      // console.log('points')
+      // console.log(points)
       setRouteCoordinates(points);
     } catch (error) {
       setError(error.message);
@@ -45,31 +57,43 @@ const MapDirections = () => {
     }
   
     const location = await Location.getCurrentPositionAsync({});
-    // console.log(location.coords.latitude+' '+ location.coords.longitude)
+    console.log(location.coords.latitude + ' ' + location.coords.longitude)
     setCurrentLocation({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
     });
   }
 
+  const refreshNow = () => {
+    setRefresh(true);
+  }
+  
   useEffect(() => {
     getLocationAsync();
-    fetchDirection();
+  }, []);
 
+  useEffect(() => {
     const locationInterval = setInterval(() => {
       getLocationAsync();
       fetchDirection();
     }, 5000);
-
+  
     return () => {
-    clearInterval(locationInterval);
+      clearInterval(locationInterval);
     };
-  }, []);
-console.log('what')
-console.log(routeCoordinates)
+  }, [currentLocation, refresh]);
+console.log('route')
+console.log(routeCoordinates[0])
+console.log(currentLocation)
+
+// console.log('current')
+// console.log(currentLocation)
+// console.log('selectedParking')
+// console.log(selectedParking.latitude + ' ' + selectedParking.longitude)
   return (
     <View style={{ flex: 1 }}>
-      {/* <MapView
+      {currentLocation && routeCoordinates.length>0 ? (
+        <MapView
         style={{ flex: 1 }}
         initialRegion={{
           latitude: currentLocation.latitude,
@@ -77,35 +101,40 @@ console.log(routeCoordinates)
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-      > */}
-         {/* {currentLocation && (
-          <Marker
-            coordinate={{
-              latitude: currentLocation.latitude,
-              longitude: currentLocation.longitude,
-            }}
-            title="Origin"
-          />
+      >
+        {currentLocation && (
+         <Marker
+           coordinate={{
+             latitude: currentLocation.latitude,
+             longitude: currentLocation.longitude,
+           }}
+           title="Origin"
+         />
+       )}
+       <Marker
+         coordinate={{
+           latitude: selectedParking.latitude,
+           longitude: selectedParking.longitude,
+         }}
+         title="Destination"
+       /> 
+
+        {routeCoordinates.length > 0 && (
+         <Polyline
+           coordinates={routeCoordinates}
+           strokeColor="#3498db"
+           strokeWidth={3}
+         />
+       )} 
+     </MapView>
+        ) : (
+          <>
+            <Text style={styles.error} onLayout={refreshNow}>Map is Loading...</Text>
+          </>
         )}
-        <Marker
-          coordinate={{
-            latitude: selectedParking.latitude,
-            longitude: selectedParking.longitude,
-          }}
-          title="Destination"
-        /> */}
-
-        {/* {routeCoordinates.length > 0 && (
-          <Polyline
-            coordinates={routeCoordinates}
-            strokeColor="#3498db"
-            strokeWidth={3}
-          />
-        )}  */}
-      {/* </MapView> */}
-
-      {/* {error && <Text>Error: {error}</Text>} */}
-      <Text>hELLOOOOOOOO</Text>
+  
+        {/* {error && <Text>Error: {error}</Text>} */}
+        {/* <Text>hELLOOOOOOOO</Text> */}
     </View>
   );
 };

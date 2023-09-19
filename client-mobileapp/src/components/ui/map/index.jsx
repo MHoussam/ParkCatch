@@ -32,7 +32,7 @@ const Map = () => {
   const [ refresh, setRefresh ] = useState(null);
 
   const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MDMzNjk3LCJleHAiOjE2OTUwMzcyOTcsIm5iZiI6MTY5NTAzMzY5NywianRpIjoiN2EzdWFKdVhZTjY0TTVJeSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.qspk_dl080ypTxzE6V8HNgjoDtLaviKCs2qO9X1n1TU',
+    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTI0MTEyLCJleHAiOjE2OTUxMjc3MTIsIm5iZiI6MTY5NTEyNDExMiwianRpIjoiVFlOeTRvcTJEVmNHNlhlTSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.rA4vZ2w5O3TxSKB3-pnu6hZB_DBo5U_KuzRL_jmTxas',
   }
 
   const fetchParkings = async () => {
