@@ -46,7 +46,11 @@ console.log(user)
                 <Info styleText={styles.info} text={selectedSlot.name} />
             </View>
         </View>
-        
+        <View style={styles.row}>
+                <Info styleText={styles.subtitle} text={'Plate Number'} />
+                <Info styleText={styles.info} text={'2'} />
+            
+        </View>
     </View>
   )
 }
