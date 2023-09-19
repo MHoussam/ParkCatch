@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   client: null,
-  phone: null,
+  phone: '',
   parking: null,
   location: null,
   duration: 2,
   spotNumber: null,
-  plateNumber: null,
+  plateNumber: '',
   total: null,
 };
 
@@ -36,12 +36,12 @@ const reservationSlice = createSlice({
     clearReservation: (state) => {
       console.log('clearReservation action called');
         state.client = null;
-        state.phone = null;
+        state.phone = '';
         state.parking = null;
         state.location = null;
         state.duration = 2;
         state.spotNumber = null;
-        state.plateNumber = null;
+        state.plateNumber = '';
         state.total = null;
     },
   },
