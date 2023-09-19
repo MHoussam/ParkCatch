@@ -43,8 +43,12 @@ const Login = () => {
       dispatch(setUserToken(userToken));
       //console.log({user})
 
-      if(response.data.data.token !== null) {
-        console.log(response.data.data.token)
+      if (response.data.data.token !== null) {
+        console.log(response.data.data.token);
+  
+        await AsyncStorage.setItem('userData', JSON.stringify(userData));
+        await AsyncStorage.setItem('userToken', response.data.data.token);
+  
         navigation.navigate('Home');
       }
     } catch (error) {
