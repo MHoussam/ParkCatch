@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import Map from '../../components/ui/map';
 import Button from '../../components/base/button';
 import InfoForm from '../../components/ui/infoForm';
+import Summary from '../../components/ui/summary';
 
 const ReservationInfo = () => {
     const selectedParking = useSelector((state) => state.selectedParking);
@@ -15,6 +16,7 @@ const ReservationInfo = () => {
     <View style={styles.container}>
         <Header ScreenName={'Reservation Info'} ParkingName={selectedParking.name} />
         <InfoForm />
+        <Summary />
         <Button text={'Proceed to Payment'} navigate={'Directions'}/>
         <Footer />
     </View>
