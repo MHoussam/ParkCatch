@@ -91,10 +91,10 @@ console.log(currentLocation)
 // console.log('selectedParking')
 // console.log(selectedParking.latitude + ' ' + selectedParking.longitude)
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       {currentLocation && routeCoordinates.length>0 ? (
         <MapView
-        style={{ flex: 1 }}
+        style={styles.map}
         initialRegion={{
           latitude: currentLocation.latitude,
           longitude: currentLocation.longitude,
