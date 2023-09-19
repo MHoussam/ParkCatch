@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
     },
+    row: {
+        flexDirection: 'row',
+    },
 });
     
 export default styles;
