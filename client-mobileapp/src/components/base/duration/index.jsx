@@ -7,22 +7,24 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const Duration = ({ styleText }) => {
     const dispatch = useDispatch();
+    const [sliderValue, setSliderValue] = useState(2);
     const reservation = useSelector((state) => state.reservation);
 
     const handleSliderChange = (value) => {
+      setSliderValue(value)
       dispatch(setReservation({duration: value}));
     }
 
   return (
     <View>
         <Text style={styleText}>Choose the Duration</Text>
-        <Text style={styles.selectedValue}>{reservation.duration} hrs</Text>
+        <Text style={styles.selectedValue}>{sliderValue} hrs</Text>
         <Slider
             style={styles.slider}
             minimumValue={1}
             maximumValue={10}
             step={1}
-            value={reservation.duration} 
+            value={sliderValue} 
             onValueChange={handleSliderChange}
             minimumTrackTintColor="#DCB010" 
             maximumTrackTintColor="#DEB010" 
