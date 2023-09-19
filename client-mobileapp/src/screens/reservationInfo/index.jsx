@@ -18,10 +18,6 @@ const ReservationInfo = () => {
   const [inputs, setInputs] = useState({duration: 2, phone: '', plateNumber: ''})
   const dispatch = useDispatch();
 
-  // console.log('Current Reservation State:', reservation);
-
-  // clearReservation();
-  console.log('hereeeeeee')
   dispatch(
     setReservation({
       client: user.firstname + " " + user.lastname,
@@ -33,15 +29,9 @@ const ReservationInfo = () => {
       plateNumber: reservation.plateNumber || '',
       total: parseInt(reservation.duration) * selectedParking.price,
     })
-  );
+  ); 
 
   useEffect(() => {
-    // clearReservation();
-    console.log('duration: ' + reservation.duration)
-      console.log('plate: ' + reservation.plateNumber)
-      console.log('phone: ' + reservation.phone)
-      console.log('client: ' + reservation.client)
-
     dispatch(
       setReservation({
         duration: reservation.duration,
@@ -52,10 +42,7 @@ const ReservationInfo = () => {
   }, [reservation.duration, reservation.plateNumber, reservation.phone]);
 
   useEffect(() => {
-    // fetchSpots();
-    // console.log("effect");
     return () => {
-      // dispatch(clearSlots());
       dispatch(clearReservation());
     };
   }, []);
