@@ -25,7 +25,6 @@ const Duration = ({ styleText }) => {
             maximumTrackTintColor="#DEB010" 
             thumbTintColor="#DCB010"
         />
-        <Text style={styleText}>Choose the Duration</Text>
     </View>
   )
 }
