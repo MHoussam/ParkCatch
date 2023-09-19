@@ -5,7 +5,7 @@ const initialState = {
   phone: null,
   parking: null,
   location: null,
-  duration: null,
+  duration: 2,
   spotNumber: null,
   plateNumber: null,
   total: null,

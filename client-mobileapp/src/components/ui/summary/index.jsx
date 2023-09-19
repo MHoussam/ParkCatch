@@ -8,7 +8,12 @@ const Summary = () => {
     const user = useSelector((state) => state.user);
     const selectedParking = useSelector((state) => state.selectedParking);
     const selectedSlot = useSelector((state) => state.selectedSlot);
-console.log(user)
+    const reservation = useSelector((state) => state.reservation);
+
+    console.log(reservation)
+    console.log(reservation.duration)
+
+// console.log(user)
 
   return (
     <View style={styles.container}>
@@ -38,7 +43,7 @@ console.log(user)
         <View style={styles.row}>
             <View style={styles.leftContent}>
                 <Info styleText={styles.subtitle} text={'Duration'} />
-                <Info styleText={styles.info} text={'2'} />
+                <Info styleText={styles.info} text={reservation.duration} />
             </View>
             <View>
                 <Info styleText={styles.subtitle} text={'Spot Number'} />

@@ -3,27 +3,26 @@ import { Text, View } from 'react-native'
 import Slider from '@react-native-community/slider'
 import styles from './styles'
 import { setReservation } from '../../../redux/reservation/reservationSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Duration = ({ styleText }) => {
-    const [sliderValue, setSliderValue] = useState(2); 
     const dispatch = useDispatch();
+    const reservation = useSelector((state) => state.reservation);
 
     const handleSliderChange = (value) => {
-        setSliderValue(value);
-        dispatch(setReservation(value));
+      dispatch(setReservation({duration: value}));
     }
 
   return (
     <View>
         <Text style={styleText}>Choose the Duration</Text>
-        <Text style={styles.selectedValue}>{sliderValue} hrs</Text>
+        <Text style={styles.selectedValue}>{reservation.duration} hrs</Text>
         <Slider
             style={styles.slider}
             minimumValue={1}
             maximumValue={10}
             step={1}
-            value={sliderValue} 
+            value={reservation.duration} 
             onValueChange={handleSliderChange}
             minimumTrackTintColor="#DCB010" 
             maximumTrackTintColor="#DEB010" 
