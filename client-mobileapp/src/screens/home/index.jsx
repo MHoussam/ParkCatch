@@ -11,16 +11,25 @@ import Header from '../../components/ui/header';
 import SearchBar from '../../components/base/searchbar';
 import WebSocketClient from '../../components/WebSocketClient';
 import ChatComponent from '../../components/ui/chat';
+import { AsyncStorage } from 'react-native';
 
 const Home = () => {
-  const navigation = useNavigation();
-
-  const user = useSelector((state) => state.user);
-  // const handle = () => {
-  //   console.log('This is home')
-  //   //console.log(user.token)
-  //   navigation.navigate('Home');
-  // }
+  
+  const loadUserData = async () => {
+    try {
+      const userData = await AsyncStorage.getItem('userData');
+      const userToken = await AsyncStorage.getItem('userToken');
+  
+      if (userData !== null && userToken !== null) {
+        const parsedUserData = JSON.parse(userData);
+  
+        dispatch(setUser(parsedUserData));
+        dispatch(setUserToken(userToken));
+      }
+    } catch (error) {
+      console.error('Error loading user data', error);
+    }
+  };
 
   return (
     <Provider store={store}>
