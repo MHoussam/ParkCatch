@@ -37,12 +37,14 @@ console.log(user)
         </View>
         
         <View style={styles.row}>
+            <View style={styles.leftContent}>
                 <Info styleText={styles.subtitle} text={'Duration'} />
                 <Info styleText={styles.info} text={'2'} />
-            
+            </View>
+            <View>
                 <Info styleText={styles.subtitle} text={'Spot Number'} />
                 <Info styleText={styles.info} text={selectedSlot.name} />
-            
+            </View>
         </View>
         
     </View>
