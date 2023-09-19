@@ -25,15 +25,11 @@ const Map = () => {
   const navigation = useNavigation();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
-  //const userToken = useSelector((state) => state.user.token);
+  const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const selectedParking = useSelector((state) => state.selectedParking);
   const [ availableNumber, setAvailableNumber ] = useState('');
   const [ refresh, setRefresh ] = useState(null);
-
-  const userToken = {
-    token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTY1NTc4LCJleHAiOjE2OTUxNjkxNzgsIm5iZiI6MTY5NTE2NTU3OCwianRpIjoiWGVHV0hVdXpxdTF1dWhGRCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Y-YaIiH17_yF94x44dDkp_XfRMGIEJ-8Rr_JkF3H8v0',
-  }
 
   const fetchParkings = async () => {
     try{
