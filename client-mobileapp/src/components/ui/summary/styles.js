@@ -4,14 +4,20 @@ const styles = StyleSheet.create({
     container: {
         // flex:1,
         // alignItems: 'flex-start',
-        borderWidth: 1,
         width: '90%',
         marginTop: 20,
     },
     title: {
         fontWeight: 'bold',
         fontSize: 16,
-    }
+        marginBottom: 10,
+    },
+    subtitle: {
+        color: '#848484',
+        fontSize: 14,
+        fontWeight: '600',
+    },
+    
 });
     
 export default styles;
