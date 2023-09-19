@@ -50,6 +50,9 @@ console.log(user)
                 <Info styleText={styles.subtitle} text={'Plate Number'} />
                 <Info styleText={styles.info} text={'2'} />
             
+                <Info styleText={styles.subtitle} text={'Total'} />
+                <Info styleText={styles.info} text={selectedSlot.name} />
+            
         </View>
     </View>
   )
