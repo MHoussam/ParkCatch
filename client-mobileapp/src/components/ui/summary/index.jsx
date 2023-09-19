@@ -36,7 +36,11 @@ console.log(user)
             </View>
         </View>
         
-        
+        <View style={styles.row}>
+                <Info styleText={styles.subtitle} text={'Duration'} />
+                <Info styleText={styles.info} text={'2'} />
+            
+        </View>
         
     </View>
   )
