@@ -1,9 +1,9 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 
 const Info = ({ styleText, text}) => {
   return (
-    <View style={{flex:1}}>
+    <View >
         <Text style={styleText}>{text}</Text>
     </View>
   )
