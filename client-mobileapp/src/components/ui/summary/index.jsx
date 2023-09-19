@@ -15,12 +15,14 @@ console.log(user)
     <View style={styles.container}>
         <Text style={styles.title}>Summary</Text>
         <View style={styles.row}>
+            <View style={styles.leftContent}>
                 <Info styleText={styles.subtitle} text={'Client'} />
                 <Info styleText={styles.info} text={user.firstname + ' ' + user.lastname} />
-            
+            </View>
+            <View>
                 <Info styleText={styles.subtitle} text={'Phone Number'} />
                 <Info styleText={styles.info} text={'+96171218886'} />
-            
+            </View>
         </View>
         
         
