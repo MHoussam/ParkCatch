@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -117,7 +117,15 @@ console.log(currentLocation)
            longitude: selectedParking.longitude,
          }}
          title="Destination"
-       /> 
+       >
+        <View style={styles.parking}>
+          <Image
+            source={require('../../../../assets/images/marker.png')}
+            style={styles.markerIcon}
+          />
+          <Text style={styles.parkingName}>{parking.name}</Text>
+        </View>
+       </Marker> 
 
         {routeCoordinates.length > 0 && (
          <Polyline
