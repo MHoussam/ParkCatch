@@ -8,7 +8,7 @@ import Map from "../../components/ui/map";
 import Button from "../../components/base/button";
 import InfoForm from "../../components/ui/infoForm";
 import Summary from "../../components/ui/summary";
-import { setReservation } from '../../redux/reservation/reservationSlice';
+import { setReservation, clearReservation } from '../../redux/reservation/reservationSlice';
 
 const ReservationInfo = () => {
   const selectedParking = useSelector((state) => state.selectedParking);
@@ -17,6 +17,7 @@ const ReservationInfo = () => {
   const reservation = useSelector((state) => state.reservation);
   const dispatch = useDispatch();
 
+  clearReservation();
   dispatch(
     setReservation({
       client: user.firstname + " " + user.lastname,
@@ -27,14 +28,24 @@ const ReservationInfo = () => {
       total: parseInt(reservation.duration) * selectedParking.price,
     })
   );
-  
+
   useEffect(() => {
+    // clearReservation();
     dispatch(
       setReservation({
         duration: reservation.duration,
       })
     );
   }, [reservation.duration]);
+
+  useEffect(() => {
+    // fetchSpots();
+    // console.log("effect");
+    return () => {
+      // dispatch(clearSlots());
+      dispatch(clearReservation());
+    };
+  }, []);
 
   return (
     <View style={styles.container}>

@@ -13,7 +13,8 @@ const Slots = () => {
   const selectedParking = useSelector((state) => state.selectedParking);
   const slots = useSelector((state) => state.slots);
   const selectedSlot = useSelector((state) => state.selectedSlot);
-
+  const reservation = useSelector((state) => state.reservation);
+// console.log(reservation)
   const fetchSpots = async () => {
     try {
       const axiosConfig = {
@@ -80,7 +81,7 @@ const Slots = () => {
       // );
       if (Array.isArray(response.data.data)) {
         if (slots.slots === null || slots.slots.length === 0) {
-          console.log("here");
+          // console.log("here");
           response.data.data.forEach((item) => {
             const {
               id,
@@ -106,7 +107,7 @@ const Slots = () => {
               })
             );
           });
-          console.log("finish");
+          // console.log("finish");
         }
       } else {
         console.error("Received non-array data from server:", response.data);
@@ -120,19 +121,19 @@ const Slots = () => {
   const slotPressed = (slot) => {
       if((selectedSlot === null || selectedSlot.id !== slot.id) && slot.reserved === false){
         dispatch(setSelectedSlot(slot));
-        console.log(selectedSlot) 
-        console.log('sele:')    
-        console.log(slot);
-        console.log(selectedSlot.id != slot.id)
+        // console.log(selectedSlot) 
+        // console.log('sele:')    
+        // console.log(slot);
+        // console.log(selectedSlot.id != slot.id)
       } else {
         dispatch(clearSelectedSlot());
-        console.log('notttttttttttttttttt')
+        // console.log('notttttttttttttttttt')
       }
   }
 
   useEffect(() => {
     fetchSpots();
-    console.log("effect");
+    // console.log("effect");
     return () => {
       dispatch(clearSlots());
       dispatch(clearSelectedSlot());
@@ -141,8 +142,8 @@ const Slots = () => {
 
   // console.log("slots");
   // console.log(slots.slots.map((slot) => slot.reserved));
-  console.log('selectslot: ' + selectedSlot);
-    console.log(selectedSlot);
+  // console.log('selectslot: ' + selectedSlot);
+  //   console.log(selectedSlot);
 
   return (
     <View style={styles.table}>

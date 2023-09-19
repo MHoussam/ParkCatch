@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux'
 const Summary = () => {
     const reservation = useSelector((state) => state.reservation);
 
-    console.log(reservation)
-    console.log(reservation.duration)
+    // console.log(reservation)
+    // console.log(reservation.duration)
 
   return (
     <View style={styles.container}>

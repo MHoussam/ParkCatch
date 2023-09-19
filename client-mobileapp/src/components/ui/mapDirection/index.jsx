@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Location from 'expo-location';
 import styles from './styles';
 
@@ -13,12 +13,13 @@ const MapDirections = () => {
   const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [currentLocation, setCurrentLocation] = useState([]);
   const [ refresh, setRefresh ] = useState(null);  
+  const dispatch = useDispatch();
 
   const fetchDirection = async () => {
-    console.log('currenttttttttttttttttttt')
-console.log(currentLocation)
+    // console.log('currenttttttttttttttttttt')
+// console.log(currentLocation)
     if (currentLocation.length == 0) {
-      console.log('shuuuuuuuuuuuuuu')
+      // console.log('shuuuuuuuuuuuuuu')
       // console.log('shuuuuuuuuuuuuuu')
 
       // getLocationAsync();
@@ -57,7 +58,7 @@ console.log(currentLocation)
     }
   
     const location = await Location.getCurrentPositionAsync({});
-    console.log(location.coords.latitude + ' ' + location.coords.longitude)
+    // console.log(location.coords.latitude + ' ' + location.coords.longitude)
     setCurrentLocation({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
@@ -82,9 +83,9 @@ console.log(currentLocation)
       clearInterval(locationInterval);
     };
   }, [currentLocation, refresh]);
-console.log('route')
-console.log(routeCoordinates[0])
-console.log(currentLocation)
+// console.log('route')
+// console.log(routeCoordinates[0])
+// console.log(currentLocation)
 
 // console.log('current')
 // console.log(currentLocation)

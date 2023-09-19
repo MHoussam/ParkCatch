@@ -16,6 +16,8 @@ const reservationSlice = createSlice({
   initialState,
   reducers: {
     setReservation: (state, action) => {
+      console.log(' action called');
+
         state.client = action.payload.client;
         state.phone = action.payload.phone;
         state.parking = action.payload.parking;
@@ -26,11 +28,12 @@ const reservationSlice = createSlice({
         state.total = action.payload.total;
     },
     clearReservation: (state) => {
+      console.log('clearReservation action called');
         state.client = null;
         state.phone = null;
         state.parking = null;
         state.location = null;
-        state.duration = null;
+        state.duration = 2;
         state.spotNumber = null;
         state.plateNumber = null;
         state.total = null;
