@@ -5,6 +5,7 @@ import parkingReducer from './parking/parkingSlice';
 import slotReducer from './slots/slotSlice';
 import selectedParkingReducer from './selectedParking/selectedParkingSlice';
 import selectedSlotReducer from './selectedSlot/selectedSlotSlice';
+import reservationReducer from './reservation/reservationSlice';
 
 const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
         slots: slotReducer,
         selectedParking: selectedParkingReducer,
         selectedSlot: selectedSlotReducer,
+        reservation: reservationReducer,
     },
 });
 
