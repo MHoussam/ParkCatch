@@ -15,7 +15,7 @@ const Spots = () => {
   const dispatch = useDispatch();
   const reservation = useSelector((state) => state.reservation);
 
-  console.log(reservation)
+  // console.log(reservation)
 
 // useEffect(() => {
 //   dispatch(clearReservation);

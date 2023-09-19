@@ -20,7 +20,7 @@ const Summary = () => {
             </View>
             <View>
                 <Info styleText={styles.subtitle} text={'Phone Number'} />
-                <Info styleText={styles.info} text={'+96171218886'} />
+                <Info styleText={styles.info} text={'+961' + reservation.phone} />
             </View>
         </View>
         
@@ -48,7 +48,7 @@ const Summary = () => {
         <View style={styles.row}>
             <View style={styles.leftContent}>
                 <Info styleText={styles.subtitle} text={'Plate Number'} />
-                <Info styleText={styles.info} text={'2'} />
+                <Info styleText={styles.info} text={reservation.plateNumber} />
             </View>
             <View>
                 <Info styleText={styles.subtitle} text={'Total'} />

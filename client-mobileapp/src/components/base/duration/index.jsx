@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux'
 const Duration = ({ styleText }) => {
     const dispatch = useDispatch();
     const [sliderValue, setSliderValue] = useState(2);
-    const reservation = useSelector((state) => state.reservation);
 
     const handleSliderChange = (value) => {
       setSliderValue(value)

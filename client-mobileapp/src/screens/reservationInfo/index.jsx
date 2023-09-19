@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Header from "../../components/ui/header";
 import Footer from "../../components/ui/footer";
@@ -15,46 +15,41 @@ const ReservationInfo = () => {
   const user = useSelector((state) => state.user);
   const selectedSlot = useSelector((state) => state.selectedSlot);
   const reservation = useSelector((state) => state.reservation);
+  const [inputs, setInputs] = useState({duration: 2, phone: '', plateNumber: ''})
   const dispatch = useDispatch();
 
-  clearReservation();
+  // console.log('Current Reservation State:', reservation);
+
+  // clearReservation();
+  console.log('hereeeeeee')
   dispatch(
     setReservation({
       client: user.firstname + " " + user.lastname,
+      phone: reservation.phone || '',
       parking: selectedParking.name,
       location: selectedParking.address,
-      duration: reservation.duration,
+      duration: reservation.duration || 2,
       spotNumber: selectedSlot.name,
+      plateNumber: reservation.plateNumber || '',
       total: parseInt(reservation.duration) * selectedParking.price,
     })
   );
 
   useEffect(() => {
     // clearReservation();
+    console.log('duration: ' + reservation.duration)
+      console.log('plate: ' + reservation.plateNumber)
+      console.log('phone: ' + reservation.phone)
+      console.log('client: ' + reservation.client)
+
     dispatch(
       setReservation({
         duration: reservation.duration,
-      })
-    );
-  }, [reservation.duration]);
-
-  useEffect(() => {
-    // clearReservation();
-    dispatch(
-      setReservation({
-        plateNumber: reservation.duration,
-      })
-    );
-  }, [reservation.duration]);
-
-  useEffect(() => {
-    // clearReservation();
-    dispatch(
-      setReservation({
+        plateNumber: reservation.plateNumber,
         phone: reservation.phone,
       })
     );
-  }, [reservation.duration]);
+  }, [reservation.duration, reservation.plateNumber, reservation.phone]);
 
   useEffect(() => {
     // fetchSpots();

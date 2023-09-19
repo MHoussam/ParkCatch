@@ -16,15 +16,21 @@ const reservationSlice = createSlice({
   initialState,
   reducers: {
     setReservation: (state, action) => {
-      console.log(' action called');
+      console.log(' action called ' + action.payload.duration + ' ' + action.payload.client + ' ' + action.payload.phone);
 
         state.client = action.payload.client;
-        state.phone = action.payload.phone;
+        if(action.payload.phone !== null && action.payload.phone !== '' && action.payload.phone !== undefined){
+          state.phone = action.payload.phone;
+        }
         state.parking = action.payload.parking;
         state.location = action.payload.location;
-        state.duration = action.payload.duration;
+        if(action.payload.duration !== null && action.payload.duration !== '' && action.payload.duration !== undefined){
+          state.duration = action.payload.duration;
+        }
         state.spotNumber = action.payload.spotNumber;
-        state.plateNumber = action.payload.plateNumber;
+        if(action.payload.plateNumber !== null && action.payload.plateNumber !== '' && action.payload.plateNumber !== undefined){
+          state.plateNumber = action.payload.plateNumber;
+        }
         state.total = action.payload.total;
     },
     clearReservation: (state) => {
