@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     slider: {
-      width: 300,
+      width: '98%',
       marginTop: 15,
       marginLeft: -15,
     },
