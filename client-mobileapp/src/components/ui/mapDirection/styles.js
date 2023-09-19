@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         justifyContent: 'center',
-        marginTop: -80,
+        marginTop: -20,
     },
     map: {
         flex: 1,
