@@ -2,12 +2,31 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import Info from '../../base/info'
 import styles from './styles'
+import { useSelector } from 'react-redux'
+import selectedSlotSlice from '../../../redux/selectedSlot/selectedSlotSlice'
 
 const Summary = () => {
+    const user = useSelector((state) => state.user);
+    const selectedParking = useSelector((state) => state.selectedParking);
+    const selectedSlot = useSelector((state) => state.selectedSlot);
+console.log(user)
+
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Summary</Text>
-        <Info styleText={{color:'grey'}} text={'Client'} />
+        <View style={styles.row}>
+                <Info styleText={styles.subtitle} text={'Client'} />
+                <Info styleText={styles.info} text={user.firstname + ' ' + user.lastname} />
+            
+                <Info styleText={styles.subtitle} text={'Phone Number'} />
+                <Info styleText={styles.info} text={'+96171218886'} />
+            
+        </View>
+        
+        
+        
+        
+        
     </View>
   )
 }
