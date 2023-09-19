@@ -72,7 +72,7 @@ return (
             style={styles.input}
             placeholder="Password"
             placeholderTextColor="#00000070"
-            secureTextEntry
+            secureTextEntry={!isPasswordVisible}
             onChangeText={text => setPassword(text)}
             value={password}
         />
