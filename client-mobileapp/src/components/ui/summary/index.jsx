@@ -3,7 +3,6 @@ import { Text, View } from 'react-native'
 import Info from '../../base/info'
 import styles from './styles'
 import { useSelector } from 'react-redux'
-import selectedSlotSlice from '../../../redux/selectedSlot/selectedSlotSlice'
 
 const Summary = () => {
     const user = useSelector((state) => state.user);
