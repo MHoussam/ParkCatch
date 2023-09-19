@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     nextButton: {
-      width: '83%',
+      width: '90%',
       height: 35,
       backgroundColor: '#FECA0E',
       justifyContent: 'center',
