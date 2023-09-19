@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 import Slider from '@react-native-community/slider'
 import styles from './styles'
+import { setReservation } from '../../../redux/reservation/reservationSlice'
+import { useDispatch } from 'react-redux'
 
 const Duration = ({ styleText }) => {
     const [sliderValue, setSliderValue] = useState(2); 
-  
+    const dispatch = useDispatch();
+
     const handleSliderChange = (value) => {
         setSliderValue(value);
+        dispatch(setReservation(value));
     }
 
   return (
