@@ -25,7 +25,12 @@ console.log(user)
             </View>
         </View>
         
-        
+        <View style={styles.row}>
+                <Info styleText={styles.subtitle} text={'Parking'} />
+                <Info styleText={styles.info} text={selectedParking.name} />
+            
+            
+        </View>
         
         
         
