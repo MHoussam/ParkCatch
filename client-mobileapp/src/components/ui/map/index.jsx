@@ -35,11 +35,11 @@ const Map = () => {
     try{
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer ${userToken.token}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json'
         }
       };
-      // console.log(axiosConfig.headers)
+      console.log(axiosConfig.headers)
       const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
       console.log('data')

@@ -19,14 +19,14 @@ const Slots = () => {
     try {
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer ${userToken.token}`,
+          Authorization: `Bearer ${userToken}`,
           "Content-Type": "application/json",
         },
       };
 
       const dataForm = {
         parking_id: selectedParking.id,
-        token: userToken.token,
+        token: userToken,
       };
       //  console.log(dataForm)
       const response = await axios.post(

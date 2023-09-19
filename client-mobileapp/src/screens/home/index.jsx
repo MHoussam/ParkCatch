@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Map from '../../components/ui/map';
 import { Button, Text, View } from 'react-native';
 import { Provider, useDispatch, useSelector } from 'react-redux';
@@ -11,10 +11,12 @@ import Header from '../../components/ui/header';
 import SearchBar from '../../components/base/searchbar';
 import WebSocketClient from '../../components/WebSocketClient';
 import ChatComponent from '../../components/ui/chat';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { setUser, setUserToken } from '../../redux/user/userSlice';
 
 const Home = () => {
-  
+  const dispatch = useDispatch();
+
   const loadUserData = async () => {
     try {
       const userData = await AsyncStorage.getItem('userData');
@@ -23,7 +25,7 @@ const Home = () => {
       if (userData !== null && userToken !== null) {
         const parsedUserData = JSON.parse(userData);
   
-        useDispatch(setUser(parsedUserData));
+        dispatch(setUser(parsedUserData));
         dispatch(setUserToken(userToken));
       }
     } catch (error) {

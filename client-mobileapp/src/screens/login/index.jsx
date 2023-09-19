@@ -6,7 +6,7 @@ import styles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser, setUserToken } from "../../redux/user/userSlice";
 import { useNavigation } from '@react-navigation/native';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import store from "../../redux/store";
 
 const Login = () => {
@@ -35,9 +35,9 @@ const Login = () => {
         email: response.data.data.email,
       };
 
-      const userToken = {
-        token: response.data.data.token,
-      }
+      // const userToken = {
+      //   token: response.data.data.token,
+      // }
 
       if (response.data.data.token !== null) {
         console.log(response.data.data.token);
