@@ -81,6 +81,17 @@ const styles = StyleSheet.create({
       color: '#0086D1',
       fontWeight: 'bold',
     },
+    passwordVisibleContainer: {
+      position: 'absolute',
+      alignContent: 'center',
+      justifyContent: 'center',
+      // top: 10,
+      right: 10,
+    },
+    passwordInput: {
+      width: '100%',
+      justifyContent: 'center',
+    }
   });
   
   export default styles;

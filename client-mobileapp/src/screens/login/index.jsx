@@ -11,7 +11,7 @@ import store from "../../redux/store";
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [PasswordVisible, setPasswordVisible] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const navigation = useNavigation();
@@ -69,24 +69,27 @@ return (
             onChangeText={text => setEmail(text)}
             value={email}
         />
-        <TextInput
-            style={styles.input}
-            placeholder="Password"
-            placeholderTextColor="#00000070"
-            secureTextEntry={!isPasswordVisible}
-            onChangeText={text => setPassword(text)}
-            value={password}
-        />
-        <TouchableOpacity
-        style={styles.togglePasswordButton}
-        onPress={() => setIsPasswordVisible(!isPasswordVisible)}
-        >
-          <Icon
-              name={isPasswordVisible ? 'eye-slash' : 'eye'}
-              size={20}
-              color="#000"
+        <View style={styles.passwordInput}>
+          <TextInput
+              style={styles.input}
+              placeholder="Password"
+              placeholderTextColor="#00000070"
+              secureTextEntry={!PasswordVisible}
+              onChangeText={text => setPassword(text)}
+              value={password}
           />
-        </TouchableOpacity>
+            <View style={styles.passwordVisibleContainer}>
+              <TouchableOpacity
+              onPress={() => setPasswordVisible(!PasswordVisible)}
+              >
+                <Icon
+                    name={PasswordVisible ? 'eye-slash' : 'eye'}
+                    size={20}
+                    color="#000"
+                />
+              </TouchableOpacity>
+          </View>
+        </View>
         <View style={styles.forgotPasswordContainer}>
           <Text style={styles.forgotPasswordText}>Forgot password?</Text>
         </View>
