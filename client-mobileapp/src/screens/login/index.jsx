@@ -10,6 +10,7 @@ import store from "../../redux/store";
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const navigation = useNavigation();
