@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import styles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
@@ -76,6 +77,16 @@ return (
             onChangeText={text => setPassword(text)}
             value={password}
         />
+        <TouchableOpacity
+        style={styles.togglePasswordButton}
+        onPress={() => setIsPasswordVisible(!isPasswordVisible)}
+        >
+          <Icon
+              name={isPasswordVisible ? 'eye-slash' : 'eye'}
+              size={20}
+              color="#000"
+          />
+        </TouchableOpacity>
         <View style={styles.forgotPasswordContainer}>
           <Text style={styles.forgotPasswordText}>Forgot password?</Text>
         </View>
