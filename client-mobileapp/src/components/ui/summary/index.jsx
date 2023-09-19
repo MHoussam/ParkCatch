@@ -29,6 +29,8 @@ console.log(user)
                 <Info styleText={styles.subtitle} text={'Parking'} />
                 <Info styleText={styles.info} text={selectedParking.name} />
             
+                <Info styleText={styles.subtitle} text={'Location'} />
+                <Info styleText={styles.info} text={selectedParking.address} />
             
         </View>
         
