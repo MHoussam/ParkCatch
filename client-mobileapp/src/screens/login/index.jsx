@@ -39,10 +39,6 @@ const Login = () => {
         token: response.data.data.token,
       }
 
-      dispatch(setUser(userData));
-      dispatch(setUserToken(userToken));
-      //console.log({user})
-
       if (response.data.data.token !== null) {
         console.log(response.data.data.token);
   
