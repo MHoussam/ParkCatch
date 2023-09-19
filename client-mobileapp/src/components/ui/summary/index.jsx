@@ -26,12 +26,14 @@ console.log(user)
         </View>
         
         <View style={styles.row}>
+            <View style={styles.leftContent}>
                 <Info styleText={styles.subtitle} text={'Parking'} />
                 <Info styleText={styles.info} text={selectedParking.name} />
-            
+            </View>
+            <View>
                 <Info styleText={styles.subtitle} text={'Location'} />
                 <Info styleText={styles.info} text={selectedParking.address} />
-            
+            </View>
         </View>
         
         
