@@ -39,6 +39,24 @@ const ReservationInfo = () => {
   }, [reservation.duration]);
 
   useEffect(() => {
+    // clearReservation();
+    dispatch(
+      setReservation({
+        plateNumber: reservation.duration,
+      })
+    );
+  }, [reservation.duration]);
+
+  useEffect(() => {
+    // clearReservation();
+    dispatch(
+      setReservation({
+        phone: reservation.phone,
+      })
+    );
+  }, [reservation.duration]);
+
+  useEffect(() => {
     // fetchSpots();
     // console.log("effect");
     return () => {
