@@ -40,6 +40,9 @@ console.log(user)
                 <Info styleText={styles.subtitle} text={'Duration'} />
                 <Info styleText={styles.info} text={'2'} />
             
+                <Info styleText={styles.subtitle} text={'Spot Number'} />
+                <Info styleText={styles.info} text={selectedSlot.name} />
+            
         </View>
         
     </View>
