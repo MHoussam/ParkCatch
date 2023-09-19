@@ -47,12 +47,14 @@ console.log(user)
             </View>
         </View>
         <View style={styles.row}>
+            <View style={styles.leftContent}>
                 <Info styleText={styles.subtitle} text={'Plate Number'} />
                 <Info styleText={styles.info} text={'2'} />
-            
+            </View>
+            <View>
                 <Info styleText={styles.subtitle} text={'Total'} />
                 <Info styleText={styles.info} text={selectedSlot.name} />
-            
+            </View>
         </View>
     </View>
   )
