@@ -9,6 +9,7 @@ const InfoForm = () => {
     <View style={styles.container}>
         <Duration styleText={styles.title}/>
         <Input styleText={styles.title} text={'License Plate Number'}/>
+        <Input styleText={styles.title} text={'Phone Number'}/>
     </View>
   )
 }
