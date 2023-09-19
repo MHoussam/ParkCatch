@@ -123,7 +123,7 @@ console.log(currentLocation)
             source={require('../../../../assets/images/marker.png')}
             style={styles.markerIcon}
           />
-          <Text style={styles.parkingName}>{parking.name}</Text>
+          <Text style={styles.parkingName}>{selectedParking.name}</Text>
         </View>
        </Marker> 
 
