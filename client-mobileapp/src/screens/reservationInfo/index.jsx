@@ -1,26 +1,53 @@
-import React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
-import Header from '../../components/ui/header';
-import Footer from '../../components/ui/footer';
-import styles from './styles';
-import { useSelector } from 'react-redux';
-import Map from '../../components/ui/map';
-import Button from '../../components/base/button';
-import InfoForm from '../../components/ui/infoForm';
-import Summary from '../../components/ui/summary';
+import React, { useEffect } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import Header from "../../components/ui/header";
+import Footer from "../../components/ui/footer";
+import styles from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import Map from "../../components/ui/map";
+import Button from "../../components/base/button";
+import InfoForm from "../../components/ui/infoForm";
+import Summary from "../../components/ui/summary";
+import { setReservation } from '../../redux/reservation/reservationSlice';
 
 const ReservationInfo = () => {
-    const selectedParking = useSelector((state) => state.selectedParking);
+  const selectedParking = useSelector((state) => state.selectedParking);
+  const user = useSelector((state) => state.user);
+  const selectedSlot = useSelector((state) => state.selectedSlot);
+  const reservation = useSelector((state) => state.reservation);
+  const dispatch = useDispatch();
+
+  dispatch(
+    setReservation({
+      client: user.firstname + " " + user.lastname,
+      parking: selectedParking.name,
+      location: selectedParking.address,
+      duration: reservation.duration,
+      spotNumber: selectedSlot.name,
+      total: parseInt(reservation.duration) * selectedParking.price,
+    })
+  );
+  
+  useEffect(() => {
+    dispatch(
+      setReservation({
+        duration: reservation.duration,
+      })
+    );
+  }, [reservation.duration]);
 
   return (
     <View style={styles.container}>
-        <Header ScreenName={'Reservation Info'} ParkingName={selectedParking.name} />
-        <InfoForm />
-        <Summary />
-        <Button text={'Proceed to Payment'} navigate={'Directions'}/>
-        <Footer />
+      <Header
+        ScreenName={"Reservation Info"}
+        ParkingName={selectedParking.name}
+      />
+      <InfoForm />
+      <Summary />
+      <Button text={"Proceed to Payment"} navigate={"Directions"} />
+      <Footer />
     </View>
-  )
-}
+  );
+};
 
 export default ReservationInfo;

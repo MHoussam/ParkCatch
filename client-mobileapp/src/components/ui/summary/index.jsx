@@ -2,20 +2,13 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import Info from '../../base/info'
 import styles from './styles'
-import { useDispatch, useSelector } from 'react-redux'
-import { setReservation } from '../../../redux/reservation/reservationSlice'
+import { useSelector } from 'react-redux'
 
 const Summary = () => {
-    const dispatch = useDispatch();
-    const user = useSelector((state) => state.user);
-    const selectedParking = useSelector((state) => state.selectedParking);
-    const selectedSlot = useSelector((state) => state.selectedSlot);
     const reservation = useSelector((state) => state.reservation);
 
     console.log(reservation)
     console.log(reservation.duration)
-
-    dispatch(setReservation({client: user.firstname + ' ' + user.lastname, parking: selectedParking.name, location: selectedParking.address, spotNumber: selectedSlot.name, total: parseInt(reservation.duration) * 2}));
 
   return (
     <View style={styles.container}>
@@ -49,7 +42,7 @@ const Summary = () => {
             </View>
             <View>
                 <Info styleText={styles.subtitle} text={'Spot Number'} />
-                <Info styleText={styles.info} text={reservation.spotName} />
+                <Info styleText={styles.info} text={reservation.spotNumber} />
             </View>
         </View>
         <View style={styles.row}>
