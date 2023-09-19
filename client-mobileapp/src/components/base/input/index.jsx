@@ -13,7 +13,7 @@ const Input = ({ styleText, text, label, type }) => {
   }
 
   const keyboardType = type ? 'numeric' : 'default';
-  
+  const maxLength = type ? 8 : 12;
 
   return (
     <View>
@@ -21,7 +21,7 @@ const Input = ({ styleText, text, label, type }) => {
         <TextInput
         style={styles.input}
         onChangeText={handleInputChange}
-        maxLength={8}
+        maxLength={maxLength}
         keyboardType={keyboardType}
       />
     </View>
