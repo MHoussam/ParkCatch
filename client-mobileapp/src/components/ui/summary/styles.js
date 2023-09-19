@@ -25,6 +25,10 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
     },
+    leftContent: {
+        width: '65%',
+        marginBottom: 10,
+    }
 });
     
 export default styles;
