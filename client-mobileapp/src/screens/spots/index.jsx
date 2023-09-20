@@ -10,10 +10,10 @@ import Button from '../../components/base/button';
 import { clearReservation } from '../../redux/reservation/reservationSlice';
 
 const Spots = () => {
-  const selectedSlot = useSelector((state) => state.selectedSlot);
-  const selectedParking = useSelector((state) => state.selectedParking);
-  const dispatch = useDispatch();
-  const reservation = useSelector((state) => state.reservation);
+  // const selectedSlot = useSelector((state) => state.selectedSlot);
+  // const selectedParking = useSelector((state) => state.selectedParking);
+  // const dispatch = useDispatch();
+  // const reservation = useSelector((state) => state.reservation);
 
   // console.log(reservation)
 

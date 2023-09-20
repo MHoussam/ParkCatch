@@ -6,16 +6,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { addSlots, clearSlots } from "../../../redux/slots/slotSlice";
 import { setSelectedSlot, clearSelectedSlot } from "../../../redux/selectedSlot/selectedSlotSlice";
 import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Slots = () => {
   const dispatch = useDispatch();
-  const userToken = useSelector((state) => state.user.token);
+  // const userToken = useSelector((state) => state.user.token);
   const selectedParking = useSelector((state) => state.selectedParking);
   const slots = useSelector((state) => state.slots);
   const selectedSlot = useSelector((state) => state.selectedSlot);
   const reservation = useSelector((state) => state.reservation);
+  
 // console.log(reservation)
   const fetchSpots = async () => {
+
+    const userToken = await AsyncStorage.getItem('userToken');
+
     try {
       const axiosConfig = {
         headers: {
