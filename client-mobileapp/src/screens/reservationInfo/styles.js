@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     summaryContainer: {
-        marginLeft: -10,        
+        marginLeft: -3,        
     }
 });
 
