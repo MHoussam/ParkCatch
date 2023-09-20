@@ -22,7 +22,7 @@ const Home = () => {
       const userData = await AsyncStorage.getItem('userData');
       // const userToken = await AsyncStorage.getItem('userToken');
 
-      const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTk0MTcwLCJleHAiOjE2OTUxOTc3NzAsIm5iZiI6MTY5NTE5NDE3MCwianRpIjoiRjI0N3dHRkx1OXJ6c2lpbCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OB4kTkhc7uSq5FlFWP4h01gNtuOh4tbsBcD5x4aSH-o'
+      const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTk4OTA5LCJleHAiOjE2OTUyMDI1MDksIm5iZiI6MTY5NTE5ODkwOSwianRpIjoidXhlbnBkUFJMWTBySlZQQiIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.MExy16GV8U-XuESWVpBKXChz37ZfLDpOrRrP9PllMXE'
       console.log('yooooooo: ' + userData)
       console.log('gvvvvvv: ' + userToken)
   
