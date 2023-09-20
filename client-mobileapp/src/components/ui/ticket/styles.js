@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 20,
     },
+    pic: {
+        resizeMode: 'cover',
+        width: 200, 
+        height: 200,
+    },
     line: {
         borderStyle: 'dashed',
         borderBottomWidth: 1,
@@ -27,7 +32,7 @@ const styles = StyleSheet.create({
         marginTop: 15,
       },      
     summary: {
-        
+        width: '90%',
     }
 })
 

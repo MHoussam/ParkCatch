@@ -115,6 +115,7 @@ const Slots = () => {
       // console.log('no?')
     } catch (error) {
       console.error("Error fetching spots data:", error);
+      console.log(userToken)
     }
   };
 
