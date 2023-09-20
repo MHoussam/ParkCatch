@@ -23,7 +23,7 @@ const Spots = () => {
 
   return (
     <View style={styles.container}>
-      <Header ScreenName={'Spot Reservation'} ParkingName={selectedParking.name} />
+      <Header ScreenName={'Spot Reservation'} />
       <Text style={styles.title}>Select a Spot</Text>
       <Slots />
       <Button text={'Next'} navigate={'ReservationInfo'} />
