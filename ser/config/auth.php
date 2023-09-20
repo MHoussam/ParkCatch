@@ -73,7 +73,7 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_reset_tokens',
-            'expire' => null,
+            'expire' => 10080,
             'throttle' => 60,
         ],
     ],
