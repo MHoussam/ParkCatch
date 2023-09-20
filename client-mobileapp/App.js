@@ -10,6 +10,7 @@ import Spots from './src/screens/spots';
 import ReservationInfo from './src/screens/reservationInfo';
 import Directions from './src/screens/directions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ReservationTicket from './src/screens/reservationTicket';
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,7 @@ export default function App() {
           <Stack.Screen name="Spots" component={Spots} />
           <Stack.Screen name="ReservationInfo" component={ReservationInfo} />
           <Stack.Screen name="Directions" component={Directions} />
+          <Stack.Screen name="ReservationTicket" component={ReservationTicket} />
         </Stack.Navigator>
        </NavigationContainer> 
     </Provider>
