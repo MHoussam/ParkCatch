@@ -9,6 +9,7 @@ const ReservationTicket = () => {
   return (
     <View style={styles.container}>
         <Header ScreenName={'ReservationTicket'} />
+        <Ticket />
         <Button text={'Get Directions'} navigate={'Directions'} />
         <Footer />
     </View>
