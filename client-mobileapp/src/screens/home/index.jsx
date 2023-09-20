@@ -21,10 +21,15 @@ const Home = () => {
     try {
       const userData = await AsyncStorage.getItem('userData');
       const userToken = await AsyncStorage.getItem('userToken');
+
+      console.log('yooooooo: ' + userData)
+      console.log('gvvvvvv: ' + userToken)
   
       if (userData !== null && userToken !== null) {
         const parsedUserData = JSON.parse(userData);
-  
+  console.log('parsedUserData ')
+  console.log(parsedUserData)
+
         dispatch(setUser(parsedUserData));
         dispatch(setUserToken(userToken));
       }

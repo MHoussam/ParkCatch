@@ -4,7 +4,6 @@ const initialState = {
     firstname: "",
     lastname: "",
     email: "",
-    lastUpdated: "",
     token: null,
 };
 
@@ -15,9 +14,7 @@ const userSlice = createSlice({
     setUser: (state, action) => {
         state.firstname = action.payload.firstname,
         state.lastname = action.payload.lastname,
-        state.email = action.payload.email,
-        state.lastUpdated = action.payload.date,
-        state.token = action.payload.token;
+        state.email = action.payload.email
     },
     setUserToken: (state, action) => {
       state.token = action.payload;

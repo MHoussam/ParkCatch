@@ -18,13 +18,14 @@ import { setUser, setUserToken } from "../../../redux/user/userSlice";
 import { setSelectedParking, clearSelectedParking } from "../../../redux/selectedParking/selectedParkingSlice";
 import { setSelectedSlot, clearSelectedSlot } from "../../../redux/selectedSlot/selectedSlotSlice";
 import WebSocketClient from '../../WebSocketClient';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Map = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
+  const user = useSelector((state) => state.user);
   const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const selectedParking = useSelector((state) => state.selectedParking);
@@ -33,22 +34,25 @@ const Map = () => {
 
   const fetchParkings = async () => {
     try{
+      const userData = await AsyncStorage.getItem('userData');
+      const userTokenn = await AsyncStorage.getItem('userToken');
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer ${userToken}`,
+          Authorization: `Bearer ${userTokenn}`,
           'Content-Type': 'application/json'
         }
       };
-      console.log(axiosConfig.headers)
+      console.log(userData)
+      console.log(userTokenn)
       const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
-      console.log('data')
+      // console.log('data')
 
-      console.log(response.data.data)
+      // console.log(response.data.data)
       if (Array.isArray(response.data.data)) {
         if (parkings.length === 0) {
-          console.log('parking: aaaaaaa ' +parkings.length )
-          console.log(parkings )
+          // console.log('parking: aaaaaaa ' +parkings.length )
+          // console.log(parkings )
           response.data.data.forEach((item) => {
             const { id,
               name,
@@ -59,7 +63,7 @@ const Map = () => {
               close_hour,
               latitude,
               longitude, } = item;
-console.log('1')
+// console.log('1')
             dispatch(addParking({ id,
               name,
               address,
@@ -77,6 +81,7 @@ console.log('1')
       // console.log('no?')
     } catch(error) {
       console.error('Error fetching parking data:', error);
+      // fetchParkings();
     }
   }
 
@@ -113,7 +118,7 @@ console.log('1')
   const fetchAvailableNumber = async () => {
     try {
       const dataForm = {
-        token: userToken.token,
+        token: userToken,
         parking_id: selectedParking.id,
       };
   
@@ -149,7 +154,6 @@ console.log('1')
   useEffect(() => {
     fetchParkings();
     fetchMap();
-    dispatch(setUserToken(userToken));
   }, [refresh]);
 
   // useEffect(() => {
