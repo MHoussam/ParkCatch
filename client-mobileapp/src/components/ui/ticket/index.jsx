@@ -13,7 +13,6 @@ const Ticket = () => {
                 source={{uri: `http://127.0.0.1:8000/images/parkings/saidamall.png`}}
             /> 
             <View style={styles.line}/>
-
         </View>
     </View>
   )

@@ -18,7 +18,14 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         alignItems: 'center',
         paddingTop: 20,
-    }
+    },
+    line: {
+        borderStyle: 'dashed',
+        borderBottomWidth: 1,
+        color: '#000',
+        width: '100%',
+        marginTop: 15,
+      },      
 })
 
 export default styles;
