@@ -32,11 +32,11 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-
+          {userToken === null ? (
           <Stack.Screen name="Login" component={Login} />
-          
+          ) : (
             <Stack.Screen name="Home" component={Home} />
-          
+          )}
           {/* <Stack.Screen name="Signup" component={Signup} /> */}
           <Stack.Screen name="Spots" component={Spots} />
           <Stack.Screen name="ReservationInfo" component={ReservationInfo} />
