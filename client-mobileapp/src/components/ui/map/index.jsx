@@ -118,6 +118,8 @@ const Map = () => {
 
   const fetchAvailableNumber = async () => {
     try {
+      const userToken = await AsyncStorage.getItem('userToken');
+
       const dataForm = {
         token: userToken,
         parking_id: selectedParking.id,

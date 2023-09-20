@@ -27,14 +27,14 @@ const Home = () => {
       console.log('yooooooo: ' + userData)
       console.log('gvvvvvv: ' + userToken)
   
-      // if (userData !== null && userToken !== null) {
-        // const parsedUserData = JSON.parse(userData);
+      if (userData !== null && userToken !== null) {
+        const parsedUserData = JSON.parse(userData);
   // console.log('parsedUserData ')
   // console.log(parsedUserData)
 
-        // dispatch(setUser(parsedUserData));
+        dispatch(setUser(parsedUserData));
         // dispatch(setUserToken(userToken));
-      // }
+      }
     } catch (error) {
       console.error('Error loading user data', error);
     }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -16,10 +16,12 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [userToken, setUserToken] = useState(null);
+  // const navigation = useNavigation();
   
   useEffect(() => {
     const checkUserToken = async () => {
       const token = await AsyncStorage.getItem('userToken');
+      console.log('where: ' + token)
       if (token !== null) {
         setUserToken(token);
       }
@@ -32,11 +34,8 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {userToken === null ? (
-          <Stack.Screen name="Login" component={Login} />
-          ) : (
+              <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Home" component={Home} />
-          )}
           {/* <Stack.Screen name="Signup" component={Signup} /> */}
           <Stack.Screen name="Spots" component={Spots} />
           <Stack.Screen name="ReservationInfo" component={ReservationInfo} />

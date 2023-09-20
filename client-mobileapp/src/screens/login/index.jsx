@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
@@ -13,8 +13,10 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [PasswordVisible, setPasswordVisible] = useState(false);
+  // const [userToken, setUserToken] = useState('');
   const dispatch = useDispatch();
   // const user = useSelector((state) => state.user);
+  const userToken = useSelector((state) => state.user.token);
   const navigation = useNavigation();
 
   const handleLogin = async () => {
@@ -44,8 +46,9 @@ const Login = () => {
   
         await AsyncStorage.setItem('userData', JSON.stringify(userData));
         await AsyncStorage.setItem('userToken', response.data.data.token);
-  
-        navigation.navigate('Home');
+
+        dispatch(setUserToken(response.data.data.token))
+        // navigation.navigate('Home');
       }
     } catch (error) {
       console.error('Login failed', error);
@@ -55,6 +58,19 @@ const Login = () => {
   const navigateToSignUp = () => {
     navigation.navigate('Signup');
   };
+
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = await AsyncStorage.getItem('userToken');
+      console.log('hereeeee: ' + token)
+      if(token !== null){
+        
+        navigation.navigate('Home')
+      }
+    }
+
+    checkToken();
+  }, [])
 
 return (
     <View style={styles.container}>
