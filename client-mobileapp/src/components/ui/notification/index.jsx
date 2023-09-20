@@ -2,6 +2,7 @@ import React from 'react'
 import * as Device from 'expo-device'
 import * as Notifications from 'expo-notifications'
 import { Platform } from 'react-native'
+import Constants from 'expo-constants';
 
 const Notification = () => {
 
@@ -18,10 +19,8 @@ const Notification = () => {
         alert('Failed to get push token for push notification!');
         return;
       }
-      token = await Notifications.getExpoPushTokenAsync({
-        projectId: Constants.expoConfig.extra.eas.projectId,
-      });
-      console.log(token);
+      token = (await Notifications.getExpoPushTokenAsync()).data;
+      console.log('tokennnnnn: ' + token);
     } else {
       alert('Must use physical device for Push Notifications');
     }
@@ -38,9 +37,21 @@ const Notification = () => {
     return token;
   }
 
-  return (
-    <div>Notification</div>
-  )
+  const handleNotification = (notification) => {
+    
+  };
+
+  const handleNotificationResponse = (response) => {
+    const data = response.notification.request.content.data;
+
+    if (data?.url) Linking.openURL(data.url);
+  };
+
+  return { 
+    registerForPushNotificationsAsync,
+    handleNotification,
+    handleNotificationResponse
+  }
 }
 
 export default Notification;

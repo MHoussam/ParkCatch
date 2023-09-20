@@ -11,6 +11,8 @@ import ReservationInfo from './src/screens/reservationInfo';
 import Directions from './src/screens/directions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReservationTicket from './src/screens/reservationTicket';
+import * as Notifications from 'expo-notifications'
+import Notification from './src/components/ui/notification';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +31,29 @@ export default function App() {
 
   //   checkUserToken();
   // }, []);
+
+  const { registerForPushNotificationsAsync, handleNotificationResponse } = Notification();
+
+  useEffect(() => {
+    registerForPushNotificationsAsync();
+    Notifications.setNotificationHandler({
+      handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: true,
+        shouldSetBadge: true,
+      }),
+    });
+
+    const responseListener = 
+    Notifications.addNotificationResponseReceivedListener(
+      handleNotificationResponse
+    );
+
+    return () => {
+      if(responseListener)
+        Notifications.removeNotificationSubscription(responseListener);
+    }
+  }, [])
 
   return (
     <Provider store={store}>
