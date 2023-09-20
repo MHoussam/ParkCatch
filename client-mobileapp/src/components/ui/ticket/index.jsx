@@ -2,15 +2,16 @@ import React from 'react'
 import { Image, View } from 'react-native'
 import styles from './styles'
 import Summary from '../summary'
+import QRCode from 'react-native-qrcode-svg';
 
 const Ticket = () => {
   return (
     <View style={styles.container}>
         <View style={styles.innerContainer}>
-            <Image
-                style={styles.pic}
-                source={{uri: `http://127.0.0.1:8000/images/parkings/saidamall.png`}}
-            /> 
+            <QRCode
+            value="https://www.example.com"
+            size={200} 
+            />
             <View style={styles.line}/>
             <View styles={styles.summary}>
                 <Summary />
