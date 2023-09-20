@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
         width: '100%',
         marginTop: 15,
       },      
+    summary: {
+        
+    }
 })
 
 export default styles;

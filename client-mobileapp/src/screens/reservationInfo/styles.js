@@ -8,12 +8,14 @@ const styles = StyleSheet.create({
         marginLeft: 0,
         marginRight: 0,
         width: '100%',
-        backgroundColor: '#FFFFFF'
+        backgroundColor: '#FFFFFF',
     },
     title: {
         fontWeight: 'bold',
         fontSize: 18,
         marginTop: 10,
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
     },
 });
 

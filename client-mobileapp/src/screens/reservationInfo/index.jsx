@@ -51,7 +51,10 @@ const ReservationInfo = () => {
     <View style={styles.container}>
       <Header ScreenName={"Reservation Info"} />
       <InfoForm />
-      <Summary />
+      <View style={styles.summaryContainer}>
+        <Text style={styles.title}>Summary</Text>
+        <Summary />
+      </View>
       <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
       <Footer />
     </View>

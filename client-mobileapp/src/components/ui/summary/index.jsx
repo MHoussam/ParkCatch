@@ -12,7 +12,6 @@ const Summary = () => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Summary</Text>
         <View style={styles.row}>
             <View style={styles.leftContent}>
                 <Info styleText={styles.subtitle} text={'Client'} />
