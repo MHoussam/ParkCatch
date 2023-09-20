@@ -8,7 +8,7 @@ import Button from '../../components/base/button'
 const ReservationTicket = () => {
   return (
     <View style={styles.container}>
-        <Header />
+        <Header ScreenName={'ReservationTicket'} />
         <Button text={'Get Directions'} navigate={'Directions'} />
         <Footer />
     </View>
