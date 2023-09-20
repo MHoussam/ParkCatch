@@ -70,7 +70,7 @@ const Login = () => {
     }
 
     checkToken();
-  }, [])
+  }, [userToken])
 
 return (
     <View style={styles.container}>

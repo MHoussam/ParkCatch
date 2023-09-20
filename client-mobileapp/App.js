@@ -18,17 +18,17 @@ export default function App() {
   const [userToken, setUserToken] = useState(null);
   // const navigation = useNavigation();
   
-  useEffect(() => {
-    const checkUserToken = async () => {
-      const token = await AsyncStorage.getItem('userToken');
-      console.log('where: ' + token)
-      if (token !== null) {
-        setUserToken(token);
-      }
-    };
+  // useEffect(() => {
+  //   const checkUserToken = async () => {
+  //     const token = await AsyncStorage.removeItem('userToken');
+  //     console.log('where: ' + token)
+  //     if (token !== null) {
+  //       setUserToken(token);
+  //     }
+  //   };
 
-    checkUserToken();
-  }, []);
+  //   checkUserToken();
+  // }, []);
 
   return (
     <Provider store={store}>
