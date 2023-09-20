@@ -14,18 +14,18 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [PasswordVisible, setPasswordVisible] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
   const navigation = useNavigation();
 
   const handleLogin = async () => {
     try {
-      const userr = {
+      const user = {
         email: email,
         password: password,
         //lastUpdated: new Date().toISOString(),
     };
       // console.log(user)
-      const response = await axios.post('http://127.0.0.1:8000/api/login', userr);
+      const response = await axios.post('http://127.0.0.1:8000/api/login', user);
       console.log('Login successful');
       console.log('what')
 
@@ -42,7 +42,6 @@ const Login = () => {
       if (response.data.data.token !== null) {
         console.log(response.data.data.token);
   
-        dispatch(setUserToken(response.data.data.token))
         await AsyncStorage.setItem('userData', JSON.stringify(userData));
         await AsyncStorage.setItem('userToken', response.data.data.token);
   
