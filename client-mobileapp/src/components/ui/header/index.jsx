@@ -3,9 +3,11 @@ import styles from './styles';
 import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
-const Header = ({ ScreenName, ParkingName }) => {
+const Header = ({ ScreenName }) => {
   const navigation = useNavigation();
+  const selectedParking = useSelector((state) => state.selectedParking)
 
   const back = () => {
     navigation.pop();
@@ -19,7 +21,7 @@ const Header = ({ ScreenName, ParkingName }) => {
           </TouchableOpacity>
           <View style={styles.text}>
             <Text style={styles.title}>{ScreenName}</Text>
-            <Text style={styles.subtitle}>{ParkingName}</Text>
+            <Text style={styles.subtitle}>{selectedParking.name}</Text>
           </View>
         </View>
     </View>
