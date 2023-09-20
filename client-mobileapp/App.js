@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
@@ -23,7 +23,7 @@ export default function App() {
         setUserToken(token);
       }
     };
-    
+
     checkUserToken();
   }, []);
 
@@ -31,11 +31,12 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {if(userToken !=== null){
+          {userToken === null ? (
           <Stack.Screen name="Login" component={Login} />
-          }}
+          ) : (
+            <Stack.Screen name="Home" component={Home} />
+          )}
           {/* <Stack.Screen name="Signup" component={Signup} /> */}
-          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Spots" component={Spots} />
           <Stack.Screen name="ReservationInfo" component={ReservationInfo} />
           <Stack.Screen name="Directions" component={Directions} />
