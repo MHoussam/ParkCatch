@@ -14,9 +14,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
         marginTop: 10,
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
     },
+    summaryContainer: {
+        marginLeft: -10,        
+    }
 });
 
 export default styles;
