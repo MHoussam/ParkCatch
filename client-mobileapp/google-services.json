@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1061134191951",
+    "project_id": "parkcatch-b4594",
+    "storage_bucket": "parkcatch-b4594.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061134191951:android:6a67bb20c10e9492ad893a",
+        "android_client_info": {
+          "package_name": "com.parkcatch.oarkcatch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3THj4dnhs7lGlkNqC_8I1iviT9QcR0Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
