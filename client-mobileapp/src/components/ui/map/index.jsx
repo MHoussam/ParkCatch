@@ -155,8 +155,13 @@ const Map = () => {
   }, [selectedParking]);
 
   useEffect(() => {
-    fetchParkings();
-    fetchMap();
+    if (!parkings.length) {
+      console.log('whereeeee')
+      console.log(parkings)
+      console.log(location)
+      fetchParkings();
+      fetchMap();
+    }
   }, [refresh]);
 
   // useEffect(() => {
