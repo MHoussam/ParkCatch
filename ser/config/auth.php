@@ -18,6 +18,7 @@ return [
                 'driver' => 'jwt',
                 'provider' => 'users',
                 'lifetime' => null,
+                'expires' => null,
         ],
 
     ],
