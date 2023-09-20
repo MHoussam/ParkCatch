@@ -55,7 +55,7 @@ const ReservationInfo = () => {
       />
       <InfoForm />
       <Summary />
-      <Button text={"Proceed to Payment"} navigate={"Directions"} />
+      <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
       <Footer />
     </View>
   );
