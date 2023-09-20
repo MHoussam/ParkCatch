@@ -6,10 +6,19 @@ const styles = StyleSheet.create({
         width: '90%',
         height: '64%',
         marginTop: 28,
-        // alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: 25,
         backgroundColor: '#FECA0E',
     },
+    innerContainer: {
+        backgroundColor: '#FFF',
+        width: '90%',
+        height: '95%',
+        borderRadius: 30,
+        alignItems: 'center',
+        paddingTop: 20,
+    }
 })
 
 export default styles;
