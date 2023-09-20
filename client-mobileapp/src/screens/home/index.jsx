@@ -20,15 +20,16 @@ const Home = () => {
   const loadUserData = async () => {
     try {
       const userData = await AsyncStorage.getItem('userData');
-      const userToken = await AsyncStorage.getItem('userToken');
+      // const userToken = await AsyncStorage.getItem('userToken');
 
+      const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTk0MTcwLCJleHAiOjE2OTUxOTc3NzAsIm5iZiI6MTY5NTE5NDE3MCwianRpIjoiRjI0N3dHRkx1OXJ6c2lpbCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OB4kTkhc7uSq5FlFWP4h01gNtuOh4tbsBcD5x4aSH-o'
       console.log('yooooooo: ' + userData)
       console.log('gvvvvvv: ' + userToken)
   
       if (userData !== null && userToken !== null) {
         const parsedUserData = JSON.parse(userData);
-  console.log('parsedUserData ')
-  console.log(parsedUserData)
+  // console.log('parsedUserData ')
+  // console.log(parsedUserData)
 
         dispatch(setUser(parsedUserData));
         dispatch(setUserToken(userToken));

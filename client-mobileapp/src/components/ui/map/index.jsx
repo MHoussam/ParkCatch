@@ -34,16 +34,16 @@ const Map = () => {
 
   const fetchParkings = async () => {
     try{
-      const userData = await AsyncStorage.getItem('userData');
-      const userTokenn = await AsyncStorage.getItem('userToken');
+      // const userData = await AsyncStorage.getItem('userData');
+      // const userTokenn = await AsyncStorage.getItem('userToken');
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer ${userTokenn}`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTk0MTcwLCJleHAiOjE2OTUxOTc3NzAsIm5iZiI6MTY5NTE5NDE3MCwianRpIjoiRjI0N3dHRkx1OXJ6c2lpbCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OB4kTkhc7uSq5FlFWP4h01gNtuOh4tbsBcD5x4aSH-o`,
           'Content-Type': 'application/json'
         }
       };
-      console.log(userData)
-      console.log(userTokenn)
+      // console.log(userData)
+      console.log(userToken)
       const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
       // console.log('data')
