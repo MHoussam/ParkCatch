@@ -25,8 +25,8 @@ const Map = () => {
   const navigation = useNavigation();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
-  const user = useSelector((state) => state.user);
-  const userToken = useSelector((state) => state.user.token);
+  // const user = useSelector((state) => state.user);
+  // const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const selectedParking = useSelector((state) => state.selectedParking);
   const [ availableNumber, setAvailableNumber ] = useState('');
@@ -34,11 +34,12 @@ const Map = () => {
 
   const fetchParkings = async () => {
     try{
-      // const userData = await AsyncStorage.getItem('userData');
-      // const userTokenn = await AsyncStorage.getItem('userToken');
+      const userData = await AsyncStorage.getItem('userData');
+      const userToken = await AsyncStorage.getItem('userToken');
+
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTk5MTcxLCJleHAiOjE2OTUyMDI3NzEsIm5iZiI6MTY5NTE5OTE3MSwianRpIjoiMnozMmRFNGpLTUs0VGJzOCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.kYNzJAsYev-CVNPcbIRdklyD1YEVKf-MpD2mdh58nXg`,
+          Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json'
         }
       };
