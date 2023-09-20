@@ -38,7 +38,7 @@ const Map = () => {
       // const userTokenn = await AsyncStorage.getItem('userToken');
       const axiosConfig = {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTk0MTcwLCJleHAiOjE2OTUxOTc3NzAsIm5iZiI6MTY5NTE5NDE3MCwianRpIjoiRjI0N3dHRkx1OXJ6c2lpbCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.OB4kTkhc7uSq5FlFWP4h01gNtuOh4tbsBcD5x4aSH-o`,
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MTk5MTcxLCJleHAiOjE2OTUyMDI3NzEsIm5iZiI6MTY5NTE5OTE3MSwianRpIjoiMnozMmRFNGpLTUs0VGJzOCIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.kYNzJAsYev-CVNPcbIRdklyD1YEVKf-MpD2mdh58nXg`,
           'Content-Type': 'application/json'
         }
       };

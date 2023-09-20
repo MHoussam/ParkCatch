@@ -49,7 +49,7 @@ const Home = () => {
       <SearchBar /> 
       <Map />
       {/* <ChatComponent /> */}
-      {/* <Footer/>  */}
+      <Footer/> 
     </Provider>
   )
 }
