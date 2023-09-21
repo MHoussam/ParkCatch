@@ -6,6 +6,7 @@ import slotReducer from './slots/slotSlice';
 import selectedParkingReducer from './selectedParking/selectedParkingSlice';
 import selectedSlotReducer from './selectedSlot/selectedSlotSlice';
 import reservationReducer from './reservation/reservationSlice';
+import tabsReducer from './tabs/tabsSlice';
 
 const store = configureStore({
     reducer: {
