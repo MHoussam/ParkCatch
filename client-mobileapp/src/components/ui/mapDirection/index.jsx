@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, Image } from 'react-native';
-import MapView, { Marker, Polyline } from 'react-native-maps';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import * as Location from 'expo-location';
-import styles from './styles';
-import Distance from '../../base/distance';
+import React, { useEffect, useState } from "react";
+import { View, Text, Image } from "react-native";
+import MapView, { Marker, Polyline } from "react-native-maps";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import * as Location from "expo-location";
+import styles from "./styles";
+import Distance from "../../base/distance";
 
 const MapDirections = () => {
   const [error, setError] = useState(null);
@@ -13,12 +13,12 @@ const MapDirections = () => {
 
   const [routeCoordinates, setRouteCoordinates] = useState([]);
   const [currentLocation, setCurrentLocation] = useState([]);
-  const [ refresh, setRefresh ] = useState(null);  
+  const [refresh, setRefresh] = useState(null);
   const dispatch = useDispatch();
 
   const fetchDirection = async () => {
     // console.log('currenttttttttttttttttttt')
-// console.log(currentLocation)
+    // console.log(currentLocation)
     if (currentLocation.length == 0) {
       // console.log('shuuuuuuuuuuuuuu')
       // console.log('shuuuuuuuuuuuuuu')
@@ -28,8 +28,8 @@ const MapDirections = () => {
     }
     // console.log('lehhhhhhhh')
 
-    const apiKey = 'jiEbAXzcDj8ZRhrkfI3EfYjG462gAlrg';
-    
+    const apiKey = "jiEbAXzcDj8ZRhrkfI3EfYjG462gAlrg";
+
     try {
       const response = await axios.get(
         `https://www.mapquestapi.com/directions/v2/route?key=${apiKey}&from=${currentLocation.latitude},${currentLocation.longitude}&to=${selectedParking.latitude},${selectedParking.longitude}`
@@ -38,7 +38,7 @@ const MapDirections = () => {
       // console.log(response.data)
 
       const { legs } = response.data.route;
-    //   console.log(response.data.route.legs[0].maneuvers[0].startPoint.lat)
+      //   console.log(response.data.route.legs[0].maneuvers[0].startPoint.lat)
       const points = legs[0].maneuvers.map((maneuver) => ({
         latitude: maneuver.startPoint.lat,
         longitude: maneuver.startPoint.lng,
@@ -53,22 +53,22 @@ const MapDirections = () => {
 
   const getLocationAsync = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted') {
-      console.error('Permission to access location was denied');
+    if (status !== "granted") {
+      console.error("Permission to access location was denied");
       return;
     }
-  
+
     const location = await Location.getCurrentPositionAsync({});
-    console.log(location.coords.latitude + ' ' + location.coords.longitude)
+    console.log(location.coords.latitude + " " + location.coords.longitude);
     setCurrentLocation({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
     });
-  }
+  };
 
   const refreshNow = () => {
     setRefresh(true);
-  }
+  };
 
   const calculatedDistance = currentLocation
     ? Distance({
@@ -78,7 +78,7 @@ const MapDirections = () => {
         lon2: selectedParking.longitude,
       })
     : null;
-  
+
   useEffect(() => {
     getLocationAsync();
   }, []);
@@ -88,100 +88,122 @@ const MapDirections = () => {
       getLocationAsync();
       fetchDirection();
     }, 5000);
-  
+
     return () => {
       clearInterval(locationInterval);
     };
   }, [currentLocation, refresh]);
-// console.log('route')
-// console.log(routeCoordinates[0])
-// console.log(currentLocation)
+  // console.log('route')
+  // console.log(routeCoordinates[0])
+  // console.log(currentLocation)
 
-// console.log('current')
-// console.log(currentLocation)
-// console.log('selectedParking')
-// console.log(selectedParking.latitude + ' ' + selectedParking.longitude)
+  // console.log('current')
+  // console.log(currentLocation)
+  // console.log('selectedParking')
+  // console.log(selectedParking.latitude + ' ' + selectedParking.longitude)
   return (
     <View style={styles.container}>
-      {currentLocation && routeCoordinates.length>0 ? (
+      {currentLocation && routeCoordinates.length > 0 ? (
         <>
-        <MapView
-        style={styles.map}
-        initialRegion={{
-          latitude: currentLocation.latitude,
-          longitude: currentLocation.longitude,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      >
-        {currentLocation && (
-         <Marker
-           coordinate={{
-             latitude: currentLocation.latitude,
-             longitude: currentLocation.longitude,
-           }}
-           title="Origin"
-         />
-       )}
-       <Marker
-         coordinate={{
-           latitude: selectedParking.latitude,
-           longitude: selectedParking.longitude,
-         }}
-         title="Destination"
-       >
-        <View style={styles.parking}>
-          <Image
-            source={require('../../../../assets/images/marker.png')}
-            style={styles.markerIcon}
-          />
-          <Text style={styles.parkingName}>{selectedParking.name}</Text>
-        </View>
-       </Marker> 
-
-        {routeCoordinates.length > 0 && (
-         <Polyline
-           coordinates={routeCoordinates}
-           strokeColor="#3498db"
-           strokeWidth={3}
-         />
-       )} 
-     </MapView>
-     <View>
-          {selectedParking.id !== null && (
-            <>
-              <View style={styles.card}>
-              <Image
-                style={styles.parkingPhoto}
-                source={require('../../../../assets/images/forward.png')}
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: currentLocation.latitude,
+              longitude: currentLocation.longitude,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          >
+            {currentLocation && (
+              <Marker
+                coordinate={{
+                  latitude: currentLocation.latitude,
+                  longitude: currentLocation.longitude,
+                }}
+                title="Origin"
               />
-              <View >
-                <View style={styles.cardInfo} >
-                  <Text style={[styles.bold, styles.size16]}>To {selectedParking.name}</Text>
-                  <Text style={[styles.semibold, styles.size13, styles.parkingAddress]}>{currentLocation ? calculatedDistance : 'Calculating'}m</Text>
-                </View>
+            )}
+            <Marker
+              coordinate={{
+                latitude: selectedParking.latitude,
+                longitude: selectedParking.longitude,
+              }}
+              title="Destination"
+            >
+              <View style={styles.parking}>
+                <Image
+                  source={require("../../../../assets/images/marker.png")}
+                  style={styles.markerIcon}
+                />
+                <Text style={styles.parkingName}>{selectedParking.name}</Text>
               </View>
-              </View>
-            </>
-          )}
-          {console.log('current: ' + currentLocation.latitude + ' ' + currentLocation.longitude)}
-          {console.log('selectedParking: ' + selectedParking.latitude + ' ' + currentLocation.longitude)}
+            </Marker>
 
-        </View>
+            {routeCoordinates.length > 0 && (
+              <Polyline
+                coordinates={routeCoordinates}
+                strokeColor="#3498db"
+                strokeWidth={3}
+              />
+            )}
+          </MapView>
+          <View>
+            {selectedParking.id !== null && (
+              <>
+                <View style={styles.card}>
+                  <Image
+                    style={styles.parkingPhoto}
+                    source={require("../../../../assets/images/forward.png")}
+                  />
+                  <View style={styles.cardName}>
+                    <View style={styles.cardInfo}>
+                      <Text
+                        style={[styles.bold, styles.size16, styles.parkingName]}
+                      >
+                        To {selectedParking.name}
+                      </Text>
+                      <Text
+                        style={[
+                          styles.semibold,
+                          styles.size13,
+                          styles.parkingAddress,
+                        ]}
+                      >
+                        {currentLocation ? calculatedDistance : "Calculating"}m
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </>
+            )}
+            {console.log(
+              "current: " +
+                currentLocation.latitude +
+                " " +
+                currentLocation.longitude
+            )}
+            {console.log(
+              "selectedParking: " +
+                selectedParking.latitude +
+                " " +
+                currentLocation.longitude
+            )}
+          </View>
         </>
-        ) : (
-          <>
-            <Text style={styles.error} onLayout={refreshNow}>Map is Loading...</Text>
-          </>
-        )}
-  
-        {/* {error && <Text>Error: {error}</Text>} */}
-        {/* <Text>hELLOOOOOOOO</Text>
+      ) : (
+        <>
+          <Text style={styles.error} onLayout={refreshNow}>
+            Map is Loading...
+          </Text>
+        </>
+      )}
+
+      {/* {error && <Text>Error: {error}</Text>} */}
+      {/* <Text>hELLOOOOOOOO</Text>
         {console.log('current: ' + currentLocation.latitude + ' ' + currentLocation.longitude)}
           {console.log('selectedParking: ' + selectedParking.latitude + ' ' + currentLocation.longitude)}
           {console.log('route: ')} */}
-          {/* {console.log(routeCoordinates[0].latitude)} */}
-
+      {/* {console.log(routeCoordinates[0].latitude)} */}
     </View>
   );
 };

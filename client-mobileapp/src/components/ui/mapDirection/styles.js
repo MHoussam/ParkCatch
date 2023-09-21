@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
         width: 140,
         flex:1,
         justifyContent: 'space-evenly',
+        width: '75%',
     },
     cardInfoRow: {
         flexDirection: 'row',
@@ -80,6 +81,9 @@ const styles = StyleSheet.create({
     },
     parkingAddress: {
         color: '#000',
+    },
+    cardName: {
+        width: '100%',
     }
 });
     

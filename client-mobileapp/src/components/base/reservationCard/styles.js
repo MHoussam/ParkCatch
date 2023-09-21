@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     },
     status: {
         color: '#FF0000',
-    }
+    },
 });
     
 export default styles;
