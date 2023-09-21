@@ -71,7 +71,6 @@ const ReservationInfo = () => {
         <View style={styles.button}>
           <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
         </View>
-        <Footer />
       </View>
     </View>
   );
