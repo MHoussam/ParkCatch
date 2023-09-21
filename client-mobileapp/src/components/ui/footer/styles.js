@@ -35,9 +35,13 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     icon: {
+      minHeight: 18,
+      minWidth: 18,
       opacity: 0.5,
     },
     activeIcon: {
+      minHeight: 18,
+      minWidth: 18,
       opacity: 1,
     }
 });

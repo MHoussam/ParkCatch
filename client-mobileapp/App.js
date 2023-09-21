@@ -23,12 +23,7 @@ export default function App() {
   // useEffect(() => {
   //   const checkUserToken = async () => {
   //     const token = await AsyncStorage.removeItem('userToken');
-  //     console.log('where: ' + token)
-  //     if (token !== null) {
-  //       setUserToken(token);
-  //     }
   //   };
-
   //   checkUserToken();
   // }, []);
 

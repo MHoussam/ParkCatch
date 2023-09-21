@@ -16,7 +16,7 @@ const Footer = () => {
         onPress={() => handleTabPress('Home')}
       >
         <View style={styles.label}>
-          <Image source={require('../../../../assets/images/home.png')} style={activeTab === 'Home' ? styles.activeIcon : styles.icon}/>
+          <Image source={require('../../../../assets/images/home.png')} style={[styles.home, activeTab === 'Home' ? styles.activeIcon : styles.icon]}/>
           <Text style={activeTab === 'Home' ? styles.activeText : styles.text}>Home</Text>
         </View>
       </TouchableOpacity>
@@ -25,7 +25,7 @@ const Footer = () => {
         onPress={() => handleTabPress('Reservations')}
       >
         <View style={styles.label}>
-          <Image source={require('../../../../assets/images/reservations.png')} style={activeTab === 'Reservations' ? styles.activeIcon : styles.icon}/>
+          <Image source={require('../../../../assets/images/reservations.png')} style={[styles.reservations, activeTab === 'Reservations' ? styles.activeIcon : styles.icon]}/>
           <Text style={activeTab === 'Reservations' ? styles.activeText : styles.text}>Reservations</Text>
         </View>
       </TouchableOpacity>
@@ -34,7 +34,7 @@ const Footer = () => {
         onPress={() => handleTabPress('Notifications')}
       >
         <View style={styles.label}>
-          <Image source={require('../../../../assets/images/notifications.png')} style={activeTab === 'Notifications' ? styles.activeIcon : styles.icon}/>
+          <Image source={require('../../../../assets/images/notifications.png')} style={[styles.notifications, activeTab === 'Notifications' ? styles.activeIcon : styles.icon]}/>
           <Text style={activeTab === 'Notifications' ? styles.activeText : styles.text}>Notifications</Text>
         </View>
       </TouchableOpacity>
@@ -43,7 +43,7 @@ const Footer = () => {
         onPress={() => handleTabPress('Settings')}
       >
         <View style={styles.label}>
-          <Image source={require('../../../../assets/images/settings.png')} style={activeTab === 'Settings' ? styles.activeIcon : styles.icon}/>
+          <Image source={require('../../../../assets/images/settings.png')} style={[styles.settings, activeTab === 'Settings' ? styles.activeIcon : styles.icon]}/>
           <Text style={activeTab === 'Settings' ? styles.activeText : styles.text}>Settings</Text>
         </View>
       </TouchableOpacity>
