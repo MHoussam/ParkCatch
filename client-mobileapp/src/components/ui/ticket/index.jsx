@@ -14,7 +14,12 @@ const Ticket = () => {
             />
             <View style={styles.line}/>
             <View styles={styles.summary}>
-                <Summary />
+                <Summary
+                    styleContainer={styles.infoContainer}
+                    styleSubtitle={styles.subtitle}
+                    styleInfo={styles.info}
+                    styleLeftContent={styles.leftContent}
+                />
             </View>
         </View>
     </View>

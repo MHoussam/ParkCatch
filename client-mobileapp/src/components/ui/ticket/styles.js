@@ -33,6 +33,25 @@ const styles = StyleSheet.create({
       },      
     summary: {
         width: '90%',
+    },
+    infoContainer: {
+        width: '84%',
+        marginTop: 18,
+        marginLeft: -7,
+    },
+    subtitle: {
+        color: '#848484',
+        fontSize: 13,
+        fontWeight: '600',
+    },
+    info: {
+        color: '#000',
+        fontSize: 14,
+        fontWeight: 'bold',
+    },
+    leftContent: {
+        width: '66%',
+        marginBottom: 7,
     }
 })
 
