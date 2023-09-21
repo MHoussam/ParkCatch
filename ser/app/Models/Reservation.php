@@ -17,4 +17,9 @@ class Reservation extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function parking()
+    {
+        return $this->belongsTo(Parking::class);
+    }
 }
