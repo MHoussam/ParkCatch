@@ -28,13 +28,15 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '90%',
-        height: 135,
-        borderRadius: 15,
-        backgroundColor: '#fff',
+        height: 60,
+        borderRadius: 75,
+        backgroundColor: '#FECA0E',
         elevation: 20,
-        padding: 10,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 15,
         position: 'absolute',
-        bottom: 95,
+        bottom: 13,
         marginLeft: '5%',
         zIndex: 2,
         flexDirection: 'row',
@@ -42,13 +44,13 @@ const styles = StyleSheet.create({
     },
     parkingPhoto: {
         resizeMode: 'cover',
-        width: 110, 
-        height: 110,
+        width: 37, 
+        height: 37,
         borderRadius: 5,
     },
     cardInfo: {
         flexDirection: 'column',
-        marginLeft: 20, 
+        marginLeft: 15, 
         width: 140,
         flex:1,
         justifyContent: 'space-evenly',
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
     },
     parkingAddress: {
-        color: '#757575',
+        color: '#000',
     }
 });
     
