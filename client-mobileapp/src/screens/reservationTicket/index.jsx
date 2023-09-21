@@ -9,12 +9,11 @@ import Ticket from '../../components/ui/ticket'
 const ReservationTicket = () => {
   return (
     <View style={styles.container}>
-        <Header ScreenName={'ReservationTicket'} />
+        <Header ScreenName={'Reservation Ticket'} />
         <View style={styles.ticket}>
           <Ticket />
           <Button text={'Get Directions'} navigate={'Directions'} />
         </View>
-        <Footer />
     </View>
   )
 }
