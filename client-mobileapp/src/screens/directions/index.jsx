@@ -15,7 +15,6 @@ console.log(reservation);
     <View style={styles.container}>
         <Header ScreenName={'Directions'} ParkingName={selectedParking.name}/>
         <MapDirections />
-        <Footer />
     </View>
   )
 }
