@@ -31,8 +31,8 @@ console.log(userData.id)
   return (
     <View style={{flex:1}}>
         <Header ScreenName={'Reservations'}/>
-        <View style={styles.container}>
-        <ReservationCard reservations={reservations} />
+        <View style={{flex:1}}>
+        <ReservationCard reservations={reservations[0]} />
         </View>
     </View>
   )

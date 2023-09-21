@@ -2,22 +2,20 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        // flex:1,
-        height: '100%',
-        justifyContent: 'center',
-        marginTop: -75,
+        flex:1,
+        // height: '100%',
+        // marginTop: -75,
+        paddingTop: 45,
     },
-    card: {
+    reservationCard: {
         width: '90%',
         height: 135,
         borderRadius: 15,
         backgroundColor: '#fff',
         elevation: 20,
         padding: 10,
-        position: 'absolute',
         bottom: 20,
         marginLeft: '5%',
-        zIndex: 2,
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         width: 110, 
         height: 110,
-        borderRadius: 5,
+        borderRadius: 10,
     },
     cardInfo: {
         flexDirection: 'column',
@@ -59,6 +57,9 @@ const styles = StyleSheet.create({
     },
     parkingAddress: {
         color: '#757575',
+    },
+    status: {
+        color: '#FF0000',
     }
 });
     
