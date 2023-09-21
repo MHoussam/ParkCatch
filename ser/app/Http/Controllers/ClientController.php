@@ -75,15 +75,6 @@ class ClientController extends Controller
         }
     }
 
-    public function getReservations(Request $request) {
-        $reservations = Reservation::where('user_id', $request->user_id)->get();
-
-        return response()->json([
-            'status' => 'Success',
-            'data' => $reservations
-        ]);
-    }
-
     public function changeAccountInfo(Request $request) {
         $user = User::where('id', Auth::user()->id)->first();
         $user->first_name = $request->first_name;
