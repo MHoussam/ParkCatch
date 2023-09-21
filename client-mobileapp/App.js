@@ -59,11 +59,11 @@ export default function App() {
   function HomeStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={HomeMap} />
-        <Stack.Screen name="Spots" component={Spots} />
-        <Stack.Screen name="ReservationInfo" component={ReservationInfo} />
-        <Stack.Screen name="ReservationTicket" component={ReservationTicket} />
-        <Stack.Screen name="Directions" component={Directions} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Home" component={HomeMap} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Spots" component={Spots} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationInfo" component={ReservationInfo} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationTicket" component={ReservationTicket} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Directions" component={Directions} />
       </Stack.Navigator>
     );
   }
@@ -71,9 +71,9 @@ export default function App() {
   function ReservationsStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Reservations" component={Reservations} />
-        <Stack.Screen name="ReservationTicket" component={ReservationTicket} />
-        <Stack.Screen name="Directions" component={Directions} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Reservations" component={Reservations} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationTicket" component={ReservationTicket} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Directions" component={Directions} />
       </Stack.Navigator>
     );
   }
@@ -81,7 +81,7 @@ export default function App() {
   function NotificationsStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Notifications" component={Notificationss} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Notifications" component={Notificationss} />
       </Stack.Navigator>
     );
   }
@@ -89,14 +89,14 @@ export default function App() {
   function SettingsStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Settings" component={Settings} />
       </Stack.Navigator>
     );
   }
 
   function TabNavigator() {
     return (
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={{ headerShown: false }} >
         <Tab.Screen name="Home" component={HomeStackNavigator} />
         <Tab.Screen name="Reservations" component={ReservationsStackNavigator} />
         <Tab.Screen name="Notifications" component={NotificationsStackNavigator} />
