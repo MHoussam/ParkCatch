@@ -32,7 +32,6 @@ console.log(user)
         <View style={{flex:1}}>
         {/* <ReservationCard reservations={reservations} /> */}
         </View>
-        <Footer />
     </View>
   )
 }
