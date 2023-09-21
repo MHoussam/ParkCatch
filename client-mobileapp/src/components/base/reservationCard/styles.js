@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
         flex:1,
         // height: '100%',
         // marginTop: -75,
-        paddingTop: 45,
+        paddingTop: 20,
     },
     reservationCard: {
         width: '90%',

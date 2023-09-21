@@ -31,12 +31,14 @@ console.log(userData.id)
         fetchReservations();
     }, [])
   return (
-    <View style={{flex:1}}>
+    <View style={styles.container}>
         <Header ScreenName={'Reservations'}/>
-        <View style={{flex:1}}>
-        <ScrollView>
+        <View style={styles.container}>
+        <ScrollView contentContainerStyle={{ paddingTop: 25 }}>
           {reservations.map((reservation, index) => (
-            <ReservationCard key={index} reservations={reservation} setReservations={setReservations} />
+             <View key={reservation.id} style={styles.cardContainer}>
+              <ReservationCard key={index} reservations={reservation} />
+            </View>
           ))}
         </ScrollView>
         </View>

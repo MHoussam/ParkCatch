@@ -5,7 +5,7 @@ import styles from './styles'
 import { useSelector } from 'react-redux'
 import changeTimeFormat from '../button/changeTime'
 
-const ReservationCard = ({ reservations, setReservations }) => {
+const ReservationCard = ({ reservations }) => {
   // const reservations = useSelector((state) => state.reservations)
   const [time, setTime] = useState('');
   console.log('sssssssssssssssssssssssssssssss')
