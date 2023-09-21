@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Location from 'expo-location';
 import styles from './styles';
+import Distance from '../../base/distance';
 
 const MapDirections = () => {
   const [error, setError] = useState(null);
@@ -68,6 +69,15 @@ const MapDirections = () => {
   const refreshNow = () => {
     setRefresh(true);
   }
+
+  const calculatedDistance = currentLocation
+    ? Distance({
+        lat1: currentLocation.latitude,
+        lon1: currentLocation.longitude,
+        lat2: selectedParking.latitude,
+        lon2: selectedParking.longitude,
+      })
+    : null;
   
   useEffect(() => {
     getLocationAsync();
@@ -94,6 +104,7 @@ const MapDirections = () => {
   return (
     <View style={styles.container}>
       {currentLocation && routeCoordinates.length>0 ? (
+        <>
         <MapView
         style={styles.map}
         initialRegion={{
@@ -136,6 +147,28 @@ const MapDirections = () => {
          />
        )} 
      </MapView>
+     <View>
+          {selectedParking.id !== null && (
+            <>
+              <View style={styles.card}>
+              <Image
+                style={styles.parkingPhoto}
+                source={require('../../../../assets/images/forward.png')}
+              />
+              <View >
+                <View style={styles.cardInfo} >
+                  <Text style={[styles.bold, styles.size16]}>To {selectedParking.name}</Text>
+                  <Text style={[styles.semibold, styles.size13, styles.parkingAddress]}>{currentLocation ? calculatedDistance : 'Calculating'}m</Text>
+                </View>
+              </View>
+              </View>
+            </>
+          )}
+          {console.log('current: ' + currentLocation.latitude + ' ' + currentLocation.longitude)}
+          {console.log('selectedParking: ' + selectedParking.latitude + ' ' + currentLocation.longitude)}
+
+        </View>
+        </>
         ) : (
           <>
             <Text style={styles.error} onLayout={refreshNow}>Map is Loading...</Text>
