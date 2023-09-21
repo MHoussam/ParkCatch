@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\SupervisorController;
 use App\Http\Controllers\AdminController;
-// use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SocketController;
 
 Route::group(["middleware"=>"auth:api"],function(){
