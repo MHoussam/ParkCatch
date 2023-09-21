@@ -35,7 +35,12 @@ const styles = StyleSheet.create({
     leftContent: {
         width: '67%',
         marginBottom: 10,
-    }
+    },
+    reservInfo: {
+        flex: 1,
+        alignItems: 'center',
+        width: '100%',
+      }
 });
 
 export default styles;

@@ -57,17 +57,19 @@ const ReservationInfo = () => {
   return (
     <View style={styles.container}>
       <Header ScreenName={"Reservation Info"} />
-      <InfoForm />
-      <View style={styles.summaryContainer}>
-        <Text style={styles.title}>Summary</Text>
-        <Summary
-          styleContainer={styles.infoContainer}
-          styleSubtitle={styles.subtitle}
-          styleInfo={styles.info}
-          styleLeftContent={styles.leftContent}
-        />
+      <View style={styles.reservInfo}>
+        <InfoForm />
+        <View style={styles.summaryContainer}>
+          <Text style={styles.title}>Summary</Text>
+          <Summary
+            styleContainer={styles.infoContainer}
+            styleSubtitle={styles.subtitle}
+            styleInfo={styles.info}
+            styleLeftContent={styles.leftContent}
+          />
+        </View>
+        <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
       </View>
-      <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
       <Footer />
     </View>
   );
