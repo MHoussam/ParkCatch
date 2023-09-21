@@ -7,7 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Login from "./src/screens/login";
 import Signup from "./src/screens/signup";
-import HomeMap from "./src/screens/home";
+import HomeMapScreen from "./src/screens/home";
 import Spots from "./src/screens/spots";
 import ReservationInfo from "./src/screens/reservationInfo";
 import Directions from "./src/screens/directions";
@@ -25,7 +25,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   const [userToken, setUserToken] = useState(null);
 
-  // useEffect(() => {
+  //  useEffect(() => {
   //   const checkUserToken = async () => {
   //     const token = await AsyncStorage.removeItem('userToken');
   //   };
@@ -34,6 +34,13 @@ export default function App() {
 
   const { registerForPushNotificationsAsync, handleNotificationResponse } =
     Notification();
+
+  let token;
+  const checkToken = async () => {
+    token = await AsyncStorage.getItem('userToken');
+    console.log('this is the token ' + token);
+    setUserToken(token);
+  }
 
   useEffect(() => {
     registerForPushNotificationsAsync();
@@ -50,6 +57,8 @@ export default function App() {
         handleNotificationResponse
       );
 
+    checkToken();
+
     return () => {
       if (responseListener)
         Notifications.removeNotificationSubscription(responseListener);
@@ -59,7 +68,7 @@ export default function App() {
   function HomeStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen screenOptions={{ headerShown: false }} name="Home" component={HomeMap} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="HomeMap" component={HomeMapScreen} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="Spots" component={Spots} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationInfo" component={ReservationInfo} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationTicket" component={ReservationTicket} />
@@ -81,7 +90,7 @@ export default function App() {
   function NotificationsStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen screenOptions={{ headerShown: false }} name="Notifications" component={Notificationss} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Notificationss" component={Notificationss} />
       </Stack.Navigator>
     );
   }
@@ -96,7 +105,12 @@ export default function App() {
 
   function TabNavigator() {
     return (
-      <Tab.Navigator screenOptions={{ headerShown: false }} >
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: { backgroundColor: 'yellow' },
+        }}
+      >
         <Tab.Screen name="Home" component={HomeStackNavigator} />
         <Tab.Screen name="Reservations" component={ReservationsStackNavigator} />
         <Tab.Screen name="Notifications" component={NotificationsStackNavigator} />
@@ -108,7 +122,13 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <TabNavigator />
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="TabNavigator" component={TabNavigator} />
+            {/* <Stack.Screen name="EditPost" component={EditPost} /> */}
+            <Stack.Screen name="Signup" component={Signup} />
+          </Stack.Navigator>
+        {console.log('shuuuuuuuuuuuuuuuuuuuuuu:', userToken)}
       </NavigationContainer>
     </Provider>
   );

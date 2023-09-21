@@ -48,7 +48,7 @@ const Login = () => {
         await AsyncStorage.setItem('userToken', response.data.data.token);
 
         dispatch(setUserToken(response.data.data.token))
-        // navigation.navigate('Home');
+        navigation.navigate('TabNavigator');
       }
     } catch (error) {
       console.error('Login failed', error);
@@ -65,7 +65,7 @@ const Login = () => {
       console.log('hereeeee: ' + token)
       if(token !== null){
         
-        navigation.navigate('Home')
+        navigation.navigate('TabNavigator');
       }
     }
 
