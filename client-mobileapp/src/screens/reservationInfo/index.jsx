@@ -8,28 +8,35 @@ import Map from "../../components/ui/map";
 import Button from "../../components/base/button";
 import InfoForm from "../../components/ui/infoForm";
 import Summary from "../../components/ui/summary";
-import { setReservation, clearReservation } from '../../redux/reservation/reservationSlice';
+import {
+  setReservation,
+  clearReservation,
+} from "../../redux/reservation/reservationSlice";
 
 const ReservationInfo = () => {
   const selectedParking = useSelector((state) => state.selectedParking);
   const user = useSelector((state) => state.user);
   const selectedSlot = useSelector((state) => state.selectedSlot);
   const reservation = useSelector((state) => state.reservation);
-  const [inputs, setInputs] = useState({duration: 2, phone: '', plateNumber: ''})
+  const [inputs, setInputs] = useState({
+    duration: 2,
+    phone: "",
+    plateNumber: "",
+  });
   const dispatch = useDispatch();
 
   dispatch(
     setReservation({
       client: user.firstname + " " + user.lastname,
-      phone: reservation.phone || '',
+      phone: reservation.phone || "",
       parking: selectedParking.name,
       location: selectedParking.address,
       duration: reservation.duration || 2,
       spotNumber: selectedSlot.name,
-      plateNumber: reservation.plateNumber || '',
+      plateNumber: reservation.plateNumber || "",
       total: parseInt(reservation.duration) * selectedParking.price,
     })
-  ); 
+  );
 
   useEffect(() => {
     dispatch(
@@ -53,7 +60,12 @@ const ReservationInfo = () => {
       <InfoForm />
       <View style={styles.summaryContainer}>
         <Text style={styles.title}>Summary</Text>
-        <Summary />
+        <Summary
+          styleContainer={styles.infoContainer}
+          styleSubtitle={styles.subtitle}
+          styleInfo={styles.info}
+          styleLeftContent={styles.leftContent}
+        />
       </View>
       <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
       <Footer />

@@ -4,54 +4,54 @@ import Info from '../../base/info'
 import styles from './styles'
 import { useSelector } from 'react-redux'
 
-const Summary = () => {
+const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent }) => {
     const reservation = useSelector((state) => state.reservation);
 
-    // console.log(reservation)
+    console.log(styleLeftContent)
     // console.log(reservation.duration)
 
   return (
-    <View style={styles.container}>
+    <View style={styleContainer}>
         <View style={styles.row}>
-            <View style={styles.leftContent}>
-                <Info styleText={styles.subtitle} text={'Client'} />
-                <Info styleText={styles.info} text={reservation.client} />
+            <View style={styleLeftContent}>
+                <Info styleText={styleSubtitle} text={'Client'} />
+                <Info styleText={styleInfo} text={reservation.client} />
             </View>
             <View>
-                <Info styleText={styles.subtitle} text={'Phone Number'} />
-                <Info styleText={styles.info} text={'+961' + reservation.phone} />
+                <Info styleText={styleSubtitle} text={'Phone Number'} />
+                <Info styleText={styleInfo} text={'+961' + reservation.phone} />
             </View>
         </View>
         
         <View style={styles.row}>
-            <View style={styles.leftContent}>
-                <Info styleText={styles.subtitle} text={'Parking'} />
-                <Info styleText={styles.info} text={reservation.parking} />
+            <View style={styleLeftContent}>
+                <Info styleText={styleSubtitle} text={'Parking'} />
+                <Info styleText={styleInfo} text={reservation.parking} />
             </View>
             <View>
-                <Info styleText={styles.subtitle} text={'Location'} />
-                <Info styleText={styles.info} text={reservation.location} />
+                <Info styleText={styleSubtitle} text={'Location'} />
+                <Info styleText={styleInfo} text={reservation.location} />
             </View>
         </View>
         
         <View style={styles.row}>
-            <View style={styles.leftContent}>
-                <Info styleText={styles.subtitle} text={'Duration'} />
-                <Info styleText={styles.info} text={reservation.duration} />
+            <View style={styleLeftContent}>
+                <Info styleText={styleSubtitle} text={'Duration'} />
+                <Info styleText={styleInfo} text={reservation.duration} />
             </View>
             <View>
-                <Info styleText={styles.subtitle} text={'Spot Number'} />
-                <Info styleText={styles.info} text={reservation.spotNumber} />
+                <Info styleText={styleSubtitle} text={'Spot Number'} />
+                <Info styleText={styleInfo} text={reservation.spotNumber} />
             </View>
         </View>
         <View style={styles.row}>
-            <View style={styles.leftContent}>
-                <Info styleText={styles.subtitle} text={'Plate Number'} />
-                <Info styleText={styles.info} text={reservation.plateNumber} />
+            <View style={styleLeftContent}>
+                <Info styleText={styleSubtitle} text={'Plate Number'} />
+                <Info styleText={styleInfo} text={reservation.plateNumber} />
             </View>
             <View>
-                <Info styleText={styles.subtitle} text={'Total'} />
-                <Info styleText={styles.info} text={reservation.total} />
+                <Info styleText={styleSubtitle} text={'Total'} />
+                <Info styleText={styleInfo} text={reservation.total} />
             </View>
         </View>
     </View>
