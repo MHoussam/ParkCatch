@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         elevation: 20,
         padding: 10,
         position: 'absolute',
-        bottom: 95,
+        bottom: 20,
         marginLeft: '5%',
         zIndex: 2,
         flexDirection: 'row',
