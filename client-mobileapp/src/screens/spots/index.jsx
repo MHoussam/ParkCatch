@@ -29,7 +29,6 @@ const Spots = () => {
         <Slots />
         <Button text={'Next'} navigate={'ReservationInfo'} />
       </View>
-      <Footer />
     </View>
   )
 }
