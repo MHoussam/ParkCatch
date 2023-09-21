@@ -11,6 +11,13 @@ const ReservationCard = () => {
             uri: `http://127.0.0.1:8000/images/parkings/${selectedParking.photo}`,
           }}
         />
+        <View>
+          <View style={styles.cardInfo}>
+            <Text style={[styles.bold, styles.size16]}>
+              {selectedParking.name}
+            </Text>
+          </View>
+        </View>
       </TouchableOpacity>
     </View>
   );
