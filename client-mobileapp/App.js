@@ -18,6 +18,7 @@ import * as Notifications from "expo-notifications";
 import Notification from "./src/components/ui/notification";
 import Reservations from "./src/screens/reservations";
 import Settings from "./src/screens/settings";
+import { Image } from "react-native";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -115,10 +116,42 @@ export default function App() {
           tabBarLabelStyle: { fontWeight: 'bold', fontSize: 14, paddingBottom: 15},
         }}
       >
-        <Tab.Screen  name="Home" component={HomeStackNavigator} />
-        <Tab.Screen name="Reservations" component={ReservationsStackNavigator} />
-        <Tab.Screen name="Notifications" component={NotificationsStackNavigator} />
-        <Tab.Screen name="Settings" component={SettingsStackNavigator} />
+        <Tab.Screen 
+          options={{
+          tabBarIcon: ({ color, size }) => (
+            <Image
+                source={require('./assets/images/home.png')}
+                style={{ minHeight: 21, minWidth: 20, tintColor: color }}
+            />
+          ),}}
+         name="Home" component={HomeStackNavigator} />
+        <Tab.Screen 
+          options={{
+          tabBarIcon: ({ color, size }) => (
+            <Image
+                source={require('./assets/images/reservations.png')}
+                style={{ minHeight: 20, minWidth: 24, tintColor: color }}
+            />
+          ),}}
+          name="Reservations" component={ReservationsStackNavigator} />
+        <Tab.Screen 
+          options={{
+          tabBarIcon: ({ color, size }) => (
+            <Image
+                source={require('./assets/images/notifications.png')}
+                style={{ minHeight: 21, minWidth: 19, tintColor: color }}
+            />
+          ),}}
+          name="Notifications" component={NotificationsStackNavigator} />
+        <Tab.Screen 
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Image
+                  source={require('./assets/images/settings.png')}
+                  style={{ minHeight: 22, minWidth: 20, tintColor: color }}
+              />
+            ),}}
+          name="Settings" component={SettingsStackNavigator} />
       </Tab.Navigator>
     );
   }
