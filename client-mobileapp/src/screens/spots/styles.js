@@ -29,6 +29,11 @@ const styles = StyleSheet.create({
       color: '#000',
       fontWeight: 'bold',
       fontSize: 17,
+    },
+    spots: {
+      flex: 1,
+      alignItems: 'center',
+      width: '100%',
     }
 });
 

@@ -11,6 +11,7 @@ import ReservationInfo from './src/screens/reservationInfo';
 import Directions from './src/screens/directions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReservationTicket from './src/screens/reservationTicket';
+import NotificationsScreen from './src/screens/notifications';
 import * as Notifications from 'expo-notifications'
 import Notification from './src/components/ui/notification';
 
@@ -61,6 +62,7 @@ export default function App() {
           <Stack.Screen name="ReservationInfo" component={ReservationInfo} />
           <Stack.Screen name="Directions" component={Directions} />
           <Stack.Screen name="ReservationTicket" component={ReservationTicket} />
+          <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
         </Stack.Navigator>
        </NavigationContainer> 
     </Provider>

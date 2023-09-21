@@ -24,9 +24,11 @@ const Spots = () => {
   return (
     <View style={styles.container}>
       <Header ScreenName={'Spot Reservation'} />
-      <Text style={styles.title}>Select a Spot</Text>
-      <Slots />
-      <Button text={'Next'} navigate={'ReservationInfo'} />
+      <View style={styles.spots}>
+        <Text style={styles.title}>Select a Spot</Text>
+        <Slots />
+        <Button text={'Next'} navigate={'ReservationInfo'} />
+      </View>
       <Footer />
     </View>
   )
