@@ -10,10 +10,12 @@ class SupervisorController extends Controller
 {
     public function getReservations() {
         $reservations = Reservation::with('user:id,email')->get();
+
+        $reservParking = Reservation::with('parking:id,name,address,latitude, longitude')->get();
     
         return response()->json([
             'status' => 'Success',
-            'data' => $reservations
+            'data' => array_merge($reservations, $reservParking)
         ]);
     }
 
