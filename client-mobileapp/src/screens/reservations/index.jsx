@@ -30,7 +30,7 @@ console.log(user)
     <View style={{flex:1}}>
         <Header ScreenName={'Reservations'}/>
         <View style={{flex:1}}>
-        <ReservationCard reservations={reservations} />
+        {/* <ReservationCard reservations={reservations} /> */}
         </View>
         <Footer />
     </View>

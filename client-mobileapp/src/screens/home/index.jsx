@@ -14,7 +14,7 @@ import ChatComponent from '../../components/ui/chat';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser, setUserToken } from '../../redux/user/userSlice';
 
-const Home = () => {
+const HomeMap = () => {
   const dispatch = useDispatch();
   // const userToken = useSelector((state) => state.user.token)
 
@@ -55,4 +55,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default HomeMap;

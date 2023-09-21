@@ -4,7 +4,7 @@ import Footer from '../../components/ui/footer';
 import { Text, View } from 'react-native';
 import Header from '../../components/ui/header';
 
-const Notifications = () => {
+const Notificationss = () => {
   return (
     <View style={{flex:1}}>
       <Header ScreenName={'Notifications'} />
@@ -16,4 +16,4 @@ const Notifications = () => {
   )
 }
 
-export default Notifications
+export default Notificationss
