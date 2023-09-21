@@ -16,6 +16,9 @@ const ReservationCard = () => {
             <Text style={[styles.bold, styles.size16]}>
               {selectedParking.name}
             </Text>
+            <Text style={[styles.bold, styles.size13, styles.parkingAddress]}>
+              {selectedParking.address}
+            </Text>
           </View>
         </View>
       </TouchableOpacity>
