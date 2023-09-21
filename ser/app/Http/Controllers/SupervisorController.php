@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 class SupervisorController extends Controller
 {
     public function getReservations(Request $request) {
-        $reservations = Reservation::with('user:id,email')
-                        ->where('user_id', $request->user_id)
-                        ->get();
+        $reservations = Reservation::where('user_id', $request->user_id)->get();
 
         $reservationIds = $reservations->pluck('parking_id');
 
