@@ -31,7 +31,7 @@ const ReservationCard = ({ reservations, setReservations }) => {
                   <Text style={[styles.bold, styles.size16]}>{reservations.parking.name}</Text>
                   <View style={styles.cardInfoRow} >
                     <Text style={[styles.bold, styles.size13, styles.address]}>{reservations.parking.address}</Text>
-                    <Text style={[styles.bold, styles.size15, styles.status]}>Completed</Text>
+                    {reservations.valid === 0 && <Text style={[styles.bold, styles.size15, styles.status]}>Completed</Text>}
                   </View>
                   <View style={styles.cardInfoRow} >
                     <Text style={[styles.bold, styles.size13 ]}>{reservations.duration} hrs</Text>
