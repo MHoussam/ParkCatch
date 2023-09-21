@@ -59,7 +59,7 @@ const MapDirections = () => {
     }
   
     const location = await Location.getCurrentPositionAsync({});
-    // console.log(location.coords.latitude + ' ' + location.coords.longitude)
+    console.log(location.coords.latitude + ' ' + location.coords.longitude)
     setCurrentLocation({
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
@@ -176,7 +176,12 @@ const MapDirections = () => {
         )}
   
         {/* {error && <Text>Error: {error}</Text>} */}
-        {/* <Text>hELLOOOOOOOO</Text> */}
+        {/* <Text>hELLOOOOOOOO</Text>
+        {console.log('current: ' + currentLocation.latitude + ' ' + currentLocation.longitude)}
+          {console.log('selectedParking: ' + selectedParking.latitude + ' ' + currentLocation.longitude)}
+          {console.log('route: ')} */}
+          {/* {console.log(routeCoordinates[0].latitude)} */}
+
     </View>
   );
 };

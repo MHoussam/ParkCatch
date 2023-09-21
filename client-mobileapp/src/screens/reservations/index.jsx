@@ -37,7 +37,7 @@ console.log(userData.id)
         <ScrollView contentContainerStyle={{ paddingTop: 25 }}>
           {reservations.map((reservation, index) => (
              <View key={reservation.id} style={styles.cardContainer}>
-              <ReservationCard key={index} reservations={reservation} />
+              <ReservationCard reservations={reservation} />
             </View>
           ))}
         </ScrollView>

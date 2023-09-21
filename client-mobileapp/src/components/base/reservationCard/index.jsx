@@ -2,16 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { Image, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from './styles'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import changeTimeFormat from '../button/changeTime'
+import { setSelectedParking } from '../../../redux/selectedParking/selectedParkingSlice'
+import { useNavigation } from '@react-navigation/native'
 
 const ReservationCard = ({ reservations }) => {
   // const reservations = useSelector((state) => state.reservations)
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [time, setTime] = useState('');
   console.log('sssssssssssssssssssssssssssssss')
   console.log(reservations)
   const navigateToDirection = () => {
-
+    if(reservations.valid == 1){
+      dispatch(setSelectedParking({id: reservations.parking.id, name: reservations.parking.name, address: reservations.parking.address, latitude: parseFloat(reservations.parking.latitude), longitude: parseFloat(reservations.parking.longitude)}))
+      navigation.navigate('Directions')
+    }
   }
 
   useEffect(() => {
