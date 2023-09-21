@@ -50,7 +50,6 @@ const HomeMap = () => {
       <SearchBar /> 
       <Map />
       {/* <ChatComponent /> */}
-      <Footer/> 
     </Provider>
   )
 }
