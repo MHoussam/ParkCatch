@@ -32,7 +32,7 @@ console.log(userData.id)
     <View style={{flex:1}}>
         <Header ScreenName={'Reservations'}/>
         <View style={{flex:1}}>
-        <ReservationCard reservations={reservations[0]} />
+        <ReservationCard reservations={reservations[0]} setReservations={setReservations}/>
         </View>
     </View>
   )
