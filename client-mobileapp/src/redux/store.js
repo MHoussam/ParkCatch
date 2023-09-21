@@ -16,6 +16,7 @@ const store = configureStore({
         selectedParking: selectedParkingReducer,
         selectedSlot: selectedSlotReducer,
         reservation: reservationReducer,
+        tabs: tabsReducer,
     },
 });
 
