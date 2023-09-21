@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderRadius: 20,
       position: 'fixed',
-      bottom: -12,
+      bottom: -9,
     },
     buttonText: {
       color: '#000',
