@@ -13,9 +13,10 @@ const Reservations = () => {
     const fetchReservations = async () => {
         const token = await AsyncStorage.getItem('userToken');
         const user = await AsyncStorage.getItem('userData');
-console.log(user)
+        const userData = JSON.parse(user);
+console.log(userData.id)
         const data = {
-            user_id: '5',
+            user_id: userData.id,
             token: token,
         }
 
@@ -31,7 +32,7 @@ console.log(user)
     <View style={{flex:1}}>
         <Header ScreenName={'Reservations'}/>
         <View style={styles.container}>
-        {/* <ReservationCard reservations={reservations} /> */}
+        <ReservationCard reservations={reservations} />
         </View>
     </View>
   )
