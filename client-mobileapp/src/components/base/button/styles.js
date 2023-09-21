@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 20,
-      position: 'absolute',
-      bottom: 88,
+      position: 'fixed',
+      // bottom: 88,
     },
     buttonText: {
       color: '#000',
