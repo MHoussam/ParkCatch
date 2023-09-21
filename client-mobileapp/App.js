@@ -109,11 +109,12 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarStyle: { backgroundColor: '#ffffff', height: 60, },
+          tabBarStyle: { backgroundColor: '#ffffff', height: 80},
           tabBarActiveTintColor: '#000000',
           tabBarInactiveTintColor: '#00000050',
           tabBarActiveBackgroundColor: '#FECA0E',
-          tabBarLabelStyle: { fontWeight: 'bold', fontSize: 14, paddingBottom: 15},
+          tabBarItemStyle: { paddingVertical: 15 },
+          tabBarLabelStyle: { fontWeight: 'bold', fontSize: 14 },
         }}
       >
         <Tab.Screen 
@@ -121,7 +122,7 @@ export default function App() {
           tabBarIcon: ({ color, size }) => (
             <Image
                 source={require('./assets/images/home.png')}
-                style={{ minHeight: 21, minWidth: 20, tintColor: color }}
+                style={{ minHeight: 21, minWidth: 20, tintColor: color, paddingBottom: 0 }}
             />
           ),}}
          name="Home" component={HomeStackNavigator} />
