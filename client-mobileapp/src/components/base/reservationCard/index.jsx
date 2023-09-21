@@ -29,7 +29,12 @@ const ReservationCard = () => {
                   {availableNumber} Spots
                 </Text>
               </View>
+              <View style={styles.cardInfoRow}>
+                <Text style={[styles.semiBold, styles.size13]}>
+                  {calculatedDistance}m
+                </Text>
               </View>
+            </View>
           </View>
         </View>
       </TouchableOpacity>
