@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import Header from '../../components/ui/header';
 import Footer from '../../components/ui/footer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -34,9 +34,11 @@ console.log(userData.id)
     <View style={{flex:1}}>
         <Header ScreenName={'Reservations'}/>
         <View style={{flex:1}}>
-        {reservations.map((reservation, index) => (
-          <ReservationCard key={index} reservations={reservation} setReservations={setReservations} />
-        ))}
+        <ScrollView>
+          {reservations.map((reservation, index) => (
+            <ReservationCard key={index} reservations={reservation} setReservations={setReservations} />
+          ))}
+        </ScrollView>
         </View>
     </View>
   )
