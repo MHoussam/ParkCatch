@@ -3,6 +3,7 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Login from './src/screens/login';
 import Signup from './src/screens/signup';
 import Home from './src/screens/home';
@@ -11,8 +12,8 @@ import ReservationInfo from './src/screens/reservationInfo';
 import Directions from './src/screens/directions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReservationTicket from './src/screens/reservationTicket';
-import NotificationsScreen from './src/screens/notifications';
-import * as Notifications from 'expo-notifications'
+import Notifications from './src/screens/notifications';
+import * as Notificationss from 'expo-notifications'
 import Notification from './src/components/ui/notification';
 import Reservations from './src/screens/reservations';
 import Settings from './src/screens/settings';
@@ -34,7 +35,7 @@ export default function App() {
 
   useEffect(() => {
     registerForPushNotificationsAsync();
-    Notifications.setNotificationHandler({
+    Notificationss.setNotificationHandler({
       handleNotification: async () => ({
         shouldShowAlert: true,
         shouldPlaySound: true,
@@ -43,7 +44,7 @@ export default function App() {
     });
 
     const responseListener = 
-    Notifications.addNotificationResponseReceivedListener(
+    Notificationss.addNotificationResponseReceivedListener(
       handleNotificationResponse
     );
 
@@ -65,7 +66,7 @@ export default function App() {
           <Stack.Screen name="Directions" component={Directions} />
           <Stack.Screen name="ReservationTicket" component={ReservationTicket} />
           <Stack.Screen name="Reservations" component={Reservations} />
-          <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
+          <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>
        </NavigationContainer> 

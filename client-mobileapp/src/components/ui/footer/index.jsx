@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 const Footer = () => {
+  const navigation = useNavigation();
   const [activeTab, setActiveTab] = useState('Home');
 
   const handleTabPress = (tabName) => {
     setActiveTab(tabName);
+    navigation.navigate(tabName)
   };
 
   return (
