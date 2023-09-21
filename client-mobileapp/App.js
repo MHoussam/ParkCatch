@@ -14,6 +14,8 @@ import ReservationTicket from './src/screens/reservationTicket';
 import NotificationsScreen from './src/screens/notifications';
 import * as Notifications from 'expo-notifications'
 import Notification from './src/components/ui/notification';
+import Reservations from './src/screens/reservations';
+import Settings from './src/screens/settings';
 
 const Stack = createStackNavigator();
 
@@ -62,7 +64,9 @@ export default function App() {
           <Stack.Screen name="ReservationInfo" component={ReservationInfo} />
           <Stack.Screen name="Directions" component={Directions} />
           <Stack.Screen name="ReservationTicket" component={ReservationTicket} />
+          <Stack.Screen name="Reservations" component={Reservations} />
           <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
+          <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>
        </NavigationContainer> 
     </Provider>
