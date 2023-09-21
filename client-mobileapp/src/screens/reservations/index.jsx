@@ -19,8 +19,10 @@ console.log(userData.id)
             user_id: userData.id,
             token: token,
         }
+        console.log('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
 
         const response = await axios.post('http://127.0.0.1:8000/api/reservations', data);
+        console.log('mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm')
         console.log(response.data.data)
         setReservations(response.data.data)
     }
@@ -32,7 +34,9 @@ console.log(userData.id)
     <View style={{flex:1}}>
         <Header ScreenName={'Reservations'}/>
         <View style={{flex:1}}>
-        <ReservationCard reservations={reservations[0]} setReservations={setReservations}/>
+        {reservations.map((reservation, index) => (
+          <ReservationCard key={index} reservations={reservation} setReservations={setReservations} />
+        ))}
         </View>
     </View>
   )

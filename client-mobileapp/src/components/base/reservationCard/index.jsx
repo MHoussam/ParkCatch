@@ -3,19 +3,20 @@ import { Image, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from './styles'
 import { useSelector } from 'react-redux'
+import changeTimeFormat from '../button/changeTime'
 
 const ReservationCard = ({ reservations, setReservations }) => {
   // const reservations = useSelector((state) => state.reservations)
   const [time, setTime] = useState('');
   console.log('sssssssssssssssssssssssssssssss')
-  console.log(reservations.parking.photo)
+  console.log(reservations)
   const navigateToDirection = () => {
 
   }
 
   useEffect(() => {
-    setFormattedTimeReserved(changeTimeFormat(reservations.time_reserved));
-  }, [reservations.time_reserved]);
+    setTime(changeTimeFormat(reservations.time_reserved));
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -37,7 +38,7 @@ const ReservationCard = ({ reservations, setReservations }) => {
                     <Text style={[styles.bold, styles.size13 ]}>Spot A-3</Text>
                   </View>
                   <View style={styles.cardInfoRow} >
-                    <Text style={[styles.bold, styles.size13 ]}>9:00 am</Text>
+                    <Text style={[styles.bold, styles.size13 ]}>{time}</Text>
                     <Text style={[styles.bold, styles.size13 ]}>{reservations.date_reserved}</Text>
                   </View>
                   <Text style={[styles.bold, styles.size13 ]}>{reservations.plate_number}</Text>
