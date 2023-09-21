@@ -13,13 +13,13 @@ class SupervisorController extends Controller
 
         $reservationIds = $reservations->pluck('parking_id');
 
-        $reservParking = Reservation::with('parking:id,name,address,latitude,longitude,photo')
+        $reservedParkings = Reservation::with('parking:id,name,address,latitude,longitude,photo')
                          ->whereIn('parking_id',$reservationIds )
                          ->get();
     
         return response()->json([
             'status' => 'Success',
-            'data' => $reservParking
+            'data' => $reservedParkings
         ]);
     }
 
