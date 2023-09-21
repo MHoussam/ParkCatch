@@ -4,8 +4,9 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         width: '90%',
-        height: '64%',
+        height: '83%',
         marginTop: 28,
+        marginBottom: 4,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 25,

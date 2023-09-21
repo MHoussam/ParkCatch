@@ -15,6 +15,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginTop: 10,
     },
+    ticket: {
+        flex: 1,
+        alignItems: 'center',
+        width: '100%',
+      }
 });
 
 export default styles;
