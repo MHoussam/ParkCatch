@@ -21,6 +21,9 @@ const ReservationCard = () => {
             </Text>
             <View style={styles.cardInfoRow}>
               <View style={styles.cardInfoRow}>
+                <Image
+                  source={require("../../../../assets/images/spots.png")}
+                />
                 <Text style={[styles.semiBold, styles.size13]}>
                   {" "}
                   {availableNumber} Spots
