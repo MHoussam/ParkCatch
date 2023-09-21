@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     summaryContainer: {
-        marginLeft: -3,        
+        marginLeft: -1,        
     },
     infoContainer: {
         width: '90%',
@@ -33,14 +33,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     leftContent: {
-        width: '67%',
+        width: '68%',
         marginBottom: 10,
     },
     reservInfo: {
         flex: 1,
         alignItems: 'center',
         width: '100%',
-      }
+    },
+    button: {
+        flex: 1,
+        alignItems: 'center',
+        width: '100%',
+    }
 });
 
 export default styles;

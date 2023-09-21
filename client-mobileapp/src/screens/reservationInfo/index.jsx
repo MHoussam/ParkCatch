@@ -68,9 +68,11 @@ const ReservationInfo = () => {
             styleLeftContent={styles.leftContent}
           />
         </View>
-        <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
+        <View style={styles.button}>
+          <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
+        </View>
+        <Footer />
       </View>
-      <Footer />
     </View>
   );
 };
