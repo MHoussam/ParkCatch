@@ -5,6 +5,7 @@ import Footer from '../../components/ui/footer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import ReservationCard from '../../components/base/reservationCard';
+import styles from './styles'
 
 const Reservations = () => {
   const [ reservations, setReservations ] = useState([]);
@@ -29,7 +30,7 @@ console.log(user)
   return (
     <View style={{flex:1}}>
         <Header ScreenName={'Reservations'}/>
-        <View style={{flex:1}}>
+        <View style={styles.container}>
         {/* <ReservationCard reservations={reservations} /> */}
         </View>
     </View>
