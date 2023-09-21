@@ -19,6 +19,14 @@ const ReservationCard = () => {
             <Text style={[styles.bold, styles.size13, styles.parkingAddress]}>
               {selectedParking.address}
             </Text>
+            <View style={styles.cardInfoRow}>
+              <View style={styles.cardInfoRow}>
+                <Text style={[styles.semiBold, styles.size13]}>
+                  {" "}
+                  {availableNumber} Spots
+                </Text>
+              </View>
+              </View>
           </View>
         </View>
       </TouchableOpacity>
