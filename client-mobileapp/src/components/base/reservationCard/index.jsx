@@ -23,14 +23,21 @@ const ReservationCard = ({ reservations}) => {
               />
                 <View style={styles.cardInfo} >
                   <Text style={[styles.bold, styles.size16]}>{reservations.parking.name}</Text>
-                  <Text style={[styles.bold, styles.size13, styles.parkingAddress]}>{reservations.parking.address}</Text>
                   <View style={styles.cardInfoRow} >
-                    <Text style={[styles.bold, styles.size13, styles.parkingAddress]}>{reservations.parking.address}</Text>
-                    <Text style={[styles.bold, styles.size14, styles.status]}>Completed</Text>
+                    <Text style={[styles.bold, styles.size13, styles.address]}>{reservations.parking.address}</Text>
+                    <Text style={[styles.bold, styles.size15, styles.status]}>Completed</Text>
                   </View>
                   <View style={styles.cardInfoRow} >
-                    <Text style={[styles.bold, styles.size13, styles.parkingAddress]}>{reservations.parking.address}</Text>
-                    <Text style={[styles.bold, styles.size14, styles.status]}>Completed</Text>
+                    <Text style={[styles.bold, styles.size13 ]}>{reservations.duration} hrs</Text>
+                    <Text style={[styles.bold, styles.size13 ]}>Spot A-3</Text>
+                  </View>
+                  <View style={styles.cardInfoRow} >
+                    <Text style={[styles.bold, styles.size13 ]}>9:00 am</Text>
+                    <Text style={[styles.bold, styles.size13 ]}>09/06/2023</Text>
+                  </View>
+                  <View style={styles.cardInfoRow} >
+                    <Text style={[styles.bold, styles.size13 ]}>9:00 am</Text>
+                    <Text style={[styles.bold, styles.size13 ]}>{reservations.plate_number}</Text>
                   </View>
                 </View>
         </TouchableOpacity> 

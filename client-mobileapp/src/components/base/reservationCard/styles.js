@@ -49,13 +49,16 @@ const styles = StyleSheet.create({
     size16: {
         fontSize: 16,
     },
+    size15: {
+        fontSize: 15,
+    },
     size13: {
         fontSize: 13,
     },
     size12: {
         fontSize: 12,
     },
-    parkingAddress: {
+    address: {
         color: '#757575',
     },
     status: {
