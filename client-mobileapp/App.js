@@ -108,10 +108,14 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarStyle: { backgroundColor: 'yellow' },
+          tabBarStyle: { backgroundColor: '#ffffff', height: 60, },
+          tabBarActiveTintColor: '#000000',
+          tabBarInactiveTintColor: '#00000050',
+          tabBarActiveBackgroundColor: '#FECA0E',
+          tabBarLabelStyle: { fontWeight: 'bold', fontSize: 14, paddingBottom: 15},
         }}
       >
-        <Tab.Screen name="Home" component={HomeStackNavigator} />
+        <Tab.Screen  name="Home" component={HomeStackNavigator} />
         <Tab.Screen name="Reservations" component={ReservationsStackNavigator} />
         <Tab.Screen name="Notifications" component={NotificationsStackNavigator} />
         <Tab.Screen name="Settings" component={SettingsStackNavigator} />
