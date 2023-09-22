@@ -163,10 +163,11 @@ return [
         /*
          * Application Service Providers...
          */
+        BeyondCode\LaravelWebSockets\WebSocketsServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BroadcastServiceProvider::class,
-        BeyondCode\LaravelWebSockets\WebSocketsServiceProvider::class,
+        // BeyondCode\LaravelWebSockets\WebSocketsServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])->toArray(),
