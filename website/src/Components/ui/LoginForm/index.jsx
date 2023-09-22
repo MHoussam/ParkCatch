@@ -4,7 +4,7 @@ import './styles.css'
 
 const LoginForm = () => {
   return (
-    <div className="width-50 center">
+    <div className="width-50 flex center">
         <div className="loginCard">
             <Input type="text" placeholder="Email"/>
         </div>
