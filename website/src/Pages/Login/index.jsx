@@ -7,7 +7,7 @@ import "../../styles/utilities.css"
 
 const Login = () => {
   return (
-    <div className='loginContainer'>
+    <div className='loginContainer flex'>
       <img src={lotPic} alt="Parking Lot" className='parkingPic'/>
       <LoginForm />
     </div>
