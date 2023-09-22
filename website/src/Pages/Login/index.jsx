@@ -1,13 +1,14 @@
 import React from 'react'
 import LoginForm from '../../Components/ui/LoginForm'
 import lotPic from '../../assets/images/lot.png'
+import './styles.css'
+import "../../styles/utilities.css"
+
 
 const Login = () => {
   return (
-    <div>
-      <div className="flex1">
-            <img src={lotPic} alt="Parking Lot" className='parkingPic'/>
-      </div>
+    <div className='loginContainer'>
+      <img src={lotPic} alt="Parking Lot" className='parkingPic'/>
       <LoginForm />
     </div>
   )
