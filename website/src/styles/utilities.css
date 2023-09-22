@@ -7,6 +7,10 @@
     display: flex;
 }
 
+.flex1 {
+    flex: 1;
+}
+
 .wrap {
     flex-wrap: wrap;
 }
