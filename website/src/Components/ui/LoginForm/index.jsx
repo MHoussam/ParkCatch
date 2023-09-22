@@ -1,10 +1,13 @@
 import React from 'react'
 import Input from '../../base/input'
+import './styles.css'
 
 const LoginForm = () => {
   return (
-    <div className="width-50">
-        <Input type="text" placeholder="Email"/>
+    <div className="width-50 center">
+        <div className="loginCard">
+            <Input type="text" placeholder="Email"/>
+        </div>
     </div>
   )
 }
