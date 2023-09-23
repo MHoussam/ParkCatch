@@ -11,6 +11,9 @@ const LoginForm = () => {
         <div className="logo flex center">
             <Image src={logoPic} alt="ParkCatch Logo" className="logoPic" />
         </div>
+        <div className="welcome">
+            <h3>Welcome Back</h3>
+        </div>
         <Input type="text" placeholder="Email" />
       </div>
     </div>
