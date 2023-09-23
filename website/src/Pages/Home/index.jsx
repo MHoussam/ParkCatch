@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <div className='homeContainer flex column'>
       <Header />
-      <div className="flex" style={{border: '1px solid', flexGrow: 1}}>
+      <div className="homeContent flex">
         <SideBar />
         <div >
           Home
