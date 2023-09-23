@@ -3,6 +3,9 @@ import Button from '../../Components/base/button'
 import { useNavigate } from 'react-router-dom';
 import { setUserToken } from '../../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import '../../styles/utilities.css'
+import './styles.css'
+import Header from '../../Components/ui/Header';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -28,7 +31,9 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='flex center' style={{ height: '100vh', width: '100%' }}>
+    <div className='homeContainer flex column'>
+      <Header />
+
       <div >
         Home
       </div>
