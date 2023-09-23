@@ -1,0 +1,9 @@
+.header {
+    height: 70px;
+    background-color: black;
+}
+
+.header-logo {
+    width: 15%;
+    margin-left: 40px;
+}
