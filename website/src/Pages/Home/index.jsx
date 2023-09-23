@@ -33,7 +33,6 @@ const Home = () => {
   return (
     <div className='homeContainer flex column'>
       <Header />
-
       <div >
         Home
       </div>
