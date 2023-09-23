@@ -8,6 +8,7 @@ import Button from "../../base/button";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [PasswordVisible, setPasswordVisible] = useState(false);
 
     console.log(email);
     console.log(password);
@@ -33,6 +34,7 @@ const LoginForm = () => {
             type="password"
             placeholder="Password"
             value={password}
+            secureTextEntry={!PasswordVisible}
             onChange={(pass) => setPassword(pass.target.value)}
           />
         </div>
