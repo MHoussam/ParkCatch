@@ -7,6 +7,7 @@ import Button from "../../base/button";
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
   return (
     <div className="width-50 flex center">
       <div className="loginCard border flex column align-items">
