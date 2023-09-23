@@ -16,3 +16,8 @@
 .parkingInfo>h2 {
     margin: 0;
 }
+
+.title {
+    /* flex-grow: 1; */
+    /* width: 100%; */
+}

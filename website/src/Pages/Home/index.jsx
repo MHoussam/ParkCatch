@@ -30,11 +30,13 @@ const Home = () => {
       <Header />
       <div className="homeContent flex">
         <SideBar />
-        <div className="parkingInfo flex space-between">
-          <h2 className="parkingTitle">
-            Parking Lot's Spots
-          </h2>
-          <SearchBar />
+        <div className="parkingInfo flex column">
+          <div className="title flex align-items space-between">
+            <h2 className="parkingTitle">
+              Parking Lot's Spots
+            </h2>
+            <SearchBar />
+          </div>
         </div>
       </div>
     </div>

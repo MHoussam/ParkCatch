@@ -1,6 +1,17 @@
 .search-bar-input {
     border-radius: 2px;
     /* position: relative; */
-    padding: 12px;
+    padding: 12px 0 12px 35px;
     border: 1px solid;
+}
+
+.searchBar {
+    margin-right: 24px;
+}
+
+.searchIcon {
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 10px;
+    width: 18px;
 }
