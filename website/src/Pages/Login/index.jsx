@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import LoginForm from '../../Components/ui/LoginForm'
 import lotPic from '../../assets/images/lot.png'
 import './styles.css'
-import "../../styles/utilities.css"
 import { useDispatch, useSelector } from 'react-redux'
 import Image from '../../Components/base/image'
 import { setUserToken } from '../../redux/user/userSlice'; 

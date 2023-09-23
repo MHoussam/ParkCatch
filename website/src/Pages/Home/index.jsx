@@ -3,7 +3,6 @@ import Button from '../../Components/base/button'
 import { useNavigate } from 'react-router-dom';
 import { setUserToken } from '../../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
-import '../../styles/utilities.css'
 import './styles.css'
 import Header from '../../Components/ui/Header';
 import SideBar from '../../Components/ui/SideBar';
