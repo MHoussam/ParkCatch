@@ -6,3 +6,9 @@
 .homeContent {
     flex-grow: 1;
 }
+
+.parkingInfo {
+    border: 1px solid;
+    flex-grow: 1;
+    margin: 3% 0 0 5%;
+}

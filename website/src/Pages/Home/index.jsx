@@ -11,16 +11,16 @@ const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const checkToken = async () => {
-      const token = await localStorage.getItem('userToken');
-      // console.log('hereeeee: ' + token)
-      if(token === null){
-        dispatch(setUserToken(token));
-        navigate('../');
-      }
+  const checkToken = async () => {
+    const token = await localStorage.getItem('userToken');
+    // console.log('hereeeee: ' + token)
+    if(token === null){
+      dispatch(setUserToken(token));
+      navigate('../');
     }
+  }
 
+  useEffect(() => {
     checkToken();
   }, [])
 
@@ -29,6 +29,11 @@ const Home = () => {
       <Header />
       <div className="homeContent flex">
         <SideBar />
+        <div className="parkingInfo flex">
+          <h2 className="parkingTitle">
+            Parking Lot's Spots
+          </h2>
+        </div>
       </div>
     </div>
   )
