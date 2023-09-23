@@ -32,3 +32,17 @@
 .loginButton {
     margin-top: 40px;
 }
+
+.passwordToggle {
+    background-color: transparent;
+    width: 2%;
+    /* height: 40%; */
+    padding: 0;
+    position: absolute;
+    right: 170px;
+}
+
+.eyeToggle {
+    width: 100%;
+    height: 100%;
+}

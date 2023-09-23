@@ -4,15 +4,27 @@ import "./styles.css";
 import Image from "../../base/image";
 import logoPic from "../../../assets/images/logo.png";
 import Button from "../../base/button";
+import visible from '../../../assets/images/visible.png'
+import notvisible from '../../../assets/images/notvisible.png'
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [PasswordVisible, setPasswordVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [eye, setEye] = useState(visible);
 
     console.log(email);
     console.log(password);
 
+    const togglePasswordVisibility = () => {
+        if(!passwordVisible){
+            setEye(notvisible)
+        } else {
+            setEye(visible)
+        }
+
+        setPasswordVisible(!passwordVisible);
+    };
 
   return (
     <div className="width-50 flex center">
@@ -30,13 +42,21 @@ const LoginForm = () => {
             value={email}
             onChange={(email) => setEmail(email.target.value)}
           />
-          <Input
-            type="password"
-            placeholder="Password"
-            value={password}
-            secureTextEntry={!PasswordVisible}
-            onChange={(pass) => setPassword(pass.target.value)}
-          />
+          <div className="password-input flex">
+            <Input
+              type={passwordVisible ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className="passwordToggle pointer"
+              onClick={togglePasswordVisibility}
+            >
+              <Image src={eye} alt="Toggle password visibility" className='eyeToggle'/>
+            </button>
+          </div>
         </div>
         <div className="loginButton width-100 flex center">
           <Button text="Login" />
