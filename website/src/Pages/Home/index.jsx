@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import './styles.css'
 import Header from '../../Components/ui/Header';
 import SideBar from '../../Components/ui/SideBar';
+import SearchBar from '../../Components/base/searchbar';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -29,10 +30,11 @@ const Home = () => {
       <Header />
       <div className="homeContent flex">
         <SideBar />
-        <div className="parkingInfo flex">
+        <div className="parkingInfo flex space-between">
           <h2 className="parkingTitle">
             Parking Lot's Spots
           </h2>
+          <SearchBar />
         </div>
       </div>
     </div>
