@@ -10,5 +10,9 @@
 .parkingInfo {
     border: 1px solid;
     flex-grow: 1;
-    margin: 3% 7% 0 5%;
+    margin: 5% 8% 0 5%;
+}
+
+.parkingInfo>h2 {
+    margin: 0;
 }

@@ -43,6 +43,9 @@
     width: 100%;
 }
 
+.width-95 {
+    width: 95%;
+}
 .width-90 {
     width: 90%;
 }
@@ -61,6 +64,10 @@
 
 .width-50 {
     width: 50%;
+}
+
+.width-40 {
+    width: 40%;
 }
 
 .width-30 {
