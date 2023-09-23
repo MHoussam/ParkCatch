@@ -28,3 +28,7 @@
     width: 100%;
     row-gap: 10px;
 }
+
+.loginButton {
+    margin-top: 40px;
+}

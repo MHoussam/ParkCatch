@@ -19,7 +19,7 @@ const LoginForm = () => {
             <Input type="text" placeholder="Email" />
             <Input type="password" placeholder="Password" />
         </div>
-        <div className="loginButton">
+        <div className="loginButton width-100">
             <Button text='Login' />
         </div>
       </div>

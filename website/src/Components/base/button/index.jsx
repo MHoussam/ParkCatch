@@ -1,4 +1,6 @@
 import React from 'react'
+import './styles.css'
+import '../../../styles/utilities.css'
 
 const Button = ({ text }) => {
   return (
