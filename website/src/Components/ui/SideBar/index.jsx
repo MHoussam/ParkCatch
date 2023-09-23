@@ -3,7 +3,7 @@ import './styles.css'
 
 const SideBar = () => {
   return (
-    <div className='sidebar flex column' style={{border: '1px solid'}}>
+    <div className='sidebar flex column' >
         <h3>Camel</h3>
         <h3>Poirue</h3>
     </div>
