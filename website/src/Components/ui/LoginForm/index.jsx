@@ -39,7 +39,8 @@ const LoginForm = () => {
           email: email,
           password: password,
         }
-        const response = await axios.post("http://127.0.0.1:8000/api/login", dataForm);
+        console.log(dataForm)
+        const response = await axios.post("http://localhost:8000/api/login", dataForm);
     
         const userToken = response.data.data.token;
     
