@@ -4,14 +4,21 @@ import "./styles.css";
 import Image from "../../base/image";
 import logoPic from "../../../assets/images/logo.png";
 import Button from "../../base/button";
-import visible from '../../../assets/images/visible.png'
-import notvisible from '../../../assets/images/notvisible.png'
+import visible from "../../../assets/images/visible.png";
+import notvisible from "../../../assets/images/notvisible.png";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUserToken } from "../../../redux/user/userSlice";
+import { useNavigate } from "react-router-dom";
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [eye, setEye] = useState(visible);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
     console.log(email);
     console.log(password);
@@ -25,6 +32,26 @@ const LoginForm = () => {
 
         setPasswordVisible(!passwordVisible);
     };
+
+    const handleLogin = async () => {
+      try {
+        const dataForm = {
+          email: email,
+          password: password,
+        }
+        const response = await axios.post("http://127.0.0.1:8000/api/login", dataForm);
+    
+        const userToken = response.data.data.token;
+    
+        localStorage.setItem("userToken", userToken);    
+        dispatch(setUserToken(userToken));
+
+        navigate("/Home");
+      } catch (error) {
+        console.error("Login failed:", error);
+      }
+    };
+    
 
   return (
     <div className="width-50 flex center">
@@ -59,7 +86,7 @@ const LoginForm = () => {
           </div>
         </div>
         <div className="loginButton width-100 flex center">
-          <Button text="Login" />
+          <Button text="Login" onClick={handleLogin}/>
         </div>
       </div>
     </div>
