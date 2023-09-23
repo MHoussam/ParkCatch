@@ -1,0 +1,14 @@
+.secIcon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.content {
+    padding: 10px 0 10px 15px;
+    max-height: 62px;
+}
+
+.content:hover {
+    background-color: #FECA0E;
+}
