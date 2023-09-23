@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../base/input";
 import "./styles.css";
 import Image from "../../base/image";
@@ -6,6 +6,7 @@ import logoPic from "../../../assets/images/logo.png";
 import Button from "../../base/button";
 
 const LoginForm = () => {
+    const [email, setEmail] = useState("");
   return (
     <div className="width-50 flex center">
       <div className="loginCard border flex column align-items">
