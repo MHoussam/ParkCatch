@@ -19,7 +19,7 @@ const Login = () => {
       console.log('hereeeee: ' + token)
       if(token !== null){
         dispatch(setUserToken(token));
-        navigate('Login');
+        navigate('Home');
       }
     }
 
