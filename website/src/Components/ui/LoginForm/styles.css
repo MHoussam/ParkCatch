@@ -1,8 +1,17 @@
 .loginCard {
-    width: 80%;
-    height: 80%;
+    width: 70%;    
+    height: 88%;
     border-radius: 15px;
     background-color: '#fff';
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     padding: 10;
+}
+
+.logo {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.logoPic {
+    width: 40%;
 }
