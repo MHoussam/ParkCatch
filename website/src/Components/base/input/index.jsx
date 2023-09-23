@@ -2,8 +2,8 @@ import React from 'react';
 
 const Input = ({ type, placeholder }) => {
   return (
-    <div className='width-50'>
-      <input type={type} placeholder={placeholder} className='width-50'/>
+    <div className='width-100 flex center'>
+      <input type={type} placeholder={placeholder} className='input width-60'/>
     </div>
   );
 };
