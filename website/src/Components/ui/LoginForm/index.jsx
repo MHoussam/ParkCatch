@@ -19,7 +19,7 @@ const LoginForm = () => {
         </div>
         <div className="Inputs flex column">
             <Input type="text" placeholder="Email" onChange={(email) => setEmail(email.target.value)}/>
-            <Input type="password" placeholder="Password" />
+            <Input type="password" placeholder="Password" onChange={(pass) => setPassword(pass.target.value)}/>
         </div>
         <div className="loginButton width-100 flex center">
             <Button text='Login' />
