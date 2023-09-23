@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import '../../styles/utilities.css'
 import './styles.css'
 import Header from '../../Components/ui/Header';
+import SideBar from '../../Components/ui/SideBar';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const Home = () => {
   return (
     <div className='homeContainer flex column'>
       <Header />
+      <SideBar />
       <div >
         Home
       </div>
