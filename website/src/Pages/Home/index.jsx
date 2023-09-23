@@ -11,12 +11,6 @@ const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const Logout = () => {
-   localStorage.removeItem('userToken')
-   dispatch(setUserToken(null));
-   navigate('../');
-  }
-
   useEffect(() => {
     const checkToken = async () => {
       const token = await localStorage.getItem('userToken');
@@ -35,10 +29,6 @@ const Home = () => {
       <Header />
       <div className="homeContent flex">
         <SideBar />
-        <div >
-          Home
-        </div>
-        <Button text="Logout" onClick={Logout} />
       </div>
     </div>
   )
