@@ -16,7 +16,7 @@ const LoginForm = () => {
         </div>
         <div className="Inputs flex column">
             <Input type="text" placeholder="Email" />
-            <Input type="password" placeholder="password" />
+            <Input type="password" placeholder="Password" />
         </div>
       </div>
     </div>
