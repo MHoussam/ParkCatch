@@ -6,23 +6,38 @@ import logoPic from "../../../assets/images/logo.png";
 import Button from "../../base/button";
 
 const LoginForm = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+    console.log(email);
+    console.log(password);
+
+
   return (
     <div className="width-50 flex center">
       <div className="loginCard border flex column align-items">
         <div className="logo flex center">
-            <Image src={logoPic} alt="ParkCatch Logo" className="logoPic" />
+          <Image src={logoPic} alt="ParkCatch Logo" className="logoPic" />
         </div>
         <div className="welcome">
-            <h3>Welcome Back</h3>
+          <h3>Welcome Back</h3>
         </div>
         <div className="Inputs flex column">
-            <Input type="text" placeholder="Email" value={email} onChange={(email) => setEmail(email.target.value)}/>
-            <Input type="password" placeholder="Password" value={password} onChange={(pass) => setPassword(pass.target.value)}/>
+          <Input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(email) => setEmail(email.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(pass) => setPassword(pass.target.value)}
+          />
         </div>
         <div className="loginButton width-100 flex center">
-            <Button text='Login' />
+          <Button text="Login" />
         </div>
       </div>
     </div>
