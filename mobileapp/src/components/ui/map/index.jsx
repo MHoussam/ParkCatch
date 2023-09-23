@@ -36,7 +36,9 @@ const Map = () => {
     try{
       const userData = await AsyncStorage.getItem('userData');
       const userToken = await AsyncStorage.getItem('userToken');
-
+      
+      console.log('aaaaaaa ' +parkings.length )
+      console.log(parkings )
       const axiosConfig = {
         headers: {
           Authorization: `Bearer ${userToken}`,
@@ -47,9 +49,9 @@ const Map = () => {
       console.log(userToken)
       const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
-      // console.log('data')
+      console.log('data')
 
-      // console.log(response.data.data)
+      console.log(response.data.data)
       if (Array.isArray(response.data.data)) {
         if (parkings.length === 0) {
           // console.log('parking: aaaaaaa ' +parkings.length )
@@ -75,6 +77,7 @@ const Map = () => {
               latitude: parseFloat(latitude), 
               longitude: parseFloat(longitude) }));
           });
+          await AsyncStorage.setItem('parkings', JSON.stringify(response.data.data));
         }
       } else {
         console.error('Received non-array data from server:', response.data);
@@ -91,8 +94,8 @@ const Map = () => {
 
       if (response.status !== 'granted') {
         dispatch(setErrorMsg('Permission to access location was denied'));
+        await Location.requestForegroundPermissionsAsync();
         dispatch(clearLocation());
-        return;
       }
 
       const location = await Location.getCurrentPositionAsync({});
@@ -154,14 +157,25 @@ const Map = () => {
     }
   }, [selectedParking]);
 
-  useEffect(() => {
-    if (!parkings.length) {
-      console.log('whereeeee')
+  const checkParkings = async () => {
+    const park = await AsyncStorage.getItem('parkings')
+    const parkings = JSON.parse(park);
+    console.log('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
+    console.log(parkings)
+
+    if (parkings === null) {
+      // dispatch(clearParkings());
+      checkParkings();
+      console.log('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
       console.log(parkings)
-      console.log(location)
+    console.log(location)
       fetchParkings();
       fetchMap();
     }
+  }
+
+  useEffect(() => {
+    fetchMap();
   }, [refresh]);
 
   // useEffect(() => {
@@ -170,8 +184,8 @@ const Map = () => {
 
   // console.log('maybe?')
   // console.log(userToken.token)
-  // console.log(userToken)
-  // console.log(parkings)
+  console.log('redux')
+  console.log(parkings)
   // console.log('selectedParking')
   // console.log(selectedParking)
   // console.log(location)

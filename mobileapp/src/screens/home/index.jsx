@@ -45,12 +45,7 @@ const HomeMap = () => {
   }, []);
 
   return (
-    <Provider store={store}>
-      {/* <WebSocketClient /> */}
-      <SearchBar /> 
       <Map />
-      {/* <ChatComponent /> */}
-    </Provider>
   )
 }
 

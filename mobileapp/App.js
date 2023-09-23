@@ -137,7 +137,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen screenOptions={{ headerShown: false }} name="Reservations" component={Reservations} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationTicket" component={ReservationTicket} />
-        <Stack.Screen screenOptions={{ headerShown: false }} name="Directions" component={Directions} />
+        <Stack.Screen screenOptions={{ headerShown: false, unmountOnBlur: true }} name="Directions" component={Directions} />
       </Stack.Navigator>
     );
   }
