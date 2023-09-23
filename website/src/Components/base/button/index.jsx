@@ -4,10 +4,8 @@ import '../../../styles/utilities.css'
 
 const Button = ({ text }) => {
   return (
-    <div className='buttonContainer'>
-        <div className="button">
+    <div className='buttonContainer flex center width-60 pointer'>
             {text}
-        </div>
     </div>
   )
 }

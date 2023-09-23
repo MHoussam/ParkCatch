@@ -19,7 +19,7 @@ const LoginForm = () => {
             <Input type="text" placeholder="Email" />
             <Input type="password" placeholder="Password" />
         </div>
-        <div className="loginButton width-100">
+        <div className="loginButton width-100 flex center">
             <Button text='Login' />
         </div>
       </div>
