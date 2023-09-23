@@ -3,6 +3,7 @@ import Input from "../../base/input";
 import "./styles.css";
 import Image from "../../base/image";
 import logoPic from "../../../assets/images/logo.png";
+import Button from "../../base/button";
 
 const LoginForm = () => {
   return (
@@ -17,6 +18,9 @@ const LoginForm = () => {
         <div className="Inputs flex column">
             <Input type="text" placeholder="Email" />
             <Input type="password" placeholder="Password" />
+        </div>
+        <div className="loginButton">
+            <Button text='Login' />
         </div>
       </div>
     </div>
