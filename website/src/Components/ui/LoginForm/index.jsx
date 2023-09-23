@@ -14,7 +14,10 @@ const LoginForm = () => {
         <div className="welcome">
             <h3>Welcome Back</h3>
         </div>
-        <Input type="text" placeholder="Email" />
+        <div className="Inputs flex column">
+            <Input type="text" placeholder="Email" />
+            <Input type="password" placeholder="password" />
+        </div>
       </div>
     </div>
   );

@@ -17,5 +17,14 @@
 }
 
 .welcome {
-    margin-top: 20px;
+    margin: 30px 0 10px 0;
+}
+
+.welcome>h3 {
+    margin: 0;
+}
+
+.Inputs {
+    width: 100%;
+    row-gap: 10px;
 }
