@@ -34,11 +34,13 @@ const Home = () => {
   return (
     <div className='homeContainer flex column'>
       <Header />
-      <SideBar />
-      <div >
-        Home
+      <div className="flex" style={{border: '1px solid', flexGrow: 1}}>
+        <SideBar />
+        <div >
+          Home
+        </div>
+        <Button text="Logout" onClick={Logout} />
       </div>
-      <Button text="Logout" onClick={Logout} />
     </div>
   )
 }
