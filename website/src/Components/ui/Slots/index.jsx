@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import './styles.css'
 
 const Slots = () => {
     const fetchSpots = async () => {
@@ -69,49 +70,27 @@ const Slots = () => {
       }, [])
 
   return (
-    <div className={styles.table}>
+    <div className="table">
       {[...Array(12)].map((_, rowIndex) => (
-        <div key={rowIndex} className={styles.tableRow}>
+        <div key={rowIndex} className="tableRow flex">
           {[1, 2, 3].map((columnIndex) => (
             <div
               key={columnIndex}
               className={
                 columnIndex !== 2
-                  ? styles.tableCell
+                  ? "tableCell flex center"
                   : rowIndex === 0
-                  ? styles.entranceCell
-                  : styles.tableCellGap
+                  ? "entranceCell flex center"
+                  : "tableCellGap flex center"
               }
             >
-              {slots.slots &&
-                slots.slots
-                  .filter(
-                    (slot) =>
-                      slot.x_coordinate === rowIndex &&
-                      slot.y_coordinate === columnIndex
-                  )
-                  .map((slot) => (
-                    <Slot
-                      key={`${rowIndex}-${columnIndex}`}
-                      number={slot.name}
-                      styleContainer={
-                        slot.reserved ? styles.reserved : styles.available
-                      }
-                      styleTitle={
-                        slot.reserved
-                          ? styles.reservedTitle
-                          : styles.availableTitle
-                      }
-                      isSelected={selectedSlot.id === slot.id}
-                      onPress={() => slotPressed(slot)}
-                    />
-                  ))}
+              
             </div>
           ))}
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default Slots

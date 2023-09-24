@@ -1,51 +1,39 @@
 /* styles.css */
 
 .table {
-    border-bottom-width: 2px;
-    border-right-width: 2px;
-    border-left-width: 2px;
+    border: 2px solid;
     border-color: #70707090;
     margin-top: 15px;
   }
   
-  .tableRow {
+  /* .tableRow {
     display: flex;
-    flex-direction: row;
-  }
+  } */
   
   .tableCell {
-    border-top-width: 2px;
+    border-top: 2px solid;
     border-color: #70707090;
     padding: 4px 6px;
     width: 70px;
     height: 37px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   .tableCellGap {
-    border-top-width: 2px;
+    border-top: 2px solid;
     border-color: #70707090;
     padding: 4px 6px;
     width: 66px;
     height: 37px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-right: 55px;
     margin-left: 55px;
   }
   
   .entranceCell {
-    border-top-width: 2px;
+    border-top: 2px solid;
     border-color: transparent;
     padding: 4px 6px;
     width: 66px;
     height: 39px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-right: 55px;
     margin-left: 55px;
   }

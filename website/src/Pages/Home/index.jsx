@@ -37,8 +37,8 @@ const Home = () => {
               Parking Lot's Spots
             </h2>
             <SearchBar />
-            <Slots />
           </div>
+          <Slots />          
         </div>
       </div>
     </div>
