@@ -12,15 +12,14 @@ import { setUser, setUserToken } from "../../../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [inputValues, setInputValues] = useState({});
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [eye, setEye] = useState(visible);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
 
     const togglePasswordVisibility = () => {
         if(!passwordVisible){
@@ -35,8 +34,8 @@ const LoginForm = () => {
     const handleLogin = async () => {
       try {
         const dataForm = {
-          email: email,
-          password: password,
+          email: inputValues['Email'],
+          password: inputValues['Password'],
         }
         console.log(dataForm)
         const response = await axios.post("http://localhost:8000/api/login", dataForm);
@@ -57,6 +56,14 @@ const LoginForm = () => {
         console.error("Login failed:", error);
       }
     };
+
+    const handleInputChange = (label, value) => {
+      setInputValues((prevInputValues) => {
+        const updatedInputValues = { ...prevInputValues, [label]: value };
+        console.log(updatedInputValues);
+        return updatedInputValues;
+      });
+    };
     
 
   return (
@@ -70,18 +77,20 @@ const LoginForm = () => {
         </div>
         <div className="Inputs flex column">
           <Input
-            type="text"
+          type="text"
             placeholder="Email"
-            value={email}
-            onChange={(email) => setEmail(email.target.value)}
-          />
+          value={inputValues["Email"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("Email", newValue)}
+        />
           <div className="password-input flex">
-            <Input
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          <Input
+          type="password"
+            placeholder="Password"
+          value={inputValues["Password"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("Password", newValue)}
+        />
             <button
               type="button"
               className="passwordToggle pointer"
