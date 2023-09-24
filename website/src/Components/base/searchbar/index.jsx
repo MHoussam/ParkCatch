@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearSearchFilter, setSearchFilter } from "../../../redux/searchFilter/searchFilterSlice";
+import './styles.css'
 import Image from "../image";
 import search from '../../../assets/images/search.png'
 import { clearSearchbar, setSearchbar } from "../../../redux/searchbar/searchbarSlice";
