@@ -38,6 +38,7 @@ const SearchBar = () => {
     // console.log(newQuery)
     if (newQuery === "") {
       dispatch(clearSearchFilter());
+      dispatch(setSearchFilter(slots.slots));
     }
   };
 

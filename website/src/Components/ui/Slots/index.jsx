@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Slot from "../../base/slot";
 import axios from "axios";
 import { addSlots } from "../../../redux/slots/slotSlice";
+import { setSearchFilter } from "../../../redux/searchFilter/searchFilterSlice";
 
 const Slots = () => {
   const dispatch = useDispatch();
@@ -66,6 +67,8 @@ const Slots = () => {
               })
             );
           });
+        dispatch(setSearchFilter(response.data.data));
+
           // console.log("finish");
         }
       } else {
@@ -80,6 +83,9 @@ const Slots = () => {
 
   useEffect(() => {
     fetchSpots();
+    console.log('changed')
+    console.log(searchFilter)
+
   }, [searchFilter]);
 
   console.log(slots.slots);
@@ -99,8 +105,8 @@ const Slots = () => {
                   : "tableCellGap flex center flex-grow"
               }
             >
-              {slots.slots &&
-                slots.slots
+              {searchFilter.searchFilter &&
+                searchFilter.searchFilter
                   .filter(
                     (slot) =>
                       slot.x_coordinate-1 === rowIndex &&
