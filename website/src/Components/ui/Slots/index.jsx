@@ -8,24 +8,29 @@ import { addSlots } from "../../../redux/slots/slotSlice";
 const Slots = () => {
   const dispatch = useDispatch();
   const slots = useSelector((state) => state.slots);
+  const user = useSelector((state) => state.user);
 
   const fetchSpots = async () => {
     const userToken = await localStorage.getItem("userToken");
     console.log(userToken);
 
     try {
-      const axiosConfig = {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          "Content-Type": "application/json",
-        },
-      };
+
+      const user = localStorage.getItem('userData');
+        const userData = JSON.parse(user);
+        console.log(userData)
+      // const axiosConfig = {
+      //   headers: {
+      //     Authorization: `Bearer ${userToken}`,
+      //     "Content-Type": "application/json",
+      //   },
+      // };
 
       const dataForm = {
-        parking_id: 3,
+        parking_id: userData.parking_id,
         token: userToken,
       };
-      //    console.log(dataForm)
+         console.log(dataForm)
       const response = await axios.post(
         "http://127.0.0.1:8000/api/spots",
         dataForm

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Button from '../../Components/base/button'
 import { useNavigate } from 'react-router-dom';
-import { setUserToken } from '../../redux/user/userSlice';
+import { setUser, setUserToken } from '../../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import './styles.css'
 import Header from '../../Components/ui/Header';
@@ -27,12 +27,13 @@ const Home = () => {
   const fetchReservations = async () => {
         const token = await localStorage.getItem('userToken');
         const user = localStorage.getItem('userData');
+        const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
         console.log(userData.parking_id)
         const data = {
             user_id: userData.id,
             parking_id: userData.parking_id,
-            token: token,
+            token: userToken,
         }
         console.log('oooooooooooooooo')
         console.log(data)
@@ -41,6 +42,7 @@ const Home = () => {
         console.log('mmmmmmmmmmmmmmmm')
         console.log(response.data.data)
         dispatch(setReservation(response.data.data))
+        dispatch(setUser(userData))
     }
 
   useEffect(() => {

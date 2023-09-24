@@ -47,7 +47,6 @@ const LoginForm = () => {
     const userDataJSON = JSON.stringify(userData);
     const userTokenJSON = JSON.stringify(userToken);
     
-    
     localStorage.setItem("userData", userDataJSON);
     localStorage.setItem("userToken", userTokenJSON); 
         dispatch(setUser(userData));
