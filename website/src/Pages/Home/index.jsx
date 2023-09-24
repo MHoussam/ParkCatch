@@ -7,6 +7,7 @@ import './styles.css'
 import Header from '../../Components/ui/Header';
 import SideBar from '../../Components/ui/SideBar';
 import SearchBar from '../../Components/base/searchbar';
+import Slots from '../../Components/ui/Slots';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const Home = () => {
               Parking Lot's Spots
             </h2>
             <SearchBar />
+            <Slots />
           </div>
         </div>
       </div>

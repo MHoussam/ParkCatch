@@ -22,14 +22,48 @@ const Spots = () => {
 // }, []);
 
   return (
-    <View style={styles.container}>
-      <Header ScreenName={'Spot Reservation'} />
-      <View style={styles.spots}>
-        <Text style={styles.title}>Select a Spot</Text>
-        <Slots />
-        <Button text={'Next'} navigate={'ReservationInfo'} />
-      </View>
-    </View>
+    <div className={styles.table}>
+      {[...Array(12)].map((_, rowIndex) => (
+        <div key={rowIndex} className={styles.tableRow}>
+          {[1, 2, 3].map((columnIndex) => (
+            <div
+              key={columnIndex}
+              className={
+                columnIndex !== 2
+                  ? styles.tableCell
+                  : rowIndex === 0
+                  ? styles.entranceCell
+                  : styles.tableCellGap
+              }
+            >
+              {slots.slots &&
+                slots.slots
+                  .filter(
+                    (slot) =>
+                      slot.x_coordinate === rowIndex &&
+                      slot.y_coordinate === columnIndex
+                  )
+                  .map((slot) => (
+                    <Slot
+                      key={`${rowIndex}-${columnIndex}`}
+                      number={slot.name}
+                      styleContainer={
+                        slot.reserved ? styles.reserved : styles.available
+                      }
+                      styleTitle={
+                        slot.reserved
+                          ? styles.reservedTitle
+                          : styles.availableTitle
+                      }
+                      isSelected={selectedSlot.id === slot.id}
+                      onPress={() => slotPressed(slot)}
+                    />
+                  ))}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
   )
 }
 
