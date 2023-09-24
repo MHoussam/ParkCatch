@@ -97,7 +97,7 @@ const Slots = () => {
                 slots.slots
                   .filter(
                     (slot) =>
-                      slot.x_coordinate === rowIndex &&
+                      slot.x_coordinate-1 === rowIndex &&
                       slot.y_coordinate === columnIndex
                   )
                   .map((slot) => (
@@ -106,7 +106,7 @@ const Slots = () => {
                       number={slot.name}
                       slotContainer={slot.reserved ? "reserved flex center" : "available flex center"}
                       slotTitle={
-                        slot.reserved ? "reservedTitle" : "availableTitle"
+                        slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
                       }
                     />
                   ))}
