@@ -8,6 +8,7 @@ import Header from '../../Components/ui/Header';
 import SideBar from '../../Components/ui/SideBar';
 import SearchBar from '../../Components/base/searchbar';
 import Slots from '../../Components/ui/Slots';
+import axios from 'axios';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,10 +26,10 @@ const Home = () => {
   const fetchReservations = async () => {
         const token = await localStorage.getItem('userToken');
         const user = await localStorage.getItem('userData');
-        const userData = JSON.parse(user);
-        console.log(userData.id)
+        // const userData = JSON.parse(user);
+        // console.log(user)
         const data = {
-            user_id: userData.id,
+            user_id: user.id,
             token: token,
         }
         console.log('oooooooooooooooo')

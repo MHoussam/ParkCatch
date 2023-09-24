@@ -8,7 +8,7 @@ import visible from "../../../assets/images/visible.png";
 import notvisible from "../../../assets/images/notvisible.png";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setUserToken } from "../../../redux/user/userSlice";
+import { setUser, setUserToken } from "../../../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
@@ -41,9 +41,12 @@ const LoginForm = () => {
         console.log(dataForm)
         const response = await axios.post("http://localhost:8000/api/login", dataForm);
     
+        const userData = response.data.data;
         const userToken = response.data.data.token;
-    
+    console.log(userData)
+        localStorage.setItem("userData", userData);    
         localStorage.setItem("userToken", userToken);    
+        dispatch(setUser(userData));
         dispatch(setUserToken(userToken));
 
         navigate("/Home");
