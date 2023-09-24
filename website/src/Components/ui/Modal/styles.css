@@ -10,10 +10,20 @@
     z-index: 1;
   }
   
-
 .modalContainer {
-    width: 40%;
-    height: 40%;
+    width: 30%;
+    background-color: #FFFFFF;
+    border: 1px solid;
+    padding-bottom: 20px;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 10px;
+    row-gap: 10px;
+}
+
+.close {
     background-color: #FFFFFF;
     border: 1px solid;
 }

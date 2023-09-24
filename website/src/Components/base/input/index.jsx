@@ -10,7 +10,8 @@ const Input = ({ type, placeholder, value, state, onChange }) => {
 
   console.log({state}[`${value}`])
   return (
-    <div className="width-100 flex center">
+    <div className="inputContainer width-100 flex column center">
+      <h4>Spot Number</h4>
       <input
         type={type}
         placeholder={placeholder}

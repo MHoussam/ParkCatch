@@ -11,12 +11,21 @@ const Modal = ({ isOpen, onClose, content, inputValues, setInputValues }) => {
     onClose();
   }
 
+  const terminate= () => {
+    console.log(inputValues)
+    setInputValues([])
+    onClose();
+  }
+
   return (
     <div className="modal flex center">
       <div className="modalContainer flex center">
-        <div className="modalContent">
+        <div className="modalContent flex column center">
             {content}
-            <Button text='Close' onClick={close}/>
+            <div className="btn flex column center">
+                <Button text='Terminate' onClick={terminate}/>
+                <Button text='Close' onClick={close} classProp='close'/>
+            </div>
         </div>
       </div>
     </div>
