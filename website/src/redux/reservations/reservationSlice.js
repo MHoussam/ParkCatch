@@ -1,16 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  first_name: "",
-  last_name: "",
-  phone: "",
-  parking: null,
-  location: null,
-  duration: 2,
-  spotNumber: null,
-  plateNumber: "",
-  realPlateNumber: "",
-  total: null,
+  reservation: [],
 };
 
 const reservationSlice = createSlice({
@@ -18,29 +9,24 @@ const reservationSlice = createSlice({
   initialState,
   reducers: {
     setReservation: (state, action) => {
-      state.first_name = action.payload.first_name;
-      state.last_name = action.payload.last_name;
-      state.phone = action.payload.phone;
-      state.parking = action.payload.parking;
-      state.location = action.payload.location;
-      state.duration = action.payload.duration;
-      state.spotNumber = action.payload.spotNumber;
-      state.plateNumber = action.payload.plateNumber;
-      state.realPlateNumber = action.payload.realPlateNumber;
-      state.total = action.payload.total;
+      const { id, user_id, parking_id, spot_id, duration, total, valid, plate_number, real_plate_number, correct, phone_number } = action.payload;
+        state.reservation.push({
+          id,
+          user_id,
+          parking_id,
+          spot_id,
+          duration,
+          total,
+          valid,
+          plate_number,
+          real_plate_number, 
+          correct, 
+          phone_number,
+        });
     },
     clearReservation: (state) => {
-      state.first_name = "";
-      state.last_name = "";
-      state.phone = "";
-      state.parking = null;
-      state.location = null;
-      state.duration = 2;
-      state.spotNumber = null;
-      state.plateNumber = "";
-      state.realPlateNumber = "";
-      state.total = null;
-    },
+      state.reservation = []
+    }
   },
 });
 

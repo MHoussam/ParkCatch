@@ -8,6 +8,7 @@ import { addSlots } from "../../../redux/slots/slotSlice";
 const Slots = () => {
   const dispatch = useDispatch();
   const slots = useSelector((state) => state.slots);
+  const searchFilter = useSelector((state) => state.searchFilter);
   const user = useSelector((state) => state.user);
 
   const fetchSpots = async () => {
@@ -27,15 +28,15 @@ const Slots = () => {
       // };
 
       const dataForm = {
-        parking_id: userData.parking_id,
+        parking_id:3,
         token: userData.token,
       };
          console.log(dataForm)
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/spervisorSpots",
+        "http://127.0.0.1:8000/api/spots",
         dataForm
       );
-      console.log(slots);
+      console.log(response.data.data);
 
       if (Array.isArray(response.data.data)) {
         if (slots.slots === null || slots.slots.length === 0) {
@@ -79,9 +80,9 @@ const Slots = () => {
 
   useEffect(() => {
     fetchSpots();
-  }, [slots]);
+  }, [searchFilter]);
 
-  console.log(slots);
+  console.log(slots.slots);
 
   return (
     <div className="table">

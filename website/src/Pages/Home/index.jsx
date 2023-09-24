@@ -41,7 +41,32 @@ const Home = () => {
         const response = await axios.post('http://127.0.0.1:8000/api/allReservations', data);
         console.log('mmmmmmmmmmmmmmmm')
         console.log(response.data.data)
-        dispatch(setReservation(response.data.data))
+        response.data.data.forEach((item) => {
+            const { id,
+              user_id,
+              parking_id,
+              spot_id,
+              duration,
+              total,
+              valid,
+              plate_number,
+              real_plate_number,
+            correct,
+          phone_number, } = item;
+// console.log('1')
+            dispatch(setReservation({ id,
+              user_id,
+              parking_id,
+              spot_id,
+              duration,
+              total,
+              valid, 
+              plate_number, 
+              real_plate_number,
+              correct,
+            phone_number, }))
+            });
+        // dispatch(setReservation(response.data.data))
         dispatch(setUser(userData))
     }
 
