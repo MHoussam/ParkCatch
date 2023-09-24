@@ -1,0 +1,86 @@
+/* styles.css */
+
+.table {
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-color: #70707090;
+    margin-top: 15px;
+  }
+  
+  .tableRow {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .tableCell {
+    border-top-width: 2px;
+    border-color: #70707090;
+    padding: 4px 6px;
+    width: 70px;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tableCellGap {
+    border-top-width: 2px;
+    border-color: #70707090;
+    padding: 4px 6px;
+    width: 66px;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 55px;
+    margin-left: 55px;
+  }
+  
+  .entranceCell {
+    border-top-width: 2px;
+    border-color: transparent;
+    padding: 4px 6px;
+    width: 66px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 55px;
+    margin-left: 55px;
+  }
+  
+  .cellText {
+    text-align: center;
+  }
+  
+  .available {
+    border-radius: 10px;
+    background-color: #E0E5F6;
+    width: 62px;
+    height: 26px;
+    justify-content: center;
+  }
+  
+  .reserved {
+    border-radius: 10px;
+    background-color: #707070;
+    width: 62px;
+    height: 26px;
+    justify-content: center;
+  }
+  
+  .reservedTitle {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .availableTitle {
+    color: #9A9FB0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+  }
+  
