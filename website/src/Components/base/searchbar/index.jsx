@@ -27,8 +27,8 @@ const SearchBar = () => {
       console.log('yessss')
     const filtered = reservation.reservation.filter(
       (reservation) =>
-        reservation.plate_number.toLowerCase().includes(query.toLowerCase()) ||
-        reservation.phone_number.toString().includes(query.toLowerCase())
+        reservation.plate_number.toLowerCase().startsWith(query.toLowerCase()) ||
+        reservation.phone_number.toString().startsWith(query.toLowerCase())
     );
         // console.log(reservation.reservation['plateNumber'])
 
