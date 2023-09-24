@@ -26,15 +26,16 @@ const Home = () => {
 
   const fetchReservations = async () => {
         const token = await localStorage.getItem('userToken');
-        const user = await localStorage.getItem('userData');
-        // const userData = JSON.parse(user);
-        // console.log(user)
+        const user = localStorage.getItem('userData');
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id)
         const data = {
-            user_id: user.id,
-            parking_id: 1,
+            user_id: userData.id,
+            parking_id: userData.parking_id,
             token: token,
         }
         console.log('oooooooooooooooo')
+        console.log(data)
 
         const response = await axios.post('http://127.0.0.1:8000/api/allReservations', data);
         console.log('mmmmmmmmmmmmmmmm')
