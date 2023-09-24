@@ -3,10 +3,10 @@ import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import Slot from "../../base/slot";
 import axios from "axios";
-import { addSlots } from '../../../redux/slots/slotSlice'
+import { addSlots } from "../../../redux/slots/slotSlice";
 
 const Slots = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const slots = useSelector((state) => state.slots);
 
   const fetchSpots = async () => {
@@ -25,12 +25,12 @@ const Slots = () => {
         parking_id: 3,
         token: userToken,
       };
-    //    console.log(dataForm)
+      //    console.log(dataForm)
       const response = await axios.post(
         "http://127.0.0.1:8000/api/spots",
         dataForm
       );
-      console.log(slots)
+      console.log(slots);
 
       if (Array.isArray(response.data.data)) {
         if (slots.slots === null || slots.slots.length === 0) {
@@ -68,7 +68,7 @@ const Slots = () => {
       // console.log('no?')
     } catch (error) {
       console.error("Error fetching spots data:", error);
-      console.log(userToken)
+      console.log(userToken);
     }
   };
 
@@ -76,7 +76,7 @@ const Slots = () => {
     fetchSpots();
   }, []);
 
-  console.log(slots)
+  console.log(slots);
 
   return (
     <div className="table">
@@ -104,16 +104,10 @@ const Slots = () => {
                     <Slot
                       key={`${rowIndex}-${columnIndex}`}
                       number={slot.name}
-                      styleContainer={
-                        slot.reserved ? styles.reserved : styles.available
+                      slotContainer={slot.reserved ? "reserved flex center" : "available flex center"}
+                      slotTitle={
+                        slot.reserved ? "reservedTitle" : "availableTitle"
                       }
-                      styleTitle={
-                        slot.reserved
-                          ? styles.reservedTitle
-                          : styles.availableTitle
-                      }
-                      isSelected={selectedSlot.id === slot.id}
-                      onPress={() => slotPressed(slot)}
                     />
                   ))}
             </div>

@@ -45,17 +45,15 @@
   .available {
     border-radius: 10px;
     background-color: #E0E5F6;
-    height: 62px;
-    width: 26px;
-    justify-content: center;
+    height: 45px;
+    width: 90px;
   }
   
   .reserved {
     border-radius: 10px;
     background-color: #707070;
-    height: 62px;
-    width: 26px;
-    justify-content: center;
+    height: 45px;
+    width: 90px;
   }
   
   .reservedTitle {
@@ -63,12 +61,14 @@
     text-align: center;
     font-weight: bold;
     font-size: 16px;
+    transform: rotate(-90deg);
   }
   
   .availableTitle {
     color: #9A9FB0;
     font-weight: bold;
     text-align: center;
+    transform: rotate(-90deg);
     font-size: 16px;
   }
   
