@@ -79,7 +79,7 @@ const Slots = () => {
 
   useEffect(() => {
     fetchSpots();
-  }, []);
+  }, [slots]);
 
   console.log(slots);
 
