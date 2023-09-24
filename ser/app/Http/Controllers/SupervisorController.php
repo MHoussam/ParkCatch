@@ -8,20 +8,22 @@ use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
 {
-    public function getReservations(Request $request) {
-        $reservations = Reservation::where('user_id', $request->user_id)->get();
-
-        $reservationIds = $reservations->pluck('parking_id');
-
-        $reservedParkings = Reservation::with('parking:id,name,address,latitude,longitude,photo')
-                         ->whereIn('parking_id',$reservationIds )
-                         ->get();
+    public function getAllReservations(Request $request) {
+        // Get all reservations for the specified parking (parking_id)
+        $reservedParkings = Reservation::with([
+            'user:id,first_name,last_name', 
+            'parking:id,name,address,latitude,longitude,photo',
+        ])
+        ->where('parking_id', $request->parking_id)
+        ->where('valid', true)
+        ->get();
     
         return response()->json([
             'status' => 'Success',
-            'data' => $reservedParkings
+            'data' => $reservedParkings,
         ]);
     }
+    
 
     public static function checkValidity(Request $request)
     {
