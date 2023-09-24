@@ -28,11 +28,11 @@ const Slots = () => {
 
       const dataForm = {
         parking_id: userData.parking_id,
-        token: userToken,
+        token: userData.token,
       };
          console.log(dataForm)
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/spots",
+        "http://127.0.0.1:8000/api/spervisorSpots",
         dataForm
       );
       console.log(slots);
