@@ -8,29 +8,30 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SocketController;
 
-Route::group(["middleware"=>"auth:api"],function(){
+Route::group(["middleware" => "auth:api"], function () {
     Route::get('socket', [SocketController::class, 'socket']);
-    Route::post('spots', [SupervisorController::class, 'getSpots']);
+        // Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
+        Route::post('spots', [SupervisorController::class, 'getSpots']);
 
-    Route::group(["middleware"=>"auth.supervisor"],function(){
-    Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
-    Route::post('validity', [SupervisorController::class, 'checkValidity']);
+    Route::group(["middleware" => ["auth", "auth.supervisor"]], function () {
+        Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
+        Route::post('validity', [SupervisorController::class, 'checkValidity']);
         Route::post('terminate', [SupervisorController::class, 'terminateReservation']);
         Route::post('availability', [SupervisorController::class, 'changeAvailability']);
     });
 
-    Route::group(["middleware"=>"auth.admin"],function(){
-    Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
-    Route::post('validity', [SupervisorController::class, 'checkValidity']);
-        Route::post('availability', [SupervisorController::class, 'changeAvailability']);
+    Route::group(["middleware" => "auth.admin"], function () {
+        Route::post('adminAllReservations', [SupervisorController::class, 'getAllReservations']);
+        Route::post('adminValidity', [SupervisorController::class, 'checkValidity']);
+        Route::post('adminAvailability', [SupervisorController::class, 'changeAvailability']);
         Route::post('parkingDetails', [AdminController::class, 'changeParkingDetails']);
         Route::post('ban', [AdminController::class, 'banCustomer']);
         Route::post('addSupervisor', [AuthController::class, 'register']);
         Route::post('removeSupervisor', [AdminController::class, 'removeSupervisor']);
     });
-    Route::group(["middleware"=>"auth.client"],function(){
+    Route::group(["middleware" => "auth.client"], function () {
         Route::post('availableSpots', [SupervisorController::class, 'getAvailableSpots']);
-    Route::post('reservations', [ClientController::class, 'getReservations']);
+        Route::post('reservations', [ClientController::class, 'getReservations']);
         Route::post('register', [AuthController::class, 'register']);
         Route::get('parkings', [ClientController::class, 'getParkings']);
         Route::post('available', [ClientController::class, 'availableSpots']);
@@ -41,6 +42,6 @@ Route::group(["middleware"=>"auth:api"],function(){
 });
 
 Route::get("unauthorized", [AuthController::class, "unauthorized"])->name("unauthorized");
-Route::post('login',[AuthController::class,'login']);
+Route::post('login', [AuthController::class, 'login']);
 //Route::post('register',[AuthController::class,'register']);
-Route::get('logout',[AuthController::class,'logout']);
+Route::get('logout', [AuthController::class, 'logout']);

@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class SupervisorController extends Controller
 {
     public function getAllReservations(Request $request) {
-        // Get all reservations for the specified parking (parking_id)
         $reservedParkings = Reservation::with([
             'user:id,first_name,last_name', 
             'parking:id,name,address,latitude,longitude,photo',
