@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearSearchFilter, setSearchFilter } from "../../../redux/searchFilter/searchFilterSlice";
 import Image from "../image";
 import search from '../../../assets/images/search.png'
+import { clearSearchbar, setSearchbar } from "../../../redux/searchbar/searchbarSlice";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ const SearchBar = () => {
   const searchFilter = useSelector((state) => state.searchFilter)
 
   const handleSearch = (query) => {
+    console.log(query)
+
+    console.log(typeof query)
+
     console.log('nooo')
     console.log(query)
     console.log(reservation.reservation)
@@ -35,10 +40,13 @@ const SearchBar = () => {
   const handleInputChange = (e) => {
     const newQuery = e.target.value;
     setQuery(newQuery);
+    console.log(typeof newQuery)
+    dispatch(setSearchbar(newQuery));
     handleSearch(newQuery);
     // console.log(newQuery)
     if (newQuery === "") {
       dispatch(clearSearchFilter());
+      dispatch(clearSearchbar());
       // dispatch(setSearchFilter(slots.slots));
     }
   };

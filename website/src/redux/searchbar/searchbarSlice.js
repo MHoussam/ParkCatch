@@ -8,10 +8,10 @@ const searchbarSlice = createSlice({
   name: "searchbar",
   initialState,
   reducers: {
-    setsearchbar: (state, action) => {
+    setSearchbar: (state, action) => {
       state.searchbar = action.payload;
     },
-    clearsearchbar: (state) => {
+    clearSearchbar: (state) => {
       state.searchbar = '';
     },
   },

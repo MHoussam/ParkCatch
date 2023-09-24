@@ -10,6 +10,7 @@ const Slots = () => {
   const slots = useSelector((state) => state.slots);
   const searchFilter = useSelector((state) => state.searchFilter);
   const user = useSelector((state) => state.user);
+  const searchbar = useSelector((state) => state.searchbar);
 
   const fetchSpots = async () => {
     const userToken = await localStorage.getItem("userToken");
@@ -87,6 +88,7 @@ const Slots = () => {
 
   console.log(slots.slots);
   console.log(searchFilter.searchFilter);
+  console.log(searchbar.searchbar === '');
 
   return (
     <div className="table">
@@ -111,7 +113,7 @@ const Slots = () => {
                       slot.y_coordinate === columnIndex
                   )
                   .map((slot) => (
-                    searchFilter.searchFilter.length === 0 ? (
+                    searchFilter.searchFilter.length === 0 && searchbar.searchbar === '' ? (
                       <Slot
                         key={`${rowIndex}-${columnIndex}`}
                         number={slot.name}
