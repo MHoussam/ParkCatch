@@ -19,15 +19,15 @@ Route::group(["middleware"=>"auth:api"],function(){
         Route::post('availability', [SupervisorController::class, 'changeAvailability']);
     });
 
-    // Route::group(["middleware"=>"auth.admin"],function(){
-    // Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
-    // Route::post('validity', [SupervisorController::class, 'checkValidity']);
-    //     Route::post('availability', [SupervisorController::class, 'changeAvailability']);
-    //     Route::post('parkingDetails', [AdminController::class, 'changeParkingDetails']);
-    //     Route::post('ban', [AdminController::class, 'banCustomer']);
-    //     Route::post('addSupervisor', [AuthController::class, 'register']);
-    //     Route::post('removeSupervisor', [AdminController::class, 'removeSupervisor']);
-    // });
+    Route::group(["middleware"=>"auth.admin"],function(){
+    Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
+    Route::post('validity', [SupervisorController::class, 'checkValidity']);
+        Route::post('availability', [SupervisorController::class, 'changeAvailability']);
+        Route::post('parkingDetails', [AdminController::class, 'changeParkingDetails']);
+        Route::post('ban', [AdminController::class, 'banCustomer']);
+        Route::post('addSupervisor', [AuthController::class, 'register']);
+        Route::post('removeSupervisor', [AdminController::class, 'removeSupervisor']);
+    });
     Route::group(["middleware"=>"auth.client"],function(){
         Route::post('availableSpots', [SupervisorController::class, 'getAvailableSpots']);
     Route::post('reservations', [ClientController::class, 'getReservations']);
