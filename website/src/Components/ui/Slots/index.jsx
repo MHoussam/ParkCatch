@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import "./styles.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Slot from "../../base/slot";
 import axios from "axios";
+import { addSlots } from '../../../redux/slots/slotSlice'
 
 const Slots = () => {
+    const dispatch = useDispatch();
   const slots = useSelector((state) => state.slots);
 
   const fetchSpots = async () => {
@@ -28,7 +30,7 @@ const Slots = () => {
         "http://127.0.0.1:8000/api/spots",
         dataForm
       );
-      console.log(response.data.data)
+      console.log(slots)
 
       if (Array.isArray(response.data.data)) {
         if (slots.slots === null || slots.slots.length === 0) {
@@ -74,6 +76,8 @@ const Slots = () => {
     fetchSpots();
   }, []);
 
+  console.log(slots)
+
   return (
     <div className="table">
       {[...Array(12)].map((_, rowIndex) => (
@@ -89,7 +93,7 @@ const Slots = () => {
                   : "tableCellGap flex center flex-grow"
               }
             >
-              {/* {slots.slots &&
+              {slots.slots &&
                 slots.slots
                   .filter(
                     (slot) =>
@@ -111,7 +115,7 @@ const Slots = () => {
                       isSelected={selectedSlot.id === slot.id}
                       onPress={() => slotPressed(slot)}
                     />
-                  ))} */}
+                  ))}
             </div>
           ))}
         </div>
