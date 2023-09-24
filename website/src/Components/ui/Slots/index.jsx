@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import "./styles.css";
+import { useSelector } from "react-redux";
+import Slot from "../../base/slot";
+import axios from "axios";
 
 const Slots = () => {
   const slots = useSelector((state) => state.slots);
@@ -20,15 +23,16 @@ const Slots = () => {
         parking_id: 3,
         token: userToken,
       };
-      //  console.log(dataForm)
+    //    console.log(dataForm)
       const response = await axios.post(
         "http://127.0.0.1:8000/api/spots",
         dataForm
       );
+      console.log(response.data.data)
 
       if (Array.isArray(response.data.data)) {
         if (slots.slots === null || slots.slots.length === 0) {
-          // console.log("here");
+          console.log("here");
           response.data.data.forEach((item) => {
             const {
               id,
@@ -85,7 +89,7 @@ const Slots = () => {
                   : "tableCellGap flex center flex-grow"
               }
             >
-              {slots.slots &&
+              {/* {slots.slots &&
                 slots.slots
                   .filter(
                     (slot) =>
@@ -107,7 +111,7 @@ const Slots = () => {
                       isSelected={selectedSlot.id === slot.id}
                       onPress={() => slotPressed(slot)}
                     />
-                  ))}
+                  ))} */}
             </div>
           ))}
         </div>
