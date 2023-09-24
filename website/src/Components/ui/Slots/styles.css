@@ -4,13 +4,12 @@
     border-bottom: 2px solid;
     border-color: #70707090;
     position: absolute;
-    top: -80px;
+    top: -85px;
     right: 385px;
     margin-top: 15px;
     transform: rotate(90deg);
     width: 30%;
   }  
-  
   
   .tableCell {
     border-top: 2px solid;

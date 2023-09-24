@@ -22,8 +22,27 @@ const Home = () => {
     }
   }
 
+  const fetchReservations = async () => {
+        const token = await localStorage.getItem('userToken');
+        const user = await localStorage.getItem('userData');
+        const userData = JSON.parse(user);
+        console.log(userData.id)
+        const data = {
+            user_id: userData.id,
+            token: token,
+        }
+        console.log('oooooooooooooooo')
+
+        const response = await axios.post('http://127.0.0.1:8000/api/reservations', data);
+        console.log('mmmmmmmmmmmmmmmm')
+        console.log(response.data.data)
+        dispatch(setReservations(response.data.data))
+    }
+
+
   useEffect(() => {
     checkToken();
+    fetchReservations();
   }, [])
 
   return (
