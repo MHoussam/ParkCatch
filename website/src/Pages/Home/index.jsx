@@ -9,6 +9,7 @@ import SideBar from '../../Components/ui/SideBar';
 import SearchBar from '../../Components/base/searchbar';
 import Slots from '../../Components/ui/Slots';
 import axios from 'axios';
+import { setReservation } from '../../redux/reservations/reservationSlice';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -30,16 +31,16 @@ const Home = () => {
         // console.log(user)
         const data = {
             user_id: user.id,
+            parking_id: 1,
             token: token,
         }
         console.log('oooooooooooooooo')
 
-        const response = await axios.post('http://127.0.0.1:8000/api/reservations', data);
+        const response = await axios.post('http://127.0.0.1:8000/api/allReservations', data);
         console.log('mmmmmmmmmmmmmmmm')
         console.log(response.data.data)
-        dispatch(setReservations(response.data.data))
+        dispatch(setReservation(response.data.data))
     }
-
 
   useEffect(() => {
     checkToken();
