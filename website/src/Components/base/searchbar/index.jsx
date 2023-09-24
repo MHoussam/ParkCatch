@@ -9,6 +9,7 @@ const SearchBar = () => {
   const [query, setQuery] = useState([]);
   const slots = useSelector((state) => state.slots)
   const reservation = useSelector((state) => state.reservation)
+  const searchFilter = useSelector((state) => state.searchFilter)
 
   const handleSearch = (query) => {
     console.log('nooo')
@@ -38,12 +39,13 @@ const SearchBar = () => {
     // console.log(newQuery)
     if (newQuery === "") {
       dispatch(clearSearchFilter());
-      dispatch(setSearchFilter(slots.slots));
+      // dispatch(setSearchFilter(slots.slots));
     }
   };
 
   console.log('now hear ')
-  console.log(slots)
+  console.log(slots.slots)
+  console.log(searchFilter)
   return (
     <div className="searchBar width-25">
       <Image src={search} alt='' className='searchIcon' />

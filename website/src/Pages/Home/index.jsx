@@ -57,6 +57,7 @@ const Home = () => {
         real_plate_number,
         correct,
         phone_number,
+        parking,
       } = item;
       // console.log('1')
       dispatch(
@@ -72,6 +73,7 @@ const Home = () => {
           real_plate_number,
           correct,
           phone_number,
+          parking,
         })
       );
     });

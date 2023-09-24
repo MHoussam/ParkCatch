@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Slot from "../../base/slot";
 import axios from "axios";
 import { addSlots } from "../../../redux/slots/slotSlice";
-import { setSearchFilter } from "../../../redux/searchFilter/searchFilterSlice";
 
 const Slots = () => {
   const dispatch = useDispatch();
@@ -29,7 +28,7 @@ const Slots = () => {
       // };
 
       const dataForm = {
-        parking_id:3,
+        parking_id: userData.parking_id,
         token: userData.token,
       };
          console.log(dataForm)
@@ -67,8 +66,6 @@ const Slots = () => {
               })
             );
           });
-        dispatch(setSearchFilter(response.data.data));
-
           // console.log("finish");
         }
       } else {
@@ -89,6 +86,7 @@ const Slots = () => {
   }, [searchFilter]);
 
   console.log(slots.slots);
+  console.log(searchFilter.searchFilter);
 
   return (
     <div className="table">
@@ -105,22 +103,35 @@ const Slots = () => {
                   : "tableCellGap flex center flex-grow"
               }
             >
-              {searchFilter.searchFilter &&
-                searchFilter.searchFilter
+              {slots.slots &&
+                slots.slots
                   .filter(
                     (slot) =>
-                      slot.x_coordinate-1 === rowIndex &&
+                      slot.x_coordinate - 1 === rowIndex &&
                       slot.y_coordinate === columnIndex
                   )
                   .map((slot) => (
-                    <Slot
-                      key={`${rowIndex}-${columnIndex}`}
-                      number={slot.name}
-                      slotContainer={slot.reserved ? "reserved flex center" : "available flex center"}
-                      slotTitle={
-                        slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
-                      }
-                    />
+                    searchFilter.searchFilter.length === 0 ? (
+                      <Slot
+                        key={`${rowIndex}-${columnIndex}`}
+                        number={slot.name}
+                        slotContainer={slot.reserved ? "reserved flex center" : "available flex center"}
+                        slotTitle={
+                          slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
+                        }
+                      />
+                    ) : (
+                      searchFilter.searchFilter.some((item) => item.spot_id === slot.id) && (
+                        <Slot
+                          key={`${rowIndex}-${columnIndex}`}
+                          number={slot.name}
+                          slotContainer={slot.reserved ? "reserved flex center" : "available flex center"}
+                          slotTitle={
+                            slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
+                          }
+                        />
+                      )
+                    )
                   ))}
             </div>
           ))}
@@ -128,6 +139,8 @@ const Slots = () => {
       ))}
     </div>
   );
+  
+  
 };
 
 export default Slots;
