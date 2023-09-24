@@ -8,7 +8,6 @@
 }
 
 .parkingInfo {
-    border: 1px solid;
     flex-grow: 1;
     margin: 4% 8% 0 5%;
 }
