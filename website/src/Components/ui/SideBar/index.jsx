@@ -22,9 +22,9 @@ const SideBar = () => {
 
   return (
     <div className='sidebar flex column' >
-        <Section icon={terminate} text='Terminate a Reservation' path='' />
-        <Section icon={add} text='Add Availability' path='' />
-        <Section icon={remove} text='Remove Availability' path='' />
+        <Section icon={terminate} text='Terminate a Reservation' path='' onClick={handleTerminate}/>
+        <Section icon={add} text='Add Availability' path='' onClick={handleAdd}/>
+        <Section icon={remove} text='Remove Availability' path='' onClick={handleRemove}/>
         <Section icon={logout} text='Logout' path='' onClick={handleLogout} />
     </div>
   )
