@@ -1,29 +1,29 @@
-/* styles.css */
-
 .table {
     border: 2px solid;
     border-color: #70707090;
+    position: absolute;
+    top: -80px;
+    right: 385px;
     margin-top: 15px;
-  }
+    transform: rotate(90deg);
+    width: 30%;
+  }  
   
-  /* .tableRow {
-    display: flex;
-  } */
   
   .tableCell {
     border-top: 2px solid;
     border-color: #70707090;
     padding: 4px 6px;
-    width: 70px;
-    height: 37px;
+    height: 70px;
+    width: 37px;
   }
   
   .tableCellGap {
     border-top: 2px solid;
     border-color: #70707090;
     padding: 4px 6px;
-    width: 66px;
-    height: 37px;
+    height: 66px;
+    width: 37px;
     margin-right: 55px;
     margin-left: 55px;
   }
@@ -32,8 +32,8 @@
     border-top: 2px solid;
     border-color: transparent;
     padding: 4px 6px;
-    width: 66px;
-    height: 39px;
+    height: 66px;
+    width: 39px;
     margin-right: 55px;
     margin-left: 55px;
   }
@@ -45,16 +45,16 @@
   .available {
     border-radius: 10px;
     background-color: #E0E5F6;
-    width: 62px;
-    height: 26px;
+    height: 62px;
+    width: 26px;
     justify-content: center;
   }
   
   .reserved {
     border-radius: 10px;
     background-color: #707070;
-    width: 62px;
-    height: 26px;
+    height: 62px;
+    width: 26px;
     justify-content: center;
   }
   

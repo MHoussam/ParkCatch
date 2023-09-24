@@ -78,10 +78,10 @@ const Slots = () => {
               key={columnIndex}
               className={
                 columnIndex !== 2
-                  ? "tableCell flex center"
+                  ? "tableCell flex center flex-grow"
                   : rowIndex === 0
-                  ? "entranceCell flex center"
-                  : "tableCellGap flex center"
+                  ? "entranceCell flex center flex-grow"
+                  : "tableCellGap flex center flex-grow"
               }
             >
               
