@@ -34,6 +34,7 @@ const SideBar = () => {
           type="text"
           placeholder=""
           value={inputValues["terminationReason"]}
+          state={inputValues}
           onChange={(newValue) =>
             handleInputChange("terminationReason", newValue)
           }
@@ -53,7 +54,7 @@ const SideBar = () => {
         <Input
           type="text"
           placeholder=""
-          value={'spotNumber'}
+          value={inputValues["spotNumber"]}
           state={inputValues}
           onChange={(newValue) => handleInputChange("spotNumber", newValue)}
         />
@@ -71,13 +72,15 @@ const SideBar = () => {
         <Input
           type="text"
           placeholder=""
-          value={inputValues["spotNumber"] || ""}
+          value={inputValues["spotNumber"]}
+          state={inputValues}
           onChange={(newValue) => handleInputChange("spotNumber", newValue)}
         />
         <Input
           type="text"
           placeholder=""
-          value={inputValues["unavailabilityReason"] || ""}
+          value={inputValues["unavailabilityReason"]}
+          state={inputValues}
           onChange={(newValue) =>
             handleInputChange("unavailabilityReason", newValue)
           }
