@@ -4,25 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use App\Models\Spot;
+use App\Models\Termination;
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
 {
-    public function getAllReservations(Request $request) {
+    public function getAllReservations(Request $request)
+    {
         $reservedParkings = Reservation::with([
-            'user:id,first_name,last_name', 
+            'user:id,first_name,last_name',
             'parking:id,name,address,latitude,longitude,photo',
         ])
-        ->where('parking_id', $request->parking_id)
-        ->where('valid', true)
-        ->get();
-    
+            ->where('parking_id', $request->parking_id)
+            ->where('valid', true)
+            ->get();
+
         return response()->json([
             'status' => 'Success',
             'data' => $reservedParkings,
         ]);
     }
-    
+
 
     public static function checkValidity(Request $request)
     {
@@ -39,10 +41,9 @@ class SupervisorController extends Controller
 
         $reservation->update(['correct' => $isCorrect]);
 
-        if($isCorrect){
+        if ($isCorrect) {
             $message = 'Plate Number & Parked Plate Number Matched.';
-        }
-        else {
+        } else {
             $message = 'Plate Number & Parked Plate Number Did Not Match.';
         }
 
@@ -52,17 +53,18 @@ class SupervisorController extends Controller
         ]);
     }
 
-    public function getSpots(Request $request) {
+    public function getSpots(Request $request)
+    {
         $reserved = Reservation::where('parking_id', $request->parking_id)
-                           ->where('valid', TRUE)
-                           ->get();
+            ->where('valid', TRUE)
+            ->get();
 
         $reservedSpotIds = $reserved->pluck('spot_id');
 
         $availableSpotIds = Spot::where('parking_id', $request->parking_id)
-                        ->whereNotIn('id', $reservedSpotIds)
-                        ->pluck('id')
-                        ->toArray();
+            ->whereNotIn('id', $reservedSpotIds)
+            ->pluck('id')
+            ->toArray();
 
         $spots = Spot::where('parking_id', $request->parking_id)->get();
 
@@ -76,8 +78,9 @@ class SupervisorController extends Controller
             'data' => $spots
         ]);
     }
-    
-    public function getAvailableSpots(Request $request) {
+
+    public function getAvailableSpots(Request $request)
+    {
         $spots = $this->getSpots($request);
 
         $availableSpots = $spots->original['data']->filter(function ($spot) {
@@ -89,18 +92,21 @@ class SupervisorController extends Controller
             'data' => $availableSpots->count()
         ]);
     }
-    
 
-    public function terminateReservation(Request $request) {
+
+    public function terminateReservation(Request $request)
+    {
         $terminate = Reservation::where('spot_id', $request->spot_id)
-                     ->where('parking_id', $request->parking_id)
-                     ->where('valid', TRUE)
-                     ->first();
+            ->where('parking_id', $request->parking_id)
+            ->where('valid', TRUE)
+            ->first();
 
         if ($terminate) {
             $terminate->valid = FALSE;
-            $terminate->reason = $request->reason;
+            // $terminate->reason = $request->reason;
             $terminate->save();
+
+            $this->terminateRecord($request);
 
             return response()->json([
                 'status' => 'Success',
@@ -114,10 +120,29 @@ class SupervisorController extends Controller
         }
     }
 
-    public function changeAvailability(Request $request) {
+    public function terminateRecord(Request $request)
+    {
+        $termination = new Termination();
+        $termination->staff_id = $request->staff_id;
+        $termination->client_id = $request->client_id;
+        $termination->parking_id = $request->parking_id;
+        $termination->spot_id = $request->spot_id;
+        $termination->reason = $request->reason;
+        $termination->date = now()->toDateString();
+        $termination->time = now()->toTimeString();
+        $termination->save();
+
+        return response()->json([
+            'status' => 'Success',
+            'data' => 'Termination record has been created.'
+        ]);
+    }
+
+    public function changeAvailability(Request $request)
+    {
         $available = Spot::where('id', $request->spot_id)
-                     ->where('parking_id', $request->parking_id)
-                     ->first();
+            ->where('parking_id', $request->parking_id)
+            ->first();
 
         if ($available->availability) {
             $available->availability = FALSE;
