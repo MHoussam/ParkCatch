@@ -10,7 +10,7 @@ const Input = ({ text, type, placeholder, value, state, onChange, classProp }) =
 
   console.log({state}[`${value}`])
 
-  const className = `input width-60 ${classProp || ''}`;
+  const className = `input ${classProp || ''}`;
   return (
     <div className="inputContainer width-100 flex column center">
       <h4>{text}</h4>

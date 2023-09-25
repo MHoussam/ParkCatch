@@ -17,7 +17,7 @@ const TextArea = ({ text, type, placeholder, value, state, onChange }) => {
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
-        className='input width-60 bigInput'
+        className='input bigInput'
       />
     </div>
   )
