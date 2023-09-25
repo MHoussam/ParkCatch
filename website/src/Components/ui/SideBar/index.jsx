@@ -40,7 +40,6 @@ const SideBar = () => {
           placeholder=""
           value={inputValues["terminationReason"]}
           state={inputValues}
-          classProp='bigInput'
           onChange={(newValue) =>
             handleInputChange("terminationReason", newValue)
           }
@@ -94,7 +93,6 @@ const SideBar = () => {
           placeholder=""
           value={inputValues["unavailabilityReason"]}
           state={inputValues}
-          classProp='bigInput'
           onChange={(newValue) =>
             handleInputChange("unavailabilityReason", newValue)
           }

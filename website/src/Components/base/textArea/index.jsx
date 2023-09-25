@@ -1,7 +1,7 @@
 import React from 'react'
-import './styles'
+import './styles.css'
 
-const TextArea = ({ text, type, placeholder, value, state, onChange, classProp }) => {
+const TextArea = ({ text, type, placeholder, value, state, onChange }) => {
     const handleChange = (e) => {
         const newValue = e.target.value;
         onChange(newValue);
@@ -17,7 +17,7 @@ const TextArea = ({ text, type, placeholder, value, state, onChange, classProp }
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
-        className={`input width-60 ${classProp}`}
+        className='input width-60 bigInput'
       />
     </div>
   )
