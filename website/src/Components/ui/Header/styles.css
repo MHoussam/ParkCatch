@@ -7,3 +7,11 @@
     width: 15%;
     margin-left: 40px;
 }
+
+.name {
+    color: #FFFFFF;
+}
+
+.name>h3 {
+    margin: 0 40px 0 0;
+}

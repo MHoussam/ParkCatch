@@ -30,6 +30,7 @@ const Home = () => {
     const userToken = JSON.parse(token);
     const userData = JSON.parse(user);
     console.log(userData.parking_id);
+    console.log(userData);
     const data = {
       user_id: userData.id,
       parking_id: userData.parking_id,
