@@ -92,7 +92,7 @@ const Slots = () => {
 
   return (
     <div className="table">
-      {[...Array(12)].map((_, rowIndex) => (
+      {[...Array(13)].map((_, rowIndex) => (
         <div key={rowIndex} className="tableRow flex">
           {[1, 2, 3].map((columnIndex) => (
             <div

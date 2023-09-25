@@ -4,9 +4,9 @@
     border-bottom: 2px solid;
     border-color: #70707090;
     position: absolute;
-    top: -85px;
-    right: 385px;
-    margin-top: 15px;
+    bottom: -235px;
+    right: 365px;
+    margin-top: 3px;
     transform: rotate(90deg);
     width: 30%;
   }  
@@ -15,7 +15,7 @@
     border-top: 2px solid;
     border-color: #70707090;
     padding: 4px 6px;
-    height: 70px;
+    height: 66px;
     width: 37px;
   }
   
@@ -23,7 +23,7 @@
     border-top: 2px solid;
     border-color: #70707090;
     padding: 4px 6px;
-    height: 66px;
+    height: 67px;
     width: 37px;
     margin-right: 55px;
     margin-left: 55px;
