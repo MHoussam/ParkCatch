@@ -17,13 +17,15 @@ Route::group(["middleware" => "auth:api"], function () {
         Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
         Route::post('validity', [SupervisorController::class, 'checkValidity']);
         Route::post('terminate', [SupervisorController::class, 'terminateReservation']);
-        Route::post('availability', [SupervisorController::class, 'changeAvailability']);
+        Route::post('removeAvail', [SupervisorController::class, 'removeAvailability']);
+        Route::post('addAvail', [SupervisorController::class, 'addAvailability']);
     });
 
     Route::group(["middleware" => "auth.admin"], function () {
         Route::post('adminAllReservations', [SupervisorController::class, 'getAllReservations']);
         Route::post('adminValidity', [SupervisorController::class, 'checkValidity']);
-        Route::post('adminAvailability', [SupervisorController::class, 'changeAvailability']);
+        Route::post('adminRemoveAvail', [SupervisorController::class, 'removeAvailability']);
+        Route::post('adminAddAvail', [SupervisorController::class, 'addAvailability']);
         Route::post('parkingDetails', [AdminController::class, 'changeParkingDetails']);
         Route::post('ban', [AdminController::class, 'banCustomer']);
         Route::post('addSupervisor', [AuthController::class, 'register']);

@@ -138,28 +138,33 @@ class SupervisorController extends Controller
         ]);
     }
 
-    public function changeAvailability(Request $request)
+    public function removeAvailability(Request $request)
     {
         $available = Spot::where('id', $request->spot_id)
             ->where('parking_id', $request->parking_id)
             ->first();
 
-        if ($available->availability) {
-            $available->availability = FALSE;
-            $available->save();
+        $available->availability = FALSE;
+        $available->save();
 
-            return response()->json([
-                'status' => 'Success',
-                'data' => 'Spot ' . $request->spot_id . ' is now Unavailable.'
-            ]);
-        } else {
-            $available->availability = TRUE;
-            $available->save();
+        return response()->json([
+            'status' => 'Success',
+            'data' => 'Spot ' . $request->spot_id . ' is now Unavailable.'
+        ]);
+    }
 
-            return response()->json([
-                'status' => 'Success',
-                'data' => 'Spot ' . $request->spot_id . ' is now Available.'
-            ]);
-        }
+    public function addAvailability(Request $request)
+    {
+        $available = Spot::where('id', $request->spot_id)
+            ->where('parking_id', $request->parking_id)
+            ->first();
+
+        $available->availability = TRUE;
+        $available->save();
+
+        return response()->json([
+            'status' => 'Success',
+            'data' => 'Spot ' . $request->spot_id . ' is now Available.'
+        ]);
     }
 }
