@@ -1,6 +1,9 @@
 import React from "react";
 import "./styles.css";
 import Button from "../../base/button";
+import { clearSlots } from "../../../redux/slots/slotSlice";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 
 const Modal = ({
   text,
@@ -11,6 +14,8 @@ const Modal = ({
   inputValues,
   setInputValues,
 }) => {
+  const dispatch = useDispatch();
+
   if (!isOpen) return null;
 
   const close = () => {
@@ -21,38 +26,67 @@ const Modal = ({
 
   const actions = {
     terminate: async () => {
-      console.log("Termination logic here");
-      const token = await localStorage.getItem("userToken");
-      const user = localStorage.getItem("userData");
-      const userToken = JSON.parse(token);
-      const userData = JSON.parse(user);
-      console.log(userData.parking_id);
-      const data = {
-        staff_id: userData.id,
-        parking_id: userData.parking_id,
-        spot_id: inputValues['spotNumber'],
-        reason: inputValues['reason'],
-        token: userToken,
-      };
-      console.log(data);
+      try {
+        console.log("Termination logic here");
+        const token = await localStorage.getItem("userToken");
+        const user = localStorage.getItem("userData");
+        const userToken = JSON.parse(token);
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id);
+        const data = {
+          staff_id: userData.id,
+          parking_id: userData.parking_id,
+          spot_id: parseInt(inputValues["spotNumber"], 10),
+          reason: inputValues["reason"],
+          token: userToken,
+        };
+        console.log(data);
 
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/terminate",
-        data
-      );
-      console.log(response.data);
-      setInputValues([]);
-      onClose();
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/terminate",
+          data
+        );
+        console.log(response.data);
+        dispatch(clearSlots);
+        setInputValues([]);
+        onClose();
+      } catch (error) {
+        console.error("Error:", error);
+      }
     },
     add: () => {
       console.log("Add logic here");
       setInputValues([]);
       onClose();
     },
-    remove: () => {
-      console.log("Remove logic here");
-      setInputValues([]);
-      onClose();
+    reomove: async () => {
+      try {
+        console.log("Termination logic here");
+        const token = await localStorage.getItem("userToken");
+        const user = localStorage.getItem("userData");
+        const userToken = JSON.parse(token);
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id);
+        const data = {
+          staff_id: userData.id,
+          parking_id: userData.parking_id,
+          spot_id: parseInt(inputValues["spotNumber"], 10),
+          reason: inputValues["reason"],
+          token: userToken,
+        };
+        console.log(data);
+
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/terminate",
+          data
+        );
+        console.log(response.data);
+        dispatch(clearSlots);
+        setInputValues([]);
+        onClose();
+      } catch (error) {
+        console.error("Error:", error);
+      }
     },
   };
 

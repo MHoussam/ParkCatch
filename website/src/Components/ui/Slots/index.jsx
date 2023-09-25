@@ -84,7 +84,7 @@ const Slots = () => {
     console.log('changed')
     console.log(searchFilter)
 
-  }, [searchFilter]);
+  }, [searchFilter, slots]);
 
   console.log(slots.slots);
   console.log(searchFilter.searchFilter);

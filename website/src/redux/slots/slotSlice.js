@@ -23,6 +23,7 @@ const slotSlice = createSlice({
     },
     clearSlots: (state) => {
       state.slots = [];
+      console.log(state.slots)
     },
   },
 });
