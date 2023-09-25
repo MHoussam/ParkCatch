@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Modal from "../Modal";
 import Input from "../../base/input";
+import TextArea from "../../base/textArea";
 
 const SideBar = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const SideBar = () => {
           state={inputValues}
           onChange={(newValue) => handleInputChange("spotNumber", newValue)}
         />
-        <Input
+        <TextArea
         text='Termination Reason'
         type="text"
           placeholder=""
@@ -87,7 +88,7 @@ const SideBar = () => {
           state={inputValues}
           onChange={(newValue) => handleInputChange("spotNumber", newValue)}
         />
-        <Input
+        <TextArea
         text='Unavailability Reason'
           type="text"
           placeholder=""
