@@ -110,7 +110,7 @@ const Slots = () => {
                   .filter(
                     (slot) =>
                       slot.x_coordinate - 1 === rowIndex &&
-                      slot.y_coordinate === columnIndex
+                      slot.y_coordinate === columnIndex && slot.availability === 1
                   )
                   .map((slot) => (
                     searchFilter.searchFilter.length === 0 && searchbar.searchbar === '' ? (

@@ -27,7 +27,6 @@ const Modal = ({
   const actions = {
     terminate: async () => {
       try {
-        console.log("Termination logic here");
         const token = await localStorage.getItem("userToken");
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
@@ -37,7 +36,7 @@ const Modal = ({
           staff_id: userData.id,
           parking_id: userData.parking_id,
           spot_id: parseInt(inputValues["spotNumber"], 10),
-          reason: inputValues["reason"],
+          reason: inputValues["terminationReason"],
           token: userToken,
         };
         console.log(data);
@@ -47,21 +46,42 @@ const Modal = ({
           data
         );
         console.log(response.data);
-        dispatch(clearSlots);
+        dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {
         console.error("Error:", error);
       }
     },
-    add: () => {
-      console.log("Add logic here");
-      setInputValues([]);
-      onClose();
-    },
-    reomove: async () => {
+    add: async () => {
       try {
-        console.log("Termination logic here");
+        const token = await localStorage.getItem("userToken");
+        const user = localStorage.getItem("userData");
+        const userToken = JSON.parse(token);
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id);
+        const data = {
+          staff_id: userData.id,
+          parking_id: userData.parking_id,
+          spot_id: parseInt(inputValues["spotNumber"]),
+          token: userToken,
+        };
+        console.log(data);
+
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/addAvail",
+          data
+        );
+        console.log(response.data);
+        dispatch(clearSlots());
+        setInputValues([]);
+        onClose();
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
+    remove: async () => {
+      try {
         const token = await localStorage.getItem("userToken");
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
@@ -71,17 +91,17 @@ const Modal = ({
           staff_id: userData.id,
           parking_id: userData.parking_id,
           spot_id: parseInt(inputValues["spotNumber"], 10),
-          reason: inputValues["reason"],
+          reason: inputValues["unavailabilityReason"],
           token: userToken,
         };
         console.log(data);
 
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/terminate",
+          "http://127.0.0.1:8000/api/removeAvail",
           data
         );
         console.log(response.data);
-        dispatch(clearSlots);
+        dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {
