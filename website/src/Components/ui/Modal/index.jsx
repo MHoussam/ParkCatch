@@ -1,8 +1,16 @@
-import React from 'react';
-import './styles.css';
-import Button from '../../base/button';
+import React from "react";
+import "./styles.css";
+import Button from "../../base/button";
 
-const Modal = ({ text, action, isOpen, onClose, content, inputValues, setInputValues }) => {
+const Modal = ({
+  text,
+  action,
+  isOpen,
+  onClose,
+  content,
+  inputValues,
+  setInputValues,
+}) => {
   if (!isOpen) return null;
 
   const close = () => {
@@ -12,18 +20,37 @@ const Modal = ({ text, action, isOpen, onClose, content, inputValues, setInputVa
   };
 
   const actions = {
-    terminate: () => {
-      console.log('Termination logic here');
+    terminate: async () => {
+      console.log("Termination logic here");
+      const token = await localStorage.getItem("userToken");
+      const user = localStorage.getItem("userData");
+      const userToken = JSON.parse(token);
+      const userData = JSON.parse(user);
+      console.log(userData.parking_id);
+      const data = {
+        staff_id: userData.id,
+        parking_id: userData.parking_id,
+        spot_id: inputValues['spotNumber'],
+        reason: inputValues['reason'],
+        token: userToken,
+      };
+      console.log(data);
+
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/terminate",
+        data
+      );
+      console.log(response.data);
       setInputValues([]);
       onClose();
     },
     add: () => {
-      console.log('Add logic here');
+      console.log("Add logic here");
       setInputValues([]);
       onClose();
     },
     remove: () => {
-      console.log('Remove logic here');
+      console.log("Remove logic here");
       setInputValues([]);
       onClose();
     },
@@ -38,7 +65,7 @@ const Modal = ({ text, action, isOpen, onClose, content, inputValues, setInputVa
           {content}
           <div className="btn flex column center">
             <Button text={text} onClick={performAction} />
-            <Button text='Close' onClick={close} classProp='close' />
+            <Button text="Close" onClick={close} classProp="close" />
           </div>
         </div>
       </div>
