@@ -1,31 +1,45 @@
 import React from 'react';
-import './styles.css'
+import './styles.css';
 import Button from '../../base/button';
 
-const Modal = ({ isOpen, onClose, content, inputValues, setInputValues }) => {
+const Modal = ({ text, action, isOpen, onClose, content, inputValues, setInputValues }) => {
   if (!isOpen) return null;
 
-  const close= () => {
-    console.log(inputValues)
-    setInputValues([])
+  const close = () => {
+    console.log(inputValues);
+    setInputValues([]);
     onClose();
-  }
+  };
 
-  const terminate= () => {
-    console.log(inputValues)
-    setInputValues([])
-    onClose();
-  }
+  const actions = {
+    terminate: () => {
+      console.log('Termination logic here');
+      setInputValues([]);
+      onClose();
+    },
+    add: () => {
+      console.log('Add logic here');
+      setInputValues([]);
+      onClose();
+    },
+    remove: () => {
+      console.log('Remove logic here');
+      setInputValues([]);
+      onClose();
+    },
+  };
+
+  const performAction = actions[action];
 
   return (
     <div className="modal flex center">
       <div className="modalContainer flex center">
         <div className="modalContent flex column center">
-            {content}
-            <div className="btn flex column center">
-                <Button text='Terminate' onClick={terminate}/>
-                <Button text='Close' onClick={close} classProp='close'/>
-            </div>
+          {content}
+          <div className="btn flex column center">
+            <Button text={text} onClick={performAction} />
+            <Button text='Close' onClick={close} classProp='close' />
+          </div>
         </div>
       </div>
     </div>

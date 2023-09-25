@@ -17,6 +17,8 @@ const SideBar = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const [inputValues, setInputValues] = useState({});
+  const [text, setText] = useState('');
+  const [action, setAction] = useState('');
 
   const handleTermination = () => {
     const sectionContent = (
@@ -24,17 +26,20 @@ const SideBar = () => {
         <h2>Terminate a Reservation</h2>
 
         <Input
-          type="text"
+        text='Spot Number'
+        type="text"
           placeholder=""
           value={inputValues["spotNumber"]}
           state={inputValues}
           onChange={(newValue) => handleInputChange("spotNumber", newValue)}
         />
         <Input
-          type="text"
+        text='Termination Reason'
+        type="text"
           placeholder=""
           value={inputValues["terminationReason"]}
           state={inputValues}
+          classProp='bigInput'
           onChange={(newValue) =>
             handleInputChange("terminationReason", newValue)
           }
@@ -42,17 +47,20 @@ const SideBar = () => {
       </div>
     );
 
+    setText('Terminate');
+    setAction('terminate')
     setModalContent(sectionContent);
     setModalOpen(true);
   };
 
   const handleAdd = () => {
     const sectionContent = (
-      <div className="flex justify-content">
+      <div className="flex column justify-content">
         <h2>Add Availability</h2>
 
         <Input
-          type="text"
+        text='Spot Number'
+        type="text"
           placeholder=""
           value={inputValues["spotNumber"]}
           state={inputValues}
@@ -61,26 +69,31 @@ const SideBar = () => {
       </div>
     );
 
+    setText('Add');
+    setAction('add')
     setModalContent(sectionContent);
     setModalOpen(true);
   };
 
   const handleRemove = () => {
     const sectionContent = (
-      <div className="flex justify-content">
+      <div className="flex column justify-content">
         <h2>Remove Availability</h2>
         <Input
-          type="text"
+        text='Spot Number'
+        type="text"
           placeholder=""
           value={inputValues["spotNumber"]}
           state={inputValues}
           onChange={(newValue) => handleInputChange("spotNumber", newValue)}
         />
         <Input
+        text='Unavailability Reason'
           type="text"
           placeholder=""
           value={inputValues["unavailabilityReason"]}
           state={inputValues}
+          classProp='bigInput'
           onChange={(newValue) =>
             handleInputChange("unavailabilityReason", newValue)
           }
@@ -88,6 +101,8 @@ const SideBar = () => {
       </div>
     );
 
+    setText('Remove');
+    setAction('remove')
     setModalContent(sectionContent);
     setModalOpen(true);
   };
@@ -126,6 +141,8 @@ const SideBar = () => {
       />
       <Section icon={logout} text="Logout" path="" onClick={handleLogout} />
       <Modal
+      text= {text}
+      action= {action}
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
         content={modalContent}

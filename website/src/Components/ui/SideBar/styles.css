@@ -3,3 +3,7 @@
     background-color: #FECA0E60;
     border-right: 1px solid;
 }
+
+.bigInput {
+    height: 100px;
+}

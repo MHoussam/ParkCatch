@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-const Input = ({ type, placeholder, value, state, onChange }) => {
+const Input = ({ text, type, placeholder, value, state, onChange, classProp }) => {
   const handleChange = (e) => {
     const newValue = e.target.value;
     onChange(newValue);
@@ -9,15 +9,17 @@ const Input = ({ type, placeholder, value, state, onChange }) => {
   };
 
   console.log({state}[`${value}`])
+
+  const className = `input width-60 ${classProp || ''}`;
   return (
     <div className="inputContainer width-100 flex column center">
-      <h4>Spot Number</h4>
+      <h4>{text}</h4>
       <input
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
-        className="input width-60"
+        className={className}
       />
     </div>
   );
