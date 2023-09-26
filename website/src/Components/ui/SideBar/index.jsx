@@ -56,6 +56,38 @@ const SideBar = () => {
     setModalOpen(true);
   };
 
+  const handleEdit = () => {
+    const sectionContent = (
+      <div className="flex column justify-content">
+        <h2>Terminate a Reservation</h2>
+
+        <Input
+        text='Spot Number'
+        type="text"
+          placeholder=""
+          value={inputValues["spotNumber"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+        />
+        <TextArea
+        text='Termination Reason'
+        type="text"
+          placeholder=""
+          value={inputValues["terminationReason"]}
+          state={inputValues}
+          onChange={(newValue) =>
+            handleInputChange("terminationReason", newValue)
+          }
+        />
+      </div>
+    );
+
+    setText('Terminate');
+    setAction('terminate')
+    setModalContent(sectionContent);
+    setModalOpen(true);
+  };
+
   const handleAdd = () => {
     const sectionContent = (
       <div className="flex column justify-content">
@@ -79,6 +111,90 @@ const SideBar = () => {
   };
 
   const handleRemove = () => {
+    const sectionContent = (
+      <div className="flex column justify-content">
+        <h2>Remove Availability</h2>
+        <Input
+        text='Spot Number'
+        type="text"
+          placeholder=""
+          value={inputValues["spotNumber"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+        />
+        <TextArea
+        text='Unavailability Reason'
+          type="text"
+          placeholder=""
+          value={inputValues["unavailabilityReason"]}
+          state={inputValues}
+          onChange={(newValue) =>
+            handleInputChange("unavailabilityReason", newValue)
+          }
+        />
+      </div>
+    );
+
+    setText('Remove');
+    setAction('remove')
+    setModalContent(sectionContent);
+    setModalOpen(true);
+  };
+
+  const handleAddSupervisor = () => {
+    const sectionContent = (
+      <div className="flex column justify-content">
+        <h2>Add Availability</h2>
+
+        <Input
+        text='Spot Number'
+        type="text"
+          placeholder=""
+          value={inputValues["spotNumber"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+        />
+      </div>
+    );
+
+    setText('Add');
+    setAction('add')
+    setModalContent(sectionContent);
+    setModalOpen(true);
+  };
+
+  const handleRemoveSupervisor = () => {
+    const sectionContent = (
+      <div className="flex column justify-content">
+        <h2>Remove Availability</h2>
+        <Input
+        text='Spot Number'
+        type="text"
+          placeholder=""
+          value={inputValues["spotNumber"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+        />
+        <TextArea
+        text='Unavailability Reason'
+          type="text"
+          placeholder=""
+          value={inputValues["unavailabilityReason"]}
+          state={inputValues}
+          onChange={(newValue) =>
+            handleInputChange("unavailabilityReason", newValue)
+          }
+        />
+      </div>
+    );
+
+    setText('Remove');
+    setAction('remove')
+    setModalContent(sectionContent);
+    setModalOpen(true);
+  };
+
+  const handleBan = () => {
     const sectionContent = (
       <div className="flex column justify-content">
         <h2>Remove Availability</h2>
