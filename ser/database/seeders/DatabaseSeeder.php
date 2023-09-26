@@ -245,7 +245,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Mohammad',
             'last_name' => 'Houssam',
             'email' => 'supervisor1@gmail.com',
-            'password' => '$2y$10$TJG/09OC9H94NP8rhCeC4e3SWuyqfHzfI.3Pki.bx77a981ggo02y',
+            'password' => '$2y$10$A3me/JUsUMmOZlRlExiR2uypu.mCMDYhjTrRLzAEBL7rCeNLMi1hu',
             'role' => 2,
             'parking_id' => 1,
         ]);
@@ -254,7 +254,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Mohammad',
             'last_name' => 'Osta',
             'email' => 'client@gmail.com',
-            'password' => '$2y$10$TJG/09OC9H94NP8rhCeC4e3SWuyqfHzfI.3Pki.bx77a981ggo02y',
+            'password' => '$2y$10$NlCAOKYXY7EhooGP5OfWGO/eEqFxbl8QmH1KUUzEbqkr8c9qRw8Q2',
             'role' => 3,
             'parking_id' => 0,
         ]);
