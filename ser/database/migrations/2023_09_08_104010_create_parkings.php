@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('availability');
             $table->string('reason')->nullable();
+            $table->integer('x_coordinate');
+            $table->integer('y_coordinate');
             $table->timestamps();
         });
 
