@@ -87,8 +87,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'A-2',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 1,
-            'y_coordinate' => 2,
+            'x_coordinate' => 2,
+            'y_coordinate' => 1,
         ]);
 
         DB::table('spots')->insert([
@@ -96,8 +96,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'A-3',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 1,
-            'y_coordinate' => 3,
+            'x_coordinate' => 3,
+            'y_coordinate' => 1,
         ]);
 
         DB::table('spots')->insert([
@@ -105,8 +105,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'A-4',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 1,
-            'y_coordinate' => 4,
+            'x_coordinate' => 4,
+            'y_coordinate' => 1,
         ]);
 
         DB::table('spots')->insert([
@@ -114,8 +114,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'A-5',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 1,
-            'y_coordinate' => 5,
+            'x_coordinate' => 5,
+            'y_coordinate' => 1,
         ]);
 
         DB::table('spots')->insert([
@@ -123,8 +123,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'B-1',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 2,
-            'y_coordinate' => 1,
+            'x_coordinate' => 1,
+            'y_coordinate' => 2,
         ]);
 
         DB::table('spots')->insert([
@@ -141,8 +141,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'B-3',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 2,
-            'y_coordinate' => 3,
+            'x_coordinate' => 3,
+            'y_coordinate' => 2,
         ]);
 
         DB::table('spots')->insert([
@@ -150,8 +150,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'B-4',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 2,
-            'y_coordinate' => 4,
+            'x_coordinate' => 4,
+            'y_coordinate' => 2,
         ]);
 
         DB::table('spots')->insert([
@@ -159,8 +159,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'B-5',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 2,
-            'y_coordinate' => 5,
+            'x_coordinate' => 5,
+            'y_coordinate' => 2,
         ]);
 
         DB::table('spots')->insert([
@@ -168,8 +168,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'C-1',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 3,
-            'y_coordinate' => 1,
+            'x_coordinate' => 1,
+            'y_coordinate' => 3,
         ]);
 
         DB::table('spots')->insert([
@@ -177,8 +177,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'C-2',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 3,
-            'y_coordinate' => 2,
+            'x_coordinate' => 2,
+            'y_coordinate' => 3,
         ]);
 
         DB::table('spots')->insert([
@@ -195,8 +195,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'C-4',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 3,
-            'y_coordinate' => 4,
+            'x_coordinate' => 4,
+            'y_coordinate' => 3,
         ]);
 
         DB::table('spots')->insert([
@@ -204,8 +204,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'C-5',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 3,
-            'y_coordinate' => 5,
+            'x_coordinate' => 5,
+            'y_coordinate' => 3,
         ]);
 
         DB::table('parkings')->insert([
