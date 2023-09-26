@@ -4,6 +4,8 @@ import Section from "../../base/section";
 import terminate from "../../../assets/images/terminate.png";
 import add from "../../../assets/images/add.png";
 import remove from "../../../assets/images/remove.png";
+import edit from "../../../assets/images/edit.png";
+import ban from "../../../assets/images/ban.png";
 import logout from "../../../assets/images/logout.png";
 import { setUserToken } from "../../../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
@@ -168,13 +170,13 @@ const SideBar = () => {
           />
           <Section 
             icon={add} 
-            text="Add Spot's Availability" 
-            onClick={handleAdd} 
+            text="Add a Supervisor" 
+            onClick={handleAddSupervisor} 
           />
           <Section
             icon={remove}
-            text="Remove Spot's Availability"
-            onClick={handleRemove}
+            text="Remove a Supervisor"
+            onClick={handleRemoveSupervisor}
           />
           <Section
             icon={ban}
