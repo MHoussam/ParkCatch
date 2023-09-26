@@ -207,4 +207,24 @@ class SupervisorController extends Controller
             'data' => 'Spot ' . $request->spot_id . ' is now Available.'
         ]);
     }
-}
+
+    public function image(Request $request){
+        $spot_id = $request->input('spot_id');
+        $parking_id = $request->input('parking_id');
+    
+        $reservation = Reservation::where('spot_id', $spot_id)
+                                   ->where('parking_id', $parking_id)
+                                   ->where('valid', 1)
+                                   ->first();
+    
+        if ($reservation) {
+            $imageData = base64_encode($request->input('image_data'));
+            $reservation->real_plate_number = $imageData;
+            $reservation->save();
+    
+            return response()->json(['message' => 'Image data saved successfully']);
+        } else {
+            return response()->json(['message' => 'No valid reservation found'], 404);
+        }
+    }
+}    

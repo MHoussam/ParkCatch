@@ -46,3 +46,4 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('register',[AuthController::class,'register']);
 Route::get('logout', [AuthController::class, 'logout']);
 Route::post('spots', [SupervisorController::class, 'getSpots']);
+Route::post('image', [SupervisorController::class, 'image']);
