@@ -7,7 +7,7 @@ import remove from "../../../assets/images/remove.png";
 import logout from "../../../assets/images/logout.png";
 import { setUserToken } from "../../../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "../Modal";
 import Input from "../../base/input";
 import TextArea from "../../base/textArea";
@@ -20,6 +20,7 @@ const SideBar = () => {
   const [inputValues, setInputValues] = useState({});
   const [text, setText] = useState('');
   const [action, setAction] = useState('');
+  const user = useSelector((state) => state.user);
 
   const handleTermination = () => {
     const sectionContent = (
@@ -125,23 +126,71 @@ const SideBar = () => {
 
   return (
     <div className="sidebar flex column">
-      <Section
-        icon={terminate}
-        text="Terminate a Reservation"
-        path=""
-        onClick={handleTermination}
-      />
-      <Section icon={add} text="Add Availability" path="" onClick={handleAdd} />
-      <Section
-        icon={remove}
-        text="Remove Availability"
-        path=""
-        onClick={handleRemove}
-      />
-      <Section icon={logout} text="Logout" path="" onClick={handleLogout} />
+      {user.role === 2 ? (
+        <>
+          <Section
+            icon={terminate}
+            text="Terminate a Reservation"
+            onClick={handleTermination}
+          />
+          <Section 
+            icon={add} 
+            text="Add Availability" 
+            onClick={handleAdd} 
+          />
+          <Section
+            icon={remove}
+            text="Remove Availability"
+            onClick={handleRemove}
+          />
+          <Section 
+            icon={logout} 
+            text="Logout" 
+            onClick={handleLogout} 
+          />
+        </>
+      ) : (
+        <>
+          <Section
+            icon={edit}
+            text="Edit Parking Lot's Details"
+            onClick={handleEdit}
+          />
+          <Section 
+            icon={add} 
+            text="Add Spot's Availability" 
+            onClick={handleAdd} 
+          />
+          <Section
+            icon={remove}
+            text="Remove Spot's Availability"
+            onClick={handleRemove}
+          />
+          <Section 
+            icon={add} 
+            text="Add Spot's Availability" 
+            onClick={handleAdd} 
+          />
+          <Section
+            icon={remove}
+            text="Remove Spot's Availability"
+            onClick={handleRemove}
+          />
+          <Section
+            icon={ban}
+            text="Ban a Client"
+            onClick={handleBan}
+          />
+          <Section 
+            icon={logout} 
+            text="Logout"            
+            onClick={handleLogout} 
+          />
+        </>
+      )}
       <Modal
-      text= {text}
-      action= {action}
+        text={text}
+        action={action}
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
         content={modalContent}

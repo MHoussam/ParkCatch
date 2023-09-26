@@ -2,7 +2,7 @@ import React from "react";
 import Image from "../image";
 import "./styles.css";
 
-const Section = ({ text, icon, path, onClick }) => {
+const Section = ({ text, icon, onClick }) => {
   const handleClick = () => {
     if (onClick) {
       onClick();
