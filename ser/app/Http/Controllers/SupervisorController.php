@@ -104,7 +104,6 @@ class SupervisorController extends Controller
 
         if ($terminate) {
             $terminate->valid = FALSE;
-            // $terminate->reason = $request->reason;
             $terminate->save();
 
             $this->terminateRecord($request);
@@ -121,7 +120,8 @@ class SupervisorController extends Controller
         }
     }
 
-    public function terminateRecord(Request $request){
+    public function terminateRecord(Request $request)
+    {
         $termination = new Termination();
         $termination->staff_id = $request->staff_id;
         $termination->client_id = $request->client_id;
@@ -138,7 +138,8 @@ class SupervisorController extends Controller
         ]);
     }
 
-    public function removeAvailability(Request $request) {
+    public function removeAvailability(Request $request)
+    {
         $available = Spot::where('id', $request->spot_id)
             ->where('parking_id', $request->parking_id)
             ->first();
@@ -154,26 +155,27 @@ class SupervisorController extends Controller
         ]);
     }
 
-    public function availabilityRecord(Request $request){
+    public function availabilityRecord(Request $request)
+    {
         $existing = Availabilityspot::where('spot_id', $request->spot_id)
-                    ->where('parking_id', $request->parking_id)
-                    ->latest()
-                    ->first();
+            ->where('parking_id', $request->parking_id)
+            ->latest()
+            ->first();
 
-                    if ($existing) {
-                        if ($existing->available == $request->available) {
-                            return response()->json([
-                                'status' => 'Error',
-                                'message' => 'The spot is already ' . ($request->available ? 'unavailable' : 'available') . '.',
-                            ]);
-                        }
-                    }
+        if ($existing) {
+            if ($existing->available == $request->available) {
+                return response()->json([
+                    'status' => 'Error',
+                    'message' => 'The spot is already ' . ($request->available ? 'unavailable' : 'available') . '.',
+                ]);
+            }
+        }
 
         $availability = new Availabilityspot();
         $availability->staff_id = $request->staff_id;
         $availability->parking_id = $request->parking_id;
         $availability->spot_id = $request->spot_id;
-        if($request->available == 1){
+        if ($request->available == 1) {
             $availability->available = true;
         } else {
             $availability->available = false;
@@ -189,7 +191,8 @@ class SupervisorController extends Controller
         ]);
     }
 
-    public function addAvailability(Request $request) {
+    public function addAvailability(Request $request)
+    {
         $available = Spot::where('id', $request->spot_id)
             ->where('parking_id', $request->parking_id)
             ->first();
