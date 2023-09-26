@@ -229,5 +229,32 @@ class DatabaseSeeder extends Seeder
             'longitude' => 35.3800171543,
             'photo' => 'saidamall.png',
         ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Houssam',
+            'last_name' => 'Osta',
+            'email' => 'admin1@gmail.com',
+            'password' => '$2y$10$TJG/09OC9H94NP8rhCeC4e3SWuyqfHzfI.3Pki.bx77a981ggo02y',
+            'role' => 1,
+            'parking_id' => 1,
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Mohammad',
+            'last_name' => 'Houssam',
+            'email' => 'supervisor1@gmail.com',
+            'password' => '$2y$10$TJG/09OC9H94NP8rhCeC4e3SWuyqfHzfI.3Pki.bx77a981ggo02y',
+            'role' => 2,
+            'parking_id' => 1,
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Mohammad',
+            'last_name' => 'Osta',
+            'email' => 'client@gmail.com',
+            'password' => '$2y$10$TJG/09OC9H94NP8rhCeC4e3SWuyqfHzfI.3Pki.bx77a981ggo02y',
+            'role' => 3,
+            'parking_id' => 0,
+        ]);
     }
 }
