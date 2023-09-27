@@ -104,7 +104,7 @@ class ClientController extends Controller
     }
 
     public function changePassword(Request $request) {
-        $user = User::where('id', Auth::user()->id)->first();
+        $user = User::find($request->id);
     
         if (!Hash::check($request->old_password, $user->password)) {
             return response()->json([
