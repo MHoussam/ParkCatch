@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function changeParkingDetails(Request $request) {
-        $details = Parking::where('parking_id', $request->parking_id)->first();
+        $details = Parking::where('id', $request->parking_id)->first();
     
         if ($details) {
             if ($request->has('price')) {
