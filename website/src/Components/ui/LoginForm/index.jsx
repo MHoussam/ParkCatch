@@ -80,19 +80,21 @@ const LoginForm = () => {
         </div>
         <div className="Inputs flex column">
           <Input
-          type="text"
+            type="text"
             placeholder="Email"
-          value={inputValues["Email"]}
-          state={inputValues}
-          onChange={(newValue) => handleInputChange("Email", newValue)}
+            value={inputValues["Email"]}
+            state={inputValues}
+            classProp='loginInput'
+            onChange={(newValue) => handleInputChange("Email", newValue)}
         />
-          <div className="password-input flex">
+          <div className="password-input width-100 flex">
           <Input
-          type={passwordVisible ? "text" : "password"}
+            type={passwordVisible ? "text" : "password"}
             placeholder="Password"
-          value={inputValues["Password"]}
-          state={inputValues}
-          onChange={(newValue) => handleInputChange("Password", newValue)}
+            value={inputValues["Password"]}
+            state={inputValues}
+            classProp='loginInput'
+            onChange={(newValue) => handleInputChange("Password", newValue)}
         />
             <button
               type="button"

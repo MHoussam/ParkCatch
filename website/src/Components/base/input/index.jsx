@@ -9,6 +9,7 @@ const Input = ({ text, type, placeholder, value, state, onChange, classProp }) =
   };
 
   console.log({state}[`${value}`])
+  console.log(classProp)
 
   const className = `input ${classProp || ''}`;
   return (

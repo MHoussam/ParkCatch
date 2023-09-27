@@ -26,7 +26,6 @@
 
 .Inputs {
     width: 100%;
-    row-gap: 10px;
 }
 
 .loginButton {
@@ -46,4 +45,10 @@
 .eyeToggle {
     width: 80%;
     /* height: 100%; */
+}
+
+.loginInput {
+    width: 58% !important;
+    height: 20px !important;
+    padding: 5px 10px !important;
 }
