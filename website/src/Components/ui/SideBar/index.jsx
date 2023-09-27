@@ -59,31 +59,37 @@ const SideBar = () => {
   const handleEdit = () => {
     const sectionContent = (
       <div className="flex column justify-content">
-        <h2>Terminate a Reservation</h2>
+        <h2>Edit Spot's Details</h2>
 
         <Input
-        text='Spot Number'
+        text='Reservation Price'
         type="text"
           placeholder=""
-          value={inputValues["spotNumber"]}
+          value={inputValues["reservationPrice"]}
           state={inputValues}
-          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+          onChange={(newValue) => handleInputChange("reservationPrice", newValue)}
         />
-        <TextArea
-        text='Termination Reason'
-        type="text"
+        <Input
+        text='Opening Hour'
+        type="time"
           placeholder=""
-          value={inputValues["terminationReason"]}
+          value={inputValues["openingHour"]}
           state={inputValues}
-          onChange={(newValue) =>
-            handleInputChange("terminationReason", newValue)
-          }
+          onChange={(newValue) => handleInputChange("openingHour", newValue)}
+        />
+        <Input
+        text='Closing Hour'
+        type="time"
+          placeholder=""
+          value={inputValues["closingHour"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("closingHour", newValue)}
         />
       </div>
     );
 
-    setText('Terminate');
-    setAction('terminate')
+    setText('Change');
+    setAction('edit')
     setModalContent(sectionContent);
     setModalOpen(true);
   };
