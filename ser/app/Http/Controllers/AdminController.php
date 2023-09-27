@@ -6,6 +6,8 @@ use App\Models\Banning;
 use App\Models\Parking;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -48,6 +50,31 @@ class AdminController extends Controller
         return response()->json([
             'status' => 'Success',
             'data' => 'Details has been changed.'
+        ]);
+    }
+
+    public function addSupervisor(Request $request){
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6',
+        ]);
+
+        $user = new User;
+        $user->first_name = $request-> first_name;
+        $user->last_name = $request-> last_name;
+        $user->email = $request-> email;
+        $user->password = Hash::make($request->password);
+        $user->role = 2;
+        $user->save();
+
+        $token = Auth::login($user);
+        $user->token = $token;
+
+        return response()->json([
+            'status' => 'Success',
+            'data' => $user
         ]);
     }
 
