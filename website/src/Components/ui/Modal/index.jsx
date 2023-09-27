@@ -165,6 +165,31 @@ const Modal = ({
         console.error("Error:", error);
       }
     },
+    removeSupervisor: async () => {
+      try {
+        const token = await localStorage.getItem("userToken");
+        const user = localStorage.getItem("userData");
+        const userToken = JSON.parse(token);
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id);
+        const data = {
+          email: inputValues["email"],
+          token: userToken,
+        };
+        console.log(data);
+
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/removeSupervisor",
+          data
+        );
+        console.log(response.data);
+        // dispatch(clearSlots());
+        setInputValues([]);
+        onClose();
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
   };
 
   const performAction = actions[action];
