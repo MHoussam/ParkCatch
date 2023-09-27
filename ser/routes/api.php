@@ -10,6 +10,7 @@ use App\Http\Controllers\SocketController;
 
 Route::group(["middleware" => "auth:api"], function () {
     Route::get('socket', [SocketController::class, 'socket']);
+    Route::post('spots', [SupervisorController::class, 'getSpots']);
 
     Route::group(["middleware" => ["auth", "auth.supervisor"]], function () {
         Route::post('allReservations', [SupervisorController::class, 'getAllReservations']);
@@ -32,7 +33,7 @@ Route::group(["middleware" => "auth:api"], function () {
     Route::group(["middleware" => "auth.client"], function () {
         Route::post('availableSpots', [SupervisorController::class, 'getAvailableSpots']);
         Route::post('reservations', [ClientController::class, 'getReservations']);
-        // Route::post('register', [AuthController::class, 'register']);
+        Route::post('register', [AuthController::class, 'register']);
         Route::get('parkings', [ClientController::class, 'getParkings']);
         Route::post('available', [ClientController::class, 'availableSpots']);
         Route::post('reserve', [ClientController::class, 'reserveSpot']);
@@ -43,7 +44,6 @@ Route::group(["middleware" => "auth:api"], function () {
 
 Route::get("unauthorized", [AuthController::class, "unauthorized"])->name("unauthorized");
 Route::post('login', [AuthController::class, 'login']);
-Route::post('register',[AuthController::class,'register']);
+// Route::post('register',[AuthController::class,'register']);
 Route::get('logout', [AuthController::class, 'logout']);
-Route::post('spots', [SupervisorController::class, 'getSpots']);
 Route::post('image', [SupervisorController::class, 'image']);
