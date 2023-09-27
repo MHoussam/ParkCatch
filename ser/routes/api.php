@@ -27,7 +27,7 @@ Route::group(["middleware" => "auth:api"], function () {
         Route::post('adminAddAvail', [SupervisorController::class, 'addAvailability']);
         Route::post('parkingDetails', [AdminController::class, 'changeParkingDetails']);
         Route::post('ban', [AdminController::class, 'banCustomer']);
-        Route::post('addSupervisor', [AuthController::class, 'addSupervisor']);
+        Route::post('addSupervisor', [AdminController::class, 'addSupervisor']);
         Route::post('removeSupervisor', [AdminController::class, 'removeSupervisor']);
     });
     Route::group(["middleware" => "auth.client"], function () {

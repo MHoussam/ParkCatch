@@ -67,10 +67,8 @@ class AdminController extends Controller
         $user->email = $request-> email;
         $user->password = Hash::make($request->password);
         $user->role = 2;
+        $user->parking_id = $request->parking_id;
         $user->save();
-
-        $token = Auth::login($user);
-        $user->token = $token;
 
         return response()->json([
             'status' => 'Success',
