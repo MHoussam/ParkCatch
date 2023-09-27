@@ -217,30 +217,30 @@ const SideBar = () => {
   const handleBan = () => {
     const sectionContent = (
       <div className="flex column justify-content">
-        <h2>Remove Availability</h2>
+        <h2>Ban a Customer</h2>
         <Input
-        text='Spot Number'
+        text="Customer's Email"
         type="text"
           placeholder=""
-          value={inputValues["spotNumber"]}
+          value={inputValues["email"]}
           state={inputValues}
-          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+          onChange={(newValue) => handleInputChange("email", newValue)}
         />
         <TextArea
-        text='Unavailability Reason'
+        text='Banning Reason'
           type="text"
           placeholder=""
-          value={inputValues["unavailabilityReason"]}
+          value={inputValues["banningReason"]}
           state={inputValues}
           onChange={(newValue) =>
-            handleInputChange("unavailabilityReason", newValue)
+            handleInputChange("banningReason", newValue)
           }
         />
       </div>
     );
 
-    setText('Remove');
-    setAction('remove')
+    setText('Ban');
+    setAction('ban')
     setModalContent(sectionContent);
     setModalOpen(true);
   };
