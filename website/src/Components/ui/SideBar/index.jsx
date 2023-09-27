@@ -196,20 +196,20 @@ const SideBar = () => {
   const handleRemoveSupervisor = () => {
     const sectionContent = (
       <div className="flex column justify-content">
-        <h2>Remove Availability</h2>
+        <h2>Remove a Supervisor</h2>
         <Input
-        text='Spot Number'
+        text='Email'
         type="text"
           placeholder=""
-          value={inputValues["spotNumber"]}
+          value={inputValues["email"]}
           state={inputValues}
-          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+          onChange={(newValue) => handleInputChange("email", newValue)}
         />
       </div>
     );
 
     setText('Remove');
-    setAction('remove')
+    setAction('removeSupervisor')
     setModalContent(sectionContent);
     setModalOpen(true);
   };
