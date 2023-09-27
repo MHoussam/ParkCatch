@@ -237,7 +237,7 @@ const SideBar = () => {
     localStorage.removeItem("userToken");
     localStorage.removeItem("userData");
     dispatch(setUserToken(null));
-    // dispatch(setUser(null));
+    dispatch(setUser(null));
     navigate("./Login");
   };
 
@@ -269,7 +269,7 @@ const SideBar = () => {
             onClick={handleLogout} 
           />
         </>
-      ) : user.role == 3 ? (
+      ) : user.role == 1 ? (
         <>
           <Section
             icon={edit}

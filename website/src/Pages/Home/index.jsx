@@ -39,10 +39,18 @@ const Home = () => {
     console.log("oooooooooooooooo");
     console.log(data);
 
-    const response = await axios.post(
-      "http://127.0.0.1:8000/api/allReservations",
-      data
-    );
+    let response;
+    if(user.role == 2){
+      response = await axios.post(
+        "http://127.0.0.1:8000/api/allReservations",
+        data
+      );
+    } else {
+      response = await axios.post(
+        "http://127.0.0.1:8000/api/adminAllReservations",
+        data
+      );
+    }
     console.log("mmmmmmmmmmmmmmmm");
     console.log(response.data.data);
     response.data.data.forEach((item) => {
