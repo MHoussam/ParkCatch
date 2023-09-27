@@ -14,7 +14,7 @@ import Modal from "../Modal";
 import Input from "../../base/input";
 import TextArea from "../../base/textArea";
 
-const SideBar = () => {
+const SectionsAdmin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isModalOpen, setModalOpen] = useState(false);
@@ -23,38 +23,6 @@ const SideBar = () => {
   const [text, setText] = useState('');
   const [action, setAction] = useState('');
   const user = useSelector((state) => state.user);
-
-  const handleTermination = () => {
-    const sectionContent = (
-      <div className="flex column justify-content">
-        <h2>Terminate a Reservation</h2>
-
-        <Input
-        text='Spot Number'
-        type="text"
-          placeholder=""
-          value={inputValues["spotNumber"]}
-          state={inputValues}
-          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
-        />
-        <TextArea
-        text='Termination Reason'
-        type="text"
-          placeholder=""
-          value={inputValues["terminationReason"]}
-          state={inputValues}
-          onChange={(newValue) =>
-            handleInputChange("terminationReason", newValue)
-          }
-        />
-      </div>
-    );
-
-    setText('Terminate');
-    setAction('terminate')
-    setModalContent(sectionContent);
-    setModalOpen(true);
-  };
 
   const handleEdit = () => {
     const sectionContent = (
@@ -245,31 +213,6 @@ const SideBar = () => {
 
   return (
     <div className="sidebar flex column">
-      {user.role === 2 ? (
-        <>
-          <Section
-            icon={terminate}
-            text="Terminate a Reservation"
-            onClick={handleTermination}
-          />
-          <Section 
-            icon={add} 
-            text="Add Availability" 
-            onClick={handleAdd} 
-          />
-          <Section
-            icon={remove}
-            text="Remove Availability"
-            onClick={handleRemove}
-          />
-          <Section 
-            icon={logout} 
-            text="Logout" 
-            onClick={handleLogout} 
-          />
-        </>
-      ) : (
-        <>
           <Section
             icon={edit}
             text="Edit Parking Lot's Details"
@@ -305,8 +248,6 @@ const SideBar = () => {
             text="Logout"            
             onClick={handleLogout} 
           />
-        </>
-      )}
       <Modal
         text={text}
         action={action}
@@ -320,4 +261,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default SectionsAdmin;
