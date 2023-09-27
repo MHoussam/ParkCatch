@@ -106,7 +106,8 @@ class SupervisorController extends Controller
             $terminate->valid = FALSE;
             $terminate->save();
 
-            $this->terminateRecord($request);
+            $client_id = $terminate->user_id;
+            $this->terminateRecord($request, $client_id);
 
             return response()->json([
                 'status' => 'Success',
@@ -120,11 +121,11 @@ class SupervisorController extends Controller
         }
     }
 
-    public function terminateRecord(Request $request)
+    public function terminateRecord(Request $request, $client_id)
     {
         $termination = new Termination();
         $termination->staff_id = $request->staff_id;
-        $termination->client_id = $request->client_id;
+        $termination->client_id = $client_id;
         $termination->parking_id = $request->parking_id;
         $termination->spot_id = $request->spot_id;
         $termination->reason = $request->reason;
