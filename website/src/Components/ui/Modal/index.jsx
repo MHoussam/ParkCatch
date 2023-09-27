@@ -108,6 +108,62 @@ const Modal = ({
         console.error("Error:", error);
       }
     },
+    edit: async () => {
+      try {
+        const token = await localStorage.getItem("userToken");
+        const user = localStorage.getItem("userData");
+        const userToken = JSON.parse(token);
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id);
+        const data = {
+          parking_id: userData.parking_id,
+          price: inputValues["reservationPrice"],
+          open_hour: inputValues["openingHour"],
+          close_hour: inputValues["closingHour"],
+          token: userToken,
+        };
+        console.log(data);
+
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/parkingDetails",
+          data
+        );
+        console.log(response.data);
+        // dispatch(clearSlots());
+        setInputValues([]);
+        onClose();
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
+    edit: async () => {
+      try {
+        const token = await localStorage.getItem("userToken");
+        const user = localStorage.getItem("userData");
+        const userToken = JSON.parse(token);
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id);
+        const data = {
+          parking_id: userData.parking_id,
+          price: inputValues["reservationPrice"],
+          open_hour: inputValues["openingHour"],
+          close_hour: inputValues["closingHour"],
+          token: userToken,
+        };
+        console.log(data);
+
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/",
+          data
+        );
+        console.log(response.data);
+        // dispatch(clearSlots());
+        setInputValues([]);
+        onClose();
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
   };
 
   const performAction = actions[action];
