@@ -39,9 +39,10 @@ const Slots = () => {
       );
       console.log(response.data.data);
 
-      if (Array.isArray(response.data.data)) {
+      if (Array.isArray(response.data.data) && response.data.data.length > 0) {
         if (slots.slots === null || slots.slots.length === 0) {
           console.log("here");
+          console.log(slots.slots);
           response.data.data.forEach((item) => {
             const {
               id,

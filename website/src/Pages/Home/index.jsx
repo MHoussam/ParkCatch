@@ -14,6 +14,7 @@ import { setReservation } from "../../redux/reservations/reservationSlice";
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  let userToken;
 
   const checkToken = async () => {
     const token = await localStorage.getItem("userToken");
@@ -27,17 +28,17 @@ const Home = () => {
   const fetchReservations = async () => {
     const token = await localStorage.getItem("userToken");
     const user = localStorage.getItem("userData");
-    const userToken = JSON.parse(token);
+    userToken = JSON.parse(token);
     const userData = JSON.parse(user);
-    console.log(userData.parking_id);
-    console.log(userData);
+    // console.log(userData.parking_id);
+    // console.log(userData);
     const data = {
       user_id: userData.id,
       parking_id: userData.parking_id,
       token: userToken,
     };
     console.log("oooooooooooooooo");
-    console.log(data);
+    // console.log(data);
 
     let response;
     if(user.role == 2){
@@ -52,25 +53,10 @@ const Home = () => {
       );
     }
     console.log("mmmmmmmmmmmmmmmm");
-    console.log(response.data.data);
-    response.data.data.forEach((item) => {
-      const {
-        id,
-        user_id,
-        parking_id,
-        spot_id,
-        duration,
-        total,
-        valid,
-        plate_number,
-        real_plate_number,
-        correct,
-        phone_number,
-        parking,
-      } = item;
-      // console.log('1')
-      dispatch(
-        setReservation({
+    // console.log(response.data.data);
+    if (Array.isArray(response.data.data) && response.data.data.length > 0) {
+      response.data.data.forEach((item) => {
+        const {
           id,
           user_id,
           parking_id,
@@ -83,16 +69,36 @@ const Home = () => {
           correct,
           phone_number,
           parking,
-        })
-      );
-    });
+        } = item;
+        // console.log('1')
+        dispatch(
+          setReservation({
+            id,
+            user_id,
+            parking_id,
+            spot_id,
+            duration,
+            total,
+            valid,
+            plate_number,
+            real_plate_number,
+            correct,
+            phone_number,
+            parking,
+          })
+        );
+      });
+    }
     // dispatch(setReservation(response.data.data))
     dispatch(setUser(userData));
   };
 
   useEffect(() => {
     checkToken();
-    fetchReservations();
+    console.log('what: ' + userToken)
+    if (userToken !== null) {
+      fetchReservations();
+    }
   }, []);
 
   return (

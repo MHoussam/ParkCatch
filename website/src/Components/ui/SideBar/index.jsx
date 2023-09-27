@@ -258,7 +258,7 @@ const SideBar = () => {
     localStorage.removeItem("userData");
     dispatch(setUserToken(null));
     // dispatch(setUser(null));
-    navigate("./Login");
+    navigate("../");
   };
 
   console.log(inputValues)
@@ -298,12 +298,12 @@ const SideBar = () => {
           />
           <Section 
             icon={add} 
-            text="Add Spot's Availability" 
+            text="Add Spot Availability" 
             onClick={handleAdd} 
           />
           <Section
             icon={remove}
-            text="Remove Spot's Availability"
+            text="Remove Spot Availability"
             onClick={handleRemove}
           />
           <Section 
