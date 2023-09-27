@@ -256,9 +256,9 @@ const SideBar = () => {
   const handleLogout = () => {
     localStorage.removeItem("userToken");
     localStorage.removeItem("userData");
-    dispatch(setUserToken(null));
-    dispatch(setUser(null));
-    navigate("../");
+    // dispatch(setUserToken(null));
+    // dispatch(setUser(null));
+    navigate("../Login");
   };
 
   console.log(inputValues)

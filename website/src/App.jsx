@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={token ? <Navigate to="/Home" /> : <Navigate to="/Login" />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="*" element={<Login />} />
+          <Route path="*" element={token ? <Navigate to="/Home" /> : <Navigate to="/Login" />} />
         </Routes>
       </BrowserRouter>
     </Provider>
