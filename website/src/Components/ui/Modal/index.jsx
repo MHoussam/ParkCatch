@@ -190,6 +190,32 @@ const Modal = ({
         console.error("Error:", error);
       }
     },
+    ban: async () => {
+      try {
+        const token = await localStorage.getItem("userToken");
+        const user = localStorage.getItem("userData");
+        const userToken = JSON.parse(token);
+        const userData = JSON.parse(user);
+        console.log(userData.parking_id);
+        const data = {
+          email: inputValues["email"],
+          reason: inputValues["banningReason"],
+          token: userToken,
+        };
+        console.log(data);
+
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/ban",
+          data
+        );
+        console.log(response.data);
+        // dispatch(clearSlots());
+        setInputValues([]);
+        onClose();
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
   };
 
   const performAction = actions[action];
