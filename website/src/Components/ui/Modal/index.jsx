@@ -136,7 +136,7 @@ const Modal = ({
         console.error("Error:", error);
       }
     },
-    edit: async () => {
+    addSupervisor: async () => {
       try {
         const token = await localStorage.getItem("userToken");
         const user = localStorage.getItem("userData");
@@ -145,15 +145,16 @@ const Modal = ({
         console.log(userData.parking_id);
         const data = {
           parking_id: userData.parking_id,
-          price: inputValues["reservationPrice"],
-          open_hour: inputValues["openingHour"],
-          close_hour: inputValues["closingHour"],
+          first_name: inputValues["firstName"],
+          last_name: inputValues["lastName"],
+          email: inputValues["email"],
+          password: inputValues["password"],
           token: userToken,
         };
         console.log(data);
 
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/",
+          "http://127.0.0.1:8000/api/addSupervisor",
           data
         );
         console.log(response.data);
