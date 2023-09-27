@@ -46,15 +46,17 @@ const LoginForm = () => {
         const userData = response.data.data;
         const userToken = response.data.data.token;
     console.log(response.data.data)
-    const userDataJSON = JSON.stringify(userData);
-    const userTokenJSON = JSON.stringify(userToken);
-    
-    localStorage.setItem("userData", userDataJSON);
-    localStorage.setItem("userToken", userTokenJSON); 
-        dispatch(setUser(userData));
-        dispatch(setUserToken(userToken));
+    if(response.data.data.role != 3){
+      const userDataJSON = JSON.stringify(userData);
+      const userTokenJSON = JSON.stringify(userToken);
+      
+      localStorage.setItem("userData", userDataJSON);
+      localStorage.setItem("userToken", userTokenJSON); 
+          dispatch(setUser(userData));
+          dispatch(setUserToken(userToken));
 
-        navigate("/Home");
+          navigate("/Home");
+    }
       } catch (error) {
         console.error("Login failed:", error);
       }

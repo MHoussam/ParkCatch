@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const userToken = useSelector((state) => state.user.token);
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   let token;
@@ -16,10 +17,14 @@ const Login = () => {
   useEffect(() => {
     const checkToken = async () => {
       token = await localStorage.getItem('userToken');
+      const user = await localStorage.getItem('userData');
       console.log('hereeeee: ' + token)
+      console.log(user)
       if(token !== null){
-        dispatch(setUserToken(token));
-        navigate('./Home');
+        if(userData.role != 3){
+          dispatch(setUserToken(token));
+          navigate('./Home');
+        }
       }
     }
 
