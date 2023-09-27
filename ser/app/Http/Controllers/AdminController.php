@@ -11,13 +11,22 @@ class AdminController extends Controller
 {
     public function changeParkingDetails(Request $request) {
         $details = Parking::where('parking_id', $request->parking_id)->first();
-
+    
         if ($details) {
-            $details->price = $request->price;
-            $details->open_hour = $request->open_hour;            
-            $details->close_hour = $request->close_hour;
+            if ($request->has('price')) {
+                $details->price = $request->price;
+            }
+            
+            if ($request->has('open_hour')) {
+                $details->open_hour = $request->open_hour;
+            }
+    
+            if ($request->has('close_hour')) {
+                $details->close_hour = $request->close_hour;
+            }
+    
             $details->save();
-
+    
             return response()->json([
                 'status' => 'Success',
                 'data' => 'Details has been changed.'
@@ -28,7 +37,7 @@ class AdminController extends Controller
                 'data' => 'Could not find the parking lot'
             ], 404);
         }
-    }
+    }    
 
     public function banCustomer(Request $request) {
         $ban = new Banning;
