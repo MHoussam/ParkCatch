@@ -11,13 +11,13 @@ const Slots = () => {
   const searchFilter = useSelector((state) => state.searchFilter);
   const user = useSelector((state) => state.user);
   const searchbar = useSelector((state) => state.searchbar);
+  const reservations = useSelector((state) => state.reservation);
 
   const fetchSpots = async () => {
     const userToken = await localStorage.getItem("userToken");
     console.log(userToken);
 
     try {
-
       const user = localStorage.getItem('userData');
         const userData = JSON.parse(user);
         console.log(userData)
@@ -90,41 +90,33 @@ const Slots = () => {
   console.log(slots.slots);
   console.log(searchFilter.searchFilter);
   console.log(searchbar.searchbar === '');
-
+console.log(reservations)
   return (
-    <div className="table">
-      {[...Array(13)].map((_, rowIndex) => (
-        <div key={rowIndex} className="tableRow flex">
-          {[1, 2, 3].map((columnIndex) => (
-            <div
-              key={columnIndex}
-              className={
-                columnIndex !== 2
-                  ? "tableCell flex center flex-grow"
-                  : rowIndex === 0
-                  ? "entranceCell flex center flex-grow"
-                  : "tableCellGap flex center flex-grow"
-              }
-            >
-              {slots.slots &&
-                slots.slots
-                  .filter(
-                    (slot) =>
-                      slot.x_coordinate - 1 === rowIndex &&
-                      slot.y_coordinate === columnIndex && slot.availability === 1
-                  )
-                  .map((slot) => (
-                    searchFilter.searchFilter.length === 0 && searchbar.searchbar === '' ? (
-                      <Slot
-                        key={`${rowIndex}-${columnIndex}`}
-                        number={slot.name}
-                        slotContainer={slot.reserved ? "reserved flex center" : "available flex center"}
-                        slotTitle={
-                          slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
-                        }
-                      />
-                    ) : (
-                      searchFilter.searchFilter.some((item) => item.spot_id === slot.id) && (
+    <>
+    {slots.slots.length != 0 ? (
+      <div className="table">
+        {[...Array(13)].map((_, rowIndex) => (
+          <div key={rowIndex} className="tableRow flex">
+            {[1, 2, 3].map((columnIndex) => (
+              <div
+                key={columnIndex}
+                className={
+                  columnIndex !== 2
+                    ? "tableCell flex center flex-grow"
+                    : rowIndex === 0
+                    ? "entranceCell flex center flex-grow"
+                    : "tableCellGap flex center flex-grow"
+                }
+              >
+                {slots.slots &&
+                  slots.slots
+                    .filter(
+                      (slot) =>
+                        slot.x_coordinate - 1 === rowIndex &&
+                        slot.y_coordinate === columnIndex && slot.availability === 1
+                    )
+                    .map((slot) => (
+                      searchFilter.searchFilter.length === 0 && searchbar.searchbar === '' ? (
                         <Slot
                           key={`${rowIndex}-${columnIndex}`}
                           number={slot.name}
@@ -133,17 +125,32 @@ const Slots = () => {
                             slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
                           }
                         />
+                      ) : (
+                        searchFilter.searchFilter.some((item) => item.spot_id === slot.id) && (
+                          <Slot
+                            key={`${rowIndex}-${columnIndex}`}
+                            number={slot.name}
+                            slotContainer={slot.reserved ? "reserved flex center" : "available flex center"}
+                            slotTitle={
+                              slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
+                            }
+                          />
+                        )
                       )
-                    )
-                  ))}
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
+                    ))}
+                    
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div className="flex center flex-grow">
+        <h3>The Spots are Loading...</h3>
+      </div>
+    )}
+    </>
   );
-  
-  
 };
 
 export default Slots;
