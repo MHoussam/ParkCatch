@@ -24,8 +24,11 @@ const LoginForm = () => {
     const togglePasswordVisibility = () => {
         if(!passwordVisible){
             setEye(notvisible)
+            console.log('here')
         } else {
             setEye(visible)
+            console.log('ttttttttthere')
+
         }
 
         setPasswordVisible(!passwordVisible);
@@ -85,7 +88,7 @@ const LoginForm = () => {
         />
           <div className="password-input flex">
           <Input
-          type="password"
+          type={passwordVisible ? "text" : "password"}
             placeholder="Password"
           value={inputValues["Password"]}
           state={inputValues}
