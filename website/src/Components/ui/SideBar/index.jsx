@@ -150,21 +150,45 @@ const SideBar = () => {
   const handleAddSupervisor = () => {
     const sectionContent = (
       <div className="flex column justify-content">
-        <h2>Add Availability</h2>
+        <h2>Add a New Supervisor</h2>
 
         <Input
-        text='Spot Number'
+        text='First Name'
         type="text"
           placeholder=""
-          value={inputValues["spotNumber"]}
+          value={inputValues["firstName"]}
           state={inputValues}
-          onChange={(newValue) => handleInputChange("spotNumber", newValue)}
+          onChange={(newValue) => handleInputChange("firstName", newValue)}
+        />
+        <Input
+        text='Last Name'
+        type="text"
+          placeholder=""
+          value={inputValues["lastName"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("lastName", newValue)}
+        />
+        <Input
+        text='Email'
+        type="text"
+          placeholder=""
+          value={inputValues["email"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("email", newValue)}
+        />
+        <Input
+        text='Password'
+        type="password"
+          placeholder=""
+          value={inputValues["password"]}
+          state={inputValues}
+          onChange={(newValue) => handleInputChange("password", newValue)}
         />
       </div>
     );
 
     setText('Add');
-    setAction('add')
+    setAction('addSupervisor')
     setModalContent(sectionContent);
     setModalOpen(true);
   };
@@ -180,16 +204,6 @@ const SideBar = () => {
           value={inputValues["spotNumber"]}
           state={inputValues}
           onChange={(newValue) => handleInputChange("spotNumber", newValue)}
-        />
-        <TextArea
-        text='Unavailability Reason'
-          type="text"
-          placeholder=""
-          value={inputValues["unavailabilityReason"]}
-          state={inputValues}
-          onChange={(newValue) =>
-            handleInputChange("unavailabilityReason", newValue)
-          }
         />
       </div>
     );
