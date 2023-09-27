@@ -7,7 +7,7 @@ import remove from "../../../assets/images/remove.png";
 import edit from "../../../assets/images/edit.png";
 import ban from "../../../assets/images/ban.png";
 import logout from "../../../assets/images/logout.png";
-import { setUserToken } from "../../../redux/user/userSlice";
+import { setUser, setUserToken } from "../../../redux/user/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../Modal";
@@ -231,13 +231,14 @@ const SideBar = () => {
       console.log(updatedInputValues);
       return updatedInputValues;
     });
-  };
-  
+  };  
 
   const handleLogout = () => {
     localStorage.removeItem("userToken");
+    localStorage.removeItem("userData");
     dispatch(setUserToken(null));
-    navigate("../");
+    // dispatch(setUser(null));
+    navigate("./Login");
   };
 
   console.log(inputValues)
@@ -245,7 +246,7 @@ const SideBar = () => {
 
   return (
     <div className="sidebar flex column">
-      {user.role === 2 ? (
+      {user.role == 2 ? (
         <>
           <Section
             icon={terminate}
@@ -268,7 +269,7 @@ const SideBar = () => {
             onClick={handleLogout} 
           />
         </>
-      ) : (
+      ) : user.role == 3 ? (
         <>
           <Section
             icon={edit}
@@ -306,7 +307,7 @@ const SideBar = () => {
             onClick={handleLogout} 
           />
         </>
-      )}
+      ) : (<></>)}
       <Modal
         text={text}
         action={action}

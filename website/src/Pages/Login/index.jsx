@@ -11,19 +11,20 @@ const Login = () => {
   const userToken = useSelector((state) => state.user.token);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  let token;
 
   useEffect(() => {
     const checkToken = async () => {
-      const token = await localStorage.getItem('userToken');
+      token = await localStorage.getItem('userToken');
       console.log('hereeeee: ' + token)
       if(token !== null){
         dispatch(setUserToken(token));
-        navigate('Home');
+        navigate('./Home');
       }
     }
 
     checkToken();
-  }, [userToken])
+  }, [token])
 
   return (
     <div className='loginContainer flex'>
