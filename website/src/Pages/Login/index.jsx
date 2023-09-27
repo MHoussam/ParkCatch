@@ -18,10 +18,10 @@ const Login = () => {
     const checkToken = async () => {
       token = await localStorage.getItem('userToken');
       const user = await localStorage.getItem('userData');
-      console.log('hereeeee: ' + token)
+      // console.log('hereeeee: ' + token)
       console.log(user)
       if(token !== null){
-        if(userData.role != 3){
+        if(user.role != 3){
           dispatch(setUserToken(token));
           navigate('./Home');
         }
