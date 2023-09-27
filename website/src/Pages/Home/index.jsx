@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Button from "../../Components/base/button";
 import { useNavigate } from "react-router-dom";
 import { setUser, setUserToken } from "../../redux/user/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./styles.css";
 import Header from "../../Components/ui/Header";
 import SideBar from "../../Components/ui/SideBar";
@@ -14,34 +14,48 @@ import { setReservation } from "../../redux/reservations/reservationSlice";
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  let userToken;
+  const user = useSelector((state) => state.user)
+  const userToken = useSelector((state) => state.user.token)
+  const reservations = useSelector((state) => state.reservation)
 
   const checkToken = async () => {
     const token = await localStorage.getItem("userToken");
-    // console.log('hereeeee: ' + token)
-    if (token === null) {
+    const userToken = JSON.parse(token);
+    console.log('hereeeee: ' + userToken)
+    if (userToken === null) {
       dispatch(setUserToken(token));
       navigate("../");
     }
+    // const userToken = JSON.parse(token);
+    const userr = localStorage.getItem("userData");
+    const userData = JSON.parse(userr);
+    console.log(userToken)
+    console.log(userData)
+    dispatch(setUser(userData));
+    dispatch(setUserToken(userToken));
   };
 
   const fetchReservations = async () => {
-    const token = await localStorage.getItem("userToken");
-    const user = localStorage.getItem("userData");
-    userToken = JSON.parse(token);
-    const userData = JSON.parse(user);
+    // const token = await localStorage.getItem("userToken");
+    // userToken = JSON.parse(token);
     // console.log(userData.parking_id);
+
+    const userr = localStorage.getItem("userData");
+    const userData = JSON.parse(userr);
+    console.log(userData);
+    console.log(userData.token);
     // console.log(userData);
     const data = {
       user_id: userData.id,
       parking_id: userData.parking_id,
-      token: userToken,
+      token: userData.token,
     };
     console.log("oooooooooooooooo");
-    // console.log(data);
 
     let response;
-    if(user.role == 2){
+    if(userData.role == 2){
+    console.log(data);
+
       response = await axios.post(
         "http://127.0.0.1:8000/api/allReservations",
         data
@@ -53,9 +67,10 @@ const Home = () => {
       );
     }
     console.log("mmmmmmmmmmmmmmmm");
-    // console.log(response.data.data);
+    console.log(response.data);
     if (Array.isArray(response.data.data) && response.data.data.length > 0) {
       response.data.data.forEach((item) => {
+        console.log(item)
         const {
           id,
           user_id,
@@ -70,7 +85,7 @@ const Home = () => {
           phone_number,
           parking,
         } = item;
-        // console.log('1')
+        console.log('1')
         dispatch(
           setReservation({
             id,
@@ -90,16 +105,31 @@ const Home = () => {
       });
     }
     // dispatch(setReservation(response.data.data))
-    dispatch(setUser(userData));
   };
 
+  // useEffect(() => {
+  //   checkToken();
+  //   console.log('what: ' + userToken)
+  //   console.log(localUserData===null);
+  //   // console.log(user===undefined);
+  //   console.log(localUserData);
+  //   // console.log(userData.length>0);
+  //   if (localUserData.id !== null) {
+  //     fetchReservations();
+  //   }
+  // }, []);
+  
   useEffect(() => {
     checkToken();
-    console.log('what: ' + userToken)
-    if (userToken !== null) {
+    const userr = localStorage.getItem("userData");
+    const userData = JSON.parse(userr);
+    console.log(userData);
+    if (userData !== null) {
       fetchReservations();
     }
   }, []);
+
+  console.log(reservations)
 
   return (
     <div className="homeContainer flex column">

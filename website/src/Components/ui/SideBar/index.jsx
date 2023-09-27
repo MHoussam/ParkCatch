@@ -257,7 +257,7 @@ const SideBar = () => {
     localStorage.removeItem("userToken");
     localStorage.removeItem("userData");
     dispatch(setUserToken(null));
-    // dispatch(setUser(null));
+    dispatch(setUser(null));
     navigate("../");
   };
 
