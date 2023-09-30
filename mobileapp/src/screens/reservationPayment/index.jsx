@@ -11,11 +11,11 @@ const ReservationPayment = () => {
         <Header ScreenName={"Reservation Info"} />
         <View style={styles.reservPayment}>
             <Input styleText={styles.title} text={'Cardholder Name'} label='cardholderName' type='text'/>
-            <Input styleText={styles.title} text={'Card Number'} label='cardNumber' type='number'/>
+            <Input styleText={styles.title} text={'Card Number'} label='cardNumber' type='number' card={true}/>
             <Input styleText={styles.title} text={'Expiration Date'} label='expirationDate' type='date'/>
             <Input styleText={styles.title} text={'CVV'} label='cvv' type='passcode'/>
         </View>
-        <Button text='Pay' Navigate='ReservationTicket'/>
+        <Button text='Pay' navigate='ReservationTicket'/>
     </View>
   )
 }

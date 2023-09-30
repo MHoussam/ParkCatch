@@ -5,7 +5,7 @@ import { setReservation } from '../../../redux/reservation/reservationSlice';
 import { useDispatch } from 'react-redux';
 import { DATE_FORMAT } from 'react-native-gifted-chat';
 
-const Input = ({ styleText, text, label, type }) => {
+const Input = ({ styleText, text, label, type, card=false }) => {
   const dispatch = useDispatch();
   const [isPasscode, setIsPasscode] = useState(false);
 
@@ -28,7 +28,7 @@ const Input = ({ styleText, text, label, type }) => {
   }
 
   const keyboardType = type==='text' ? 'default' : 'numeric';
-  const maxLength = type ? 8 : 12;
+  const maxLength = type==='text' ? 50 : card ? 16 : 8;
 
   return (
     <View>
