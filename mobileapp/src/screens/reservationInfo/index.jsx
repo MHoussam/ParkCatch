@@ -69,7 +69,7 @@ const ReservationInfo = () => {
           />
         </View>
         <View style={styles.button}>
-          <Button text={"Proceed to Payment"} navigate={"ReservationTicket"} />
+          <Button text={"Proceed to Payment"} navigate={"ReservationPayment"} />
         </View>
       </View>
     </View>

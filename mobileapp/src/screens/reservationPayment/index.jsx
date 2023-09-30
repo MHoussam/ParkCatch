@@ -2,14 +2,18 @@ import React from 'react'
 import { View } from 'react-native'
 import Input from '../../components/base/input'
 import styles from './styles'
+import Header from '../../components/ui/header'
 
 const ReservationPayment = () => {
   return (
     <View style={styles.container}>
-        <Input styleText={styles.title} text='text' label='cardholderName' type='Cardholder Name'/>
-        <Input styleText={styles.title} text='text' label='cardNumber' type='Card Number'/>
-        <Input styleText={styles.title} text='Date' label='expirationDate' type='Expiration Date'/>
-        <Input styleText={styles.title} text='password' label='cvv' type='CVV'/>
+        <Header ScreenName={"Reservation Info"} />
+        <View style={styles.reservPayment}>
+            <Input styleText={styles.title} text={'Cardholder Name'} label='cardholderName' type='text'/>
+            <Input styleText={styles.title} text={'Card Number'} label='cardNumber' type='number'/>
+            <Input styleText={styles.title} text={'Expiration Date'} label='expirationDate' type='date'/>
+            <Input styleText={styles.title} text={'CVV'} label='cvv' type='password'/>
+        </View>
     </View>
   )
 }

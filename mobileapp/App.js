@@ -20,6 +20,7 @@ import Reservationss from "./src/screens/reservations";
 import Settingss from "./src/screens/settings";
 import { Alert, Image, Text } from "react-native";
 import {PermissionsAndroid} from 'react-native';
+import ReservationPayment from "./src/screens/reservationPayment";
   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 const Stack = createStackNavigator();
@@ -126,6 +127,7 @@ export default function App() {
         <Stack.Screen screenOptions={{ headerShown: false }} name="HomeMap" component={HomeMapScreen} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="Spots" component={Spots} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationInfo" component={ReservationInfo} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationPayment" component={ReservationPayment} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationTicket" component={ReservationTicket} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="Directions" component={Directions} />
       </Stack.Navigator>
