@@ -33,7 +33,9 @@ const ReservationPayment = () => {
                 />
             </View>
         </View>
-        <Button text='Pay' navigate='ReservationTicket'/>
+        <View style={styles.button}>
+            <Button text='Pay' navigate='ReservationTicket'/>
+        </View>
     </View>
   )
 }

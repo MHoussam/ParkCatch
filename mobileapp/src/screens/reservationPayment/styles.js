@@ -14,13 +14,17 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     reservPayment: {
-        // flex: 1,
-        justifyContent: 'center',
+        flex: 1,
         width: '100%',
         flexDirection: 'column',
-        paddingTop: 10,
         marginLeft: 17,
     },
+    button: {
+        // flex: 1,
+        alignItems: 'center',
+        width: '100%',
+        bottom: 20,
+    }
 });
 
 export default styles;
