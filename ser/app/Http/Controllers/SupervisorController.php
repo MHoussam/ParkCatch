@@ -210,23 +210,28 @@ class SupervisorController extends Controller
     }
 
     public function image(Request $request){
-        $spot_id = 5;
-        $parking_id = 1;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $imageData = file_get_contents($request->file('image')->path());
+            $base64Image = base64_encode($imageData);
     
-        $reservation = Reservation::where('spot_id', $spot_id)
-                                   ->where('parking_id', $parking_id)
-                                   ->where('valid', 1)
-                                   ->first();
+            $spot_id = 5;
+            $parking_id = 1;
     
-        if ($request->hasFile('image')) {
-        //     $imageData = base64_encode($request->input('image_data'));
-        //     $reservation->real_plate_number = $imageData;
-            $reservation->correct = 7;
-            $reservation->save();
+            $reservation = Reservation::where('spot_id', $spot_id)
+                ->where('parking_id', $parking_id)
+                ->where('valid', 1)
+                ->first();
     
-            return response()->json(['message' => 'Image data saved successfully']);
+            if ($reservation) {
+                $reservation->real_plate_number = $base64Image;
+                $reservation->save();
+    
+                return response()->json(['message' => 'Image saved successfully']);
+            } else {
+                return response()->json(['message' => 'No valid reservation found'], 404);
+            }
         } else {
-            return response()->json(['message' => 'No valid reservation found'], 404);
+            return response()->json(['message' => 'Invalid image file'], 400);
         }
     }
 }    
