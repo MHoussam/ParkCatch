@@ -16,8 +16,8 @@ import ReservationTicket from "./src/screens/reservationTicket";
 import Notificationss from "./src/screens/notifications";
 import * as Notifications from "expo-notifications";
 import Notification from "./src/components/ui/notification";
-import Reservations from "./src/screens/reservations";
-import Settings from "./src/screens/settings";
+import Reservationss from "./src/screens/reservations";
+import Settingss from "./src/screens/settings";
 import { Alert, Image, Text } from "react-native";
 import {PermissionsAndroid} from 'react-native';
   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
@@ -135,7 +135,7 @@ export default function App() {
   function ReservationsStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen screenOptions={{ headerShown: false }} name="Reservations" component={Reservations} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Reservationss" component={Reservationss} />
         <Stack.Screen screenOptions={{ headerShown: false }} name="ReservationTicket" component={ReservationTicket} />
         <Stack.Screen screenOptions={{ headerShown: false, unmountOnBlur: true }} name="Directions" component={Directions} />
       </Stack.Navigator>
@@ -153,7 +153,7 @@ export default function App() {
   function SettingsStackNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen screenOptions={{ headerShown: false }} name="Settings" component={Settings} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="Settingss" component={Settingss} />
       </Stack.Navigator>
     );
   }

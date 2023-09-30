@@ -6,7 +6,7 @@ import Footer from '../../components/ui/footer'
 const Settings = () => {
   return (
     <View style={{flex:1}}>
-      <Header ScreenName={'Settings'} />
+      <Header ScreenName={'Settings'} mainScreen={true}/>
       <View style={{flex:1}}>
         <Text></Text>
       </View>
