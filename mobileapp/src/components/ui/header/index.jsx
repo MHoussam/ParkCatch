@@ -14,8 +14,8 @@ const Header = ({ ScreenName, mainScreen=false }) => {
   }
 
   return (
-    <View style={styles.container}>
-        <View style={styles.content}>
+    <View style={[styles.container , mainScreen===true? {alignItems: 'center'} : {alignItems: ''}]}>
+        <View style={[styles.content , mainScreen===true? {marginLeft: 0} : {marginLeft: 20}]}>
           {mainScreen === false ? (
           <TouchableOpacity onPress={back} >
             <Image source={require('../../../../assets/images/back.png')} />
