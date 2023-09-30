@@ -14,6 +14,12 @@ const ReservationPayment = () => {
             <Input styleText={styles.title} text={'Card Number'} label='cardNumber' type='number' card={true}/>
             <Input styleText={styles.title} text={'Expiration Date'} label='expirationDate' type='date'/>
             <Input styleText={styles.title} text={'CVV'} label='cvv' type='passcode'/>
+            <View>
+                <Text style={styles.title}>
+                    Payment Method
+                </Text>
+                 
+            </View>
         </View>
         <Button text='Pay' navigate='ReservationTicket'/>
     </View>
