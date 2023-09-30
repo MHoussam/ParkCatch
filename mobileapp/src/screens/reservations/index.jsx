@@ -32,7 +32,7 @@ console.log(userData.id)
     }, [])
   return (
     <View style={styles.container}>
-        <Header ScreenName={'Reservations'}/>
+        <Header ScreenName={'Reservations'} mainScreen={true}/>
         <View style={styles.container}>
         <ScrollView contentContainerStyle={{ paddingTop: 25 }}>
           {reservations.map((reservation, index) => (

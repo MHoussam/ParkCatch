@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
-const Header = ({ ScreenName }) => {
+const Header = ({ ScreenName, mainScreen=false }) => {
   const navigation = useNavigation();
   const selectedParking = useSelector((state) => state.selectedParking)
 
@@ -16,12 +16,16 @@ const Header = ({ ScreenName }) => {
   return (
     <View style={styles.container}>
         <View style={styles.content}>
+          {mainScreen === false ? (
           <TouchableOpacity onPress={back} >
             <Image source={require('../../../../assets/images/back.png')} />
           </TouchableOpacity>
+          ) : <></>}
           <View style={styles.text}>
             <Text style={styles.title}>{ScreenName}</Text>
+            {mainScreen === false ? (
             <Text style={styles.subtitle}>{selectedParking.name}</Text>
+            ) : <></>}
           </View>
         </View>
     </View>
