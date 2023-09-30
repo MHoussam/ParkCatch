@@ -1,11 +1,19 @@
-import React from 'react'
-import { View } from 'react-native'
+import React, { useState } from 'react'
+import { Text, View } from 'react-native'
 import Input from '../../components/base/input'
 import styles from './styles'
 import Header from '../../components/ui/header'
 import Button from '../../components/base/button'
+import RadioButton from '../../components/base/radioButton'
 
 const ReservationPayment = () => {
+    const options = [
+        { label: 'Visa Card', value: 'visaCard' },
+        { label: 'Credit Card', value: 'creditCard' },
+      ];
+
+      const [selectedOption, setSelectedOption] = useState(options[0]);
+
   return (
     <View style={styles.container}>
         <Header ScreenName={"Reservation Info"} />
@@ -18,7 +26,11 @@ const ReservationPayment = () => {
                 <Text style={styles.title}>
                     Payment Method
                 </Text>
-                 
+                <RadioButton 
+                options={options}
+                selectedOption={selectedOption}
+                onSelect={(option) => setSelectedOption(option)}
+                />
             </View>
         </View>
         <Button text='Pay' navigate='ReservationTicket'/>
