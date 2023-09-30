@@ -14,7 +14,7 @@ const Header = ({ ScreenName, mainScreen=false }) => {
   }
 
   return (
-    <View style={[styles.container , mainScreen===true? {alignItems: 'center'} : {alignItems: ''}]}>
+    <View style={[styles.container , mainScreen===true? {alignItems: 'center'} : {}]}>
         <View style={[styles.content , mainScreen===true? {marginLeft: 0} : {marginLeft: 20}]}>
           {mainScreen === false ? (
           <TouchableOpacity onPress={back} >
@@ -22,7 +22,9 @@ const Header = ({ ScreenName, mainScreen=false }) => {
           </TouchableOpacity>
           ) : <></>}
           <View style={styles.text}>
-            <Text style={styles.title}>{ScreenName}</Text>
+            <Text style={[styles.title , mainScreen===true? {fontSize: 19} : {}]}>
+              {ScreenName}
+            </Text>
             {mainScreen === false ? (
             <Text style={styles.subtitle}>{selectedParking.name}</Text>
             ) : <></>}
