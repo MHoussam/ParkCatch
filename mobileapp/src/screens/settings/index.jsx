@@ -10,7 +10,6 @@ const Settings = () => {
       <View style={{flex:1}}>
         <Text></Text>
       </View>
-      <Footer />
     </View>
   )
 }
