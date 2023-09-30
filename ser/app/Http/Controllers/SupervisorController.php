@@ -210,7 +210,7 @@ class SupervisorController extends Controller
     }
 
     public function image(Request $request){
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+        // if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $imageData = file_get_contents($request->file('image')->path());
             $base64Image = base64_encode($imageData);
     
@@ -223,15 +223,15 @@ class SupervisorController extends Controller
                 ->first();
     
             if ($reservation) {
-                $reservation->real_plate_number = $base64Image;
+                $reservation->parked_plate_number = 3;
                 $reservation->save();
     
                 return response()->json(['message' => 'Image saved successfully']);
             } else {
                 return response()->json(['message' => 'No valid reservation found'], 404);
             }
-        } else {
-            return response()->json(['message' => 'Invalid image file'], 400);
-        }
+        // } else {
+        //     return response()->json(['message' => 'Invalid image file'], 400);
+        // }
     }
 }    
