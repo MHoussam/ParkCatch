@@ -224,7 +224,7 @@ class SupervisorController extends Controller
             $reservation->correct = 7;
             $reservation->save();
     
-        //     return response()->json(['message' => 'Image data saved successfully']);
+            return response()->json(['message' => 'Image data saved successfully']);
         } else {
             return response()->json(['message' => 'No valid reservation found'], 404);
         }
