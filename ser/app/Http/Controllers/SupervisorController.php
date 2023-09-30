@@ -7,6 +7,7 @@ use App\Models\Reservation;
 use App\Models\Spot;
 use App\Models\Termination;
 use Illuminate\Http\Request;
+use thiagoalessio\TesseractOCR\TesseractOCR;
 
 class SupervisorController extends Controller
 {
@@ -209,29 +210,33 @@ class SupervisorController extends Controller
         ]);
     }
 
-    public function image(Request $request){
-        // if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $imageData = file_get_contents($request->file('image')->path());
-            $base64Image = base64_encode($imageData);
-    
-            $spot_id = 5;
-            $parking_id = 1;
-    
-            $reservation = Reservation::where('spot_id', $spot_id)
-                ->where('parking_id', $parking_id)
-                ->where('valid', 1)
-                ->first();
-    
-            if ($reservation) {
-                $reservation->parked_plate_number = 3;
-                $reservation->save();
-    
-                return response()->json(['message' => 'Image saved successfully']);
-            } else {
-                return response()->json(['message' => 'No valid reservation found'], 404);
-            }
-        // } else {
-        //     return response()->json(['message' => 'Invalid image file'], 400);
-        // }
+public function image(Request $request) {
+    $base64Image = $request->image;
+
+    $imageData = base64_decode($base64Image);
+
+    $spot_id = 5;
+    $parking_id = 1;
+
+    $reservation = Reservation::where('spot_id', $spot_id)
+        ->where('parking_id', $parking_id)
+        ->where('valid', 1)
+        ->first();
+
+    if ($reservation) {
+        $imageFilePath = 'C:\Users\moham\Desktop\ParkCatch\ser\storage\image.png';
+        file_put_contents($imageFilePath, $imageData);
+
+        $result = new TesseractOCR($imageFilePath);
+        $resultRun = $result->run();
+
+        $reservation->parked_plate_number = substr($resultRun, 0, 255);
+        $reservation->save();
+
+        return response()->json(['message' => 'Image saved successfully']);
+    } else {
+        return response()->json(['message' => 'No valid reservation found'], 404);
     }
+}
+
 }    
