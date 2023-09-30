@@ -140,61 +140,73 @@ const Slots = () => {
 
   useEffect(() => {
     fetchSpots();
-    // console.log("effect");
-    return () => {
-      dispatch(clearSlots());
-      dispatch(clearSelectedSlot());
-    };
+    console.log('slots')
+  console.log(slots);
+}, [slots]);
+
+  useEffect(() => {    
+    dispatch(clearSlots());
+    dispatch(clearSelectedSlot());
+    fetchSpots();
+    console.log('slotssssssssssssssss')
+  console.log(slots);
   }, []);
 
-  // console.log("slots");
   // console.log(slots.slots.map((slot) => slot.reserved));
   // console.log('selectslot: ' + selectedSlot);
   //   console.log(selectedSlot);
 
   return (
-    <View style={styles.table}>
-      {[...Array(12)].map((_, rowIndex) => (
-        <View key={rowIndex} style={styles.tableRow}>
-          {[1, 2, 3].map((columnIndex) => (
-            <View
-              key={columnIndex}
-              style={
-                columnIndex !== 2
-                  ? styles.tableCell
-                  : rowIndex === 0
-                  ? styles.entranceCell
-                  : styles.tableCellGap
-              }
-            >
-              {slots.slots &&
-                slots.slots
-                  .filter(
-                    (slot) =>
-                      slot.x_coordinate === rowIndex &&
-                      slot.y_coordinate === columnIndex
-                  )
-                  .map((slot) => (
-                    <Slot
-                      key={`${rowIndex}-${columnIndex}`}
-                      number={slot.name}
-                      styleContainer={
-                        slot.reserved ? styles.reserved : styles.available
-                      }
-                      styleTitle={
-                        slot.reserved
-                          ? styles.reservedTitle
-                          : styles.availableTitle
-                      }
-                      isSelected={selectedSlot.id === slot.id}
-                      onPress={() => slotPressed(slot)}
-                    />
-                  ))}
-            </View>
-          ))}
-        </View>
-      ))}
-    </View>
+    <>
+    {slots.slots.length > 0 ? (
+      <View style={styles.table}>
+        {[...Array(12)].map((_, rowIndex) => (
+          <View key={rowIndex} style={styles.tableRow}>
+            {[1, 2, 3].map((columnIndex) => (
+              <View
+                key={columnIndex}
+                style={
+                  columnIndex !== 2
+                    ? styles.tableCell
+                    : rowIndex === 0
+                    ? styles.entranceCell
+                    : styles.tableCellGap
+                }
+              >
+                {slots.slots &&
+                  slots.slots
+                    .filter(
+                      (slot) =>
+                        slot.x_coordinate === rowIndex &&
+                        slot.y_coordinate === columnIndex
+                    )
+                    .map((slot) => (
+                      <Slot
+                        key={`${rowIndex}-${columnIndex}`}
+                        number={slot.name}
+                        styleContainer={
+                          slot.reserved ? styles.reserved : styles.available
+                        }
+                        styleTitle={
+                          slot.reserved
+                            ? styles.reservedTitle
+                            : styles.availableTitle
+                        }
+                        isSelected={selectedSlot.id === slot.id}
+                        onPress={() => slotPressed(slot)}
+                      />
+                    ))}
+              </View>
+            ))}
+          </View>
+        ))}
+      </View>
+    ) : (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Text>Slots are Loading...</Text>
+      </View>
+    )}
+    </>
   );
 };
 

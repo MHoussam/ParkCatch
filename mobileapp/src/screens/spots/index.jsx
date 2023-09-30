@@ -10,7 +10,7 @@ import Button from '../../components/base/button';
 import { clearReservation } from '../../redux/reservation/reservationSlice';
 
 const Spots = () => {
-  // const selectedSlot = useSelector((state) => state.selectedSlot);
+  const slots = useSelector((state) => state.slots);
   // const selectedParking = useSelector((state) => state.selectedParking);
   // const dispatch = useDispatch();
   // const reservation = useSelector((state) => state.reservation);
@@ -25,9 +25,13 @@ const Spots = () => {
     <View style={styles.container}>
       <Header ScreenName={'Spot Reservation'} />
       <View style={styles.spots}>
-        <Text style={styles.title}>Select a Spot</Text>
+        {slots.slots.length > 0 ? (
+          <Text style={styles.title}>Select a Spot</Text>
+        ) : <></>}
         <Slots />
-        <Button text={'Next'} navigate={'ReservationInfo'} />
+        {slots.slots.length > 0 ? (
+          <Button text={'Next'} navigate={'ReservationInfo'} />
+        ) : <></>}
       </View>
     </View>
   )
