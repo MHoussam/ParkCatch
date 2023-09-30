@@ -163,12 +163,15 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          tabBarStyle: { backgroundColor: '#ffffff', height: 80},
+          tabBarStyle: { backgroundColor: '#ffffff', height: 81},
           tabBarActiveTintColor: '#000000',
           tabBarInactiveTintColor: '#00000050',
           tabBarActiveBackgroundColor: '#FECA0E',
           tabBarItemStyle: { paddingVertical: 15 },
           tabBarLabelStyle: { fontWeight: 'bold', fontSize: 14 },
+        }}
+        tabBarOptions={{
+          keyboardHidesTabBar: true,
         }}
       >
         <Tab.Screen 

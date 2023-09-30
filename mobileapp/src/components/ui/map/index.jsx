@@ -178,9 +178,9 @@ const Map = () => {
     fetchMap();
   }, [refresh]);
 
-  // useEffect(() => {
-  //   dispatch(clearParkings());
-  // }, []);
+  useEffect(() => {
+    fetchParkings();
+  }, []);
 
   // console.log('maybe?')
   // console.log(userToken.token)
