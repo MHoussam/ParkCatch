@@ -10,16 +10,9 @@ const RadioButton = ({ options, selectedOption, onSelect }) => {
           onPress={() => onSelect(option)}
           style={{ flexDirection: 'row', alignItems: 'center' }}
         >
-          <View>
+          <View style={styles.radioButton}>
             {option.value === selectedOption.value && (
-              <View
-                style={{
-                  height: 12,
-                  width: 12,
-                  borderRadius: 6,
-                  backgroundColor: 'blue',
-                }}
-              />
+              <View style={styles.choice} />
             )}
           </View>
           <Text>{option.label}</Text>
