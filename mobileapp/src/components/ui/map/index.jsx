@@ -29,6 +29,7 @@ const Map = () => {
   // const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const selectedParking = useSelector((state) => state.selectedParking);
+  const selectedSlot = useSelector((state) => state.selectedSlot);
   const [ availableNumber, setAvailableNumber ] = useState('');
   const [ refresh, setRefresh ] = useState(null);
 
@@ -37,8 +38,8 @@ const Map = () => {
       const userData = await AsyncStorage.getItem('userData');
       const userToken = await AsyncStorage.getItem('userToken');
       
-      console.log('aaaaaaa ' +parkings.length )
-      console.log(parkings )
+      // console.log('aaaaaaa ' +parkings.length )
+      // console.log(parkings )
       const axiosConfig = {
         headers: {
           Authorization: `Bearer ${userToken}`,
@@ -46,12 +47,12 @@ const Map = () => {
         }
       };
       // console.log(userData)
-      console.log(userToken)
+      // console.log(userToken)
       const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
-      console.log('data')
+      // console.log('data')
 
-      console.log(response.data.data)
+      // console.log(response.data.data)
       if (Array.isArray(response.data.data)) {
         if (parkings.length === 0) {
           // console.log('parking: aaaaaaa ' +parkings.length )
@@ -136,6 +137,11 @@ const Map = () => {
     }
   }
 
+  const cardPress = () => {
+    dispatch(clearSelectedSlot());
+    navigateToSpots();
+  }
+
   const calculatedDistance = location
     ? Distance({
         lat1: location.coords.latitude,
@@ -160,15 +166,15 @@ const Map = () => {
   const checkParkings = async () => {
     const park = await AsyncStorage.getItem('parkings')
     const parkings = JSON.parse(park);
-    console.log('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
-    console.log(parkings)
+    // console.log('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
+    // console.log(parkings)
 
     if (parkings === null) {
       // dispatch(clearParkings());
       checkParkings();
-      console.log('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
-      console.log(parkings)
-    console.log(location)
+    //   console.log('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
+    //   console.log(parkings)
+    // console.log(location)
       // fetchParkings();
       // fetchMap();
     }
@@ -176,16 +182,13 @@ const Map = () => {
 
   useEffect(() => {
     fetchMap();
-  }, []);
-
-  useEffect(() => {
     fetchParkings();
   }, []);
 
   // console.log('maybe?')
   // console.log(userToken.token)
-  console.log('redux')
-  console.log(parkings)
+  // console.log('redux')
+  // console.log(parkings)
   // console.log('selectedParking')
   // console.log(selectedParking)
   // console.log(location)
@@ -242,7 +245,7 @@ const Map = () => {
         <View>
           {selectedParking.id !== null && (
             <>
-              <TouchableOpacity style={styles.card} onPress={navigateToSpots}>
+              <TouchableOpacity style={styles.card} onPress={cardPress}>
               <Image
                 style={styles.parkingPhoto}
                 source={{

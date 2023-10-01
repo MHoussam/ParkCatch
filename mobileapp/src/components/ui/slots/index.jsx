@@ -19,7 +19,7 @@ const Slots = () => {
   
 // console.log(reservation)
   const fetchSpots = async () => {
-
+    dispatch(clearSelectedSlot())
     const userToken = await AsyncStorage.getItem('userToken');
 
     try {
@@ -121,7 +121,7 @@ const Slots = () => {
       // console.log('no?')
     } catch (error) {
       console.error("Error fetching spots data:", error);
-      console.log(userToken)
+      // console.log(userToken)
     }
   };
 
@@ -141,15 +141,23 @@ const Slots = () => {
 //   useEffect(() => {
 //     fetchSpots();
 //     console.log('slots')
-//     console.log(slots);
+    console.log(selectedSlot);
 // }, [slots]);
 
   useEffect(() => {    
     fetchSpots();
-    console.log('slotssssssssssssssss')
-  console.log(slots);
+    // dispatch(clearSelectedSlot())
+
+    // console.log('slotssssssssssssssss')
+  // console.log(slots);
   }, [slots.slots]);
 
+  useEffect(() => { 
+  return () => {
+    // dispatch(clearSelectedSlot())
+    dispatch(clearSlots())
+  }
+  }, []);
   // console.log(slots.slots.map((slot) => slot.reserved));
   // console.log('selectslot: ' + selectedSlot);
   //   console.log(selectedSlot);
