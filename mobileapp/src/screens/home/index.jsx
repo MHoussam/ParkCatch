@@ -26,13 +26,13 @@ const HomeMap = () => {
       const userToken = await AsyncStorage.getItem('userToken');
 
       // const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk1MjAyNzYyLCJleHAiOjE2OTUyMDYzNjIsIm5iZiI6MTY5NTIwMjc2MiwianRpIjoiMGYzU01SQTJjWXkydEllTSIsInN1YiI6IjUiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.7VPpVThKIOszaE9v1M4PW6pEHK41av5oKMGRR9iBd7Q'
-      console.log('yooooooo: ' + userData)
-      console.log('gvvvvvv: ' + userToken)
+      // console.log('yooooooo: ' + userData)
+      // console.log('gvvvvvv: ' + userToken)
   
       if (userData !== null && userToken !== null) {
         const parsedUserData = JSON.parse(userData);
   // console.log('parsedUserData ')
-  console.log(parsedUserData)
+  // console.log(parsedUserData)
 
         dispatch(setUser(parsedUserData));
         // dispatch(setUserToken(userToken));

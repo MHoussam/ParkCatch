@@ -4,7 +4,7 @@ import Info from '../../base/info'
 import styles from './styles'
 import { useSelector } from 'react-redux'
 
-const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent }) => {
+const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent, ticket=false }) => {
     const reservation = useSelector((state) => state.reservation);
 
     console.log(styleLeftContent)
@@ -44,6 +44,18 @@ const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent })
                 <Info styleText={styleInfo} text={reservation.spotNumber} />
             </View>
         </View>
+        {ticket ? (
+        <View style={styles.row}>
+            <View style={styleLeftContent}>
+                <Info styleText={styleSubtitle} text={'Time'} />
+                <Info styleText={styleInfo} text={'asa'} />
+            </View>
+            <View>
+                <Info styleText={styleSubtitle} text={'Date'} />
+                <Info styleText={styleInfo} text={'as'} />
+            </View>
+        </View>
+        ) : <></>}
         <View style={styles.row}>
             <View style={styleLeftContent}>
                 <Info styleText={styleSubtitle} text={'Plate Number'} />

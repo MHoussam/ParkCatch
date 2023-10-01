@@ -54,7 +54,7 @@ const ReservationInfo = () => {
 
   useEffect(() => {
     dispatch(clearSlots());
-    dispatch(clearSelectedSlot());
+    // dispatch(clearSelectedSlot());
     return () => {
       dispatch(clearReservation());
     };

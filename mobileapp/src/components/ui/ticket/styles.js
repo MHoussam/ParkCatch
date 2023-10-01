@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     infoContainer: {
         width: '84%',
-        marginTop: 18,
+        marginTop: 15,
         marginLeft: -7,
     },
     subtitle: {
@@ -53,6 +53,12 @@ const styles = StyleSheet.create({
     leftContent: {
         width: '66%',
         marginBottom: 7,
+    },
+    parkingPhoto: {
+        objectFit: 'cover',
+        width: '80%',
+        height: 150,
+        borderRadius: 10,
     }
 })
 
