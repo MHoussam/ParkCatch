@@ -9,6 +9,8 @@ const initialState = {
   spotNumber: null,
   plateNumber: '',
   total: null,
+  time_reserved: null,
+  date_reserved: null,
 };
 
 const reservationSlice = createSlice({
@@ -32,6 +34,8 @@ const reservationSlice = createSlice({
           state.plateNumber = action.payload.plateNumber;
         }
         state.total = action.payload.total;
+        state.time_reserved = action.payload.time_reserved;
+        state.date_reserved = action.payload.date_reserved;
     },
     clearReservation: (state) => {
       console.log('clearReservation action called');
@@ -43,6 +47,8 @@ const reservationSlice = createSlice({
         state.spotNumber = null;
         state.plateNumber = '';
         state.total = null;
+        state.time_reserved = null;
+        state.date_reserved = null;
     },
   },
 });
