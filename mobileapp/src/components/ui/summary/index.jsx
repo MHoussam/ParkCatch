@@ -8,7 +8,7 @@ const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent })
     const reservation = useSelector((state) => state.reservation);
 
     console.log(styleLeftContent)
-    // console.log(reservation.duration)
+    console.log(reservation)
 
   return (
     <View style={styleContainer}>

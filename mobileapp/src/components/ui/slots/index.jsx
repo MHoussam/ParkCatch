@@ -148,7 +148,7 @@ const Slots = () => {
     fetchSpots();
     console.log('slotssssssssssssssss')
   console.log(slots);
-  }, []);
+  }, [slots.slots]);
 
   // console.log(slots.slots.map((slot) => slot.reserved));
   // console.log('selectslot: ' + selectedSlot);

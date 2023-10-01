@@ -39,6 +39,7 @@ const ReservationInfo = () => {
       total: parseInt(reservation.duration) * selectedParking.price,
     })
   );
+  console.log(user)
 
   useEffect(() => {
     dispatch(
