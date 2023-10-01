@@ -86,7 +86,7 @@ const Slots = () => {
       //     response.data.data[4].reserved
       // );
       if (Array.isArray(response.data.data)) {
-        if (slots.slots === null || slots.slots.length === 0) {
+        if (slots.slots.length === 0) {
           // console.log("here");
           response.data.data.forEach((item) => {
             const {
@@ -138,15 +138,13 @@ const Slots = () => {
       }
   }
 
-  useEffect(() => {
-    fetchSpots();
-    console.log('slots')
-  console.log(slots);
-}, [slots]);
+//   useEffect(() => {
+//     fetchSpots();
+//     console.log('slots')
+//     console.log(slots);
+// }, [slots]);
 
   useEffect(() => {    
-    dispatch(clearSlots());
-    dispatch(clearSelectedSlot());
     fetchSpots();
     console.log('slotssssssssssssssss')
   console.log(slots);

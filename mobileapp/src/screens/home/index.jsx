@@ -13,6 +13,8 @@ import WebSocketClient from '../../components/WebSocketClient';
 import ChatComponent from '../../components/ui/chat';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser, setUserToken } from '../../redux/user/userSlice';
+import { clearSlots } from '../../redux/slots/slotSlice';
+import { clearSelectedSlot } from '../../redux/selectedSlot/selectedSlotSlice';
 
 const HomeMap = () => {
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ const HomeMap = () => {
       if (userData !== null && userToken !== null) {
         const parsedUserData = JSON.parse(userData);
   // console.log('parsedUserData ')
-  // console.log(parsedUserData)
+  console.log(parsedUserData)
 
         dispatch(setUser(parsedUserData));
         // dispatch(setUserToken(userToken));
@@ -42,6 +44,8 @@ const HomeMap = () => {
 
   useEffect(() => {
     loadUserData();
+    dispatch(clearSlots());
+    dispatch(clearSelectedSlot());
   }, []);
 
   return (

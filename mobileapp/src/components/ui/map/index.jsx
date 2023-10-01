@@ -169,14 +169,14 @@ const Map = () => {
       console.log('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
       console.log(parkings)
     console.log(location)
-      fetchParkings();
-      fetchMap();
+      // fetchParkings();
+      // fetchMap();
     }
   }
 
   useEffect(() => {
     fetchMap();
-  }, [refresh]);
+  }, []);
 
   useEffect(() => {
     fetchParkings();

@@ -12,6 +12,8 @@ import {
   setReservation,
   clearReservation,
 } from "../../redux/reservation/reservationSlice";
+import { clearSlots } from "../../redux/slots/slotSlice";
+import { clearSelectedSlot } from "../../redux/selectedSlot/selectedSlotSlice";
 
 const ReservationInfo = () => {
   const selectedParking = useSelector((state) => state.selectedParking);
@@ -49,6 +51,8 @@ const ReservationInfo = () => {
   }, [reservation.duration, reservation.plateNumber, reservation.phone]);
 
   useEffect(() => {
+    dispatch(clearSlots());
+    dispatch(clearSelectedSlot());
     return () => {
       dispatch(clearReservation());
     };
