@@ -1,14 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  id: null,
-  parking_id: null,
-  name: null,
-  availability: null,
-  reason: null,
-  x_coordinate: null,
-  y_coordinate: null,
-  reserved: null,
+  selectedSlot: []
 };
 
 const selectedSlotSlice = createSlice({
@@ -26,14 +19,7 @@ const selectedSlotSlice = createSlice({
         state.reserved = action.payload.reserved;
     },
     clearSelectedSlot: (state) => {
-        state.id = null;
-        state.parking_id = null;
-        state.name = null;
-        state.availability = null;
-        state.reason = null;
-        state.x_coordinate = null;
-        state.y_coordinate = null;
-        state.reserved = null;
+      selectedSlot: []
     },
   },
 });

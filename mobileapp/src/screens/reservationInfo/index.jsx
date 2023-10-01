@@ -29,7 +29,7 @@ const ReservationInfo = () => {
 
   dispatch(
     setReservation({
-      client: user.firstname + " " + user.lastname,
+      client: user.first_name + " " + user.last_name,
       phone: reservation.phone || "",
       parking: selectedParking.name,
       location: selectedParking.address,
@@ -40,6 +40,7 @@ const ReservationInfo = () => {
     })
   );
   console.log(user)
+  console.log(selectedSlot)
 
   useEffect(() => {
     dispatch(
