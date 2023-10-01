@@ -26,14 +26,14 @@ const selectedSlotSlice = createSlice({
       state.reserved = action.payload.reserved;
     },
     clearSelectedSlot: (state) => {
-      state.id = ac;
-      state.parking_id = ac;
-      state.name = ac;
-      state.availability = ac;
-      state.reason = ac;
-      state.x_coordinate = ac;
-      state.y_coordinate = ac;
-      state.reserved = ac;
+      state.id = null;
+      state.parking_id = null;
+      state.name = null;
+      state.availability = null;
+      state.reason = null;
+      state.x_coordinate = null;
+      state.y_coordinate = null;
+      state.reserved = null;
     },
   },
 });

@@ -19,7 +19,7 @@ const Slots = () => {
   
 // console.log(reservation)
   const fetchSpots = async () => {
-    dispatch(clearSelectedSlot())
+    // dispatch(clearSelectedSlot())
     const userToken = await AsyncStorage.getItem('userToken');
 
     try {
