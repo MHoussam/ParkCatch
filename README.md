@@ -2,6 +2,9 @@
 <img src="./readme/titles/title1.svg"/>
 <div align="center">
 
+<br><br>
+
+<img id="project-philosophy" src="./readme/titles/title2.svg"/>
 > Welcome to ParkCatch! Your Smart Parking Solution.
 
 **[PROJECT PHILOSOPHY](#project-philosophy) • [PROTOTYPING](#prototyping) • [TECH STACK](#tech-stack) • [DEMO](#demo) • [IOT](#iot) • [PERFORMANCE](#performance)• [HOW TO USE](#how-to-use)**
@@ -10,8 +13,7 @@
 
 <br><br>
 
-
-<img id="project-philosophy" src="./readme/titles/title2.svg"/>
+<img id="project-philosophy" src="./readme/titles/title3.svg"/>
 
 > ParkCatch allows drivers to find available parking lots nearby and reserve whatever available spot they want. It also provides directions from their current location to the destined parking lot.
 
@@ -29,7 +31,6 @@
 - As a supervisor, I want to terminate the reservation of a client so that he/she will have to leave immediately in case of a conflict.
 - As a supervisor, I want to make spots unavailable for clients during a certain time so that I can save them for specific people and make them available later on in case of an event and avoid the conflict of these spots being busy.
 
-
 <br>
 
 <span style="font-size: 40px;">Admin Stories</span>
@@ -41,37 +42,28 @@
 
 <br><br>
 
-<img id="prototyping" src="./readme/titles/title3.svg"/>
+<img id="prototyping" src="./readme/titles/title4.svg"/>
 
 > ParkCatch was designed by employing wireframes and mockups in an iterative design process, achieving an optimal layout for user-friendly navigation and a seamless user experience.
+
+<br>
 
 <span style="font-size: 22px;">Mockups</span>
 
 <span style="font-size: 20px;">Client Screens (MobileApp)</span>
 
-| Login                                                            | SignUp                                                            |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![login](./readme/mobileapp/login.png) | ![signup](./readme/mobileapp/signup.png) |
+| Login                             | SignUp                            | Home                             | Home                             |
+|-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
+| ![login](./readme/mobileapp/login.png) | ![signup](./readme/mobileapp/signup.png) | ![home](./readme/mobileapp/home.png) | ![home](./readme/mobileapp/home.png) |
+|
+| Spots                             | Reservation Info                  | Reservation Payment               | Reservation Ticket                |
+|-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
+| ![spots](./readme/mobileapp/spots.png) | ![reservationInfo](./readme/mobileapp/reservationInfo.png) | ![reservationPayment](./readme/mobileapp/reservationPayment.png) | ![reservationTicket](./readme/mobileapp/reservationTicket.png) |
+|
+| Directions                        | Settings                          | Change Info                       | Change Password                   |
+|-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
+| ![directions](./readme/mobileapp/directions.png) | ![settings](./readme/mobileapp/settings.png) | ![changeInfo](./readme/mobileapp/changeInfo.png) | ![changePassword](./readme/mobileapp/changePassword.png) |
 
-| Home                                                             | Home                                                              |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![home1](./readme/mobileapp/home1.png) | ![home2](./readme/mobileapp/home2.png) |
-
-| Spots                                                            | Reservation Info                                                  |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![spots](./readme/mobileapp/spots.png) | ![reservationInfo](./readme/mobileapp/reservationInfo.png) |
- 
-| Reservation Payment                                              | Reservation Ticket                                                |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![reservationPayment](./readme/mobileapp/reservationPayment.png) | ![reservationTicket](./readme/mobileapp/reservationTicket.png) |
-
-| Directions                                                       | Settings                                                          |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![directions](./readme/mobileapp/directions.png) | ![settings](./readme/mobileapp/settings.png) |
-
-| Change Info                                                      | Change Password                                                   |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![changeInfo](./readme/mobileapp/changeInfo.png) | ![changePassword](./readme/mobileapp/changePassword.png) |
 
 <br>
 
