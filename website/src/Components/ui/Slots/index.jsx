@@ -120,7 +120,7 @@ console.log(reservations)
                         <Slot
                           key={`${rowIndex}-${columnIndex}`}
                           number={slot.name}
-                          slotContainer={slot.reserved ? slot.correct === 1 ? "reserved flex center" : "alert flex center" : "available flex center" }
+                          slotContainer={slot.reserved ? "reserved flex center" : "available flex center" }
                           slotTitle={
                             slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
                           }
@@ -130,7 +130,7 @@ console.log(reservations)
                           <Slot
                             key={`${rowIndex}-${columnIndex}`}
                             number={slot.name}
-                            slotContainer={slot.reserved ? slot.correct === 1 ? "reserved flex center" : "alert flex center" : "available flex center" }
+                            slotContainer={slot.reserved ? "reserved flex center" : "available flex center" }
                             slotTitle={
                               slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
                             }
