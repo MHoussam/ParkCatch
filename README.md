@@ -85,7 +85,7 @@
 
 | Home                                                             | Reservation Alert                                                 |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![homeS](./readme/webiste/homeS.png) | ![reservationAlert](./readme/website/alertS.png) |
+| ![homeS](./readme/website/homeS.png) | ![reservationAlert](./readme/website/alertS.png) |
 
 | Reservation Search                                               | Reservation Termination                                           |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
@@ -99,15 +99,15 @@
 
 | Home                                                             | Edit Spot's Details                                               |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![home](./readme/website/homeA.png) | ![edit](./readme/website/editS.png) |
+| ![home](./readme/website/homeA.png) | ![edit](./readme/website/editA.png) |
 
 | Ban a Client                                                     | Add a New Supervisor                                              |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![ban](./readme/website/banA.png) | ![addSupervisor](./readme/website/addA.png) |
+| ![ban](./readme/website/banA.png) | ![addSupervisor](./readme/website/addSupervisorA.png) |
 
 | Remove a Supervisor                                              |
 |------------------------------------------------------------------|
-| ![remove](./readme/website/removeA.png) | 
+| ![remove](./readme/website/removeSupervisorA.png) | 
 
 <br><br>
 
