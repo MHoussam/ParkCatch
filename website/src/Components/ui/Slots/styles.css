@@ -56,6 +56,13 @@
     height: 45px;
     width: 90px;
   }
+
+  .alery {
+    border-radius: 10px;
+    background-color: #FF886D;
+    height: 45px;
+    width: 90px;
+  }
   
   .reservedTitle {
     color: #FFFFFF;
