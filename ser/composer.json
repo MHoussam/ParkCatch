@@ -6,15 +6,21 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "alimranahmed/laraocr": "^1.2",
         "beyondcode/laravel-websockets": "^1.14",
-        "guzzlehttp/guzzle": "^7.2",
+        "google/cloud-storage": "^1.33",
+        "guzzlehttp/guzzle": "^6.0 || ^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
+        "league/flysystem": "*",
+        "linij/baiduaip": "^1.0",
         "php-open-source-saver/jwt-auth": "^2.1",
         "pusher/pusher-php-server": "^7.2",
         "thiagoalessio/tesseract_ocr": "^2.12",
-        "yieldstudio/laravel-expo-notifier": "^0.0.7"
+        "yieldstudio/laravel-expo-notifier": "^0.0.7",
+        "yk/laravel-ocr": "^1.0",
+        "nao-pon/flysystem-google-drive": "^2.0 || ^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

@@ -8,6 +8,11 @@ use App\Models\Spot;
 use App\Models\Termination;
 use Illuminate\Http\Request;
 use thiagoalessio\TesseractOCR\TesseractOCR;
+// use Yk\LaravelOcr\Facades\Ocr;
+use AlImranAhmed\LaraOCR\OCR;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 
 class SupervisorController extends Controller
 {
@@ -223,20 +228,59 @@ public function image(Request $request) {
         ->where('valid', 1)
         ->first();
 
-    if ($reservation) {
-        $imageFilePath = 'C:\Users\moham\Desktop\ParkCatch\ser\storage\image.png';
-        file_put_contents($imageFilePath, $imageData);
-
-        $result = new TesseractOCR($imageFilePath);
-        $resultRun = $result->run();
-
-        $reservation->parked_plate_number = substr($resultRun, 0, 255);
-        $reservation->save();
-
-        return response()->json(['message' => 'Image saved successfully']);
-    } else {
+    if (!$reservation) {
         return response()->json(['message' => 'No valid reservation found'], 404);
+    }
+
+    $imagePath = 'C:\Users\moham\Desktop\ParkCatch\ser\storage\image.png';
+    file_put_contents($imagePath, $imageData);
+
+    $apiKey = '632020fed59f99387387beb58de0b629';
+    //$imagePath = 'C:\Users\moham\Pictures\image.png';
+
+    $client = new Client();
+    $uploadApiUrl = 'https://api.imgbb.com/1/upload';
+
+    $imageFile = fopen($imagePath, 'r');
+    
+    $response = $client->post($uploadApiUrl, [
+        'multipart' => [
+            [
+                'name' => 'key',
+                'contents' => $apiKey,
+            ],
+            [
+                'name' => 'image',
+                'contents' => $imageFile,
+                'filename' => 'imag.png',
+            ],
+        ],
+    ]);
+
+    if ($response->getStatusCode() === 200) {
+        $data = json_decode($response->getBody(), true);
+        $imageUrl = $data['data']['url'];
+
+        $apiUrl = 'https://api.apilayer.com/image_to_text/url';
+
+        $recognizeResponse = Http::withHeaders([
+            'apikey' => 'XVAnKVpdijIVZu5McKWQZpSObwikv7nI',
+        ])->get($apiUrl, [
+            'url' => $imageUrl,
+        ]);
+
+        if ($recognizeResponse->successful()) {
+            $data = $recognizeResponse->json();
+            $reservation->parked_plate_number = $data["all_text"];
+            $reservation->save();
+    
+            return response()->json($data["all_text"]);
+        } else {
+            return response()->json(['message' => 'API request failed'], 500);
+        }
+    } else {
+        return response()->json(['message' => 'Image upload failed'], 500);
     }
 }
 
-}    
+}
