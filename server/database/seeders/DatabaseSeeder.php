@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         DB::table('reservations')->insert([
             'user_id' => 5,
             'parking_id' => 1,
-            'spot_id' => 2,
+            'spot_name' => 'A-2',
             'duration' => 2,
             'total' => 30,
             'valid' => False,
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         DB::table('reservations')->insert([
             'user_id' => 5,
             'parking_id' => 3,
-            'spot_id' => 12,
+            'spot_name' => 'C-12',
             'duration' => 3,
             'total' => 40,
             'valid' => TRUE,
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         DB::table('reservations')->insert([
             'user_id' => 3,
             'parking_id' => 3,
-            'spot_id' => 13,
+            'spot_name' => 'A-10',
             'duration' => 2,
             'total' => 30,
             'valid' => FALSE,
@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
         DB::table('reservations')->insert([
             'user_id' => 3,
             'parking_id' => 1,
-            'spot_id' => 5,
+            'spot_name' => 'A-5',
             'duration' => 2,
             'total' => 30,
             'valid' => TRUE,
@@ -69,6 +69,66 @@ class DatabaseSeeder extends Seeder
             'parked_plate_number' => null,
             'correct' => null,
             'phone_number' => 71218886,
+            'time_reserved' => '09:03:25',
+            'date_reserved' => '2023-09-07',
+        ]);
+
+        DB::table('reservations')->insert([
+            'user_id' => 6,
+            'parking_id' => 1,
+            'spot_name' => 'B-3',
+            'duration' => 2,
+            'total' => 30,
+            'valid' => TRUE,
+            'plate_number' => 'G123456',
+            'parked_plate_number' => null,
+            'correct' => null,
+            'phone_number' => 71218880,
+            'time_reserved' => '09:03:25',
+            'date_reserved' => '2023-09-07',
+        ]);
+
+        DB::table('reservations')->insert([
+            'user_id' => 3,
+            'parking_id' => 1,
+            'spot_name' => 'B-8',
+            'duration' => 2,
+            'total' => 30,
+            'valid' => TRUE,
+            'plate_number' => 'G123456',
+            'parked_plate_number' => null,
+            'correct' => null,
+            'phone_number' => 71218889,
+            'time_reserved' => '09:03:25',
+            'date_reserved' => '2023-09-07',
+        ]);
+
+        DB::table('reservations')->insert([
+            'user_id' => 3,
+            'parking_id' => 1,
+            'spot_name' => 'C-2',
+            'duration' => 2,
+            'total' => 30,
+            'valid' => TRUE,
+            'plate_number' => 'G123456',
+            'parked_plate_number' => null,
+            'correct' => null,
+            'phone_number' => 71218888,
+            'time_reserved' => '09:03:25',
+            'date_reserved' => '2023-09-07',
+        ]);
+
+        DB::table('reservations')->insert([
+            'user_id' => 3,
+            'parking_id' => 1,
+            'spot_name' => 'C-12',
+            'duration' => 2,
+            'total' => 30,
+            'valid' => TRUE,
+            'plate_number' => 'G123456',
+            'parked_plate_number' => null,
+            'correct' => null,
+            'phone_number' => 71218887,
             'time_reserved' => '09:03:25',
             'date_reserved' => '2023-09-07',
         ]);
@@ -119,17 +179,80 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
-            'name' => 'B-1',
+            'parking_id' => 1,
+            'name' => 'A-6',
             'availability' => true,
             'reason' => null,
-            'x_coordinate' => 1,
-            'y_coordinate' => 2,
+            'x_coordinate' => 6,
+            'y_coordinate' => 1,
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
-            'name' => 'B-2',
+            'parking_id' => 1,
+            'name' => 'A-7',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 7,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'A-8',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 8,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'A-9',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 9,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'A-10',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 10,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'A-11',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 11,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'A-12',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 12,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'A-13',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 13,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'B-1',
             'availability' => true,
             'reason' => null,
             'x_coordinate' => 2,
@@ -137,8 +260,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
-            'name' => 'B-3',
+            'parking_id' => 1,
+            'name' => 'B-2',
             'availability' => true,
             'reason' => null,
             'x_coordinate' => 3,
@@ -146,8 +269,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
-            'name' => 'B-4',
+            'parking_id' => 1,
+            'name' => 'B-3',
             'availability' => true,
             'reason' => null,
             'x_coordinate' => 4,
@@ -155,8 +278,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
-            'name' => 'B-5',
+            'parking_id' => 1,
+            'name' => 'B-4',
             'availability' => true,
             'reason' => null,
             'x_coordinate' => 5,
@@ -164,7 +287,70 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
+            'parking_id' => 1,
+            'name' => 'B-5',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 6,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'B-6',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 8,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'B-7',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 9,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'B-8',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 10,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'B-9',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 11,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'B-10',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 12,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'B-11',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 13,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
             'name' => 'C-1',
             'availability' => true,
             'reason' => null,
@@ -173,7 +359,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
+            'parking_id' => 1,
             'name' => 'C-2',
             'availability' => true,
             'reason' => null,
@@ -182,7 +368,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
+            'parking_id' => 1,
             'name' => 'C-3',
             'availability' => true,
             'reason' => null,
@@ -191,7 +377,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
+            'parking_id' => 1,
             'name' => 'C-4',
             'availability' => true,
             'reason' => null,
@@ -200,11 +386,416 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 2,
+            'parking_id' => 1,
             'name' => 'C-5',
             'availability' => true,
             'reason' => null,
             'x_coordinate' => 5,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-6',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 6,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-7',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 7,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-8',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 8,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-9',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 9,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-10',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 10,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-11',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 11,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-12',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 12,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 1,
+            'name' => 'C-13',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 13,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-1',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 1,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-2',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 2,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-3',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 3,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-4',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 4,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-5',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 5,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-6',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 6,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-7',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 7,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-8',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 8,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-9',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 9,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-10',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 10,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-11',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 11,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-12',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 12,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'A-13',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 13,
+            'y_coordinate' => 1,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-1',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 2,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-2',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 3,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-3',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 4,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-4',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 5,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-5',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 6,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-6',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 8,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-7',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 9,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-8',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 10,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-9',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 11,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-10',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 12,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'B-11',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 13,
+            'y_coordinate' => 2,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-1',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 1,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-2',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 2,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-3',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 3,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-4',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 4,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-5',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 5,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-6',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 6,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-7',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 7,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-8',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 8,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-9',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 9,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-10',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 10,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-11',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 11,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-12',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 12,
+            'y_coordinate' => 3,
+        ]);
+
+        DB::table('spots')->insert([
+            'parking_id' => 3,
+            'name' => 'C-13',
+            'availability' => true,
+            'reason' => null,
+            'x_coordinate' => 13,
             'y_coordinate' => 3,
         ]);
 

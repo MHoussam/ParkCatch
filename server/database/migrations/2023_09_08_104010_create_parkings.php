@@ -37,7 +37,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('parking_id');
-            $table->integer('spot_id');
+            $table->string('spot_name');
             $table->integer('duration');
             $table->integer('total');
             $table->boolean('valid');            
