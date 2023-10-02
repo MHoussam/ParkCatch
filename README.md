@@ -54,7 +54,7 @@
 
 | Login                             | SignUp                            | Home                             | Home                             |
 |-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![login](./readme/mobileapp/login.png) | ![signup](./readme/mobileapp/signup.png) | ![home](./readme/mobileapp/home.png) | ![home](./readme/mobileapp/home.png) |
+| ![login](./readme/mobileapp/login.png) | ![signup](./readme/mobileapp/signup.png) | ![home1](./readme/mobileapp/home1.png) | ![home2](./readme/mobileapp/home2.png) |
 |
 | Spots                             | Reservation Info                  | Reservation Payment               | Reservation Ticket                |
 |-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
@@ -73,6 +73,8 @@
 |------------------------------------------------------------------|
 | ![login](./readme/website/login.png)
 
+<br>
+
 <span style="font-size: 20px;">Supervisor Pages (Website)</span>
 
 | Home                                                             | Reservation Alert                                                 |
@@ -86,6 +88,8 @@
 | Remove Availability                                              | Add Availability                                                  |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![removeAvailability](./readme/website/removeS.png) | ![addAvailability](./readme/website/addS.png) |
+
+<br>
 
 <span style="font-size: 20px;">Admin Pages (Website)</span>
 
