@@ -1,6 +1,6 @@
 
 <img src="./readme/titles/title1.svg"/>
-<div align="center">
+<div>
 
 > Welcome to ParkCatch! Your Smart Parking Solution.
 
