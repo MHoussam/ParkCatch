@@ -8,9 +8,14 @@
 
 <img id="project-philosophy" src="./readme/titles/title2.svg"/>
 
-<br>
+<br><br>
 
-**[PROJECT PHILOSOPHY](#project-philosophy) • [PROTOTYPING](#prototyping) • [TECH STACK](#tech-stack) • [DEMO](#demo) • [IOT](#iot) • [HOW TO USE](#how-to-use)**
+- [PROJECT PHILOSOPHY](#project-philosophy) 
+- [PROTOTYPING](#prototyping) 
+- [TECH STACK](#tech-stack) 
+- [DEMO](#demo) 
+- [IOT](#iot) 
+- [HOW TO USE](#how-to-use)
 
 </div>
 
