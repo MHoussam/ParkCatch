@@ -110,9 +110,9 @@ ParkCatch is built using the following technologies:
 
 <span style="font-size: 20px;"><strong>Client Screens (MobileApp)</strong></span>
 
-| Login | Choose a Spot | Reservations | Reservation Payment & Directions|
+| Login | Choose a Spot | Reservation Payment & Directions | Reservations |
 | --- | --- | --- | --- |
-| ![Login](./readme/mobileapp/demo/login.gif) | ![Choose a Spot](./readme/mobileapp/demo/reserve.gif) | ![Reservations](./readme/mobileapp/demo/reservations.gif) | ![Reservation Payment](./readme/mobileapp/demo/payment.gif) |
+| ![Login](./readme/mobileapp/demo/login.gif) | ![Choose a Spot](./readme/mobileapp/demo/reserve.gif) | ![Reservation Payment](./readme/mobileapp/demo/payment.gif) | ![Reservations](./readme/mobileapp/demo/reservations.gif) |
 
 <br>
 
@@ -133,7 +133,7 @@ ParkCatch is built using the following technologies:
 <br>
 Since Esp32Cam Module doesn't have a USB port, you'll need an FTDI Programmer (FT232r) in order to be able to connect the Esp32Cam module the computer and upload the code.
 
-<br>
+<br><br>
 
 | Circuit Diagram                                                  | 
 |------------------------------------------------------------------|
