@@ -8,6 +8,8 @@
 
 <img id="table-of-contents" src="./readme/titles/title2.svg"/>
 
+<br>
+
 - [PROJECT PHILOSOPHY](https://github.com/MHoussam/ParkCatch#project-philosophy)
 - [PROTOTYPES](https://github.com/MHoussam/ParkCatch#prototyping)
 - [TECH STACK](https://github.com/MHoussam/ParkCatch#tech-stack)
@@ -16,7 +18,7 @@
 - [PERFORMANCE](https://github.com/MHoussam/ParkCatch#performance)
 - [HOW TO RUN?](https://github.com/MHoussam/ParkCatch#how-to-run)
 
-<br><br>
+<br>
 
 <img id="project-philosophy" src="./readme/titles/title3.svg"/>
 
@@ -59,11 +61,12 @@
 
 | Login                             | SignUp                            | Home                             | Spots                             |
 |-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![login](./readme/mobileapp/mockups/login.png) | ![signup](./readme/mobileapp/mockups/signup.png) | ![home](./readme/mobileapp/mockups/home2.png) | ![spots](./readme/mobileapp/mockups/spots.png) |
+| <img src="./readme/mobileapp/mockups/login.png" alt="Login" width="180" height="390"/> | <img src="./readme/mobileapp/mockups/signup.png" alt="SignUp" width="180" height="390"/> | <img src="./readme/mobileapp/mockups/home2.png" alt="Home" width="180" height="390"/> | <img src="./readme/mobileapp/mockups/spots.png" alt="Spots" width="180" height="390"/> |
 
 | Reservation Info                  | Reservation Payment               | Reservation Ticket                | Directions                        |
 |-----------------------------------|----------------------------------|----------------------------------|-----------------------------------|
-| ![reservationInfo](./readme/mobileapp/mockups/reservationInfo.png) | ![reservationPayment](./readme/mobileapp/mockups/reservationPayment.png) | ![reservationTicket](./readme/mobileapp/mockups/reservationTicket.png) | ![directions](./readme/mobileapp/mockups/directions.png) |
+| <img src="./readme/mobileapp/mockups/reservationInfo.png" alt="Reservation Info" width="180" height="390"/> | <img src="./readme/mobileapp/mockups/reservationPayment.png" alt="Reservation Payment" width="180" height="390"/> | <img src="./readme/mobileapp/mockups/reservationTicket.png" alt="Reservation Ticket" width="180" height="390"/> | <img src="./readme/mobileapp/mockups/directions.png" alt="Directions" width="180" height="390"/> |
+
 
 <br>
 
