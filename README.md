@@ -10,7 +10,7 @@
 
 <br><br>
 
-<img src="./readme/title2.svg"/>
+<img src="./readme/titles/title2.svg"/>
 
 - [PROJECT PHILOSOPHY](https://github.com/MHoussam/ParkCatch#project-philosophy)
 - [PROTOTYPES](https://github.com/MHoussam/ParkCatch#prototyping)
