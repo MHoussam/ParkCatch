@@ -116,6 +116,20 @@ ParkCatch is built using the following technologies:
 
 <br><br>
 
+<img id="IoT" src="./readme/titles/title7.svg"/>
+
+<br>
+
+| Circuit Diagram                                                  | 
+|------------------------------------------------------------------|
+| ![circuitDiagram](./readme/arduino/arduino_curcuit.png)
+
+| Circuit Design                                                   | 
+|------------------------------------------------------------------|
+| ![circuitDesign](./readme/arduino/arduinoCurcuit.jpeg)
+
+<br><br>
+
 <img src="readme/titles/title9.svg" id="how-to-run"/>
 
 <span style="font-size: 20px;"><strong>Prerequisites:</strong></span>
