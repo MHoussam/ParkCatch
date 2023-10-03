@@ -138,7 +138,7 @@ ParkCatch is built using the following technologies:
    git clone https://github.com/MHoussam/ParkCatch.git
    ```
 
-<span style="font-size: 20px;"><strong>Frontend (Mobile):</strong></span>
+<span style="font-size: 20px;"><strong>Frontend (Mobile): React Native Expo</strong></span>
 1. Navigate to mobileapp: 
 
    ```bash  
@@ -156,7 +156,7 @@ ParkCatch is built using the following technologies:
    ``` 
 <br>
 
-<span style="font-size: 20px;"><strong>Frontend (Website):</strong></span>
+<span style="font-size: 20px;"><strong>Frontend (Website): React</strong></span>
 1. Navigate to
    ```sh
    cd website
@@ -171,7 +171,7 @@ ParkCatch is built using the following technologies:
     ```
    <br>
 
-<span style="font-size: 20px;"><strong>Backend:</strong></span>
+<span style="font-size: 20px;"><strong>Backend: Laravel</strong></span>
 1. Navigate to the Server folder
    ```sh
    cd server
