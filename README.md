@@ -120,11 +120,12 @@ ParkCatch is built using the following technologies:
 
 | Login                                                            | Search for a Reservation                                          |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![login](./readme/website/demo/login.gif) | ![searchReservation](./readme/website/demo/search.gif) |
+| <img src="./readme/website/demo/login.gif" width="300" height="850"/> | <img src="./readme/website/demo/search.gif" width="300" height="850"/> |
 
 | Remove Spots Availability                                        | Terminate a Reservation                                           |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![removeAvailability](./readme/website/demo/remove.gif) | ![terminateReservation](./readme/website/demo/alert.gif) |
+| <img src="./readme/website/demo/remove.gif" width="300" height="850"/> | <img src="./readme/website/demo/alert.gif" width="300" height="850"/> |
+
 
 <br><br>
 
