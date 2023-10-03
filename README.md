@@ -10,11 +10,11 @@
 
 - [PROJECT PHILOSOPHY](https://github.com/MHoussam/ParkCatch#project-philosophy)
 - [PROTOTYPES](https://github.com/MHoussam/ParkCatch#prototyping)
--  [TECH STACK](https://github.com/MHoussam/ParkCatch#tech-stack)
--  [DEMO](https://github.com/MHoussam/ParkCatch#demo)
--  [IoT](https://github.com/MHoussam/ParkCatch#iot)
--  [PERFORMANCE](https://github.com/MHoussam/ParkCatch#performance)
--  [HOW TO RUN?](https://github.com/MHoussam/ParkCatch#how-to-run)
+- [TECH STACK](https://github.com/MHoussam/ParkCatch#tech-stack)
+- [DEMO](https://github.com/MHoussam/ParkCatch#demo)
+- [IoT](https://github.com/MHoussam/ParkCatch#iot)
+- [PERFORMANCE](https://github.com/MHoussam/ParkCatch#performance)
+- [HOW TO RUN?](https://github.com/MHoussam/ParkCatch#how-to-run)
 
 <br><br>
 
