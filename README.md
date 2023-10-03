@@ -117,7 +117,7 @@ ParkCatch is built using the following technologies:
 
 | Login | Choose a Spot | Reservation Payment & Directions | Reservations |
 | --- | --- | --- | --- |
-| ![Login](./readme/mobileapp/demo/login.gif) | ![Choose a Spot](./readme/mobileapp/demo/reserve.gif) | ![Reservation Payment](./readme/mobileapp/demo/payment.gif) | ![Reservations](./readme/mobileapp/demo/reservations.gif) |
+| <img src="./readme/mobileapp/demo/login.gif" alt="Login" width="200" height="395"/> | <img src="./readme/mobileapp/demo/reserve.gif" alt="Choose a Spot" width="200" height="395"/> | <img src="./readme/mobileapp/demo/payment.gif" alt="Reservation Payment" width="200" height="395"/> | <img src="./readme/mobileapp/demo/reservations.gif" alt="Reservations" width="200" height="395"/> |
 
 <br>
 
