@@ -21,6 +21,7 @@ import Settingss from "./src/screens/settings";
 import { Alert, Image, Text } from "react-native";
 import {PermissionsAndroid} from 'react-native';
 import ReservationPayment from "./src/screens/reservationPayment";
+import ChangeInfo from "./src/screens/changeInfo";
   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 const Stack = createStackNavigator();
@@ -157,6 +158,7 @@ export default function App() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen screenOptions={{ headerShown: false }} name="Settingss" component={Settingss} />
+        <Stack.Screen screenOptions={{ headerShown: false }} name="ChangeInfo" component={ChangeInfo} />
       </Stack.Navigator>
     );
   }

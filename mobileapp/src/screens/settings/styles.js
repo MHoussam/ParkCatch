@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
     paddingLeft: 20,
+    alignItems: 'center',
   },
   title: {
     fontWeight: "600",

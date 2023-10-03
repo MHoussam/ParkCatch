@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import Header from "../../components/ui/header";
 import Footer from "../../components/ui/footer";
@@ -10,6 +10,8 @@ import { setUser, setUserToken } from "../../redux/user/userSlice";
 
 const Settings = () => {
   const user = useSelector((state) => state.user);
+  const [first, setFirst] = useState();
+  const [last, setLast] = useState();
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -23,21 +25,23 @@ const Settings = () => {
     navigation.navigate('Login');
   };
 
+  const handleEdit = () => {
+    navigation.navigate('ChangeInfo');
+
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <Header ScreenName={"Settings"} mainScreen={true} />
       <View style={{ flex: 1, paddingTop: 20 }}>
-        <View style={styles.nameContainer}>
-          <Text style={styles.name}>
-            {user.first_name} {user.last_name}
-          </Text>
-        </View>
-        <View style={styles.row}>
+        <View >
+        <TouchableOpacity onPress={handleEdit} style={styles.row}>
           <Image
             style={styles.change}
             source={require("../../../assets/images/changeInfo.png")}
           />
           <Text style={styles.title}>Edit Account Information</Text>
+        </TouchableOpacity>
         </View>
         <View style={styles.row}>
           <Image
