@@ -6,11 +6,7 @@
 
 <br><br>
 
-<img id="project-philosophy" src="./readme/titles/title2.svg"/>
-
-<br><br>
-
-<img src="./readme/titles/title2.svg"/>
+<img id="table-of-contents" src="./readme/titles/title2.svg"/>
 
 - [PROJECT PHILOSOPHY](https://github.com/MHoussam/ParkCatch#project-philosophy)
 - [PROTOTYPES](https://github.com/MHoussam/ParkCatch#prototyping)
