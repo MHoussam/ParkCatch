@@ -69,7 +69,7 @@
 
 | Login                                                            | 
 |------------------------------------------------------------------|
-| ![login](./readme/website/login.png)
+| ![login](./readme/website/mockups/login.png)
 
 <br>
 
@@ -77,7 +77,7 @@
 
 | Reservation Alert                                                | Reservation Search                                                |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![reservationAlert](./readme/website/alertS.png) | ![reservationSearch](./readme/website/searchS.png) |
+| ![reservationAlert](./readme/website/mockups/alertS.png) | ![reservationSearch](./readme/website/mockups/searchS.png) |
 
 <br>
 
@@ -85,7 +85,7 @@
 
 | Edit Spot's Details                                              | Ban a Client                                                      |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![edit](./readme/website/editA.png) | ![edit](./readme/website/banA.png) |
+| ![edit](./readme/website/mockups/editA.png) | ![edit](./readme/website/mockups/banA.png) |
 
 
 <br><br>
@@ -113,6 +113,18 @@ ParkCatch is built using the following technologies:
 | Login | Choose a Spot | Reservations | Reservation Payment & Directions|
 | --- | --- | --- | --- |
 | ![Login](./readme/mobileapp/demo/login.gif) | ![Choose a Spot](./readme/mobileapp/demo/reserve.gif) | ![Reservations](./readme/mobileapp/demo/reservations.gif) | ![Reservation Payment](./readme/mobileapp/demo/payment.gif) |
+
+<br>
+
+<span style="font-size: 20px;"><strong>Supervisor & Admin Pages (Website)</strong></span>
+
+| Login                                                            | Search for a Reservation                                          |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![login](./readme/website/demo/login.gif) | ![searchReservation](./readme/website/demo/search.gif) |
+
+| Remove Spots Availability                                        | Terminate a Reservation                                           |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![removeAvailability](./readme/website/demo/remove.gif) | ![terminateReservation](./readme/website/demo/alert.gif) |
 
 <br><br>
 
