@@ -112,8 +112,7 @@ ParkCatch is built using the following technologies:
 
 | Login | Choose a Spot | Reservation Payment & Directions | Reservations |
 | --- | --- | --- | --- |
-| <img src="./readme/mobileapp/demo/login.gif" width="300" height="850"/> | <img src="./readme/mobileapp/demo/reserve.gif" width="300" height="850"/> | <img src="./readme/mobileapp/demo/payment.gif" width="300" height="850"/> | <img src="./readme/mobileapp/demo/reservations.gif" width="300" height="850"/> |
-
+| ![Login](./readme/mobileapp/demo/login.gif) | ![Choose a Spot](./readme/mobileapp/demo/reserve.gif) | ![Reservation Payment](./readme/mobileapp/demo/payment.gif) | ![Reservations](./readme/mobileapp/demo/reservations.gif) |
 
 <br>
 
@@ -149,6 +148,41 @@ The camera module takes a photo every 10 seconds and send it to the server where
 | Circuit Design                                                   | 
 |------------------------------------------------------------------|
 | ![Circuit Design](./readme/arduino/arduinoCircuit.jpeg)
+
+<br><br>
+
+<img src="readme/titles/title8.svg" id="performance"/>
+
+> The performance of some APIs were tested using postman.
+<br>
+
+URL: http://127.0.0.1:8000/api/reservations
+
+```sh 
+PASS: Response time is within acceptable range //267 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+
+```
+
+<br>
+
+URL: http://127.0.0.1:8000/api/spots
+
+```sh 
+PASS: Response time is within acceptable range //433 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+```
+<br>
+
+URL: http://127.0.0.1:8000/api/parkings
+
+```sh 
+PASS: Response time is within acceptable range //160 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+```
 
 <br><br>
 
