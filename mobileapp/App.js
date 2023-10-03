@@ -30,21 +30,12 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   const [userToken, setUserToken] = useState(null);
 
-  //  useEffect(() => {
-  //   const checkUserToken = async () => {
-  //     const token = await AsyncStorage.removeItem('userToken');
-  //     const user = await AsyncStorage.removeItem('userData');
-  //   };
-  //   checkUserToken();
-  // }, []);
-
   const { registerForPushNotificationsAsync, handleNotificationResponse } =
     Notification();
 
   let token;
   const checkToken = async () => {
     token = await AsyncStorage.getItem('userToken');
-    console.log('this is the token ' + token);
     setUserToken(token);
   }
 
@@ -59,69 +50,6 @@ export default function App() {
       console.log('Authorization status:', authStatus);
     }
   }
-
-// useEffect(() => {
-//   if(requestUserPermission) {
-//     messaging().getToken().then(token => {
-//       console.log('yesssss: '+ token)
-//     })
-//   } else {
-//     console.log("Failed token status ", authStatus)
-//   }
-
-//   messaging()
-//       .getInitialNotification()
-//       .then(async (remoteMessage) => {
-//         if (remoteMessage) {
-//           console.log(
-//             'Notification caused app to open from quit state:',
-//             remoteMessage.notification,
-//           );
-//         }
-//       });
-
-
-//       messaging().onNotificationOpenedApp(async (remoteMessage) => {
-//         console.log(
-//           'Notification caused app to open from background state:',
-//           remoteMessage.notification,
-//         );
-//       });
-
-//       messaging().setBackgroundMessageHandler(async remoteMessage => {
-//         console.log('Message handled in the background!', remoteMessage);
-//       });
-
-//       const unsubscribe = messaging().onMessage(async remoteMessage => {
-//         Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-//       });
-  
-//       return unsubscribe;
-// }, [])
-
-
-  // useEffect(() => {
-  //   registerForPushNotificationsAsync();
-  //   Notifications.setNotificationHandler({
-  //     handleNotification: async () => ({
-  //       shouldShowAlert: true,
-  //       shouldPlaySound: true,
-  //       shouldSetBadge: true,
-  //     }),
-  //   });
-
-  //   const responseListener =
-  //     Notifications.addNotificationResponseReceivedListener(
-  //       handleNotificationResponse
-  //     );
-
-  //   checkToken();
-
-  //   return () => {
-  //     if (responseListener)
-  //       Notifications.removeNotificationSubscription(responseListener);
-  //   };
-  // }, []);
 
   function HomeStackNavigator() {
     return (
@@ -145,14 +73,6 @@ export default function App() {
       </Stack.Navigator>
     );
   }
-
-  // function NotificationsStackNavigator() {
-  //   return (
-  //     <Stack.Navigator screenOptions={{ headerShown: false }}>
-  //       <Stack.Screen screenOptions={{ headerShown: false }} name="Notificationss" component={Notificationss} />
-  //     </Stack.Navigator>
-  //   );
-  // }
 
   function SettingsStackNavigator() {
     return (
@@ -197,15 +117,6 @@ export default function App() {
             />
           ),}}
           name="Reservations" component={ReservationsStackNavigator} />
-        {/* <Tab.Screen 
-          options={{
-          tabBarIcon: ({ color, size }) => (
-            <Image
-                source={require('./assets/images/notifications.png')}
-                style={{ minHeight: 21, minWidth: 19, tintColor: color }}
-            />
-          ),}}
-          name="Notifications" component={NotificationsStackNavigator} /> */}
         <Tab.Screen 
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -225,10 +136,8 @@ export default function App() {
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="TabNavigator" component={TabNavigator} />
-            {/* <Stack.Screen name="EditPost" component={EditPost} /> */}
             <Stack.Screen name="Signup" component={Signup} />
           </Stack.Navigator>
-        {console.log('shuuuuuuuuuuuuuuuuuuuuuu:', userToken)}
       </NavigationContainer>
     </Provider>
   );

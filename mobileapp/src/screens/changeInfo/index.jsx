@@ -15,18 +15,14 @@ const ChangeInfo = () => {
   const user = useSelector((state) => state.user)
 
   const handleFirstChange = (text) => {
-    console.log("First Name changed:", text);
     setFirst(text);
   };
 
   const handleLastChange = (text) => {
-    console.log("Last Name changed:", text);
     setLast(text);
   };
 
   const look = async () => {
-    console.log("First Name:", first);
-    console.log("Last Name:", last);
 
     const data = {
         "first_name": first,

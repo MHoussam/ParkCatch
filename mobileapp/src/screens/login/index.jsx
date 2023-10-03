@@ -13,9 +13,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [PasswordVisible, setPasswordVisible] = useState(false);
-  // const [userToken, setUserToken] = useState('');
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user);
   const userToken = useSelector((state) => state.user.token);
   const navigation = useNavigation();
 
@@ -24,12 +22,8 @@ const Login = () => {
       const user = {
         email: email,
         password: password,
-        //lastUpdated: new Date().toISOString(),
     };
-      // console.log(user)
       const response = await axios.post('http://127.0.0.1:8000/api/login', user);
-      console.log('Login successful');
-      console.log('what')
 
       const userData = {
         firstname: response.data.data.first_name,
@@ -37,12 +31,8 @@ const Login = () => {
         email: response.data.data.email,
       };
 
-      // const userToken = {
-      //   token: response.data.data.token,
-      // }
 
       if (response.data.data.token !== null) {
-        console.log(response.data.data.token);
   
         await AsyncStorage.setItem('userData', JSON.stringify(response.data.data));
         await AsyncStorage.setItem('userToken', response.data.data.token);
@@ -62,7 +52,6 @@ const Login = () => {
   useEffect(() => {
     const checkToken = async () => {
       const token = await AsyncStorage.getItem('userToken');
-      console.log('hereeeee: ' + token)
       if(token !== null){
         
         navigation.navigate('TabNavigator');

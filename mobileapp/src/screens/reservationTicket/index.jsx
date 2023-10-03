@@ -48,9 +48,6 @@ const ReservationTicket = () => {
       console.log('Reservation error ' , error)
     }
   }
-//   useEffect(() => {
-// reserve();
-//   }, []);
 
   return (
     <View style={styles.container}>

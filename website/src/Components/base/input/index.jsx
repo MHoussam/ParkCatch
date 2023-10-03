@@ -5,11 +5,7 @@ const Input = ({ text, type, placeholder, value, state, onChange, classProp }) =
   const handleChange = (e) => {
     const newValue = e.target.value;
     onChange(newValue);
-    console.log(newValue); 
   };
-
-  console.log({state}[`${value}`])
-  console.log(classProp)
 
   const className = `input ${classProp || ''}`;
   return (

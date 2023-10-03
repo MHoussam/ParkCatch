@@ -19,8 +19,6 @@ const Login = () => {
       token = await localStorage.getItem('userToken');
     const userToken = JSON.parse(token)
       const user = await localStorage.getItem('userData');
-      // console.log('hereeeee: ' + token)
-      console.log(user)
       if(token !== null){
         if(user.role != 3){
           dispatch(setUserToken(userToken));

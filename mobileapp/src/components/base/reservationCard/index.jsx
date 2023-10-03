@@ -8,12 +8,9 @@ import { setSelectedParking } from '../../../redux/selectedParking/selectedParki
 import { useNavigation } from '@react-navigation/native'
 
 const ReservationCard = ({ reservations }) => {
-  // const reservations = useSelector((state) => state.reservations)
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const [time, setTime] = useState('');
-  console.log('sssssssssssssssssssssssssssssss')
-  console.log(reservations)
   const navigateToDirection = () => {
     if(reservations.valid == 1){
       dispatch(setSelectedParking({id: reservations.parking.id, name: reservations.parking.name, address: reservations.parking.address, latitude: parseFloat(reservations.parking.latitude), longitude: parseFloat(reservations.parking.longitude)}))

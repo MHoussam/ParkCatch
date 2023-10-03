@@ -15,7 +15,6 @@ const Button = ({ text, navigate}) => {
     if (selectedSlot.id !== null) {
       navigation.navigate(`${navigate}`);
     }
-    console.log(`${navigate}`)
     navigation.navigate(`${navigate}`);
 
   };

@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux'
 const Header = () => {
   const user = useSelector((state) => state.user)
 
-  console.log(user)
   return (
     <div className='header flex align-items'>
       <div className="width-100 flex space-between">

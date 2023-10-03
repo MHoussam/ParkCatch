@@ -19,7 +19,6 @@ const Modal = ({
   if (!isOpen) return null;
 
   const close = () => {
-    console.log(inputValues);
     setInputValues([]);
     onClose();
   };
@@ -31,7 +30,6 @@ const Modal = ({
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
-        console.log(userData.parking_id);
         const data = {
           staff_id: userData.id,
           parking_id: userData.parking_id,
@@ -39,13 +37,11 @@ const Modal = ({
           reason: inputValues["terminationReason"],
           token: userToken,
         };
-        console.log(data);
 
         const response = await axios.post(
           "http://127.0.0.1:8000/api/terminate",
           data
         );
-        console.log(response.data);
         dispatch(clearSlots());
         setInputValues([]);
         onClose();
@@ -59,25 +55,21 @@ const Modal = ({
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
-        console.log(userData.parking_id);
         const data = {
           staff_id: userData.id,
           parking_id: userData.parking_id,
           spot_id: parseInt(inputValues["spotNumber"]),
           token: userToken,
         };
-        console.log(data);
 
         const response = await axios.post(
           "http://127.0.0.1:8000/api/addAvail",
           data
         );
-        console.log(response.data);
         dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {
-        console.error("Error:", error);
       }
     },
     remove: async () => {
@@ -86,7 +78,6 @@ const Modal = ({
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
-        console.log(userData.parking_id);
         const data = {
           staff_id: userData.id,
           parking_id: userData.parking_id,
@@ -94,18 +85,15 @@ const Modal = ({
           reason: inputValues["unavailabilityReason"],
           token: userToken,
         };
-        console.log(data);
 
         const response = await axios.post(
           "http://127.0.0.1:8000/api/removeAvail",
           data
         );
-        console.log(response.data);
         dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {
-        console.error("Error:", error);
       }
     },
     edit: async () => {
@@ -114,7 +102,6 @@ const Modal = ({
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
-        console.log(userData.parking_id);
         const data = {
           parking_id: userData.parking_id,
           price: inputValues["reservationPrice"],
@@ -122,14 +109,11 @@ const Modal = ({
           close_hour: inputValues["closingHour"],
           token: userToken,
         };
-        console.log(data);
 
         const response = await axios.post(
           "http://127.0.0.1:8000/api/parkingDetails",
           data
         );
-        console.log(response.data);
-        // dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {
@@ -142,7 +126,6 @@ const Modal = ({
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
-        console.log(userData.parking_id);
         const data = {
           parking_id: userData.parking_id,
           first_name: inputValues["firstName"],
@@ -151,14 +134,11 @@ const Modal = ({
           password: inputValues["password"],
           token: userToken,
         };
-        console.log(data);
 
         const response = await axios.post(
           "http://127.0.0.1:8000/api/addSupervisor",
           data
         );
-        console.log(response.data);
-        // dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {
@@ -171,19 +151,15 @@ const Modal = ({
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
-        console.log(userData.parking_id);
         const data = {
           email: inputValues["email"],
           token: userToken,
         };
-        console.log(data);
 
         const response = await axios.post(
           "http://127.0.0.1:8000/api/removeSupervisor",
           data
         );
-        console.log(response.data);
-        // dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {
@@ -196,20 +172,16 @@ const Modal = ({
         const user = localStorage.getItem("userData");
         const userToken = JSON.parse(token);
         const userData = JSON.parse(user);
-        console.log(userData.parking_id);
         const data = {
           email: inputValues["email"],
           reason: inputValues["banningReason"],
           token: userToken,
         };
-        console.log(data);
 
         const response = await axios.post(
           "http://127.0.0.1:8000/api/ban",
           data
         );
-        console.log(response.data);
-        // dispatch(clearSlots());
         setInputValues([]);
         onClose();
       } catch (error) {

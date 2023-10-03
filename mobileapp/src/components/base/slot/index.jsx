@@ -5,7 +5,6 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const Slot = ({ number, styleContainer, styleTitle, onPress, isSelected }) => {
 
-  // console.log('is selected? ' + isSelected)
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={[styleContainer, isSelected ? styles.slotContainer : null]}>

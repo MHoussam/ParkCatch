@@ -39,8 +39,6 @@ const ReservationInfo = () => {
       total: parseInt(reservation.duration) * selectedParking.price,
     })
   );
-  console.log(user)
-  console.log(selectedSlot)
 
   useEffect(() => {
     dispatch(
@@ -54,7 +52,6 @@ const ReservationInfo = () => {
 
   useEffect(() => {
     dispatch(clearSlots());
-    // dispatch(clearSelectedSlot());
     return () => {
       dispatch(clearReservation());
     };

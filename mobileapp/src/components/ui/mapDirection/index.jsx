@@ -17,16 +17,10 @@ const MapDirections = () => {
   const dispatch = useDispatch();
 
   const fetchDirection = async () => {
-    // console.log('currenttttttttttttttttttt')
-    // console.log(currentLocation)
     if (currentLocation.length == 0) {
-      // console.log('shuuuuuuuuuuuuuu')
-      // console.log('shuuuuuuuuuuuuuu')
 
-      // getLocationAsync();
       return;
     }
-    // console.log('lehhhhhhhh')
 
     const apiKey = "jiEbAXzcDj8ZRhrkfI3EfYjG462gAlrg";
 
@@ -34,17 +28,12 @@ const MapDirections = () => {
       const response = await axios.get(
         `https://www.mapquestapi.com/directions/v2/route?key=${apiKey}&from=${currentLocation.latitude},${currentLocation.longitude}&to=${selectedParking.latitude},${selectedParking.longitude}`
       );
-      // console.log('sahhh')
-      // console.log(response.data)
 
       const { legs } = response.data.route;
-      //   console.log(response.data.route.legs[0].maneuvers[0].startPoint.lat)
       const points = legs[0].maneuvers.map((maneuver) => ({
         latitude: maneuver.startPoint.lat,
         longitude: maneuver.startPoint.lng,
       }));
-      // console.log('points')
-      // console.log(points)
       setRouteCoordinates(points);
     } catch (error) {
       setError(error.message);
@@ -93,14 +82,6 @@ const MapDirections = () => {
       clearInterval(locationInterval);
     };
   }, [currentLocation, refresh]);
-  // console.log('route')
-  // console.log(routeCoordinates[0])
-  // console.log(currentLocation)
-
-  // console.log('current')
-  // console.log(currentLocation)
-  // console.log('selectedParking')
-  // console.log(selectedParking.latitude + ' ' + selectedParking.longitude)
   return (
     <View style={styles.container}>
       {currentLocation && routeCoordinates.length > 0 ? (
@@ -198,12 +179,6 @@ const MapDirections = () => {
         </>
       )}
 
-      {/* {error && <Text>Error: {error}</Text>} */}
-      {/* <Text>hELLOOOOOOOO</Text>
-        {console.log('current: ' + currentLocation.latitude + ' ' + currentLocation.longitude)}
-          {console.log('selectedParking: ' + selectedParking.latitude + ' ' + currentLocation.longitude)}
-          {console.log('route: ')} */}
-      {/* {console.log(routeCoordinates[0].latitude)} */}
     </View>
   );
 };

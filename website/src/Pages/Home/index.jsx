@@ -21,40 +21,28 @@ const Home = () => {
   const checkToken = async () => {
     const token = await localStorage.getItem("userToken");
     const userToken = JSON.parse(token);
-    console.log('hereeeee: ' + userToken)
     if (userToken === null) {
       dispatch(setUserToken(token));
       navigate("../");
     }
-    // const userToken = JSON.parse(token);
     const userr = localStorage.getItem("userData");
     const userData = JSON.parse(userr);
-    console.log(userToken)
-    console.log(userData)
     dispatch(setUser(userData));
     dispatch(setUserToken(userToken));
   };
 
   const fetchReservations = async () => {
-    // const token = await localStorage.getItem("userToken");
-    // userToken = JSON.parse(token);
-    // console.log(userData.parking_id);
 
     const userr = localStorage.getItem("userData");
     const userData = JSON.parse(userr);
-    console.log(userData);
-    console.log(userData.token);
-    // console.log(userData);
     const data = {
       user_id: userData.id,
       parking_id: userData.parking_id,
       token: userData.token,
     };
-    console.log("oooooooooooooooo");
 
     let response;
     if(userData.role == 2){
-    console.log(data);
 
       response = await axios.post(
         "http://127.0.0.1:8000/api/allReservations",
@@ -66,11 +54,8 @@ const Home = () => {
         data
       );
     }
-    console.log("mmmmmmmmmmmmmmmm");
-    console.log(response.data);
     if (Array.isArray(response.data.data) && response.data.data.length > 0) {
       response.data.data.forEach((item) => {
-        console.log(item)
         const {
           id,
           user_id,
@@ -85,7 +70,6 @@ const Home = () => {
           phone_number,
           parking,
         } = item;
-        console.log('1')
         dispatch(
           setReservation({
             id,
@@ -104,32 +88,18 @@ const Home = () => {
         );
       });
     }
-    // dispatch(setReservation(response.data.data))
   };
 
-  // useEffect(() => {
-  //   checkToken();
-  //   console.log('what: ' + userToken)
-  //   console.log(localUserData===null);
-  //   // console.log(user===undefined);
-  //   console.log(localUserData);
-  //   // console.log(userData.length>0);
-  //   if (localUserData.id !== null) {
-  //     fetchReservations();
-  //   }
-  // }, []);
   
   useEffect(() => {
     checkToken();
     const userr = localStorage.getItem("userData");
     const userData = JSON.parse(userr);
-    console.log(userData);
     if (userData !== null) {
       fetchReservations();
     }
   }, []);
 
-  console.log(reservations)
 
   return (
     <div className="homeContainer flex column">

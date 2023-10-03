@@ -18,7 +18,6 @@ const reservationSlice = createSlice({
   initialState,
   reducers: {
     setReservation: (state, action) => {
-      console.log(' action called ' + action.payload.duration + ' ' + action.payload.client + ' ' + action.payload.phone);
 
         state.client = action.payload.client;
         if(action.payload.phone !== null && action.payload.phone !== '' && action.payload.phone !== undefined){
@@ -38,7 +37,6 @@ const reservationSlice = createSlice({
         state.date_reserved = action.payload.date_reserved;
     },
     clearReservation: (state) => {
-      console.log('clearReservation action called');
         state.client = null;
         state.phone = '';
         state.parking = null;

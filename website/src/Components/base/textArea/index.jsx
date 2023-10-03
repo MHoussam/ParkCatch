@@ -5,7 +5,6 @@ const TextArea = ({ text, type, placeholder, value, state, onChange }) => {
     const handleChange = (e) => {
         const newValue = e.target.value;
         onChange(newValue);
-        console.log(newValue); 
       };
 
   return (

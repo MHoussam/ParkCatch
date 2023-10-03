@@ -14,16 +14,12 @@ const Reservations = () => {
         const token = await AsyncStorage.getItem('userToken');
         const user = await AsyncStorage.getItem('userData');
         const userData = JSON.parse(user);
-console.log(userData.id)
         const data = {
             user_id: userData.id,
             token: token,
         }
-        console.log('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
 
         const response = await axios.post('http://127.0.0.1:8000/api/reservations', data);
-        console.log('mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm')
-        console.log(response.data.data)
         setReservations(response.data.data)
     }
 
@@ -31,7 +27,6 @@ console.log(userData.id)
         fetchReservations();
     }, [])
 
-    console.log(reservations)
   return (
     <View style={styles.container}>
         <Header ScreenName={'Reservations'} mainScreen={true}/>

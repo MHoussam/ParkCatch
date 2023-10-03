@@ -25,8 +25,6 @@ const Map = () => {
   const navigation = useNavigation();
   const location = useSelector((state) => state.location.location);
   const errorMsg = useSelector((state) => state.location.errorMsg);
-  // const user = useSelector((state) => state.user);
-  // const userToken = useSelector((state) => state.user.token);
   const parkings = useSelector((state) => state.parking.parkings);
   const selectedParking = useSelector((state) => state.selectedParking);
   const selectedSlot = useSelector((state) => state.selectedSlot);
@@ -38,25 +36,17 @@ const Map = () => {
       const userData = await AsyncStorage.getItem('userData');
       const userToken = await AsyncStorage.getItem('userToken');
       
-      // console.log('aaaaaaa ' +parkings.length )
-      // console.log(parkings )
       const axiosConfig = {
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-Type': 'application/json'
         }
       };
-      // console.log(userData)
-      // console.log(userToken)
       const response = await axios.get('http://127.0.0.1:8000/api/parkings', axiosConfig);
 
-      // console.log('data')
 
-      // console.log(response.data.data)
       if (Array.isArray(response.data.data)) {
         if (parkings.length === 0) {
-          // console.log('parking: aaaaaaa ' +parkings.length )
-          // console.log(parkings )
           response.data.data.forEach((item) => {
             const { id,
               name,
@@ -67,7 +57,6 @@ const Map = () => {
               close_hour,
               latitude,
               longitude, } = item;
-// console.log('1')
             dispatch(addParking({ id,
               name,
               address,
@@ -83,10 +72,8 @@ const Map = () => {
       } else {
         console.error('Received non-array data from server:', response.data);
       }
-      // console.log('no?')
     } catch(error) {
       console.error('Error fetching parking data:', error);
-      // fetchParkings();
     }
   }
 
@@ -106,14 +93,10 @@ const Map = () => {
 
   const handleMarkerPress = async (parking) => {
     dispatch(setSelectedParking(parking)); 
-    // console.log('shuuuuuuuuuuuuuuuuuuuu')
-    // console.log(url)
-    //setAvailableNumber(null);
   };
 
   const closeCard = () => {
     dispatch(clearSelectedParking());
-    // console.log(selectedParking)
   };
 
   const navigateToSpots = () => {
@@ -166,17 +149,9 @@ const Map = () => {
   const checkParkings = async () => {
     const park = await AsyncStorage.getItem('parkings')
     const parkings = JSON.parse(park);
-    // console.log('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy')
-    // console.log(parkings)
 
     if (parkings === null) {
-      // dispatch(clearParkings());
       checkParkings();
-    //   console.log('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
-    //   console.log(parkings)
-    // console.log(location)
-      // fetchParkings();
-      // fetchMap();
     }
   }
 
@@ -185,22 +160,12 @@ const Map = () => {
     fetchParkings();
   }, []);
 
-  // console.log('maybe?')
-  // console.log(userToken.token)
-  // console.log('redux')
-  // console.log(parkings)
-  // console.log('selectedParking')
-  // console.log(selectedParking)
-  // console.log(location)
-  // console.log(calculatedDistance)
-
   return (
     <View style={styles.container}>
       {errorMsg ? (
         <Text style={styles.error}>{errorMsg}</Text>
       ) : location ? (
       <>
-      {/* <WebSocketClient /> */}
         <MapView
           style={styles.map}
           initialRegion={{

@@ -11,15 +11,6 @@ import { clearReservation } from '../../redux/reservation/reservationSlice';
 
 const Spots = () => {
   const slots = useSelector((state) => state.slots);
-  // const selectedParking = useSelector((state) => state.selectedParking);
-  // const dispatch = useDispatch();
-  // const reservation = useSelector((state) => state.reservation);
-
-  // console.log(reservation)
-
-// useEffect(() => {
-//   dispatch(clearReservation);
-// }, []);
 
   return (
     <View style={styles.container}>

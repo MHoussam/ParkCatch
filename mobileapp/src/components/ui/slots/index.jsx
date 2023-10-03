@@ -17,9 +17,7 @@ const Slots = () => {
   const selectedSlot = useSelector((state) => state.selectedSlot);
   const reservation = useSelector((state) => state.reservation);
   
-// console.log(reservation)
   const fetchSpots = async () => {
-    // dispatch(clearSelectedSlot())
     const userToken = await AsyncStorage.getItem('userToken');
 
     try {
@@ -34,14 +32,12 @@ const Slots = () => {
         parking_id: selectedParking.id,
         token: userToken,
       };
-      //  console.log(dataForm)
       const response = await axios.post(
         "http://127.0.0.1:8000/api/spots",
         dataForm
       );
       if (Array.isArray(response.data.data)) {
         if (slots.slots.length === 0) {
-          // console.log("here");
           response.data.data.forEach((item) => {
             const {
               id,
@@ -67,55 +63,34 @@ const Slots = () => {
               })
             );
           });
-          // console.log("finish");
         }
       } else {
         console.error("Received non-array data from server:", response.data);
       }
-      // console.log('no?')
     } catch (error) {
       console.error("Error fetching spots data:", error);
-      // console.log(userToken)
     }
   };
 
   const slotPressed = (slot) => {
       if((selectedSlot === null || selectedSlot.id !== slot.id) && slot.reserved === false){
         dispatch(setSelectedSlot(slot));
-        // console.log(selectedSlot) 
-        // console.log('sele:')    
-        // console.log(slot);
-        // console.log(selectedSlot.id != slot.id)
       } else {
         dispatch(clearSelectedSlot());
-        // console.log('notttttttttttttttttt')
       }
   }
 
-//   useEffect(() => {
-//     fetchSpots();
-//     console.log('slots')
-    console.log(selectedSlot);
-// }, [slots]);
 
   useEffect(() => {    
     fetchSpots();
-    // dispatch(clearSelectedSlot())
 
-    // console.log('slotssssssssssssssss')
-  // console.log(slots);
   }, [slots.slots]);
 
   useEffect(() => { 
   return () => {
-    // dispatch(clearSelectedSlot())
     dispatch(clearSlots())
   }
   }, []);
-  // console.log(slots.slots.map((slot) => slot.reserved));
-  // console.log('selectslot: ' + selectedSlot);
-  //   console.log(selectedSlot);
-
   return (
     <>
     {slots.slots.length > 0 ? (

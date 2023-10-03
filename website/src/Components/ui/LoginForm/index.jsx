@@ -18,16 +18,11 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-    // console.log(email);
-    // console.log(password);
-
     const togglePasswordVisibility = () => {
         if(!passwordVisible){
             setEye(notvisible)
-            console.log('here')
         } else {
             setEye(visible)
-            console.log('ttttttttthere')
 
         }
 
@@ -40,12 +35,10 @@ const LoginForm = () => {
           email: inputValues['Email'],
           password: inputValues['Password'],
         }
-        console.log(dataForm)
         const response = await axios.post("http://localhost:8000/api/login", dataForm);
     
         const userData = response.data.data;
         const userToken = response.data.data.token;
-    console.log(response.data.data)
     if(response.data.data.role != 3){
       const userDataJSON = JSON.stringify(userData);
       const userTokenJSON = JSON.stringify(userToken);
@@ -65,7 +58,6 @@ const LoginForm = () => {
     const handleInputChange = (label, value) => {
       setInputValues((prevInputValues) => {
         const updatedInputValues = { ...prevInputValues, [label]: value };
-        console.log(updatedInputValues);
         return updatedInputValues;
       });
     };

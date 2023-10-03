@@ -10,7 +10,6 @@ import MapDirections from '../../components/ui/mapDirection';
 const Directions = () => {
     const selectedParking = useSelector((state) => state.selectedParking);
     const reservation = useSelector((state) => state.reservation);
-console.log(selectedParking);
   return (
     <View style={styles.container}>
         <Header ScreenName={'Directions'} ParkingName={selectedParking.name}/>

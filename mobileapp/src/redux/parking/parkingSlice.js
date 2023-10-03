@@ -24,7 +24,6 @@ const parkingSlice = createSlice({
     },
     clearParkings: (state) => {
       state.parkings = []
-      console.log(state.parkings)
     }
   },
 });

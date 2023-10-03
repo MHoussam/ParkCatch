@@ -25,8 +25,6 @@ const reservationSlice = createSlice({
           x_coordinate,
           y_coordinate,
         });
-        console.log(x_coordinate)
-        console.log(y_coordinate)
     },
     clearReservation: (state) => {
       state.reservation = []

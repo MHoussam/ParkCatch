@@ -15,34 +15,21 @@ const Slots = () => {
 
   const fetchSpots = async () => {
     const userToken = await localStorage.getItem("userToken");
-    console.log(userToken);
 
     try {
       const user = localStorage.getItem('userData');
         const userData = JSON.parse(user);
-        console.log(userData)
-      // const axiosConfig = {
-      //   headers: {
-      //     Authorization: `Bearer ${userToken}`,
-      //     "Content-Type": "application/json",
-      //   },
-      // };
-
       const dataForm = {
         parking_id: userData.parking_id,
         token: userData.token,
       };
-         console.log(dataForm)
       const response = await axios.post(
         "http://127.0.0.1:8000/api/spots",
         dataForm
       );
-      console.log(response.data.data);
 
       if (Array.isArray(response.data.data) && response.data.data.length > 0) {
         if (slots.slots === null || slots.slots.length === 0) {
-          console.log("here");
-          console.log(slots.slots);
           response.data.data.forEach((item) => {
             const {
               id,
@@ -68,29 +55,18 @@ const Slots = () => {
               })
             );
           });
-          // console.log("finish");
         }
       } else {
-        console.error("Received non-array data from server:", response.data);
       }
-      // console.log('no?')
     } catch (error) {
-      console.error("Error fetching spots data:", error);
-      console.log(userToken);
     }
   };
 
   useEffect(() => {
     fetchSpots();
-    console.log('changed')
-    console.log(searchFilter)
 
   }, [searchFilter, slots]);
 
-  console.log(slots.slots);
-  console.log(searchFilter.searchFilter);
-  console.log(searchbar.searchbar === '');
-console.log(reservations)
   return (
     <>
     {slots.slots.length != 0 ? (

@@ -248,7 +248,6 @@ const SideBar = () => {
   const handleInputChange = (label, value) => {
     setInputValues((prevInputValues) => {
       const updatedInputValues = { ...prevInputValues, [label]: value };
-      console.log(updatedInputValues);
       return updatedInputValues;
     });
   };  
@@ -256,13 +255,9 @@ const SideBar = () => {
   const handleLogout = () => {
     localStorage.removeItem("userToken");
     localStorage.removeItem("userData");
-    // dispatch(setUserToken(null));
-    // dispatch(setUser(null));
     navigate("../Login");
   };
 
-  console.log(inputValues)
-  console.log(user.role)
 
   return (
     <div className="sidebar flex column">

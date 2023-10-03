@@ -26,16 +26,6 @@ const Signup = () => {
         lastUpdated: new Date().toISOString(),
     };
       console.log(user)
-      navigation.navigate('TabNavigator');
-      // const response = await axios.post('http://127.0.0.1:8000/api/register', user);
-      // console.log('Login successful', response.data.data);
-      // console.log('what')
-
-      // const user = {
-      //   username: "JohnDoe",
-      //   password: "password123",
-      //   lastUpdated: new Date().toISOString(),
-      // };
       dispatch(setUser(user));
     } catch (error) {
       console.error('SignUp failed', error);

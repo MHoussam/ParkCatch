@@ -14,47 +14,29 @@ const SearchBar = () => {
   const searchFilter = useSelector((state) => state.searchFilter)
 
   const handleSearch = (query) => {
-    console.log(query)
-
-    console.log(typeof query)
-
-    console.log('nooo')
-    console.log(query)
-    console.log(reservation.reservation)
-    console.log('Type of slots:', typeof reservation.reservation);
 
     if (Array.isArray(reservation.reservation)) {
-      console.log('yessss')
     const filtered = reservation.reservation.filter(
       (reservation) =>
         reservation.plate_number.toLowerCase().startsWith(query.toLowerCase()) ||
         reservation.phone_number.toString().startsWith(query.toLowerCase())
     );
-        // console.log(reservation.reservation['plateNumber'])
 
-    dispatch(setSearchFilter(filtered));
-    console.log('filtered')
-    console.log(filtered)
+    dispatch(setSearchFilter(filtered))
     }
   };
 
   const handleInputChange = (e) => {
     const newQuery = e.target.value;
     setQuery(newQuery);
-    console.log(typeof newQuery)
     dispatch(setSearchbar(newQuery));
     handleSearch(newQuery);
-    // console.log(newQuery)
     if (newQuery === "") {
       dispatch(clearSearchFilter());
       dispatch(clearSearchbar());
-      // dispatch(setSearchFilter(slots.slots));
     }
   };
 
-  console.log('now hear ')
-  console.log(slots.slots)
-  console.log(searchFilter)
   return (
     <div className="searchBar width-25">
       <Image src={search} alt='' className='searchIcon' />
