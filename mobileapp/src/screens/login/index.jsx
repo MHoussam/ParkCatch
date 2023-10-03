@@ -107,18 +107,18 @@ return (
               </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.forgotPasswordContainer}>
+        {/* <View style={styles.forgotPasswordContainer}>
           <Text style={styles.forgotPasswordText}>Forgot password?</Text>
-        </View>
+        </View> */}
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
             <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <View style={styles.loginWithContainer}>
+        {/* <View style={styles.loginWithContainer}>
           <Text style={styles.loginWithText}>Or login with</Text>
-        </View>
-        <View style={styles.googleContainer}>
+        </View> */}
+        {/* <View style={styles.googleContainer}>
           <Image source={require('../../../assets/images/google.png')} style={styles.google} />
-        </View>
+        </View> */}
         <View style={styles.signupContainer}>
           <Text style={styles.signupText}>Don't have an account?</Text>
           <Text style={styles.signupLink} onPress={navigateToSignUp}> Sign up</Text>

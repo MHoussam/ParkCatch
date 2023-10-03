@@ -26,9 +26,10 @@ const Signup = () => {
         lastUpdated: new Date().toISOString(),
     };
       console.log(user)
-      const response = await axios.post('http://127.0.0.1:8000/api/register', user);
-      console.log('Login successful', response.data.data);
-      console.log('what')
+      navigation.navigate('TabNavigator');
+      // const response = await axios.post('http://127.0.0.1:8000/api/register', user);
+      // console.log('Login successful', response.data.data);
+      // console.log('what')
 
       // const user = {
       //   username: "JohnDoe",
@@ -84,12 +85,6 @@ return (
         <TouchableOpacity style={styles.loginButton} onPress={handleSignUp}>
             <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
-        <View style={styles.loginWithContainer}>
-          <Text style={styles.loginWithText}>Or Sign Up with</Text>
-        </View>
-        <View style={styles.googleContainer}>
-          <Image source={require('../../../assets/images/google.png')} style={styles.google} />
-        </View>
         <View style={styles.signupContainer}>
           <Text style={styles.signupText}>Already have an account?</Text>
           <Text style={styles.signupLink} onPress={navigateToLogin}> Login</Text>

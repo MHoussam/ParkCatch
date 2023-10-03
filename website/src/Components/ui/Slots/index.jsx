@@ -120,7 +120,7 @@ console.log(reservations)
                         <Slot
                           key={`${rowIndex}-${columnIndex}`}
                           number={slot.name}
-                          slotContainer={slot.reserved ? "reserved flex center" : "available flex center" }
+                          slotContainer={slot.reserved && slot.id == 21 ? "alert flex center" : slot.reserved ? "reserved flex center" : "available flex center" }
                           slotTitle={
                             slot.reserved ? "reservedTitle flex-grow" : "availableTitle flex-grow"
                           }

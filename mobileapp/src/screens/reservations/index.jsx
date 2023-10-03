@@ -30,6 +30,8 @@ console.log(userData.id)
     useEffect(() => {
         fetchReservations();
     }, [])
+
+    console.log(reservations)
   return (
     <View style={styles.container}>
         <Header ScreenName={'Reservations'} mainScreen={true}/>

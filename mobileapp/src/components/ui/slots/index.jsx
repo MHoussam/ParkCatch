@@ -143,7 +143,7 @@ const Slots = () => {
                     .map((slot) => (
                       <Slot
                         key={`${rowIndex}-${columnIndex}`}
-                        number={`${rowIndex}-${columnIndex}`}
+                        number={slot.name}
                         styleContainer={
                           slot.reserved ? styles.reserved : styles.available
                         }

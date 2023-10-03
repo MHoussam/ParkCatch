@@ -26,6 +26,9 @@ const ReservationCard = ({ reservations }) => {
   }, []);
 
   return (
+    <>
+    {reservations.valid == 1 ? (
+<>
     <View style={styles.container}>
         <TouchableOpacity style={styles.reservationCard} onPress={navigateToDirection}>
            <Image
@@ -52,6 +55,8 @@ const ReservationCard = ({ reservations }) => {
                 </View>
         </TouchableOpacity> 
     </View>
+    </>):(<></>)}
+    </>
   )
 }
 

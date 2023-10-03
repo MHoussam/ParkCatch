@@ -100,28 +100,28 @@ export default function App() {
 // }, [])
 
 
-  useEffect(() => {
-    registerForPushNotificationsAsync();
-    Notifications.setNotificationHandler({
-      handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: true,
-        shouldSetBadge: true,
-      }),
-    });
+  // useEffect(() => {
+  //   registerForPushNotificationsAsync();
+  //   Notifications.setNotificationHandler({
+  //     handleNotification: async () => ({
+  //       shouldShowAlert: true,
+  //       shouldPlaySound: true,
+  //       shouldSetBadge: true,
+  //     }),
+  //   });
 
-    const responseListener =
-      Notifications.addNotificationResponseReceivedListener(
-        handleNotificationResponse
-      );
+  //   const responseListener =
+  //     Notifications.addNotificationResponseReceivedListener(
+  //       handleNotificationResponse
+  //     );
 
-    checkToken();
+  //   checkToken();
 
-    return () => {
-      if (responseListener)
-        Notifications.removeNotificationSubscription(responseListener);
-    };
-  }, []);
+  //   return () => {
+  //     if (responseListener)
+  //       Notifications.removeNotificationSubscription(responseListener);
+  //   };
+  // }, []);
 
   function HomeStackNavigator() {
     return (
@@ -146,13 +146,13 @@ export default function App() {
     );
   }
 
-  function NotificationsStackNavigator() {
-    return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen screenOptions={{ headerShown: false }} name="Notificationss" component={Notificationss} />
-      </Stack.Navigator>
-    );
-  }
+  // function NotificationsStackNavigator() {
+  //   return (
+  //     <Stack.Navigator screenOptions={{ headerShown: false }}>
+  //       <Stack.Screen screenOptions={{ headerShown: false }} name="Notificationss" component={Notificationss} />
+  //     </Stack.Navigator>
+  //   );
+  // }
 
   function SettingsStackNavigator() {
     return (
@@ -197,7 +197,7 @@ export default function App() {
             />
           ),}}
           name="Reservations" component={ReservationsStackNavigator} />
-        <Tab.Screen 
+        {/* <Tab.Screen 
           options={{
           tabBarIcon: ({ color, size }) => (
             <Image
@@ -205,7 +205,7 @@ export default function App() {
                 style={{ minHeight: 21, minWidth: 19, tintColor: color }}
             />
           ),}}
-          name="Notifications" component={NotificationsStackNavigator} />
+          name="Notifications" component={NotificationsStackNavigator} /> */}
         <Tab.Screen 
           options={{
             tabBarIcon: ({ color, size }) => (

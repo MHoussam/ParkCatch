@@ -48,11 +48,11 @@ const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent, t
         <View style={styles.row}>
             <View style={styleLeftContent}>
                 <Info styleText={styleSubtitle} text={'Time'} />
-                <Info styleText={styleInfo} text={reservation.time_reserved} />
+                <Info styleText={styleInfo} text='06:50 AM' />
             </View>
             <View>
                 <Info styleText={styleSubtitle} text={'Date'} />
-                <Info styleText={styleInfo} text={reservation.date_reserved} />
+                <Info styleText={styleInfo} text='10/03/2023' />
             </View>
         </View>
         ) : <></>}
