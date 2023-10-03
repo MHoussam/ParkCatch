@@ -10,14 +10,15 @@
 
 <br><br>
 
-- [PROJECT PHILOSOPHY](#project-philosophy) 
-- [PROTOTYPING](#prototyping) 
-- [TECH STACK](#tech-stack) 
-- [DEMO](#demo) 
-- [IOT](#iot) 
-- [HOW TO USE](#how-to-use)
+<img src="./readme/title2.svg"/>
 
-</div>
+- [PROJECT PHILOSOPHY](https://github.com/MHoussam/ParkCatch#project-philosophy)
+- [PROTOTYPES](https://github.com/MHoussam/ParkCatch#prototyping)
+-  [TECH STACK](https://github.com/MHoussam/ParkCatch#tech-stack)
+-  [DEMO](https://github.com/MHoussam/ParkCatch#demo)
+-  [IoT](https://github.com/MHoussam/ParkCatch#iot)
+-  [PERFORMANCE](https://github.com/MHoussam/ParkCatch#performance)
+-  [HOW TO RUN?](https://github.com/MHoussam/ParkCatch#how-to-run)
 
 <br><br>
 
@@ -109,7 +110,7 @@ ParkCatch is built using the following technologies:
 
 <br><br>
 
-<img id="prototyping" src="./readme/titles/title6.svg"/>
+<img id="demo" src="./readme/titles/title6.svg"/>
 
 <br>
 
@@ -134,7 +135,7 @@ ParkCatch is built using the following technologies:
 
 <br><br>
 
-<img id="IoT" src="./readme/titles/title7.svg"/>
+<img id="iot" src="./readme/titles/title7.svg"/>
 
 <br>
 
