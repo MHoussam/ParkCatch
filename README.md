@@ -122,11 +122,11 @@ ParkCatch is built using the following technologies:
 
 | Circuit Diagram                                                  | 
 |------------------------------------------------------------------|
-| ![circuitDiagram](./readme/arduino/arduino_curcuit.png)
+| ![Circuit Diagram](./readme/arduino/arduino_circuit.png)
 
 | Circuit Design                                                   | 
 |------------------------------------------------------------------|
-| ![circuitDesign](./readme/arduino/arduinoCurcuit.jpeg)
+| ![Circuit Design](./readme/arduino/arduinoCircuit.jpeg)
 
 <br><br>
 
