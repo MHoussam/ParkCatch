@@ -116,7 +116,7 @@ ParkCatch is built using the following technologies:
 
 <br><br>
 
-<img src="readme/titles/title6.svg" id="how-to-run"/>
+<img src="readme/titles/title9.svg" id="how-to-run"/>
 
 <span style="font-size: 20px;"><strong>Prerequisites:</strong></span>
 1. Clone the repo
