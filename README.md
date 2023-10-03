@@ -112,7 +112,8 @@ ParkCatch is built using the following technologies:
 
 | Login | Choose a Spot | Reservation Payment & Directions | Reservations |
 | --- | --- | --- | --- |
-| ![Login](./readme/mobileapp/demo/login.gif) | ![Choose a Spot](./readme/mobileapp/demo/reserve.gif) | ![Reservation Payment](./readme/mobileapp/demo/payment.gif) | ![Reservations](./readme/mobileapp/demo/reservations.gif) |
+| <img src="./readme/mobileapp/demo/login.gif" width="300" height="850"/> | <img src="./readme/mobileapp/demo/reserve.gif" width="300" height="850"/> | <img src="./readme/mobileapp/demo/payment.gif" width="300" height="850"/> | <img src="./readme/mobileapp/demo/reservations.gif" width="300" height="850"/> |
+
 
 <br>
 
@@ -120,11 +121,11 @@ ParkCatch is built using the following technologies:
 
 | Login                                                            | Search for a Reservation                                          |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| <img src="./readme/website/demo/login.gif" width="300" height="850"/> | <img src="./readme/website/demo/search.gif" width="300" height="850"/> |
+| ![login](./readme/website/demo/login.gif) | ![searchReservation](./readme/website/demo/search.gif) |
 
 | Remove Spots Availability                                        | Terminate a Reservation                                           |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| <img src="./readme/website/demo/remove.gif" width="300" height="850"/> | <img src="./readme/website/demo/alert.gif" width="300" height="850"/> |
+| ![removeAvailability](./readme/website/demo/remove.gif) | ![terminateReservation](./readme/website/demo/alert.gif) |
 
 
 <br><br>
@@ -132,9 +133,14 @@ ParkCatch is built using the following technologies:
 <img id="IoT" src="./readme/titles/title7.svg"/>
 
 <br>
+
 Since Esp32Cam Module doesn't have a USB port, you'll need an FTDI Programmer (FT232r) in order to be able to connect the Esp32Cam module the computer and upload the code.
 
-<br><br>
+<br>
+
+The camera module takes a photo every 10 seconds and send it to the server where it uses Apilayer to recognize and read the text embedded in an image and save the result in the database. 
+
+<br>
 
 | Circuit Diagram                                                  | 
 |------------------------------------------------------------------|
