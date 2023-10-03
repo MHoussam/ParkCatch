@@ -8,7 +8,7 @@
 
 <img id="table-of-contents" src="./readme/titles/title2.svg"/>
 
-<br>
+<br><br>
 
 - [PROJECT PHILOSOPHY](https://github.com/MHoussam/ParkCatch#project-philosophy)
 - [PROTOTYPES](https://github.com/MHoussam/ParkCatch#prototyping)
@@ -18,7 +18,7 @@
 - [PERFORMANCE](https://github.com/MHoussam/ParkCatch#performance)
 - [HOW TO RUN?](https://github.com/MHoussam/ParkCatch#how-to-run)
 
-<br>
+<br><br>
 
 <img id="project-philosophy" src="./readme/titles/title3.svg"/>
 
@@ -96,6 +96,8 @@
 <br><br>
 
 <img id="tech-stack" src="./readme/titles/title5.svg"/>
+
+<br>
 
 ParkCatch is built using the following technologies:
 
