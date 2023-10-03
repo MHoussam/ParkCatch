@@ -131,6 +131,9 @@ ParkCatch is built using the following technologies:
 <img id="IoT" src="./readme/titles/title7.svg"/>
 
 <br>
+Since Esp32Cam Module doesn't have a USB port, you'll need an FTDI Programmer (FT232r) in order to be able to connect the Esp32Cam module the computer and upload the code.
+
+<br>
 
 | Circuit Diagram                                                  | 
 |------------------------------------------------------------------|
