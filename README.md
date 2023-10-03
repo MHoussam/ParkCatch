@@ -113,13 +113,13 @@ ParkCatch is built using the following technologies:
 
 <img id="demo" src="./readme/titles/title6.svg"/>
 
-<br>
+<br><br>
 
 <span style="font-size: 20px;"><strong>Client Screens (MobileApp)</strong></span>
 
 | Login | Choose a Spot | Reservation Payment & Directions | Reservations |
 | --- | --- | --- | --- |
-| <img src="./readme/mobileapp/demo/login.gif" alt="Login" width="185" height="395"/> | <img src="./readme/mobileapp/demo/reserve.gif" alt="Choose a Spot" width="185" height="395"/> | <img src="./readme/mobileapp/demo/payment.gif" alt="Reservation Payment" width="185" height="395"/> | <img src="./readme/mobileapp/demo/reservations.gif" alt="Reservations" width="185" height="395"/> |
+| <img src="./readme/mobileapp/demo/login.gif" alt="Login" width="180" height="395"/> | <img src="./readme/mobileapp/demo/reserve.gif" alt="Choose a Spot" width="180" height="395"/> | <img src="./readme/mobileapp/demo/payment.gif" alt="Reservation Payment" width="180" height="395"/> | <img src="./readme/mobileapp/demo/reservations.gif" alt="Reservations" width="180" height="395"/> |
 
 <br>
 
@@ -150,11 +150,11 @@ The camera module takes a photo every 10 seconds and send it to the server where
 
 | Circuit Diagram                                                  | 
 |------------------------------------------------------------------|
-| ![Circuit Diagram](./readme/arduino/arduino_circuit.png)
+| <img src="./readme/arduino/arduino_circuit.png" alt="Circuit Diagram" width="640" height="360" />
 
 | Circuit Design                                                   | 
 |------------------------------------------------------------------|
-| ![Circuit Design](./readme/arduino/arduinoCircuit.jpeg)
+| <img src="./readme/arduino/arduinoCircuit.jpeg" alt="Circuit Design" width="640" height="360" />
 
 <br><br>
 
