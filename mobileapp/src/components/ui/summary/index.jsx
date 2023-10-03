@@ -48,7 +48,7 @@ const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent, t
         <View style={styles.row}>
             <View style={styleLeftContent}>
                 <Info styleText={styleSubtitle} text={'Time'} />
-                <Info styleText={styleInfo} text={'reservation.time_reserved'} />
+                <Info styleText={styleInfo} text={reservation.time_reserved} />
             </View>
             <View>
                 <Info styleText={styleSubtitle} text={'Date'} />
@@ -63,7 +63,7 @@ const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent, t
             </View>
             <View>
                 <Info styleText={styleSubtitle} text={'Total'} />
-                <Info styleText={styleInfo} text={reservation.total} />
+                <Info styleText={styleInfo} text={reservation.total+'$'} />
             </View>
         </View>
     </View>

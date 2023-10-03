@@ -32,6 +32,7 @@ export default function App() {
   //  useEffect(() => {
   //   const checkUserToken = async () => {
   //     const token = await AsyncStorage.removeItem('userToken');
+  //     const user = await AsyncStorage.removeItem('userData');
   //   };
   //   checkUserToken();
   // }, []);

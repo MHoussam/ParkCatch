@@ -39,52 +39,6 @@ const Slots = () => {
         "http://127.0.0.1:8000/api/spots",
         dataForm
       );
-
-      // console.log(
-      //   response.data.data[0].name +
-      //     " " +
-      //     response.data.data[0].x_coordinate +
-      //     " " +
-      //     response.data.data[0].y_coordinate +
-      //     " " +
-      //     response.data.data[0].reserved
-      // );
-      // console.log(
-      //   response.data.data[0].name +
-      //     " " +
-      //     response.data.data[1].x_coordinate +
-      //     " " +
-      //     response.data.data[1].y_coordinate +
-      //     " " +
-      //     response.data.data[1].reserved
-      // );
-      // console.log(
-      //   response.data.data[2].name +
-      //     " " +
-      //     response.data.data[2].x_coordinate +
-      //     " " +
-      //     response.data.data[2].y_coordinate +
-      //     " " +
-      //     response.data.data[2].reserved
-      // );
-      // console.log(
-      //   response.data.data[3].name +
-      //     " " +
-      //     response.data.data[3].x_coordinate +
-      //     " " +
-      //     response.data.data[3].y_coordinate +
-      //     " " +
-      //     response.data.data[3].reserved
-      // );
-      // console.log(
-      //   response.data.data[4].name +
-      //     " " +
-      //     response.data.data[4].x_coordinate +
-      //     " " +
-      //     response.data.data[4].y_coordinate +
-      //     " " +
-      //     response.data.data[4].reserved
-      // );
       if (Array.isArray(response.data.data)) {
         if (slots.slots.length === 0) {
           // console.log("here");
@@ -183,13 +137,13 @@ const Slots = () => {
                   slots.slots
                     .filter(
                       (slot) =>
-                        slot.x_coordinate === rowIndex &&
+                        slot.x_coordinate-1 === rowIndex &&
                         slot.y_coordinate === columnIndex
                     )
                     .map((slot) => (
                       <Slot
                         key={`${rowIndex}-${columnIndex}`}
-                        number={slot.name}
+                        number={`${rowIndex}-${columnIndex}`}
                         styleContainer={
                           slot.reserved ? styles.reserved : styles.available
                         }
