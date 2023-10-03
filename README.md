@@ -154,7 +154,7 @@ ParkCatch is built using the following technologies:
 3. Start the client
    ```sh
    npm start
-
+    ```
    <br>
 
 <span style="font-size: 20px;"><strong>Backend:</strong></span>
