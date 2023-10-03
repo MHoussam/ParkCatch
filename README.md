@@ -55,18 +55,13 @@
 
 <span style="font-size: 20px;"><strong>Client Screens (MobileApp)</strong></span>
 
-| Login                             | SignUp                            | Home                             | Home                             |
+| Login                             | SignUp                            | Home                             | Spots                             |
 |-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![login](./readme/mobileapp/mockups/login.png) | ![signup](./readme/mobileapp/mockups/signup.png) | ![home1](./readme/mobileapp/mockups/home1.png) | ![home2](./readme/mobileapp/mockups/home2.png)
-|
-| Spots                             | Reservation Info                  | Reservation Payment               | Reservation Ticket                |
-|-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![spots](./readme/mobileapp/mockups/spots.png) | ![reservationInfo](./readme/mobileapp/mockups/reservationInfo.png) | ![reservationPayment](./readme/mobileapp/mockups/reservationPayment.png) | ![reservationTicket](./readme/mobileapp/mockups/reservationTicket.png) |
-|
-| Directions                        | Settings                          | Change Info                       | Change Password                   |
-|-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![directions](./readme/mobileapp/mockups/directions.png) | ![settings](./readme/mobileapp/mockups/settings.png) | ![changeInfo](./readme/mobileapp/mockups/changeInfo.png) | ![changePassword](./readme/mobileapp/mockups/changePassword.png) |
+| ![login](./readme/mobileapp/mockups/login.png) | ![signup](./readme/mobileapp/mockups/signup.png) | ![home](./readme/mobileapp/mockups/home2.png) | ![spots](./readme/mobileapp/mockups/spots.png) |
 
+| Reservation Info                  | Reservation Payment               | Reservation Ticket                | Directions                        |
+|-----------------------------------|----------------------------------|----------------------------------|-----------------------------------|
+| ![reservationInfo](./readme/mobileapp/mockups/reservationInfo.png) | ![reservationPayment](./readme/mobileapp/mockups/reservationPayment.png) | ![reservationTicket](./readme/mobileapp/mockups/reservationTicket.png) | ![directions](./readme/mobileapp/mockups/directions.png) |
 
 <br>
 
@@ -83,10 +78,6 @@
 | Reservation Alert                                                | Reservation Search                                                |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![reservationAlert](./readme/website/alertS.png) | ![reservationSearch](./readme/website/searchS.png) |
-
-| Reservation Termination                                          | Remove Availability                                               |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![reservationTermination](./readme/website/terminationS.png) | ![reservationTermination](./readme/website/terminationS.png) |
 
 <br>
 
@@ -119,13 +110,16 @@ ParkCatch is built using the following technologies:
 
 <span style="font-size: 20px;"><strong>Client Screens (MobileApp)</strong></span>
 
-| Login                             | SignUp                            | Choose a Spot                    |
-|-----------------------------------|-----------------------------------|----------------------------------|
-| ![login](./readme/mobileapp/demo/login.gif) | ![signup](./readme/mobileapp/demo/signup.gif) | ![reserve](./readme/mobileapp/demo/reserve.gif) |
+<span style="font-size: 20px;"><strong>Client Screens (MobileApp)</strong></span>
 
-| Reservations                      | Settings                          |  Reservation Payment             |
-|-----------------------------------|-----------------------------------|----------------------------------|
-| ![spots](./readme/mobileapp/demo/reservations.gif) | ![reservationInfo](./readme/mobileapp/demo/settings.gif) | ![home2](./readme/mobileapp/demo/payment.gif) |
+| Login                                 | SignUp                                | Choose a Spot                        |
+|---------------------------------------|---------------------------------------|--------------------------------------|
+| <img src="./readme/mobileapp/demo/login.gif" width="200" height="200"/> | <img src="./readme/mobileapp/demo/signup.gif" width="200" height="200"/> | <img src="./readme/mobileapp/demo/reserve.gif" width="200" height="200"/> |
+
+| Reservations                          | Settings                              |  Reservation Payment                 |
+|---------------------------------------|---------------------------------------|--------------------------------------|
+| <img src="./readme/mobileapp/demo/reservations.gif" width="200" height="200"/> | <img src="./readme/mobileapp/demo/settings.gif" width="200" height="200"/> | <img src="./readme/mobileapp/demo/payment.gif" width="200" height="200"/> |
+
 
 
 <br>
