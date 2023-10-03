@@ -114,4 +114,68 @@ ParkCatch is built using the following technologies:
 | --- | --- | --- | --- |
 | ![Login](./readme/mobileapp/demo/login.gif) | ![Choose a Spot](./readme/mobileapp/demo/reserve.gif) | ![Reservations](./readme/mobileapp/demo/reservations.gif) | ![Reservation Payment](./readme/mobileapp/demo/payment.gif) |
 
+<br><br>
+
+<img src="readme/titles/title6.svg" id="how-to-run"/>
+
+<span style="font-size: 20px;"><strong>Prerequisites:</strong></span>
+1. Clone the repo
+   ```sh
+   git clone https://github.com/MHoussam/ParkCatch.git
+   ```
+
+<span style="font-size: 20px;"><strong>Frontend (Mobile):</strong></span>
+1. Navigate to mobileapp: 
+
+   ```bash  
+   cd mobileapp
+   ``` 
+2. Install dependencies:  
+
+   ```bash  
+     npm install 
+   ``` 
+3. Start development server: 
+
+   ```bash  
+   npx expo start  
+   ``` 
 <br>
+
+<span style="font-size: 20px;"><strong>Frontend (Website):</strong></span>
+1. Navigate to
+   ```sh
+   cd website
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the client
+   ```sh
+   npm start
+
+   <br>
+
+<span style="font-size: 20px;"><strong>Backend:</strong></span>
+1. Navigate to the Server folder
+   ```sh
+   cd server
+   ```
+2. Rename `.env.example` to `.env` and set your credentials.
+3. Database initialization 
+   ```sh
+   php artisan migrate
+   ``` 
+4. Database Seeding (Optional) 
+   ```sh
+   php artisan db:seed
+   ``` 
+5. Run the Server Locally
+   ```sh
+   php artisan serve
+   ``` 
+6. Run the Server for Arduino
+   ```sh
+   php artisan serve --host=0.0.0.0 --port=8000
+   ``` 
