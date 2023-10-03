@@ -57,15 +57,15 @@
 
 | Login                             | SignUp                            | Home                             | Home                             |
 |-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![login](./readme/mobileapp/login.png) | ![signup](./readme/mobileapp/signup.png) | ![home1](./readme/mobileapp/home1.png) | ![home2](./readme/mobileapp/home2.png)
+| ![login](./readme/mockups/mobileapp/login.png) | ![signup](./readme/mockups/mobileapp/signup.png) | ![home1](./readme/mockups/mobileapp/home1.png) | ![home2](./readme/mockups/mobileapp/home2.png)
 |
 | Spots                             | Reservation Info                  | Reservation Payment               | Reservation Ticket                |
 |-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![spots](./readme/mobileapp/spots.png) | ![reservationInfo](./readme/mobileapp/reservationInfo.png) | ![reservationPayment](./readme/mobileapp/reservationPayment.png) | ![reservationTicket](./readme/mobileapp/reservationTicket.png) |
+| ![spots](./readme/mockups/mobileapp/spots.png) | ![reservationInfo](./readme/mockups/mobileapp/reservationInfo.png) | ![reservationPayment](./readme/mockups/mobileapp/reservationPayment.png) | ![reservationTicket](./readme/mockups/mobileapp/reservationTicket.png) |
 |
 | Directions                        | Settings                          | Change Info                       | Change Password                   |
 |-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
-| ![directions](./readme/mobileapp/directions.png) | ![settings](./readme/mobileapp/settings.png) | ![changeInfo](./readme/mobileapp/changeInfo.png) | ![changePassword](./readme/mobileapp/changePassword.png) |
+| ![directions](./readme/mockups/mobileapp/directions.png) | ![settings](./readme/mockups/mobileapp/settings.png) | ![changeInfo](./readme/mockups/mobileapp/changeInfo.png) | ![changePassword](./readme/mockups/mobileapp/changePassword.png) |
 
 
 <br>
@@ -110,3 +110,33 @@
 
 <br><br>
 
+<img id="tech-stack" src="./readme/title5.svg"/>
+
+ParkCatch is built using the following technologies:
+
+- [React Native Expo](https://expo.dev/): Expo allows developers to build cross-platform mobile apps for iOS, Android. It was used to develop the mobile app responsible for the client's use.
+- [React](https://react.dev/): Used to build the website application where it uses a component-based architecture, making it easy to create reusable UI components and efficiently manage the UI state. It was used to built the website application for the parking lot supervisor and the admin.
+- [Redux](https://redux.js.org/): It's a state container used both in React and React Native to manage the application's global state in a consistent and organized manner.
+- [Laravel](https://laravel.com/): Is PHP framework that simplifies the development of applications by providing tools and conventions for tasks like routing, authentication, and database access. Used for the back-end development for the mobile app and the website.
+- [MySQL](https://www.mysql.com/):  A relational database management system that store, retrieves, and manage structured data in various applications.
+- [AWS](https://aws.amazon.com/): Amazon Web Services is a cloud computing platform that allows developers to deploy and scale applications easily without the need to manage physical infrastructure.
+- [Arduino](https://www.arduino.cc/): Arduino consists of a microcontroller board and an integrated development environment. It was used for hardware integration, such as monitoring sensors which decides the parking spots availability.
+
+<br><br>
+
+<img id="prototyping" src="./readme/titles/title5.svg"/>
+
+<br>
+
+<span style="font-size: 20px;"><strong>Client Screens (MobileApp)</strong></span>
+
+| Login                             | SignUp                            | Choose a Spot                    | Reservation Payment              |
+|-----------------------------------|-----------------------------------|----------------------------------|----------------------------------|
+| ![login](./readme/mobileapp/mockups/login.png) | ![signup](./readme/mobileapp/mockups/signup.png) | ![reserve](./readme/mobileapp/mockups/reserve.png) | ![home2](./readme/mobileapp/mockups/payment.png)
+|
+| Reservations                      | Settings                          |
+|-----------------------------------|-----------------------------------|
+| ![spots](./readme/mobileapp/mockups/reservations.png) | ![reservationInfo](./readme/mobileapp/mockups/settings.png)
+
+
+<br>
