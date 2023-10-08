@@ -166,7 +166,7 @@ The camera module takes a photo every 10 seconds and send it to the server where
 URL: http://127.0.0.1:8000/api/reservations
 
 ```sh 
-PASS: Response time is within acceptable range //267 ms
+PASS: Response time is within acceptable range //7,960 ms
 PASS: Response content type is JSON
 PASS: Response schema is valid
 
@@ -177,7 +177,7 @@ PASS: Response schema is valid
 URL: http://127.0.0.1:8000/api/spots
 
 ```sh 
-PASS: Response time is within acceptable range //433 ms
+PASS: Response time is within acceptable range //7,087 ms
 PASS: Response content type is JSON
 PASS: Response schema is valid
 ```
@@ -186,7 +186,7 @@ PASS: Response schema is valid
 URL: http://127.0.0.1:8000/api/parkings
 
 ```sh 
-PASS: Response time is within acceptable range //160 ms
+PASS: Response time is within acceptable range //6,021 ms
 PASS: Response content type is JSON
 PASS: Response schema is valid
 ```
