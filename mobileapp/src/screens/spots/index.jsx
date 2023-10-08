@@ -5,21 +5,14 @@ import Slots from '../../components/ui/slots';
 import Header from '../../components/ui/header';
 import Footer from '../../components/ui/footer';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/base/button';
-import { clearReservation } from '../../redux/reservation/reservationSlice';
-import { clearSlots } from '../../redux/slots/slotSlice';
+// import { clearReservation } from '../../redux/reservation/reservationSlice';
+// import { clearSlots } from '../../redux/slots/slotSlice';
 
 const Spots = () => {
   const slots = useSelector((state) => state.slots);
-  const selectedParking = useSelector((state) => state.selectedParking);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    return () => {
-      dispatch(clearSlots());
-    }
-  }, [])
+  // const selectedParking = useSelector((state) => state.selectedParking);
 
   return (
     <View style={styles.container}>

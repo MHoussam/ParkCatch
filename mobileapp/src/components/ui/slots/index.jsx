@@ -37,7 +37,7 @@ const Slots = () => {
         dataForm
       );
       if (Array.isArray(response.data.data)) {
-        if (slots.slots.length === 0) {
+        if (slots.slots.length == 0) {
           response.data.data.forEach((item) => {
             const {
               id,
@@ -82,18 +82,16 @@ const Slots = () => {
 
 
   useEffect(() => {    
-    if(slots.slots.length == 0){
       fetchSpots();
       console.log('how')
-    }
-
-  }, [slots.slots]);
+  }, []);
 
   useEffect(() => { 
-  return () => {
-    // dispatch(clearSlots())
-  }
-  }, []);
+    return () => {
+      dispatch(clearSlots())
+    }
+    }, []);
+
   return (
     <>
     {slots.slots.length > 0 ? (

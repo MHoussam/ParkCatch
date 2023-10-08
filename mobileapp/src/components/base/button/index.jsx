@@ -1,20 +1,20 @@
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { setUser } from '../../../redux/user/userSlice';
-import { useDispatch } from "react-redux";
+// import { setUser } from '../../../redux/user/userSlice';
+// import { useDispatch } from "react-redux";
 
 const Button = ({ text, navigate}) => {
-  const selectedSlot = useSelector((state) => state.selectedSlot);
+  // const selectedSlot = useSelector((state) => state.selectedSlot);
   const navigation = useNavigation();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const navigateTo = () => {
-    if (selectedSlot.id !== null) {
-      navigation.navigate(`${navigate}`);
-    }
+    // if (selectedSlot.id !== null) {
+      // navigation.navigate(`${navigate}`);
+    // }
     navigation.navigate(`${navigate}`);
 
   };

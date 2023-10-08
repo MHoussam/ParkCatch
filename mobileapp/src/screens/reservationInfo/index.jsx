@@ -27,18 +27,20 @@ const ReservationInfo = () => {
   });
   const dispatch = useDispatch();
 
-  dispatch(
-    setReservation({
-      client: user.first_name + " " + user.last_name,
-      phone: reservation.phone || "",
-      parking: selectedParking.name,
-      location: selectedParking.address,
-      duration: reservation.duration || 2,
-      spotNumber: selectedSlot.name,
-      plateNumber: reservation.plateNumber || "",
-      total: parseInt(reservation.duration) * selectedParking.price,
-    })
-  );
+  useEffect(() => {
+    dispatch(
+      setReservation({
+        client: user.first_name + " " + user.last_name,
+        phone: reservation.phone || "",
+        parking: selectedParking.name,
+        location: selectedParking.address,
+        duration: reservation.duration || 2,
+        spotNumber: selectedSlot.name,
+        plateNumber: reservation.plateNumber || "",
+        total: parseInt(reservation.duration) * selectedParking.price,
+      })
+    );
+  }, []);
 
   useEffect(() => {
     dispatch(
@@ -53,7 +55,6 @@ const ReservationInfo = () => {
   useEffect(() => {
     return () => {
       dispatch(clearReservation());
-      dispatch(clearSlots());
     };
   }, []);
 
