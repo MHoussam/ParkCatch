@@ -10,7 +10,7 @@ import Footer from '../../components/ui/footer';
 import Header from '../../components/ui/header';
 import SearchBar from '../../components/base/searchbar';
 import WebSocketClient from '../../components/WebSocketClient';
-import ChatComponent from '../../components/ui/chat';
+// import ChatComponent from '../../components/ui/chat';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setUser, setUserToken } from '../../redux/user/userSlice';
 import { clearSlots } from '../../redux/slots/slotSlice';

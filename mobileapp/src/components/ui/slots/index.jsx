@@ -82,13 +82,16 @@ const Slots = () => {
 
 
   useEffect(() => {    
-    fetchSpots();
+    if(slots.slots.length == 0){
+      fetchSpots();
+      console.log('how')
+    }
 
   }, [slots.slots]);
 
   useEffect(() => { 
   return () => {
-    dispatch(clearSlots())
+    // dispatch(clearSlots())
   }
   }, []);
   return (

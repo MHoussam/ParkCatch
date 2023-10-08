@@ -51,9 +51,9 @@ const ReservationInfo = () => {
   }, [reservation.duration, reservation.plateNumber, reservation.phone]);
 
   useEffect(() => {
-    dispatch(clearSlots());
     return () => {
       dispatch(clearReservation());
+      dispatch(clearSlots());
     };
   }, []);
 

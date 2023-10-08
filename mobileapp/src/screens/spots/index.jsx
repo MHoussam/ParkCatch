@@ -8,9 +8,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/base/button';
 import { clearReservation } from '../../redux/reservation/reservationSlice';
+import { clearSlots } from '../../redux/slots/slotSlice';
 
 const Spots = () => {
   const slots = useSelector((state) => state.slots);
+  const selectedParking = useSelector((state) => state.selectedParking);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    return () => {
+      dispatch(clearSlots());
+    }
+  }, [])
 
   return (
     <View style={styles.container}>
