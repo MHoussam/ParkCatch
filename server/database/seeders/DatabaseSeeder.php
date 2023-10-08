@@ -467,7 +467,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-1',
             'availability' => true,
             'reason' => null,
@@ -476,7 +476,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-2',
             'availability' => true,
             'reason' => null,
@@ -485,7 +485,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-3',
             'availability' => true,
             'reason' => null,
@@ -494,7 +494,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-4',
             'availability' => true,
             'reason' => null,
@@ -503,7 +503,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-5',
             'availability' => true,
             'reason' => null,
@@ -512,7 +512,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-6',
             'availability' => true,
             'reason' => null,
@@ -521,7 +521,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-7',
             'availability' => true,
             'reason' => null,
@@ -530,7 +530,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-8',
             'availability' => true,
             'reason' => null,
@@ -539,7 +539,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-9',
             'availability' => true,
             'reason' => null,
@@ -548,7 +548,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-10',
             'availability' => true,
             'reason' => null,
@@ -557,7 +557,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-11',
             'availability' => true,
             'reason' => null,
@@ -566,7 +566,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-12',
             'availability' => true,
             'reason' => null,
@@ -575,7 +575,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'A-13',
             'availability' => true,
             'reason' => null,
@@ -584,7 +584,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-1',
             'availability' => true,
             'reason' => null,
@@ -593,7 +593,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-2',
             'availability' => true,
             'reason' => null,
@@ -602,7 +602,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-3',
             'availability' => true,
             'reason' => null,
@@ -611,7 +611,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-4',
             'availability' => true,
             'reason' => null,
@@ -620,7 +620,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-5',
             'availability' => true,
             'reason' => null,
@@ -629,7 +629,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-6',
             'availability' => true,
             'reason' => null,
@@ -638,7 +638,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-7',
             'availability' => true,
             'reason' => null,
@@ -647,7 +647,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-8',
             'availability' => true,
             'reason' => null,
@@ -656,7 +656,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-9',
             'availability' => true,
             'reason' => null,
@@ -665,7 +665,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-10',
             'availability' => true,
             'reason' => null,
@@ -674,7 +674,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'B-11',
             'availability' => true,
             'reason' => null,
@@ -683,7 +683,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-1',
             'availability' => true,
             'reason' => null,
@@ -692,7 +692,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-2',
             'availability' => true,
             'reason' => null,
@@ -701,7 +701,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-3',
             'availability' => true,
             'reason' => null,
@@ -710,7 +710,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-4',
             'availability' => true,
             'reason' => null,
@@ -719,7 +719,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-5',
             'availability' => true,
             'reason' => null,
@@ -728,7 +728,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-6',
             'availability' => true,
             'reason' => null,
@@ -737,7 +737,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-7',
             'availability' => true,
             'reason' => null,
@@ -746,7 +746,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-8',
             'availability' => true,
             'reason' => null,
@@ -755,7 +755,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-9',
             'availability' => true,
             'reason' => null,
@@ -764,7 +764,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-10',
             'availability' => true,
             'reason' => null,
@@ -773,7 +773,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-11',
             'availability' => true,
             'reason' => null,
@@ -782,7 +782,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-12',
             'availability' => true,
             'reason' => null,
@@ -791,7 +791,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('spots')->insert([
-            'parking_id' => 3,
+            'parking_id' => 2,
             'name' => 'C-13',
             'availability' => true,
             'reason' => null,
