@@ -57,24 +57,24 @@ class ClientController extends Controller
         $reserve = new Reservation;
         $reserve->user_id = $request->user_id;
         $reserve->parking_id = $request->parking_id;
-        $reserve->spot_id = $request->spot_id;
         $reserve->duration = $request->duration;
         $reserve->total = $request->total;
         $reserve->valid = true;
-        $reserve->plate_number = $request->plate_number;
-        $reserve->phone_number = $request->phone_number;
-        $reserve->time_reserved = $request->time_reserved;
-        $reserve->date_reserved = $request->date_reserved;
+        $reserve->plate_number = $request->plateNumber;
+        $reserve->phone_number = $request->phone;
+        $reserve->time_reserved = date('H:i:s');
+        $reserve->date_reserved = date('Y-m-d');
 
-        $spot = Spot::where('id', $request->spot_id)
+        $spot = Spot::where('name', $request->spotNumber)
                     ->where('parking_id', $request->parking_id)
                     ->first();
 
-        $reserved = Reservation::where('spot_id', $request->spot_id)
+        $reserved = Reservation::where('spot_id', $spot->id)
                                ->where('valid', true)
                                ->first();
 
         if($spot != null && $reserved == null) {
+            $reserve->spot_id = $spot->id;
             $reserve->save();
 
             return response()->json([
