@@ -38,6 +38,7 @@ const Spots = () => {
     );
   }
 
+  console.log(slots)
   return (
     <View style={styles.container}>
       <Header ScreenName={'Spot Reservation'} />
