@@ -5,7 +5,9 @@ import styles from "./styles";
 import Header from "../../components/ui/header";
 import Button from "../../components/base/button";
 import RadioButton from "../../components/base/radioButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setTimeDate } from "../../redux/reservation/reservationSlice";
+import axios from "axios";
 
 const ReservationPayment = () => {
   const options = [
@@ -17,29 +19,53 @@ const ReservationPayment = () => {
   const reservation = useSelector((state) => state.reservation);
   const user = useSelector((state) => state.user);
   const selectedParking = useSelector((state) => state.selectedParking);
+  const dispatch = useDispatch();
 
   const reserve = async () => {
     try {
-      console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-      console.log(user);
+        console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+        console.log(user);
 
-      const formData = {
-        ...reservation,
-        user_id: user.id,
-        parking_id: selectedParking.id,
-        token: user.token,
-      };
-      console.log(formData);
+        const formData = {
+            ...reservation,
+            user_id: user.id,
+            parking_id: selectedParking.id,
+            token: user.token,
+        };
 
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/reserve",
-        formData
-      );
-      console.log(response.data.data);
+        const response = await axios.post(
+            "http://127.0.0.1:8000/api/reserve",
+            formData
+        );
+        console.log(response.data.data);
+        console.log(response.data.data.time_reserved);
+
+        // Assuming response.data.data.time_reserved is in 24-hour format
+        const timeReserved = response.data.data.time_reserved;
+
+        // Convert timeReserved to a Date object
+        const timeParts = timeReserved.split(":");
+        const hours = parseInt(timeParts[0], 10);
+        const minutes = parseInt(timeParts[1], 10);
+        const formattedTime = new Date(0, 0, 0, hours, minutes);
+
+        console.log(timeReserved);
+        console.log(formattedTime);
+
+        dispatch(
+            setTimeDate({
+                time_reserved: formattedTime.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                }),
+                date_reserved: response.data.data.date_reserved,
+            })
+        );
     } catch (error) {
-      console.log("Reservation Failed, Error: " + error);
+        console.log("Reservation Failed, Error: " + error);
     }
-  };
+};
+
 
   const save = () => {};
 
