@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux'
 const Summary = ({ styleContainer, styleSubtitle, styleInfo, styleLeftContent, ticket=false }) => {
     const reservation = useSelector((state) => state.reservation);
 
-
   return (
     <View style={styleContainer}>
         <View style={styles.row}>

@@ -7,13 +7,37 @@ import Footer from '../../components/ui/footer';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/base/button';
+import { setReservation } from '../../redux/reservation/reservationSlice';
 // import { clearReservation } from '../../redux/reservation/reservationSlice';
 // import { clearSlots } from '../../redux/slots/slotSlice';
 
 const Spots = () => {
   const slots = useSelector((state) => state.slots);
-  // const selectedParking = useSelector((state) => state.selectedParking);
+  const user = useSelector((state) => state.user);
+  const selectedParking = useSelector((state) => state.selectedParking);
+  const selectedSlot = useSelector((state) => state.selectedSlot);
+  const reservation = useSelector((state) => state.reservation);
+  const dispatch = useDispatch();
 
+  const setReserv = () => {
+    console.log('yes')
+    console.log(user)
+    console.log(reservation)
+    console.log(selectedParking)
+    console.log(selectedSlot)
+    dispatch(
+      setReservation({
+        client: user.first_name + " " + user.last_name,
+        phone: reservation.phone || "",
+        parking: selectedParking.name,
+        location: selectedParking.address,
+        duration: reservation.duration || 2,
+        spotNumber: selectedSlot.name,
+        plateNumber: reservation.plateNumber || "",
+        total: parseInt(reservation.duration) * selectedParking.price,
+      })
+    );
+  }
   return (
     <View style={styles.container}>
       <Header ScreenName={'Spot Reservation'} />
@@ -23,7 +47,7 @@ const Spots = () => {
         ) : <></>}
         <Slots />
         {slots.slots.length > 0 ? (
-          <Button text={'Next'} navigate={'ReservationInfo'} />
+          <Button text={'Next'} navigate={'ReservationInfo'} callBack={setReserv} />
         ) : <></>}
       </View>
     </View>

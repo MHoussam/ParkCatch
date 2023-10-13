@@ -27,30 +27,15 @@ const ReservationInfo = () => {
   });
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(
-      setReservation({
-        client: user.first_name + " " + user.last_name,
-        phone: reservation.phone || "",
-        parking: selectedParking.name,
-        location: selectedParking.address,
-        duration: reservation.duration || 2,
-        spotNumber: selectedSlot.name,
-        plateNumber: reservation.plateNumber || "",
-        total: parseInt(reservation.duration) * selectedParking.price,
-      })
-    );
-  }, []);
-
-  useEffect(() => {
-    dispatch(
-      setReservation({
-        duration: reservation.duration,
-        plateNumber: reservation.plateNumber,
-        phone: reservation.phone,
-      })
-    );
-  }, [reservation.duration, reservation.plateNumber, reservation.phone]);
+  // useEffect(() => {
+  //   dispatch(
+  //     setReservation({
+  //       duration: reservation.duration,
+  //       plateNumber: reservation.plateNumber,
+  //       phone: reservation.phone,
+  //     })
+  //   );
+  // }, [reservation.duration, reservation.plateNumber, reservation.phone]);
 
   useEffect(() => {
     return () => {
@@ -58,6 +43,7 @@ const ReservationInfo = () => {
     };
   }, []);
 
+  console.log(reservation)
   return (
     <View style={styles.container}>
       <Header ScreenName={"Reservation Info"} />

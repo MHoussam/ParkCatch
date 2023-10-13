@@ -24,11 +24,11 @@ const HomeMap = () => {
       const userData = await AsyncStorage.getItem('userData');
       const userToken = await AsyncStorage.getItem('userToken');
 
-  
       if (userData !== null && userToken !== null) {
         const parsedUserData = JSON.parse(userData);
 
         dispatch(setUser(parsedUserData));
+        dispatch(setUserToken(userToken));
       }
     } catch (error) {
       console.error('Error loading user data', error);
