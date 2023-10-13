@@ -25,13 +25,6 @@ const Login = () => {
     };
       const response = await axios.post('http://127.0.0.1:8000/api/login', user);
 
-      const userData = {
-        firstname: response.data.data.first_name,
-        lastname: response.data.data.last_name,
-        email: response.data.data.email,
-      };
-
-
       if (response.data.data.token !== null) {
   
         await AsyncStorage.setItem('userData', JSON.stringify(response.data.data));
@@ -52,8 +45,8 @@ const Login = () => {
   useEffect(() => {
     const checkToken = async () => {
       const token = await AsyncStorage.getItem('userToken');
+      
       if(token !== null){
-        
         navigation.navigate('TabNavigator');
       }
     }

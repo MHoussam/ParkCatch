@@ -21,23 +21,10 @@ import axios from "axios";
 
 const ReservationInfo = () => {
   const reservation = useSelector((state) => state.reservation);
-  const userToken = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
-  const save = async () => {
-    try {
-      // const reservationArray = Object.entries(reservation).map(([label, value]) => ({ label, value }));
-
-      const formData = {
-        ...reservation,
-        token: userToken,
-      };
-
-      // const response = await axios.post('http://127.0.0.1:800/api/reserve', formData);
-      console.log(formData)
-    } catch(error) {
-      console.log('Reservation Failed, Error: ' + error);
-    }
+  const save = () => {
+    
   }
 
   useEffect(() => {

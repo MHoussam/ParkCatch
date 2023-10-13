@@ -21,13 +21,6 @@ const Slots = () => {
     const userToken = await AsyncStorage.getItem('userToken');
 
     try {
-      const axiosConfig = {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          "Content-Type": "application/json",
-        },
-      };
-
       const dataForm = {
         parking_id: selectedParking.id,
         token: userToken,

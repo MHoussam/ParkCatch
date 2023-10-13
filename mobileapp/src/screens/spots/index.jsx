@@ -7,7 +7,7 @@ import Footer from '../../components/ui/footer';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/base/button';
-import { setReservation } from '../../redux/reservation/reservationSlice';
+import { setDuration, setReservation } from '../../redux/reservation/reservationSlice';
 // import { clearReservation } from '../../redux/reservation/reservationSlice';
 // import { clearSlots } from '../../redux/slots/slotSlice';
 
@@ -20,24 +20,25 @@ const Spots = () => {
   const dispatch = useDispatch();
 
   const setReserv = () => {
-    console.log('yes')
-    console.log(user)
-    console.log(reservation)
-    console.log(selectedParking)
-    console.log(selectedSlot)
     dispatch(
       setReservation({
         client: user.first_name + " " + user.last_name,
-        phone: reservation.phone || "",
         parking: selectedParking.name,
         location: selectedParking.address,
-        duration: reservation.duration || 2,
         spotNumber: selectedSlot.name,
-        plateNumber: reservation.plateNumber || "",
         total: parseInt(reservation.duration) * selectedParking.price,
       })
     );
+
+    dispatch(
+      setDuration({
+        duration: reservation.duration,
+        total: reservation.duration * selectedParking.price, 
+      })
+    );
   }
+
+  console.log(slots)
   return (
     <View style={styles.container}>
       <Header ScreenName={'Spot Reservation'} />
