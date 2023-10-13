@@ -22,8 +22,6 @@ const reservationSlice = createSlice({
         state.parking = action.payload.parking;
         state.location = action.payload.location;
         state.spotNumber = action.payload.spotNumber;
-        state.time_reserved = action.payload.time_reserved;
-        state.date_reserved = action.payload.date_reserved;
     },
     setPhone: (state, action) => {
       state.phone = action.payload.phone;
@@ -34,6 +32,10 @@ const reservationSlice = createSlice({
     },
     setPlate: (state, action) => {
       state.plateNumber = action.payload.plateNumber;
+    },
+    setTimeDate: (state, action) => {
+      state.time_reserved = action.payload.time_reserved;
+      state.date_reserved = action.payload.date_reserved;
     },
     clearReservation: (state) => {
         state.client = null;
@@ -50,6 +52,6 @@ const reservationSlice = createSlice({
   },
 });
 
-export const { setReservation, setPhone, setDuration, setPlate, clearReservation } = reservationSlice.actions;
+export const { setReservation, setPhone, setDuration, setPlate, setTimeDate, clearReservation } = reservationSlice.actions;
 
 export default reservationSlice.reducer;
