@@ -79,7 +79,7 @@ class ClientController extends Controller
 
             return response()->json([
                 'status' => 'Success',
-                'data' => 'Spot has been reserved.'
+                'data' => $reserve
             ]);
         }
         else {
