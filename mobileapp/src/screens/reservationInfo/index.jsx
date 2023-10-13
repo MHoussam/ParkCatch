@@ -11,6 +11,9 @@ import Summary from "../../components/ui/summary";
 import {
   setReservation,
   clearReservation,
+  setPhone,
+  setDuration,
+  setPlate,
 } from "../../redux/reservation/reservationSlice";
 import { clearSlots } from "../../redux/slots/slotSlice";
 import { clearSelectedSlot } from "../../redux/selectedSlot/selectedSlotSlice";
@@ -29,13 +32,27 @@ const ReservationInfo = () => {
 
   // useEffect(() => {
   //   dispatch(
-  //     setReservation({
-  //       duration: reservation.duration,
-  //       plateNumber: reservation.plateNumber,
+  //     setPhone({
   //       phone: reservation.phone,
   //     })
   //   );
-  // }, [reservation.duration, reservation.plateNumber, reservation.phone]);
+  // }, [reservation.phone]);
+
+  // useEffect(() => {
+  //   dispatch(
+  //     setDuration({
+  //       duration: reservation.duration,
+  //     })
+  //   );
+  // }, [reservation.duration]);
+
+  // useEffect(() => {
+  //   dispatch(
+  //     setPlate({
+  //       plateNumber: reservation.plateNumber,
+  //     })
+  //   );
+  // }, [reservation.plateNumber]);
 
   useEffect(() => {
     return () => {

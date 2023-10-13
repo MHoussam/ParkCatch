@@ -5,13 +5,13 @@ import styles from './styles'
 import { setReservation } from '../../../redux/reservation/reservationSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-const Duration = ({ styleText }) => {
+const Duration = ({ styleText, callBack }) => {
     const dispatch = useDispatch();
     const [sliderValue, setSliderValue] = useState(2);
 
     const handleSliderChange = (value) => {
       setSliderValue(value)
-      dispatch(setReservation({duration: value}));
+      callBack(value);
     }
 
   return (
