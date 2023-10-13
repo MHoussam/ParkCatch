@@ -17,42 +17,28 @@ import {
 } from "../../redux/reservation/reservationSlice";
 import { clearSlots } from "../../redux/slots/slotSlice";
 import { clearSelectedSlot } from "../../redux/selectedSlot/selectedSlotSlice";
+import axios from "axios";
 
 const ReservationInfo = () => {
-  const selectedParking = useSelector((state) => state.selectedParking);
-  const user = useSelector((state) => state.user);
-  const selectedSlot = useSelector((state) => state.selectedSlot);
   const reservation = useSelector((state) => state.reservation);
-  const [inputs, setInputs] = useState({
-    duration: 2,
-    phone: "",
-    plateNumber: "",
-  });
+  const userToken = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(
-  //     setPhone({
-  //       phone: reservation.phone,
-  //     })
-  //   );
-  // }, [reservation.phone]);
+  const save = async () => {
+    try {
+      // const reservationArray = Object.entries(reservation).map(([label, value]) => ({ label, value }));
 
-  // useEffect(() => {
-  //   dispatch(
-  //     setDuration({
-  //       duration: reservation.duration,
-  //     })
-  //   );
-  // }, [reservation.duration]);
+      const formData = {
+        ...reservation,
+        token: userToken,
+      };
 
-  // useEffect(() => {
-  //   dispatch(
-  //     setPlate({
-  //       plateNumber: reservation.plateNumber,
-  //     })
-  //   );
-  // }, [reservation.plateNumber]);
+      // const response = await axios.post('http://127.0.0.1:800/api/reserve', formData);
+      console.log(formData)
+    } catch(error) {
+      console.log('Reservation Failed, Error: ' + error);
+    }
+  }
 
   useEffect(() => {
     return () => {
@@ -76,7 +62,7 @@ const ReservationInfo = () => {
           />
         </View>
         <View style={styles.button}>
-          <Button text={"Proceed to Payment"} navigate={"ReservationPayment"} />
+          <Button text={"Proceed to Payment"} navigate={"ReservationPayment"} callBack={save} />
         </View>
       </View>
     </View>

@@ -19,19 +19,9 @@ const reservationSlice = createSlice({
   reducers: {
     setReservation: (state, action) => {
         state.client = action.payload.client;
-        if(action.payload.phone !== null && action.payload.phone !== '' && action.payload.phone !== undefined){
-          state.phone = action.payload.phone;
-        }
         state.parking = action.payload.parking;
         state.location = action.payload.location;
-        if(action.payload.duration !== null && action.payload.duration !== '' && action.payload.duration !== undefined){
-          state.duration = action.payload.duration;
-        }
         state.spotNumber = action.payload.spotNumber;
-        if(action.payload.plateNumber !== null && action.payload.plateNumber !== '' && action.payload.plateNumber !== undefined){
-          state.plateNumber = action.payload.plateNumber;
-        }
-        state.total = action.payload.total;
         state.time_reserved = action.payload.time_reserved;
         state.date_reserved = action.payload.date_reserved;
     },
@@ -40,6 +30,7 @@ const reservationSlice = createSlice({
     },
     setDuration: (state, action) => {
       state.duration = action.payload.duration;
+      state.total = action.payload.total;
     },
     setPlate: (state, action) => {
       state.plateNumber = action.payload.plateNumber;

@@ -4,9 +4,10 @@ import Duration from '../../base/duration';
 import styles from './styles'
 import Input from '../../base/input';
 import { setDuration, setPhone, setPlate } from '../../../redux/reservation/reservationSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const InfoForm = () => {
+  const selectedParking = useSelector((state) => state.selectedParking);
   const dispatch = useDispatch();
 
   const plate = (value) => {
@@ -29,6 +30,7 @@ const InfoForm = () => {
     dispatch(
       setDuration({
         duration: value,
+        total: value * selectedParking.price,
       })
     );
   }
