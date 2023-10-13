@@ -18,7 +18,6 @@ const reservationSlice = createSlice({
   initialState,
   reducers: {
     setReservation: (state, action) => {
-
         state.client = action.payload.client;
         if(action.payload.phone !== null && action.payload.phone !== '' && action.payload.phone !== undefined){
           state.phone = action.payload.phone;
@@ -36,6 +35,15 @@ const reservationSlice = createSlice({
         state.time_reserved = action.payload.time_reserved;
         state.date_reserved = action.payload.date_reserved;
     },
+    setPhone: (state, action) => {
+      state.phone = action.payload.phone;
+    },
+    setDuration: (state, action) => {
+      state.duration = action.payload.duration;
+    },
+    setPlate: (state, action) => {
+      state.plateNumber = action.payload.plateNumber;
+    },
     clearReservation: (state) => {
         state.client = null;
         state.phone = '';
@@ -51,6 +59,6 @@ const reservationSlice = createSlice({
   },
 });
 
-export const { setReservation, clearReservation } = reservationSlice.actions;
+export const { setReservation, setPhone, setDuration, setPlate, clearReservation } = reservationSlice.actions;
 
 export default reservationSlice.reducer;
