@@ -1,32 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   parkings: [],
 };
 
 const parkingSlice = createSlice({
-  name: 'parking',
+  name: "parking",
   initialState,
   reducers: {
     addParking: (state, action) => {
-      const { id, name, address, price, photo, open_hour, close_hour, latitude, longitude } = action.payload;
-        state.parkings.push({
-          id,
-          name,
-          address,
-          price,
-          photo,
-          open_hour,
-          close_hour,
-          latitude,
-          longitude,
-        });
+      const parkingsToAdd = action.payload;
+      state.parkings.push(...parkingsToAdd);
     },
     clearParkings: (state) => {
-      state.parkings = []
-    }
+      state.parkings = [];
+    },
   },
 });
+
 
 export const { addParking, clearParkings } = parkingSlice.actions;
 
